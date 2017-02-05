@@ -42,8 +42,6 @@
 		0D6393501E46D84A003055DB = {
 			isa = PBXGroup;
 			children = (
-				0D63936E1E46D8FC003055DB /* Equipment Class.swift */,
-				0D6393701E46D932003055DB /* Equipment Helpers.swift */,
 				0D63935B1E46D84A003055DB /* Camera Order Scout */,
 				0D63935A1E46D84A003055DB /* Products */,
 			);
@@ -60,14 +58,25 @@
 		0D63935B1E46D84A003055DB /* Camera Order Scout */ = {
 			isa = PBXGroup;
 			children = (
-				0D63935C1E46D84A003055DB /* AppDelegate.swift */,
-				0D63935E1E46D84A003055DB /* ViewController.swift */,
 				0D6393601E46D84A003055DB /* Main.storyboard */,
+				0D63935E1E46D84A003055DB /* ViewController.swift */,
+				0DB53A391E46FD6D0049F0D2 /* Model */,
 				0D6393631E46D84A003055DB /* Assets.xcassets */,
 				0D6393651E46D84A003055DB /* LaunchScreen.storyboard */,
 				0D6393681E46D84A003055DB /* Info.plist */,
+				0D63935C1E46D84A003055DB /* AppDelegate.swift */,
 			);
 			path = "Camera Order Scout";
+			sourceTree = "<group>";
+		};
+		0DB53A391E46FD6D0049F0D2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0D63936E1E46D8FC003055DB /* Equipment Class.swift */,
+				0D6393701E46D932003055DB /* Equipment Helpers.swift */,
+			);
+			name = Model;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,6 +317,7 @@
 				0D63936D1E46D84A003055DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

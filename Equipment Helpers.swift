@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-// helper functions for the Equipment class
+// helper  enums + functions for the Equipment class
 
 let Quantity = ["1","2","3","4","5","6","7","8","9"]
 
