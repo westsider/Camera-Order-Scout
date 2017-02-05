@@ -110,3 +110,28 @@ func setProbeModel(maker: MakerProbe) -> [String] {
         return ["Excellence"]
     }
 }
+
+// where should this class go ?
+class TableViewArrays {
+    
+    var tableViewArray = [[Any]]()
+    
+    func appendTableViewArray(title: String, detail: String, icon: UIImage) {
+        
+        var newRow = [Any]()
+        newRow.append(title)
+        newRow.append(detail)
+        newRow.append(icon)
+        
+        tableViewArray.append(newRow)
+    }
+}
+
+
+
+
+
+
+
+
+

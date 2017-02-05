@@ -1,32 +1,38 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  Camera Order Scout
 //
 //  Created by Warren Hansen on 2/4/17.
 //  Copyright © 2017 Warren Hansen. All rights reserved.
 //
-        /*---------------------------------------------------------------------------------------
-         |                                                                                       |
-         |             The Big difference in this iteration is the tableview equipment           |
-         |             is now stored in the event class and will avoid confusion when            | 
-         |             updating the table view lenses                                            |
-         |                                                                                       |
-         ---------------------------------------------------------------------------------------*/
+    /*---------------------------------------------------------------------------------------
+     |                                                                                       |
+     |             The Big difference in this iteration is the tableview equipment           |
+     |             is now stored in the event class and will avoid confusion when            | 
+     |             updating the table view lenses                                            |
+     |                                                                                       |
+     ---------------------------------------------------------------------------------------*/
 
 import Foundation
 import UIKit
 
 var thisEvent: Event!
 
-class ViewController: UIViewController,  UIPickerViewDelegate, UIPickerViewDataSource {
+class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var myPicker: UIPickerView!
     
-    var pickerEquipment = Equipment()   // picker equipment object
+    @IBOutlet weak var myTableView: UITableView!
+    
+    var pickerEquipment = Equipment()       // picker equipment object
+    
+    var tableViewArrays = TableViewArrays()   // tableview array object
     
     var defaultUser = User(name: "Warren Hansen", production: "Nike", company: "CO3", city: "SantaMonica", date: "12 / 20 / 2016", weather: "Sunny 72", icon: UIImage(named: "manIcon")!)
-    var image = [UIImage]()
+     var image = [UIImage]()
     
+     let cellIdentifier = "ListTableViewCell"
+
     //MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,9 +42,21 @@ class ViewController: UIViewController,  UIPickerViewDelegate, UIPickerViewDataS
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        thisEvent = Event(eventName: "Current", user: defaultUser, tableViewArray: [["","","",""]], images: image)
+        thisEvent = Event(eventName: "Current", user: defaultUser, tableViewArray: [["1","cam","arri","alexa"]], images: image)
         thisEvent.images.append(thisEvent.user.icon)
+        
+        tableViewArrays.appendTableViewArray(title: "Warren Hansen Director of Photography", detail: "Camera Order Nike 12 / 20 / 2016", icon: defaultUser.icon)
     }
+    
+    //MARK: - Add Action
+    
+    @IBAction func addAction(_ sender: Any) {
+
+        tableViewArrays.appendTableViewArray(title: "1 Camera", detail: "Arri Alexa", icon: UIImage(named: "cameraIcon")!)
+        
+        myTableView.reloadData()
+    }
+    
 
     /*---------------------------------------------------------------------------------------
      |                                                                                       |
@@ -73,7 +91,7 @@ class ViewController: UIViewController,  UIPickerViewDelegate, UIPickerViewDataS
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let pickerLabel = UILabel()
         pickerLabel.textColor = UIColor.black
-        pickerLabel.text = pickerEquipment.pickerArray[component][row]  // localPickerIndex[component][row]
+        pickerLabel.text = pickerEquipment.pickerArray[component][row]
         pickerLabel.font = UIFont(name: "Helvetica", size: 18) // In this use your custom font
         pickerLabel.textAlignment = NSTextAlignment.center
         pickerLabel.adjustsFontSizeToFitWidth = true
@@ -124,11 +142,19 @@ class ViewController: UIViewController,  UIPickerViewDelegate, UIPickerViewDataS
     |                                                                                       |
     ---------------------------------------------------------------------------------------*/
     
-    // MARK: Set up Table View
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        
-//        return thisEvent.tableViewSize(tableViewArray: myEquipment.tableViewArray)
-//    }
+    //MARK: Set up Table View
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tableViewArrays.tableViewArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ListTableViewCell
+        cell.imageTableViewCell.image = tableViewArrays.tableViewArray[indexPath.row][2] as? UIImage
+        cell.titleTableView?.text =  tableViewArrays.tableViewArray[indexPath.row][0] as? String
+        cell.detailTableView?.text =  tableViewArrays.tableViewArray[indexPath.row][1] as? String
+        return cell
+    }
 
 }
 
