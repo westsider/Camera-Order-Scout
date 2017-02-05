@@ -5,10 +5,16 @@
 //  Created by Warren Hansen on 2/4/17.
 //  Copyright © 2017 Warren Hansen. All rights reserved.
 //
+        /*---------------------------------------------------------------------------------------
+         |                                                                                       |
+         |             The Big difference in this iteration is the tableview equipment           |
+         |             is now stored in the event class and will avoid confusion when            | 
+         |             updating the table view lenses                                            |
+         |                                                                                       |
+         ---------------------------------------------------------------------------------------*/
+
 import Foundation
 import UIKit
-
-//  The Big difference in this iteration is the tableview equipment is now stored in the event class and will avoid sconfusion when updating the table view lenses
 
 var thisEvent: Event!
 
@@ -97,9 +103,7 @@ class ViewController: UIViewController,  UIPickerViewDelegate, UIPickerViewDataS
     func dontReloadOnComp0or3(component: Int, row: Int, lastCatagory: Int) {
         
         if component == 1 || component == 2 {     //  full update on comp 1 and 2 only
-            
             pickerEquipment.setPickerArray(component: component, row: row, lastCatagory: pickerEquipment.prevCatagory)
-        
         }
     }
     
