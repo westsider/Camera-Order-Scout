@@ -14,6 +14,8 @@ class ViewController: UIViewController,  UIPickerViewDelegate, UIPickerViewDataS
     
     var pickerEquipment = Equipment()   // picker equipment object
     
+    var defaultUser = User(name: "Warren Hansen", production: "Nike", company: "CO3", city: "SantaMonica", date: "12 / 20 / 2016", weather: "Sunny 72", icon: UIImage(named: "manIcon")!)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "C A M E R A  O R D E R"
