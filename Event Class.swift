@@ -12,13 +12,13 @@ import UIKit
 class Event {
     var eventName: String = "Default"
     var user: User
-    var equipment = [[String]]()
+    var tableViewArray = [[String]]()    //  tableViewArray[[String]]
     var images = [UIImage]()
     
-    init(eventName: String, user: User, equipment: [[String]], images: [UIImage]){
+    init(eventName: String, user: User, tableViewArray: [[String]], images: [UIImage]){
         self.eventName = eventName
         self.user = user
-        self.equipment = equipment
+        self.tableViewArray = tableViewArray
         self.images = images
     }
     

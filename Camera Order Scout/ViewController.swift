@@ -8,6 +8,10 @@
 import Foundation
 import UIKit
 
+//  The Big difference in this iteration is the tableview equipment is now stored in the event class and will avoid sconfusion when updating the table view lenses
+
+var thisEvent: Event!
+
 class ViewController: UIViewController,  UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var myPicker: UIPickerView!
@@ -15,14 +19,26 @@ class ViewController: UIViewController,  UIPickerViewDelegate, UIPickerViewDataS
     var pickerEquipment = Equipment()   // picker equipment object
     
     var defaultUser = User(name: "Warren Hansen", production: "Nike", company: "CO3", city: "SantaMonica", date: "12 / 20 / 2016", weather: "Sunny 72", icon: UIImage(named: "manIcon")!)
+    var image = [UIImage]()
     
+    //MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "C A M E R A  O R D E R"
         self.myPicker.dataSource = self
         self.myPicker.delegate = self
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        thisEvent = Event(eventName: "Current", user: defaultUser, tableViewArray: [["","","",""]], images: image)
+        thisEvent.images.append(thisEvent.user.icon)
+    }
 
+    /*---------------------------------------------------------------------------------------
+     |                                                                                       |
+     |                             NEW AWESOME PICKER OBJECT                                 |
+     |                                                                                       |
+     ---------------------------------------------------------------------------------------*/
     // MARK: - Set up Picker
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 4
@@ -42,17 +58,9 @@ class ViewController: UIViewController,  UIPickerViewDelegate, UIPickerViewDataS
     // MARK: - when picker wheels move change the pickerArray and reload
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        //  dont reload localPickerIndex when component 0 or 3 move
             dontReloadOnComp0or3(component: component, row: row, lastCatagory: pickerEquipment.prevCatagory)
-        
             reloadComponentsAndText(component: component, row: row)
-        
-        // zero the picker wheels when Catagory changes
             zeroThePicker(component: component, row: row)
-        
-        //TODO: - fill the equipoment array and text field from picker choices
-        //TODO: - pickerSelected[String]
-        //populateEquipmentArray(component: component, row: row)
     }
     
     //  make picker text fill space allowed
@@ -103,6 +111,20 @@ class ViewController: UIViewController,  UIPickerViewDelegate, UIPickerViewDataS
             pickerEquipment.prevCatagory = row    // if wheel 1 moves save the componennt to pass to setPickerArray
         }
     }
+    
+    // NEXT SET UP TABLE VIEW
+    
+    /*---------------------------------------------------------------------------------------
+    |                                                                                       |
+    |                             NEW AWESOME TABLEVIEW OBJECT                              |
+    |                                                                                       |
+    ---------------------------------------------------------------------------------------*/
+    
+    // MARK: Set up Table View
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        
+//        return thisEvent.tableViewSize(tableViewArray: myEquipment.tableViewArray)
+//    }
 
 }
 
