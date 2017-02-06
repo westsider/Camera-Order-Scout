@@ -5,6 +5,14 @@
 //  Created by Warren Hansen on 2/4/17.
 //  Copyright © 2017 Warren Hansen. All rights reserved.
 //
+/*  feat: a new feature
+    fix: a bug fix
+    docs: changes to documentation
+    style: formatting, missing semi colons, etc; no code change
+    refactor: refactoring production code
+    test: adding tests, refactoring test; no production code change
+    chore: updating build tasks, package manager configs, etc; no production code change    */
+
     /*---------------------------------------------------------------------------------------
      |                                                                                       |
      |             The Big difference in this iteration is the tableview equipment           |
@@ -14,14 +22,15 @@
      ---------------------------------------------------------------------------------------*/
 
 //  task: set up lenses vc
-
 //  task: populate lense vc - return to main vc
+
 //  task: set up user vc
 //  task: populate user vc
 //  task: populate past orders vc
+
 //  task: Core Data persistence of Important objects
 //  task: Tutorial framework of alert views that page by, leave the instruction for later date
-//  task: turn [print into share
+//  task: turn print into share
 //  task: finish all extra equipment
 
 import Foundation

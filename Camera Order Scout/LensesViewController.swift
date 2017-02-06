@@ -8,38 +8,17 @@
 
 import UIKit
 
-/*
- // instanatiate the object
- var tableViewSwitches = TableViewSwitches()
- // VDL array from lenses VC
- var theArray = ["12mm", "18mm", "25mm","32mm", "50mm", "75mm"]
- // VDL  assign the original array
- tableViewSwitches.populateArrays(array: theArray)
- 
- // upadate switch off 0 _ 3
- tableViewSwitches.updateArray(index: 0, switchPos: false)
- tableViewSwitches.updateArray(index: 2, switchPos: false)
- // update button
- tableViewSwitches.finalizeLensArray()
- */
-
 class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     
     @IBOutlet weak var lensTableView: UITableView!
     
-    // instanatiate switches object
-    var tableViewSwitches = TableViewSwitches()
+    var tableViewSwitches = TableViewSwitches()     // instanatiate switches object
     
     let cellIdentifier = "primeLensTableViewCell"
     
     var originalArray = tableViewArrays.tableViewArray
     
     var lensKitArrayEdited = tableViewArrays.editedLensArray
-    
-    //var trackingIndex = [Bool]()
-    
-    // VDL array from lenses VC is lensKitArrayEdited
-    // var theArray = ["12mm", "18mm", "21mm","35mm", "40mm", "Zeiss ZMP"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,12 +36,6 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         lensKitArrayEdited = tableViewArrays.editedLensArray
         
         print("lensKitArrayEdited: \(lensKitArrayEdited)")
-        
-        //trackingIndex = [Bool](repeating: true, count: lensKitArrayEdited.count)
-        
-       // youShoudSeeThis(say: "****** viewWillAppear for Lenses - originalArray :", see: originalArray as AnyObject)
-        
-       //  youShoudSeeThis(say: "****** viewWillAppear for Lenses - lensKitArrayEdited :", see: lensKitArrayEdited as AnyObject)
 
         // VDL  assign the original array
         tableViewSwitches.populateArrays(array: lensKitArrayEdited)
@@ -71,10 +44,10 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //MARK: - Update the lens kit and return to main VC
     @IBAction func updateAction(_ sender: Any) {
         
-        //print("edited main TableViewArray\(tableViewArrays.tableViewArray)")
-        // update button
+        // return string of edited lens array
         tableViewSwitches.finalizeLensArray()
-        // primes to return to main tableview: tableViewSwitches.returnedString
+        
+        // return edited lens string back to main tableview array
         tableViewArrays.editedLensKitReturendToMainTableView(sendString: tableViewSwitches.returnedString)
         print("updated main Tableview\(tableViewArrays.tableViewArray)")
         
@@ -104,15 +77,7 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         print("Lens Switch Index: \(index) For: \(content) Is On: \(sender.isOn)")
         
-        // upadate switch off 0 _ 3
-        //tableViewSwitches.updateArray(index: 0, switchPos: false)
+        // change array of lenses with tableview switches
         tableViewSwitches.updateArray(index: index, switchPos: sender.isOn)
-        
-        // remove  element from Edited Array
-        if sender.isOn != true {
-        }
-        // insert element to array
-        if sender.isOn {
-        }
     }
 }

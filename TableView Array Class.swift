@@ -49,7 +49,7 @@ class TableViewArrays {
         editedLensArray = originalArray                         // remember original array
     }
 
-        /// send edited lens array back to main tableview array
+    /// send edited lens array back to main tableview array
     func editedLensKitReturendToMainTableView(sendString: String) {
             // convery array to srting
             let lastElement = tableViewArray.count - 1              // find last element,
@@ -118,7 +118,8 @@ class TableViewArrays {
         }
     }
     
-    
+    //MARK: - format message
+    /// format message string
     func messageContent()-> String {
         //print(tableViewArray)
         var message = ""
@@ -151,6 +152,7 @@ class TableViewSwitches {
         edited = original
     }
     
+    /// edit lens list using tableview switches
     func updateArray(index: Int, switchPos: Bool ) {
         
         if index < edited.count {
@@ -167,6 +169,7 @@ class TableViewSwitches {
         }
     }
     
+    /// return edited lens string back to pass into main tableview array
     func finalizeLensArray() {   // in segue back to main VC
         var hasHash = true
         while hasHash {
@@ -182,6 +185,5 @@ class TableViewSwitches {
         // convert to string
         returnedString = edited.joined(separator: ",")
         print("returnedString is: \(returnedString)")
-        
     }
 }
