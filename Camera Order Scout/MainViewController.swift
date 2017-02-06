@@ -66,7 +66,7 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         if pickerEquipment.pickerState[1] == 0 { // if selection is a camera
            tableViewArrays.appendTableViewArray(title: pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1] , detail: pickerEquipment.pickerSelection[2] + " " + pickerEquipment.pickerSelection[3], icon: UIImage(named: "cameraIcon")!)
         } else {
-            tableViewArrays.appendTableViewArray(title: pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1] + " " + pickerEquipment.pickerSelection[2] + " " + pickerEquipment.pickerSelection[3], detail: "set the fucking lenses", icon: setTableViewIcon(catagory: pickerEquipment.pickerState[1]) )
+            tableViewArrays.appendTableViewArray(title: pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1] + " " + pickerEquipment.pickerSelection[2] + " " + pickerEquipment.pickerSelection[3], detail: pickerEquipment.setPrimesKit(compState: pickerEquipment.pickerState), icon: setTableViewIcon(catagory: pickerEquipment.pickerState[1]) )
         }
         
         
@@ -102,17 +102,14 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         reloadComponentsAndText(component: component, row: row)
         zeroThePicker(component: component, row: row)
         
-        // set pickerSelected property with picker array current selection *** I wish this was a function
+        //TODO: - set pickerSelected property with picker array current selection *** I wish this was a function
         pickerEquipment.pickerState = [ myPicker.selectedRow(inComponent: 0), myPicker.selectedRow(inComponent: 1), myPicker.selectedRow(inComponent: 2), myPicker.selectedRow(inComponent: 3) ]
-        print(pickerEquipment.pickerState)
         
-        // update pickerSelection
+        //TODO: - update pickerSelection make this a function
         pickerEquipment.pickerSelection[0] = pickerEquipment.pickerArray[0][pickerEquipment.pickerState[0]]
         pickerEquipment.pickerSelection[1] = pickerEquipment.pickerArray[1][pickerEquipment.pickerState[1]]
         pickerEquipment.pickerSelection[2] = pickerEquipment.pickerArray[2][pickerEquipment.pickerState[2]]
         pickerEquipment.pickerSelection[3] = pickerEquipment.pickerArray[3][pickerEquipment.pickerState[3]]
-        //print(pickerEquipment.pickerSelection)
-        
     }
     
     

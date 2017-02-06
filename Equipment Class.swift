@@ -99,4 +99,68 @@ class Equipment {
             }
         }
     }
+    
+    func setPrimesKit(compState: Array<Int>)-> String {
+        // Zeiss Prime Section
+        var primes = "I dont know what this is"
+        // primes "Zeiss" "Master Primes"
+        if compState[1] == 1 && compState[2] == 0 && compState[3] == 0 {
+            primes = "12mm, 18mm, 21mm, 35mm, 40mm, Zeiss ZMP"
+        }
+        
+        // primes "Zeiss" "ultra Primes"
+        if compState[1] == 1 && compState[2] == 0 && compState[3] == 1 {
+            primes = "12mm, 18mm, 21mm, 35mm, 40mm, Zeiss ZUP"
+        }
+        
+        // primes "Zeiss" "super speeds"
+        if compState[1] == 1 && compState[2] == 0 && compState[3] == 2 {
+            primes = "12mm, 18mm, 21mm, 35mm, 40mm, Zeiss ZSS"
+        }
+        
+        // Leica Prime Section
+        // primes "Leica" "Summilux-C"
+        if compState[1] == 1 && compState[2] == 1 && compState[3] == 0 {
+            primes = "12mm, 18mm, 21mm, 35mm, 40mm, Leica, Summilux-C"
+        }
+        
+        // primes "Leica" "Summicron-C"
+        if compState[1] == 1 && compState[2] == 1 && compState[3] == 1 {
+            primes = "12mm, 18mm, 21mm, 35mm, 40mm, Leica, Summicron-C"
+        }
+        
+        // primes "Leica" "Telephoto"
+        if compState[1] == 1 && compState[2] == 1 && compState[3] == 2 {
+            primes = "12mm, 18mm, 21mm, 35mm, 40mm, Leica, Telephoto"
+        }
+        
+        // Canon Prime Section
+        // primes "canon" "K-35"
+        if compState[1] == 1 && compState[2] == 2 && compState[3] == 0 {
+            primes = "12mm, 18mm, 21mm, 35mm, 40mm,  Canon, K-35"
+        }
+        
+        // primes "Canon" "Telephoto"
+        if compState[1] == 1 && compState[2] == 2 && compState[3] == 1 {
+            primes =  "12mm, 18mm, 21mm, 35mm, 40mm,  Canon, Telephoto"
+        }
+        
+        // Cooke Prime Section
+        // primes "Cooke" "i5"
+        if compState[1] == 1 && compState[2] == 3 && compState[3] == 0 {
+            primes =  "12mm, 18mm, 21mm, 35mm, 40mm, Cooke, i5"
+        }
+        
+        // primes "Cooke" "S4"
+        if compState[1] == 1 && compState[2] == 3 && compState[3] == 1 {
+            primes =  "12mm, 18mm, 21mm, 35mm, 40mm, Cooke, S4"
+        }
+        
+        // primes "Cooke" "Speed Panchro"
+        if compState[1] == 1 && compState[2] == 3 && compState[3] == 2 {
+            primes =  "12mm, 18mm, 21mm, 35mm, 40mm,  Cooke, Speed Panchro"
+        }
+        
+        return primes
+    }
 }
