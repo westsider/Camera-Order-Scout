@@ -18,22 +18,38 @@ class TableViewArrays {
     
     var editedLensArray = [String]()
     
-    func appendTableViewArray(title: String, detail: String, icon: UIImage) {   // when Adding to tableview in main VC
+    var thePrimes = String()
+    
+    /// put camera / lens logic here
+    // put prime lens selection here
+    // send origingal array to lenses vc
+    // retrieve edited array before segue back
+    
+    func appendTableViewArray(title: String, detail: String, icon: UIImage, compState: [Int] ) {   // when Adding to tableview in main VC
         
-        var newRow = [Any]()
-        newRow.append(title)
-        newRow.append(detail)
-        newRow.append(icon)
-        
-        tableViewArray.append(newRow)
+        if compState[1]  == 0 { // if selection is a camera
+            
+            var newRow = [Any]()
+            newRow.append(title)
+            newRow.append(detail)
+            newRow.append(icon)
+            tableViewArray.append(newRow)
+        } else {        //  this is a lens
+            var newRow = [Any]()
+            newRow.append(title)
+            setPrimesKit(compState: compState)  // get what prime lenses are
+            newRow.append(tableViewArrays.thePrimes) // add prime lens string to tableview array
+            newRow.append(icon)
+            tableViewArray.append(newRow)
+        }
     }
     
     /// populate tableview in Lens VC
     func lensTableView() {
         
         let lastElement = tableViewArray.count - 1              // find last element,
-        let lenses = tableViewArray[lastElement][1] as? String  // find lenses
-        originalArray = (lenses?.components(separatedBy: ","))! // split to array
+        let lenses = tableViewArray[lastElement][1] as? String  // find lens string in tableview array
+        originalArray = (lenses?.components(separatedBy: ","))! // split to array for lens tableview
         editedLensArray = originalArray                         // remember original array
     }
     
@@ -44,6 +60,75 @@ class TableViewArrays {
         let content = originalArray[index]
         editedLensArray.insert(content, at: index)
     }
+    
+    func returnEditdedLesesToTableviewArray() {
+        let lastElement = tableViewArray.count - 1              // find last element,
+        let editedLensString =  editedLensArray.joined(separator: ", ")
+        tableViewArray[lastElement][1] = editedLensString
+    }
+    
+    func setPrimesKit(compState: [Int]) {
+        // Zeiss Prime Section
+        thePrimes = "I dont know what this is"
+        // primes "Zeiss" "Master Primes"
+        if compState[1] == 1 && compState[2] == 0 && compState[3] == 0 {
+            thePrimes = "12mm, 18mm, 21mm, 35mm, 40mm, Zeiss ZMP"
+        }
+        
+        // primes "Zeiss" "ultra Primes"
+        if compState[1] == 1 && compState[2] == 0 && compState[3] == 1 {
+            thePrimes = "12mm, 18mm, 21mm, 35mm, 40mm, Zeiss ZUP"
+        }
+        
+        // primes "Zeiss" "super speeds"
+        if compState[1] == 1 && compState[2] == 0 && compState[3] == 2 {
+            thePrimes = "12mm, 18mm, 21mm, 35mm, 40mm, Zeiss ZSS"
+        }
+        
+        // Leica Prime Section
+        // primes "Leica" "Summilux-C"
+        if compState[1] == 1 && compState[2] == 1 && compState[3] == 0 {
+            thePrimes = "12mm, 18mm, 21mm, 35mm, 40mm, Leica, Summilux-C"
+        }
+        
+        // primes "Leica" "Summicron-C"
+        if compState[1] == 1 && compState[2] == 1 && compState[3] == 1 {
+            thePrimes = "12mm, 18mm, 21mm, 35mm, 40mm, Leica, Summicron-C"
+        }
+        
+        // primes "Leica" "Telephoto"
+        if compState[1] == 1 && compState[2] == 1 && compState[3] == 2 {
+            thePrimes = "12mm, 18mm, 21mm, 35mm, 40mm, Leica, Telephoto"
+        }
+        
+        // Canon Prime Section
+        // primes "canon" "K-35"
+        if compState[1] == 1 && compState[2] == 2 && compState[3] == 0 {
+            thePrimes = "12mm, 18mm, 21mm, 35mm, 40mm,  Canon, K-35"
+        }
+        
+        // primes "Canon" "Telephoto"
+        if compState[1] == 1 && compState[2] == 2 && compState[3] == 1 {
+            thePrimes =  "12mm, 18mm, 21mm, 35mm, 40mm,  Canon, Telephoto"
+        }
+        
+        // Cooke Prime Section
+        // primes "Cooke" "i5"
+        if compState[1] == 1 && compState[2] == 3 && compState[3] == 0 {
+            thePrimes =  "12mm, 18mm, 21mm, 35mm, 40mm, Cooke, i5"
+        }
+        
+        // primes "Cooke" "S4"
+        if compState[1] == 1 && compState[2] == 3 && compState[3] == 1 {
+            thePrimes =  "12mm, 18mm, 21mm, 35mm, 40mm, Cooke, S4"
+        }
+        
+        // primes "Cooke" "Speed Panchro"
+        if compState[1] == 1 && compState[2] == 3 && compState[3] == 2 {
+            thePrimes =  "12mm, 18mm, 21mm, 35mm, 40mm,  Cooke, Speed Panchro"
+        }
+    }
+    
     
     func messageContent()-> String {
         //print(tableViewArray)

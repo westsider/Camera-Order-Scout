@@ -112,7 +112,12 @@ func setProbeModel(maker: MakerProbe) -> [String] {
 }
 
 
-
+/// print statement to examime objects
+func youShoudSeeThis(say: String, see: AnyObject ) {
+    
+    print("\n\(say) \(see)")
+    
+}
 
 
 

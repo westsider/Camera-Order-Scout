@@ -13,10 +13,25 @@
      |                                                                                       |
      ---------------------------------------------------------------------------------------*/
 
+//  task: set up lenses vc
+
+//  task: populate lense vc - return to main vc
+//  task: set up user vc
+//  task: populate user vc
+//  task: populate past orders vc
+//  task: Core Data persistence of Important objects
+//  task: Tutorial framework of alert views that page by, leave the instruction for later date
+//  task: turn [print into share
+//  task: finish all extra equipment
+
 import Foundation
 import UIKit
 
 var thisEvent: Event!
+
+var pickerEquipment = Equipment()       // picker equipment object
+
+var tableViewArrays = TableViewArrays()   // tableview array object
 
 class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDelegate, UITableViewDataSource {
 
@@ -24,9 +39,7 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     
     @IBOutlet weak var myTableView: UITableView!
     
-    var pickerEquipment = Equipment()       // picker equipment object
-    
-    var tableViewArrays = TableViewArrays()   // tableview array object
+
     
     var defaultUser = User(name: "Warren Hansen", production: "Nike", company: "CO3", city: "SantaMonica", date: "12 / 20 / 2016", weather: "Sunny 72", icon: UIImage(named: "manIcon")!)
      var image = [UIImage]()
@@ -52,7 +65,8 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         thisEvent.images.append(thisEvent.user.icon)
         
         // change this to defalt user ect
-        tableViewArrays.appendTableViewArray(title: "Warren Hansen Director of Photography", detail: "Camera Order Nike 12 / 20 / 2016", icon: defaultUser.icon)
+        // tableViewArrays.appendTableViewArray(title: "Warren Hansen Director of Photography", detail: "Camera Order Nike 12 / 20 / 2016", icon: UIImage(named: "manIcon")!, compState: [0,0,0,0])
+        tableViewArrays.appendTableViewArray(title: "Warren Hansen Director of Photography", detail: "Camera Order Nike 12 / 20 / 2016", icon: defaultUser.icon, compState: [0,0,0,0])
     }
     
     /*---------------------------------------------------------------------------------------
@@ -62,15 +76,25 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
      ---------------------------------------------------------------------------------------*/
     //MARK: - Add Action
     @IBAction func addAction(_ sender: Any) {
-
-        if pickerEquipment.pickerState[1] == 0 { // if selection is a camera
-           tableViewArrays.appendTableViewArray(title: pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1] , detail: pickerEquipment.pickerSelection[2] + " " + pickerEquipment.pickerSelection[3], icon: UIImage(named: "cameraIcon")!)
-        } else {
-            tableViewArrays.appendTableViewArray(title: pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1] + " " + pickerEquipment.pickerSelection[2] + " " + pickerEquipment.pickerSelection[3], detail: pickerEquipment.setPrimesKit(compState: pickerEquipment.pickerState), icon: setTableViewIcon(catagory: pickerEquipment.pickerState[1]) )
-        }
         
+        // append the camera or append lens and segue - a bit of a mess - alot has to happen and ill clen up later
+        tableViewArrays.appendTableViewArray(title: pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1], detail: pickerEquipment.pickerSelection[2] + " " + pickerEquipment.pickerSelection[3], icon: UIImage(named: "manIcon")!, compState: pickerEquipment.pickerState)
         
         myTableView.reloadData()
+        
+        print(tableViewArrays.tableViewArray)
+        
+        // if not camera segue to lenses
+        if pickerEquipment.pickerState[1] != 0 {
+            performSegue(withIdentifier: "mainToLenses", sender: self)
+        }
+        
+    }
+    
+    //MARK: - Share Camera Order
+    @IBAction func shareAction(_ sender: Any) {
+        let message = tableViewArrays.messageContent()
+        print(message)
     }
     
 
