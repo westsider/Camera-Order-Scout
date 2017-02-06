@@ -13,20 +13,9 @@ class Equipment {
     /// Array to only fill the 4 wheel picker
     var pickerArray = [Quantity, Catagory.allValues, MakerCamera.allValues,setCamModel(maker: .arri)]
     var prevCatagory = 0
+    var pickerState = [0,0,0,0]
+    var pickerSelection = ["nil","nil","nil","nil"]
     
-    //TODO: - pickerSelected[String]
-    
-    //    var pickerSelected = [String]()
-    //    var thisCompState = [Int]()
-    //    var maker: Maker
-    
-    //      vars set with initiial values dont need init
-    //    init(pickerArray: [[String]], pickerSelected: [String], thisCompState: [Int], maker: Maker ) {
-    //        self.pickerArray = pickerArray
-    //        self.pickerSelected = pickerSelected
-    //        self.thisCompState = thisCompState
-    //        self.maker = maker
-    //    }
     
     func setPickerArray(component: Int, row: Int, lastCatagory: Int )   {
         

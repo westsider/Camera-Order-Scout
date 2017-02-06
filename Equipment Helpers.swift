@@ -112,20 +112,23 @@ func setProbeModel(maker: MakerProbe) -> [String] {
 }
 
 // where should this class go ?
-class TableViewArrays {
-    
-    var tableViewArray = [[Any]]()
-    
-    func appendTableViewArray(title: String, detail: String, icon: UIImage) {
-        
-        var newRow = [Any]()
-        newRow.append(title)
-        newRow.append(detail)
-        newRow.append(icon)
-        
-        tableViewArray.append(newRow)
-    }
-}
+//  wheen do i populate event?
+//  does this allow me to email equip order?
+// can i edit just the lenses?
+//class TableViewArrays {
+//    
+//    var tableViewArray = [[Any]]()
+//    
+//    func appendTableViewArray(title: String, detail: String, icon: UIImage) {
+//        
+//        var newRow = [Any]()
+//        newRow.append(title)
+//        newRow.append(detail)
+//        newRow.append(icon)
+//        
+//        tableViewArray.append(newRow)
+//    }
+//}
 
 
 

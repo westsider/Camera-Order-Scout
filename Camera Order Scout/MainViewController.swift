@@ -39,20 +39,36 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         title = "C A M E R A  O R D E R"
         self.myPicker.dataSource = self
         self.myPicker.delegate = self
+        // update pickerSelection on first load
+        pickerEquipment.pickerSelection[0] = pickerEquipment.pickerArray[0][pickerEquipment.pickerState[0]]
+        pickerEquipment.pickerSelection[1] = pickerEquipment.pickerArray[1][pickerEquipment.pickerState[1]]
+        pickerEquipment.pickerSelection[2] = pickerEquipment.pickerArray[2][pickerEquipment.pickerState[2]]
+        pickerEquipment.pickerSelection[3] = pickerEquipment.pickerArray[3][pickerEquipment.pickerState[3]]
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         thisEvent = Event(eventName: "Current", user: defaultUser, tableViewArray: [["1","cam","arri","alexa"]], images: image)
         thisEvent.images.append(thisEvent.user.icon)
         
+        // change this to defalt user ect
         tableViewArrays.appendTableViewArray(title: "Warren Hansen Director of Photography", detail: "Camera Order Nike 12 / 20 / 2016", icon: defaultUser.icon)
     }
     
+    /*---------------------------------------------------------------------------------------
+     |                                                                                       |
+     |                             add equipment to tableview                                |
+     |                                                                                       |
+     ---------------------------------------------------------------------------------------*/
     //MARK: - Add Action
-    
     @IBAction func addAction(_ sender: Any) {
 
-        tableViewArrays.appendTableViewArray(title: "1 Camera", detail: "Arri Alexa", icon: UIImage(named: "cameraIcon")!)
+        if pickerEquipment.pickerState[1] == 0 { // if selection is a camera
+           tableViewArrays.appendTableViewArray(title: pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1] , detail: pickerEquipment.pickerSelection[2] + " " + pickerEquipment.pickerSelection[3], icon: UIImage(named: "cameraIcon")!)
+        } else {
+            tableViewArrays.appendTableViewArray(title: pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1] + " " + pickerEquipment.pickerSelection[2] + " " + pickerEquipment.pickerSelection[3], detail: "set the fucking lenses", icon: setTableViewIcon(catagory: pickerEquipment.pickerState[1]) )
+        }
+        
         
         myTableView.reloadData()
     }
@@ -82,10 +98,26 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     // MARK: - when picker wheels move change the pickerArray and reload
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-            dontReloadOnComp0or3(component: component, row: row, lastCatagory: pickerEquipment.prevCatagory)
-            reloadComponentsAndText(component: component, row: row)
-            zeroThePicker(component: component, row: row)
+        dontReloadOnComp0or3(component: component, row: row, lastCatagory: pickerEquipment.prevCatagory)
+        reloadComponentsAndText(component: component, row: row)
+        zeroThePicker(component: component, row: row)
+        
+        // set pickerSelected property with picker array current selection *** I wish this was a function
+        pickerEquipment.pickerState = [ myPicker.selectedRow(inComponent: 0), myPicker.selectedRow(inComponent: 1), myPicker.selectedRow(inComponent: 2), myPicker.selectedRow(inComponent: 3) ]
+        print(pickerEquipment.pickerState)
+        
+        // update pickerSelection
+        pickerEquipment.pickerSelection[0] = pickerEquipment.pickerArray[0][pickerEquipment.pickerState[0]]
+        pickerEquipment.pickerSelection[1] = pickerEquipment.pickerArray[1][pickerEquipment.pickerState[1]]
+        pickerEquipment.pickerSelection[2] = pickerEquipment.pickerArray[2][pickerEquipment.pickerState[2]]
+        pickerEquipment.pickerSelection[3] = pickerEquipment.pickerArray[3][pickerEquipment.pickerState[3]]
+        //print(pickerEquipment.pickerSelection)
+        
     }
+    
+    
+    //collect picker state
+    //assemble picker from state
     
     //  make picker text fill space allowed
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
