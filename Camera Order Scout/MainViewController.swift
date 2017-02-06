@@ -64,9 +64,12 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         thisEvent = Event(eventName: "Current", user: defaultUser, tableViewArray: [["1","cam","arri","alexa"]], images: image)
         thisEvent.images.append(thisEvent.user.icon)
         
-        // change this to defalt user ect
-        // tableViewArrays.appendTableViewArray(title: "Warren Hansen Director of Photography", detail: "Camera Order Nike 12 / 20 / 2016", icon: UIImage(named: "manIcon")!, compState: [0,0,0,0])
-        tableViewArrays.appendTableViewArray(title: "Warren Hansen Director of Photography", detail: "Camera Order Nike 12 / 20 / 2016", icon: defaultUser.icon, compState: [0,0,0,0])
+        // add defalt user if tableview array is empty - first load
+        if tableViewArrays.tableViewArray.isEmpty {
+           tableViewArrays.appendTableViewArray(title: "Warren Hansen Director of Photography", detail: "Camera Order Nike 12 / 20 / 2016", icon: defaultUser.icon, compState: [0,0,0,0])
+        }
+       
+        myTableView.reloadData() // reload when returning to this VC
     }
     
     /*---------------------------------------------------------------------------------------

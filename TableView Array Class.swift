@@ -20,11 +20,7 @@ class TableViewArrays {
     
     var thePrimes = String()
     
-    /// put camera / lens logic here
-    // put prime lens selection here
-    // send origingal array to lenses vc
-    // retrieve edited array before segue back
-    
+    /// add picker selection to tableview array
     func appendTableViewArray(title: String, detail: String, icon: UIImage, compState: [Int] ) {   // when Adding to tableview in main VC
         
         if compState[1]  == 0 { // if selection is a camera
@@ -52,20 +48,13 @@ class TableViewArrays {
         originalArray = (lenses?.components(separatedBy: ","))! // split to array for lens tableview
         editedLensArray = originalArray                         // remember original array
     }
-    
-    ///  Edit list of lenses in lens VC
-    func removeFromList(index: Int) { editedLensArray.remove(at: index) } // remove lens to Lens VC
-    
-    func addToList(index: Int ) {   //   add lens to Lens VC- need to test against a dynamic array esp, last element
-        let content = originalArray[index]
-        editedLensArray.insert(content, at: index)
-    }
-    
-    func returnEditdedLesesToTableviewArray() {
-        let lastElement = tableViewArray.count - 1              // find last element,
-        let editedLensString =  editedLensArray.joined(separator: ", ")
-        tableViewArray[lastElement][1] = editedLensString
-    }
+
+        /// send edited lens array back to main tableview array
+    func editedLensKitReturendToMainTableView(sendString: String) {
+            // convery array to srting
+            let lastElement = tableViewArray.count - 1              // find last element,
+            tableViewArray[lastElement][1] = sendString  // send
+        }
     
     func setPrimesKit(compState: [Int]) {
         // Zeiss Prime Section
@@ -147,4 +136,52 @@ class TableViewArrays {
     }
     
     //MARK: - TODO sort list by: camera, primes, macros, probes, zooms, aks ect
+}
+
+//MARK:- tableview switches
+/// fuctions to use tableview switches to update the lens array
+class TableViewSwitches {
+    
+    var original = [String]()   //["i", "am", "original"]
+    var edited =  [String]()    //["i", "am", "edited"]
+    var returnedString = String()
+    
+    func populateArrays(array: [String]) {
+        original = array
+        edited = original
+    }
+    
+    func updateArray(index: Int, switchPos: Bool ) {
+        
+        if index < edited.count {
+            
+            if switchPos == false {
+                edited[index] = "#"
+            } else {
+                edited[index] = original[index]
+            }
+            print("edited array\(edited)")
+            
+        } else {
+            print("⚡️the index \(index) does not exist you big 🤓")
+        }
+    }
+    
+    func finalizeLensArray() {   // in segue back to main VC
+        var hasHash = true
+        while hasHash {
+            if let index = edited.index(of: "#") {
+                hasHash = true
+                edited.remove(at: index)
+                print("finalize has removed a hash \(edited)")
+            } else {
+                hasHash = false
+            }
+        }
+        print("Finalize no hashes: \(edited)")
+        // convert to string
+        returnedString = edited.joined(separator: ",")
+        print("returnedString is: \(returnedString)")
+        
+    }
 }

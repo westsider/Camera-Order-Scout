@@ -8,10 +8,27 @@
 
 import UIKit
 
+/*
+ // instanatiate the object
+ var tableViewSwitches = TableViewSwitches()
+ // VDL array from lenses VC
+ var theArray = ["12mm", "18mm", "25mm","32mm", "50mm", "75mm"]
+ // VDL  assign the original array
+ tableViewSwitches.populateArrays(array: theArray)
+ 
+ // upadate switch off 0 _ 3
+ tableViewSwitches.updateArray(index: 0, switchPos: false)
+ tableViewSwitches.updateArray(index: 2, switchPos: false)
+ // update button
+ tableViewSwitches.finalizeLensArray()
+ */
+
 class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     
     @IBOutlet weak var lensTableView: UITableView!
     
+    // instanatiate switches object
+    var tableViewSwitches = TableViewSwitches()
     
     let cellIdentifier = "primeLensTableViewCell"
     
@@ -19,8 +36,10 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var lensKitArrayEdited = tableViewArrays.editedLensArray
     
-    var trackingIndex = [Bool]()
+    //var trackingIndex = [Bool]()
     
+    // VDL array from lenses VC is lensKitArrayEdited
+    // var theArray = ["12mm", "18mm", "21mm","35mm", "40mm", "Zeiss ZMP"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,65 +52,34 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableViewArrays.lensTableView() // load table view lenses
         
         originalArray = tableViewArrays.tableViewArray
+        print("originalArray: \(originalArray)")
         
         lensKitArrayEdited = tableViewArrays.editedLensArray
         
         print("lensKitArrayEdited: \(lensKitArrayEdited)")
         
-        trackingIndex = [Bool](repeating: true, count: lensKitArrayEdited.count)
+        //trackingIndex = [Bool](repeating: true, count: lensKitArrayEdited.count)
         
        // youShoudSeeThis(say: "****** viewWillAppear for Lenses - originalArray :", see: originalArray as AnyObject)
         
        //  youShoudSeeThis(say: "****** viewWillAppear for Lenses - lensKitArrayEdited :", see: lensKitArrayEdited as AnyObject)
+
+        // VDL  assign the original array
+        tableViewSwitches.populateArrays(array: lensKitArrayEdited)
     }
     
     //MARK: - Update the lens kit and return to main VC
     @IBAction func updateAction(_ sender: Any) {
-      // print original array - edited array and main tableview array
         
-        tableViewArrays.returnEditdedLesesToTableviewArray()
+        //print("edited main TableViewArray\(tableViewArrays.tableViewArray)")
+        // update button
+        tableViewSwitches.finalizeLensArray()
+        // primes to return to main tableview: tableViewSwitches.returnedString
+        tableViewArrays.editedLensKitReturendToMainTableView(sendString: tableViewSwitches.returnedString)
+        print("updated main Tableview\(tableViewArrays.tableViewArray)")
         
-        print("edited main TableViewArray\(tableViewArrays.tableViewArray)")
-        
-        for item in trackingIndex {
-            print(item)
-            if item == false {
-                
-            }
-        }
-        
-        // makking major progress - just need to remove switched off values.....
-        
-        /*
-        Thing lift to do:
-        
-         finish removing itmes from array
-         check the main table view for success
-         
-         add user vc
-        
-        */
+        _ = navigationController?.popToRootViewController(animated: true)
     }
-        
-
-        
-        
-        
-        // update equipmet array for Main VC
-//        myEquipment.equipment[4] = lensKitArrayEdited.joined(separator: ", ")
-//        youShoudSeeThis(say: "Updated myEquipment.equipment[4] ", see: myEquipment.equipment[4] as AnyObject)
-//        
-//        // need to update tablviewarray   thisEvent.updateLensKit in myEquipment.equipment[4]
-//        
-//        // this will update the equipment but not the tableview array
-//        myEquipment.updateLensKit(update: lensKitArrayEdited.joined(separator: ", "))
-//        
-//        // update the tableview
-//        myEquipment.tableViewArray = thisEvent.populateTableview(catagory:  myEquipment.thisCompState[1] )
-        
-//  _ = navigationController?.popToRootViewController(animated: true)
-        
-    
     
     // MARK: - Set up tableview  lensesToMain
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -100,7 +88,6 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! primeLensTableViewCell
-
         cell.lensLabel?.text =   lensKitArrayEdited[indexPath.row]
         // Send switch state and indexpath ro to this func?
         cell.lensSwitch.tag = indexPath.row
@@ -112,29 +99,20 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     /// logic to modify a lens kit from swich positions in the lens kit tableView
     func switchTriggered(sender: UISwitch) {
 
-   
         let index = sender.tag
         let content = sender.restorationIdentifier!
         
         print("Lens Switch Index: \(index) For: \(content) Is On: \(sender.isOn)")
         
+        // upadate switch off 0 _ 3
+        //tableViewSwitches.updateArray(index: 0, switchPos: false)
+        tableViewSwitches.updateArray(index: index, switchPos: sender.isOn)
+        
         // remove  element from Edited Array
         if sender.isOn != true {
-            
-            trackingIndex[index] = false
-            //tableViewArrays.removeFromList(index: index)
-            print(trackingIndex)
-            //print("lensKitArrayEdited Removed \(tableViewArrays.editedLensArray)")
-
         }
-        
         // insert element to array
         if sender.isOn {
-            trackingIndex[index] = true
-            print(trackingIndex)
-            //tableViewArrays.addToList(index: index)
-            //print("\nlensKitArrayEdited Added \(lensKitArrayEdited)")
         }
-        //print("originalArray Size Is: \(tableViewArrays.originalArray.count) lensKitArrayEdited Size Is: \(tableViewArrays.editedLensArray.count)\n")
     }
 }
