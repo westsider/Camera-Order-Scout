@@ -15,6 +15,7 @@
 		0D63936F1E46D8FC003055DB /* Equipment Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D63936E1E46D8FC003055DB /* Equipment Class.swift */; };
 		0D6393711E46D932003055DB /* Equipment Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6393701E46D932003055DB /* Equipment Helpers.swift */; };
 		0D81902B1E48140000237B11 /* primeLensTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D81902A1E48140000237B11 /* primeLensTableViewCell.swift */; };
+		0DBCF7531E495DAA00205017 /* PastOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBCF7521E495DAA00205017 /* PastOrdersViewController.swift */; };
 		0DE208D31E47012400619AEF /* Event Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE208D21E47012400619AEF /* Event Class.swift */; };
 		0DE208D51E47013600619AEF /* User Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE208D41E47013600619AEF /* User Class.swift */; };
 		0DE208D71E4797A400619AEF /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE208D61E4797A400619AEF /* ListTableViewCell.swift */; };
@@ -34,6 +35,7 @@
 		0D63936E1E46D8FC003055DB /* Equipment Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Equipment Class.swift"; sourceTree = "<group>"; };
 		0D6393701E46D932003055DB /* Equipment Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Equipment Helpers.swift"; sourceTree = "<group>"; };
 		0D81902A1E48140000237B11 /* primeLensTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = primeLensTableViewCell.swift; path = ../primeLensTableViewCell.swift; sourceTree = "<group>"; };
+		0DBCF7521E495DAA00205017 /* PastOrdersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastOrdersViewController.swift; sourceTree = "<group>"; };
 		0DE208D21E47012400619AEF /* Event Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Event Class.swift"; sourceTree = "<group>"; };
 		0DE208D41E47013600619AEF /* User Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User Class.swift"; sourceTree = "<group>"; };
 		0DE208D61E4797A400619AEF /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListTableViewCell.swift; path = ../ListTableViewCell.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				0D63935E1E46D84A003055DB /* MainViewController.swift */,
+				0DBCF7521E495DAA00205017 /* PastOrdersViewController.swift */,
 				0DE208DE1E48097900619AEF /* LensesViewController.swift */,
 			);
 			name = Controller;
@@ -196,6 +199,7 @@
 				0DE208DF1E48097900619AEF /* LensesViewController.swift in Sources */,
 				0D6393711E46D932003055DB /* Equipment Helpers.swift in Sources */,
 				0D63936F1E46D8FC003055DB /* Equipment Class.swift in Sources */,
+				0DBCF7531E495DAA00205017 /* PastOrdersViewController.swift in Sources */,
 				0DE208D51E47013600619AEF /* User Class.swift in Sources */,
 				0DE208DB1E47E13A00619AEF /* TableView Array Class.swift in Sources */,
 				0D81902B1E48140000237B11 /* primeLensTableViewCell.swift in Sources */,
