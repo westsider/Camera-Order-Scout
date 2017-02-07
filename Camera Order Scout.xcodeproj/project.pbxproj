@@ -16,6 +16,11 @@
 		0D6393711E46D932003055DB /* Equipment Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6393701E46D932003055DB /* Equipment Helpers.swift */; };
 		0D81902B1E48140000237B11 /* primeLensTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D81902A1E48140000237B11 /* primeLensTableViewCell.swift */; };
 		0DBCF7531E495DAA00205017 /* PastOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBCF7521E495DAA00205017 /* PastOrdersViewController.swift */; };
+		0DBCF7551E49660D00205017 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBCF7541E49660D00205017 /* UserViewController.swift */; };
+		0DBCF7571E496B8A00205017 /* Weather API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBCF7561E496B8A00205017 /* Weather API.swift */; };
+		0DBCF7591E496BAE00205017 /* Location API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBCF7581E496BAE00205017 /* Location API.swift */; };
+		0DBCF75B1E496BCF00205017 /* Keyboard Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBCF75A1E496BCF00205017 /* Keyboard Helpers.swift */; };
+		0DBCF75D1E496BEB00205017 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBCF75C1E496BEB00205017 /* DatePicker.swift */; };
 		0DE208D31E47012400619AEF /* Event Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE208D21E47012400619AEF /* Event Class.swift */; };
 		0DE208D51E47013600619AEF /* User Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE208D41E47013600619AEF /* User Class.swift */; };
 		0DE208D71E4797A400619AEF /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE208D61E4797A400619AEF /* ListTableViewCell.swift */; };
@@ -36,6 +41,11 @@
 		0D6393701E46D932003055DB /* Equipment Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Equipment Helpers.swift"; sourceTree = "<group>"; };
 		0D81902A1E48140000237B11 /* primeLensTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = primeLensTableViewCell.swift; path = ../primeLensTableViewCell.swift; sourceTree = "<group>"; };
 		0DBCF7521E495DAA00205017 /* PastOrdersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastOrdersViewController.swift; sourceTree = "<group>"; };
+		0DBCF7541E49660D00205017 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		0DBCF7561E496B8A00205017 /* Weather API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Weather API.swift"; path = "Camera Order Scout/Weather API.swift"; sourceTree = "<group>"; };
+		0DBCF7581E496BAE00205017 /* Location API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location API.swift"; sourceTree = "<group>"; };
+		0DBCF75A1E496BCF00205017 /* Keyboard Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Keyboard Helpers.swift"; sourceTree = "<group>"; };
+		0DBCF75C1E496BEB00205017 /* DatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
 		0DE208D21E47012400619AEF /* Event Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Event Class.swift"; sourceTree = "<group>"; };
 		0DE208D41E47013600619AEF /* User Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User Class.swift"; sourceTree = "<group>"; };
 		0DE208D61E4797A400619AEF /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListTableViewCell.swift; path = ../ListTableViewCell.swift; sourceTree = "<group>"; };
@@ -92,6 +102,10 @@
 				0D63936E1E46D8FC003055DB /* Equipment Class.swift */,
 				0D6393701E46D932003055DB /* Equipment Helpers.swift */,
 				0DE208DA1E47E13A00619AEF /* TableView Array Class.swift */,
+				0DBCF7581E496BAE00205017 /* Location API.swift */,
+				0DBCF7561E496B8A00205017 /* Weather API.swift */,
+				0DBCF75A1E496BCF00205017 /* Keyboard Helpers.swift */,
+				0DBCF75C1E496BEB00205017 /* DatePicker.swift */,
 				0DE208D21E47012400619AEF /* Event Class.swift */,
 				0DE208D41E47013600619AEF /* User Class.swift */,
 				0DE208DC1E47FE3200619AEF /* Icon Class.swift */,
@@ -114,6 +128,7 @@
 			children = (
 				0D63935E1E46D84A003055DB /* MainViewController.swift */,
 				0DBCF7521E495DAA00205017 /* PastOrdersViewController.swift */,
+				0DBCF7541E49660D00205017 /* UserViewController.swift */,
 				0DE208DE1E48097900619AEF /* LensesViewController.swift */,
 			);
 			name = Controller;
@@ -193,10 +208,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DE208DD1E47FE3200619AEF /* Icon Class.swift in Sources */,
+				0DBCF75D1E496BEB00205017 /* DatePicker.swift in Sources */,
 				0DE208D71E4797A400619AEF /* ListTableViewCell.swift in Sources */,
+				0DBCF7551E49660D00205017 /* UserViewController.swift in Sources */,
+				0DBCF7591E496BAE00205017 /* Location API.swift in Sources */,
 				0DE208D31E47012400619AEF /* Event Class.swift in Sources */,
+				0DBCF75B1E496BCF00205017 /* Keyboard Helpers.swift in Sources */,
 				0D63935F1E46D84A003055DB /* MainViewController.swift in Sources */,
 				0DE208DF1E48097900619AEF /* LensesViewController.swift in Sources */,
+				0DBCF7571E496B8A00205017 /* Weather API.swift in Sources */,
 				0D6393711E46D932003055DB /* Equipment Helpers.swift in Sources */,
 				0D63936F1E46D8FC003055DB /* Equipment Class.swift in Sources */,
 				0DBCF7531E495DAA00205017 /* PastOrdersViewController.swift in Sources */,
