@@ -22,23 +22,24 @@
      ---------------------------------------------------------------------------------------*/
 
 //  task: set up lenses vc
-//  task: populate lense vc - return to main vc tue     tue 2/6
+//  task: populate lense vc - return to main vc tue     mon 2/6
 
-//  task: set up user vc                                wed 2/7
-//  task: set up + populate past orders vc              wed 2/7 - accomplished where i was stuck
-//  task: set up + populate aks - feed to lenses?       thur 2/8
-//  task: set up + populate filters                     thur 2/8
-//  task: set up + populate support                     thur 2/8
+//  task: set up user vc                                tue 2/7
+//  task: set up + populate past orders vc              tue 2/7 - accomplished where i was stuck
 
-//  task: Core Data persistence of Important objects       fri 2/9
-//  task: Tutorial framework of alert views that page by   sat 2/10
-//  task: turn print into share                            sat 2/10
-//  task: finish all extra equipment                       sun 2/11
+//  task: set up + populate aks - feed to lenses?       weds 2/8
+//  task: set up + populate filters                     weds 2/8
+//  task: set up + populate support                     weds 2/8
+
+//  task: Core Data persistence of Important objects       thur 2/9
+//  task: Tutorial framework of alert views that page by   fri 2/10
+//  task: turn print into share                            fri 2/10
+//  task: finish all extra equipment                       sat 2/11
 
 import Foundation
 import UIKit
 
-var thisEvent: Event!
+var thisEvent: Event! // has user instanciate one here next, user crash on way back to main vc, past orders crashed on update
 
 var pickerEquipment = Equipment()       // picker equipment object
 
