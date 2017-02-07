@@ -23,13 +23,13 @@
 
 //  task: set up lenses vc
 //  task: populate lense vc - return to main vc tue     mon 2/6
-//  task: set up user vc                                tue 2/7
-//  task: set up + populate past orders vc              tue 2/7 - where i was stuck in Jan
-//  task: pass user to and from user vc *** thisEvent.user
+//  task: set up user vc                                mon 2/6
+//  task: set up + populate past orders vc              mon 2/6 - where i was stuck : )
+//  task: pass user to and from user vc *** thisEvent.user tue 2/7
+//  task: set up + populate aks - feed to lenses?       tue 2/7
+//  task: set up + populate filters                     tue 2/7
+//  task: set up + populate support                     tue 2/7
 
-//  task: set up + populate aks - feed to lenses?       weds 2/8
-//  task: set up + populate filters                     weds 2/8
-//  task: set up + populate support                     weds 2/8
 
 //  task: Core Data persistence of Important objects       thur 2/9
 //  task: Tutorial framework of alert views that page by   fri 2/10
@@ -114,7 +114,7 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         }
         
         // if a aks segue to lenses/aks
-        if pickerEquipment.pickerState[1] == 5 {
+        if pickerEquipment.pickerState[1] >= 5{
             performSegue(withIdentifier: "mainToLenses", sender: self)
         }
         

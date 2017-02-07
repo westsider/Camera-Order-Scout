@@ -63,6 +63,7 @@ class TableViewArrays {
         
     }
     
+    /// sets the array to pas in to the edit lenses vc
     func setPrimesKit(compState: [Int]) {
         // Zeiss Prime Section
         thePrimes = "I dont know what this is"
@@ -123,6 +124,71 @@ class TableViewArrays {
         if compState[1] == 1 && compState[2] == 3 && compState[3] == 2 {
             thePrimes =  "12mm, 18mm, 21mm, 35mm, 40mm,  Cooke, Speed Panchro"
         }
+        
+        // AKS
+        if compState[1] == 5 {
+            thePrimes =  "7in On Board Monitor, Remote Focus, Hand Held Rig, Easy Rig, Arri Follow Focus 4 / Hand Held FF4 (Complete), 5” Assistant Color Monitor(w/Swing Bracket, 2 Cables), Arri 24Volt Remote Switch (w/Extension Cable), Base Plate Top, Base Plate Bottom (w/Quick Release Plate), Follow Focus Whips (Short + Long), Speed Crank, 24Volt Splitter Box, Assistant Lens Light, Arri Eyepiece Heater Cup (w/2 Cables), Iris Rod s"
+
+            /*
+             MB14 Mattebox (4 Stage - 2 geared, 2 standard)
+             MB14 2-Stage Attachment
+             MB18 Mattebox (3 Stage - 1 geared, 2 standard)
+             MB20 Mattebox (4 Stage - 2 geared, 2 standard)
+             6x6 Sunshade
+             4x5 Sunshade
+             6x6 Arri Clip-on / Hand Held Mattebox (Regular & Angenieux 12-1)
+             4x5 Arri Clip-on / Hand Held Mattebox
+             4.5” Round Clip-on Sun Shade
+             138mm Round Clip-on Sun Shade
+             Series 9 Clip-on Sun Shade
+             Spider Hand Held Rig
+             Element Technica Mantis Hand Held Rig
+             */
+            /*
+            C-Motion Lens Control System
+            Preston FI&Z II System
+            Preston FI&Z III System
+            Hand Held & StudioRain Deflectors
+            Weather Protectors & Heater Barnies
+            Digi-Clamshell
+            Cinetape (Digital Range Finder)
+            Cinetape Link 1 (Transmitter & Receiver)
+            Film Video Sync Box
+            Element Technica “V” Dock (RED) & Base Plate (RED)
+            Element Technica Cheese Stick Handle & Cheese Plate (RED)
+            Element Technica Iso Plate (Shock Mount) RED)
+            */
+        }
+        
+        // Finder
+        if compState[1] == 6 {
+            thePrimes =  "Standard Finder, Anamorphic Finder"
+        }
+        
+        // Filters
+        if compState[1] == 7 {
+            thePrimes =  "Diopter Set of +1/2 +1 +2 +3, Optical Flat, ND 3 6 9 1.2, ND IR 3 6 9 1.2, Polarizer"
+        }
+        
+        // Support
+        if compState[1] == 8 {
+            thePrimes =  "Sachtler Cine 30 HD, Sachtler Studio 9+9 Head, O’Connor Ultimate 25/75 Head, O’Connor Ultimate 2060 Head, Cartoni Sigma Head, Cartoni Master Head, Cartoni Dutch Head, Cartoni Gamma Head, Arri Gear Head, Panaviaion Gear head, CARTONI | C40S Dutch Head, Tango Swing Plate, Weaver 3 axis Head, Standards Sticks, Baby Sticks, High Hat, Low Hat"
+        }
+        /*
+         O’Connor Ultimate 25/75 Head
+         O’Connor Ultimate 2060 Head
+         Cartoni Sigma Head
+         Cartoni Master Head
+         Cartoni Dutch Head
+         Cartoni Gamma Head
+         */
+        /*
+         Cartoni Lambda Head
+         Cartoni Lambda 3rd axis Head
+         Weaver Steadman Head
+         Weaver Steadman 3rd axis Head
+         Ronford F-7 Head
+         */
     }
     
     //MARK: - format message
