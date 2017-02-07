@@ -32,86 +32,104 @@ class UserViewController: UIViewController, UITextFieldDelegate {
     
     var datePickerUtility = DatePickerUtility()
     
-    var defaultUser: User!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.userName.delegate = self
         self.production.delegate = self
         self.company.delegate = self
         self.dateTextInput.delegate = self
         title = "J O B  I N F O"
         
-        // fill in city from previous use on this VC
-      
-//        if defaultUser.city != "" {                   // crash here
-//            citySearch.text = defaultUser.city
-//        } else {
-//            citySearch.text = "Santa Monica CA"
-//        }
         
-//        print("VDL: Name: \(defaultUser.name)")         // crash here
-       
+        // fill in city from previous use on this VC *** use thisEvent.user.city
+        if  thisEvent.user.city.isEmpty {
+            citySearch.text = "please enter a city"
+        } else {
+            citySearch.text = thisEvent.user.city
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
-//        userName.text = defaultUser.name              // crash here
-//        production.text = defaultUser.production
-//        company.text = defaultUser.company
-//        dateTextInput.text = defaultUser.date
+        userName.text = thisEvent.user.name            // crash here
+        production.text = thisEvent.user.production
+        company.text = thisEvent.user.company
+        dateTextInput.text = thisEvent.user.date
+        
+        //  get user from main vc - use event
+        print("\nEvent Lifecycle 2, user vwl, create the event \(thisEvent.eventName, thisEvent.user.name, thisEvent.user.production, thisEvent.user.company, thisEvent.user.city, thisEvent.user.date, thisEvent.user.weather)")
     }
     
+    /*---------------------------------------------------------------------------------------
+     |                                                                                       |
+     |                             update this user - segue back                               |
+     |                                                                                       |
+     ---------------------------------------------------------------------------------------*/
     
     @IBAction func updateAction(_ sender: Any) {
         
+        // auto change the test inputs
+        //  userName.text = "Jin Yang"
+        //  production.text = "Silicone Valley"
+        //  company.text = "WoodShop"
+        //  citySearch.text = "Venice CA"
+        //  dateTextInput.text =  "2/28/2017"
+        
         // change default text to user name
         if (userName.text?.isEmpty)! {
-            print("Username Empty")
+            //  print("Username Empty")
         } else {
             let name = userName.text!
-            defaultUser.name = name
-            print("User:  \(name)")
+            thisEvent.user.name = name
+            //  print("User:  \(name)")
         }
         
         // change default text to production
         if production.text! == "default" {
             print("production Empty")
         } else {
-            defaultUser.production = production.text!
+              thisEvent.user.production = production.text!
         }
         
         // change default text to company
         if company.text! == "default"  {
             print("company Empty")
         } else {
-            defaultUser.company = company.text!
-        }
-        
-        // change default text to date
-        if dateTextInput.text! == ""  {
-            print("Date Empty")
-        } else {
-            defaultUser.date = dateTextInput.text!
+              thisEvent.user.company = company.text!
         }
         
         // change default text to date
         if citySearch.text! == ""  {
             print("City Empty")
         } else {
-            defaultUser.city = citySearch.text!
+              thisEvent.user.city = citySearch.text!
         }
         
-        print("Segue from User, Updating Default User... User: \(defaultUser.name) Prod: \(defaultUser.production) CO: \(defaultUser.company) Date: \(defaultUser.date) City: \(defaultUser.city))")
+        // change default text to date
+        if dateTextInput.text! == ""  {
+            print("Date Empty")
+        } else {
+            thisEvent.user.date = dateTextInput.text!
+        }
+        
+        // chznge default text to weather
+        if weatherDisplay.text == "" {
+            print("weather Empty")
+        } else {
+            thisEvent.user.weather = weatherDisplay.text
+        }
+        
+        //  get user from main vc - use event
+        print("\nEvent Lifecycle 3, user vwl, update the event \(thisEvent.eventName, thisEvent.user.name, thisEvent.user.production, thisEvent.user.company, thisEvent.user.city, thisEvent.user.date, thisEvent.user.weather)")
         
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "userToMain" {
-            let controller = segue.destination as! MainTableViewController
-            controller.defaultUser = defaultUser
-        }
-    }
+    // next do this thisEvent.user *** un needed because I am usig the event objet
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "userToMain" {
+//            let controller = segue.destination as! MainTableViewController
+//            controller.defaultUser = defaultUser
+//        }
+//    }
     
     // MARK: - Keyboard behavior functions
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -132,8 +150,8 @@ class UserViewController: UIViewController, UITextFieldDelegate {
         
         activityDial.startAnimating()
         
-        print("Text Input: \(citySearch.text)")
-        print("forecastURL: \(CurrentLocation.sharedInstance.forcastURL)")
+        //  print("Text Input: \(citySearch.text)")
+        //  print("forecastURL: \(CurrentLocation.sharedInstance.forcastURL)")
         
         let searchResult  =  CurrentLocation.sharedInstance.parseCurrentLocation(input: citySearch.text!)
         weatherDisplay.text = searchResult
@@ -178,7 +196,7 @@ class UserViewController: UIViewController, UITextFieldDelegate {
         
         dateTextInput.text = dateFormatter.string(from: sender.date)
         
-        defaultUser.date = dateFormatter.string(from: sender.date)
+        thisEvent.user.date  = dateFormatter.string(from: sender.date)
         
     }
     

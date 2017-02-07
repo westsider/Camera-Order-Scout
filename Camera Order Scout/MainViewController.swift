@@ -23,9 +23,9 @@
 
 //  task: set up lenses vc
 //  task: populate lense vc - return to main vc tue     mon 2/6
-
 //  task: set up user vc                                tue 2/7
 //  task: set up + populate past orders vc              tue 2/7 - accomplished where i was stuck
+//  task: pass user to and from user vc *** thisEvent.user
 
 //  task: set up + populate aks - feed to lenses?       weds 2/8
 //  task: set up + populate filters                     weds 2/8
@@ -36,10 +36,14 @@
 //  task: turn print into share                            fri 2/10
 //  task: finish all extra equipment                       sat 2/11
 
+// fix back to say back
+
 import Foundation
 import UIKit
 
 var thisEvent: Event! // has user instanciate one here next, user crash on way back to main vc, past orders crashed on update
+
+var defaultUser: User!        // fuck default user - its in the event?
 
 var pickerEquipment = Equipment()       // picker equipment object
 
@@ -51,11 +55,9 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     
     @IBOutlet weak var myTableView: UITableView!
     
+    var defaultUser = User(name: "Warren Hansen", production: "Nike", company: "CO3", city: "Santa Monica, CA", date: "12 / 20 / 2016", weather: "Sunny 72", icon: UIImage(named: "manIcon")!)
+    var image = [UIImage]()
 
-    
-    var defaultUser = User(name: "Warren Hansen", production: "Nike", company: "CO3", city: "Santa Monica", date: "12 / 20 / 2016", weather: "Sunny 72", icon: UIImage(named: "manIcon")!)
-     var image = [UIImage]()
-    
      let cellIdentifier = "ListTableViewCell"
 
     //MARK: - Lifecycle Functions
@@ -64,6 +66,22 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         title = "C A M E R A  O R D E R"
         self.myPicker.dataSource = self
         self.myPicker.delegate = self
+        
+        // populate event on 1st load only
+        if thisEvent == nil {
+            thisEvent = Event(eventName: "an event", user: defaultUser, tableViewArray: [["1","cam","arri","alexa"]], images: image)
+        } else {
+            // update user?
+            // update table view user
+            tableViewArrays.updateUser(title: "\(thisEvent.user.name) Director of Photography", detail: "Camera Order \(thisEvent.user.production) \(thisEvent.user.date)")
+        }
+        // need to update picker selection with new user info from user vc
+        
+        
+
+    
+        print("\nEvent Lifecycle 1, main vdl, create the event \(thisEvent.eventName, thisEvent.user.name, thisEvent.user.production, thisEvent.user.company, thisEvent.user.city, thisEvent.user.date, thisEvent.user.weather)")
+        
         // update pickerSelection on first load
         pickerEquipment.pickerSelection[0] = pickerEquipment.pickerArray[0][pickerEquipment.pickerState[0]]
         pickerEquipment.pickerSelection[1] = pickerEquipment.pickerArray[1][pickerEquipment.pickerState[1]]
@@ -73,12 +91,13 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     
     override func viewWillAppear(_ animated: Bool) {
         
-        thisEvent = Event(eventName: "Current", user: defaultUser, tableViewArray: [["1","cam","arri","alexa"]], images: image)
-        thisEvent.images.append(thisEvent.user.icon)
-        
+   
         // add defalt user if tableview array is empty - first load
         if tableViewArrays.tableViewArray.isEmpty {
-           tableViewArrays.appendTableViewArray(title: "Warren Hansen Director of Photography", detail: "Camera Order Nike 12 / 20 / 2016", icon: defaultUser.icon, compState: [0,0,0,0])
+           tableViewArrays.appendTableViewArray(title: "\(thisEvent.user.name) Director of Photography", detail: "Camera Order \(thisEvent.user.production) \(thisEvent.user.date)", icon: thisEvent.user.icon, compState: [0,0,0,0])
+        } else {
+            // if we come back from user update the taleview user
+            
         }
        
         myTableView.reloadData() // reload when returning to this VC
@@ -97,7 +116,7 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         
         myTableView.reloadData()
         
-        print(tableViewArrays.tableViewArray)
+        //print(tableViewArrays.tableViewArray)
         
         // if not camera segue to lenses
         if pickerEquipment.pickerState[1] != 0 {
@@ -108,8 +127,9 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     
     //MARK: - Share Camera Order
     @IBAction func shareAction(_ sender: Any) {
-        let message = tableViewArrays.messageContent()
-        print(message)
+        
+          let message = tableViewArrays.messageContent()
+          print(message)
     }
     
 

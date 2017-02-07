@@ -27,12 +27,5 @@ class Event {
         images.append( UIImage(named: "manIcon")!)
         
         tableViewArray = [["\(user.name) Director of Photography"], ["Camera Order \(user.production) \(user.date)"]]
-        
-        /*
-         cell.titleTableView?.text = myEquipment.tableViewArray[0][indexPath.row]
-         cell.detailTableView?.text = myEquipment.tableViewArray[1][indexPath.row]
-         */
- 
     }
-    
 }

@@ -56,6 +56,13 @@ class TableViewArrays {
             tableViewArray[lastElement][1] = sendString  // send
         }
     
+    func updateUser(title: String, detail: String) {
+        
+        tableViewArray[0][0] = title
+        tableViewArray[0][1] = detail
+        
+    }
+    
     func setPrimesKit(compState: [Int]) {
         // Zeiss Prime Section
         thePrimes = "I dont know what this is"
@@ -126,8 +133,11 @@ class TableViewArrays {
         var counter = 0
         for line in tableViewArray {
             if counter == 0 {
+                message += "\nC a m e r a   O r d e r\n\r"
                 message += "\(line[0])\n\r"
-                message += "\(line[1])\n\r"
+                message += "\(thisEvent.user.production) \(thisEvent.user.company) \(thisEvent.user.date)\n\r"
+                message +=  "Weather Forecast for \(thisEvent.user.city)\n\(thisEvent.user.weather)\n\r"
+            
             } else {
                 message += "\(line[0])\n\(line[1])\n\r"
             }
