@@ -2,7 +2,7 @@
 //  MainViewController.swift
 //  Camera Order Scout
 //
-//  Created by Warren Hansen on 2/4/17.
+//  Created by Warren Hansen on 11/30/16.
 //  Copyright © 2017 Warren Hansen. All rights reserved.
 //
 /*  feat: a new feature
@@ -52,7 +52,7 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     
 
     
-    var defaultUser = User(name: "Warren Hansen", production: "Nike", company: "CO3", city: "SantaMonica", date: "12 / 20 / 2016", weather: "Sunny 72", icon: UIImage(named: "manIcon")!)
+    var defaultUser = User(name: "Warren Hansen", production: "Nike", company: "CO3", city: "Santa Monica", date: "12 / 20 / 2016", weather: "Sunny 72", icon: UIImage(named: "manIcon")!)
      var image = [UIImage]()
     
      let cellIdentifier = "ListTableViewCell"
@@ -221,6 +221,15 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         cell.titleTableView?.text =  tableViewArrays.tableViewArray[indexPath.row][0] as? String
         cell.detailTableView?.text =  tableViewArrays.tableViewArray[indexPath.row][1] as? String
         return cell
+    }
+    
+    // MARK: - Segue to User VC
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            //  print("Row: \(indexPath.row) segue to User")
+            
+            performSegue(withIdentifier: "mainToUser", sender: self)
+        }
     }
 
 }

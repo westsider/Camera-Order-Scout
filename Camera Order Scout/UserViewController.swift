@@ -42,22 +42,24 @@ class UserViewController: UIViewController, UITextFieldDelegate {
         self.company.delegate = self
         self.dateTextInput.delegate = self
         title = "J O B  I N F O"
-        // fill in city from previous use on this VC
-        if defaultUser.city != "" {
-            citySearch.text = defaultUser.city
-        } else {
-            citySearch.text = "Santa Monica CA"
-        }
         
-        print("VDL: Name: \(defaultUser.name)")
+        // fill in city from previous use on this VC
+      
+//        if defaultUser.city != "" {                   // crash here
+//            citySearch.text = defaultUser.city
+//        } else {
+//            citySearch.text = "Santa Monica CA"
+//        }
+        
+//        print("VDL: Name: \(defaultUser.name)")         // crash here
        
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        userName.text = defaultUser.name
-        production.text = defaultUser.production
-        company.text = defaultUser.company
-        dateTextInput.text = defaultUser.date
+//        userName.text = defaultUser.name              // crash here
+//        production.text = defaultUser.production
+//        company.text = defaultUser.company
+//        dateTextInput.text = defaultUser.date
     }
     
     
