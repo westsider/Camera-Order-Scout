@@ -9,6 +9,18 @@
 import Foundation
 import UIKit
 
+//  Quantity    -   Catagory    -   Maker   -   setCamModel     -   lenses
+
+//      1           Camera      -   Arri    -   Alexa                                   0
+//      1       -   Primes      -   Zeiss   -   Master Primes   -   25mm 50mm 75mm      1
+//      1       -   AKS         -   Select Items                                        5
+//                  Finder          Std/Anamorphic                                      6
+//                  Filters         Select Item                                         7
+//                  Support         Select Item                                         8
+
+// finish populating the picker AKS, Finder, Filters, Support
+// what happens when a lens is selected? -- how do i populate the lens tableview array?
+
 // helper  enums + functions for the Equipment class
 
 let Quantity = ["1","2","3","4","5","6","7","8","9"]
@@ -43,17 +55,30 @@ enum MakerProbe {
     static let allValues = ["Innovision", "T-Rex", "Revolution", "Skater", "Century", "Optex"]
 }
 
+enum MakerAKSFiltersSupport {
+    case selectItems
+    
+    static let allValues = ["Press"]
+}
+
+enum MakerFinder {
+    case standard, anamorphic
+    static let allValues = ["Standard","Anamprphic"]
+}
+
 class Maker {
     var makerCamera: MakerCamera
     var makerPrimes: MakerPrimes
     var makerMacros: MakerMacros
     var makerProbes: MakerProbe
+    var makerAKSFiltersSupport: MakerAKSFiltersSupport
     
-    init(makerCamera: MakerCamera, makerPrimes: MakerPrimes, makerMacros: MakerMacros, makerProbes: MakerProbe ) {
+    init(makerCamera: MakerCamera, makerPrimes: MakerPrimes, makerMacros: MakerMacros, makerProbes: MakerProbe, makerAKSFiltersSupport: MakerAKSFiltersSupport ) {
         self.makerCamera = makerCamera
         self.makerPrimes = makerPrimes
         self.makerMacros = makerMacros
         self.makerProbes = makerProbes
+        self.makerAKSFiltersSupport = makerAKSFiltersSupport
     }
 }
 
@@ -109,6 +134,10 @@ func setProbeModel(maker: MakerProbe) -> [String] {
     case .optex:
         return ["Excellence"]
     }
+}
+
+func setModelEmpty() -> [String] {
+    return ["Add ⬇︎"]
 }
 
 

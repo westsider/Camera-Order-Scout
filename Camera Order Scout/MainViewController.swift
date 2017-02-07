@@ -24,7 +24,7 @@
 //  task: set up lenses vc
 //  task: populate lense vc - return to main vc tue     mon 2/6
 //  task: set up user vc                                tue 2/7
-//  task: set up + populate past orders vc              tue 2/7 - accomplished where i was stuck
+//  task: set up + populate past orders vc              tue 2/7 - where i was stuck in Jan
 //  task: pass user to and from user vc *** thisEvent.user
 
 //  task: set up + populate aks - feed to lenses?       weds 2/8
@@ -75,14 +75,8 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             // update table view user
             tableViewArrays.updateUser(title: "\(thisEvent.user.name) Director of Photography", detail: "Camera Order \(thisEvent.user.production) \(thisEvent.user.date)")
         }
-        // need to update picker selection with new user info from user vc
         
-        
-
-    
-        print("\nEvent Lifecycle 1, main vdl, create the event \(thisEvent.eventName, thisEvent.user.name, thisEvent.user.production, thisEvent.user.company, thisEvent.user.city, thisEvent.user.date, thisEvent.user.weather)")
-        
-        // update pickerSelection on first load
+        // populate pickerSelection on first load
         pickerEquipment.pickerSelection[0] = pickerEquipment.pickerArray[0][pickerEquipment.pickerState[0]]
         pickerEquipment.pickerSelection[1] = pickerEquipment.pickerArray[1][pickerEquipment.pickerState[1]]
         pickerEquipment.pickerSelection[2] = pickerEquipment.pickerArray[2][pickerEquipment.pickerState[2]]
@@ -91,7 +85,6 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     
     override func viewWillAppear(_ animated: Bool) {
         
-   
         // add defalt user if tableview array is empty - first load
         if tableViewArrays.tableViewArray.isEmpty {
            tableViewArrays.appendTableViewArray(title: "\(thisEvent.user.name) Director of Photography", detail: "Camera Order \(thisEvent.user.production) \(thisEvent.user.date)", icon: thisEvent.user.icon, compState: [0,0,0,0])
@@ -99,7 +92,6 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             // if we come back from user update the taleview user
             
         }
-       
         myTableView.reloadData() // reload when returning to this VC
     }
     
@@ -111,15 +103,18 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     //MARK: - Add Action
     @IBAction func addAction(_ sender: Any) {
         
-        // append the camera or append lens and segue - a bit of a mess - alot has to happen and ill clen up later
+        // append the equipment to the tableview
         tableViewArrays.appendTableViewArray(title: pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1], detail: pickerEquipment.pickerSelection[2] + " " + pickerEquipment.pickerSelection[3], icon: UIImage(named: "manIcon")!, compState: pickerEquipment.pickerState)
         
         myTableView.reloadData()
         
-        //print(tableViewArrays.tableViewArray)
+        // if a lens segue to lenses
+        if pickerEquipment.pickerState[1] == 1 {
+            performSegue(withIdentifier: "mainToLenses", sender: self)
+        }
         
-        // if not camera segue to lenses
-        if pickerEquipment.pickerState[1] != 0 {
+        // if a aks segue to lenses/aks
+        if pickerEquipment.pickerState[1] == 5 {
             performSegue(withIdentifier: "mainToLenses", sender: self)
         }
         
@@ -169,13 +164,11 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         pickerEquipment.pickerSelection[1] = pickerEquipment.pickerArray[1][pickerEquipment.pickerState[1]]
         pickerEquipment.pickerSelection[2] = pickerEquipment.pickerArray[2][pickerEquipment.pickerState[2]]
         pickerEquipment.pickerSelection[3] = pickerEquipment.pickerArray[3][pickerEquipment.pickerState[3]]
+        
+        print("pickerEquipment.pickerSelection[3]: \(pickerEquipment.pickerSelection[3])")
     }
     
-    
-    //collect picker state
-    //assemble picker from state
-    
-    //  make picker text fill space allowed
+    //  make picker text fill horizontal space allowed
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let pickerLabel = UILabel()
         pickerLabel.textColor = UIColor.black
@@ -221,8 +214,6 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             pickerEquipment.prevCatagory = row    // if wheel 1 moves save the componennt to pass to setPickerArray
         }
     }
-    
-    // NEXT SET UP TABLE VIEW
     
     /*---------------------------------------------------------------------------------------
     |                                                                                       |

@@ -5,6 +5,16 @@
 //  Created by Warren Hansen on 2/4/17.
 //  Copyright © 2017 Warren Hansen. All rights reserved.
 //
+//  Quantity    -   Catagory    -   Maker   -   setCamModel     -   lenses
+
+//      1           Camera      -   Arri    -   Alexa                                   0
+//      1       -   Primes      -   Zeiss   -   Master Primes   -   25mm 50mm 75mm      1
+//      1       -   AKS         -   Select Items                                        5
+//                  Finder          Std/Anamorphic                                      6
+//                  Filters         Select Item                                         7
+//                  Support         Select Item                                         8
+
+// finish populating the picker AKS, Finder, Filters, Support
 
 import Foundation
 
@@ -31,7 +41,9 @@ class Equipment {
                 case 2:
                     pickerArray = [Quantity, Catagory.allValues, MakerMacros.allValues, setMacrosModel(maker: .arri)] // macro
                 case 3:
-                    pickerArray = [Quantity, Catagory.allValues, MakerProbe.allValues, setProbeModel(maker: .innovision)] // probe, zoom, aks,
+                    pickerArray = [Quantity, Catagory.allValues, MakerProbe.allValues, setProbeModel(maker: .innovision)] // probe
+                case 5...8:     // 5-8
+                    pickerArray = [Quantity, Catagory.allValues, MakerAKSFiltersSupport.allValues, setModelEmpty() ] // aks
                 default:
                     pickerArray = [Quantity, Catagory.allValues, MakerCamera.allValues,["Array ","out ", "of ", "index"]]
                 }
