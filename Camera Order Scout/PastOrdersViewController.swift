@@ -6,6 +6,8 @@
 //  Copyright © 2017 Warren Hansen. All rights reserved.
 //
 
+// task: make sure this event's name is being updated in pastOrders
+// task: make sure thisEvent is being update to the selected event in pastOrders
 // task: return a previous order to main vc
 
 import UIKit
@@ -44,11 +46,10 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
         // create past events until I persist
         let imagey = [UIImage]()
         let tableviewArraysFAKE = [["Warren Hansen Director of Photography", "Camera Order Nike 12 / 20 / 2016", image], ["1 Camera", "Arri Alexa", image], ["1 Primes", "12mm, 18mm, 21mm, 35mm, 40mm, Zeiss ZMP", image]]
-        
         let tableviewArraysFAKE01 = [["Tom Lazarevich Director of Photography", "Camera Order Nike 12 / 20 / 2016", image], ["1 Camera", "Arri Alexa", image], ["1 Primes", "12mm, 18mm, 21mm, 35mm, 40mm, Zeiss ZMP", image]]
-        
         let tableviewArraysFAKE02 = [["Dean Hawking Director of Photography", "Camera Order Nike 12 / 20 / 2016", image], ["1 Camera", "Arri Alexa", image], ["1 Primes", "12mm, 18mm, 21mm, 35mm, 40mm, Zeiss ZMP", image]]
 
+        // for past events?
         newEvent = thisEvent
         
         //  only load this until allEvents are persistant then delete
@@ -88,9 +89,14 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
             
             if let textInput = eventNameInput.text {
                 print("here is textInput: \(textInput)")
-                newEvent.eventName = textInput // getting an error her - have not inititated user yed, doing that now
-                tableViewTitleArray.insert(newEvent.eventName, at: 0)
-                allEvents.insert(newEvent, at: 0)
+                thisEvent.eventName = textInput
+                tableViewTitleArray.insert(thisEvent.eventName, at: 0)
+                print("\ni have updated the name of this event to: \(thisEvent.eventName)")
+                // i change this because its supposed to be thisEvent
+                allEvents.insert(thisEvent, at: 0)
+//                newEvent.eventName = textInput 
+//                tableViewTitleArray.insert(newEvent.eventName, at: 0)
+//                allEvents.insert(newEvent, at: 0)
             }
         } else {
             print("No text input")
@@ -125,11 +131,31 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
      ---------------------------------------------------------------------------------------*/
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        // update main tableview array
-        // update main event
-        //update main user
+        // what if I didnbt add a row and just want row 0?
         
-            _ = navigationController?.popToRootViewController(animated: true)
+        let theRow = indexPath.row
+        
+        print("row is \(theRow)")
+        
+        if theRow != 0 {
+            //if we are passing in an old event then
+            print("\(allEvents[theRow])")
+            
+            // update main event
+            thisEvent = allEvents[theRow]
+            
+            // update main tableview array
+            thisEvent.tableViewArray = allEvents[theRow].tableViewArray
+            
+            //update main user
+            print("thisEvent.eventName: \(thisEvent.eventName)")
+            print("thisEvent.user, prod, company, city: \(thisEvent.user.name)  \(thisEvent.user.production)  \(thisEvent.user.company)  \(thisEvent.user.city)")
+            print("thisEvent.tableviewarray: \(thisEvent.tableViewArray)")
+            print("thisEvent.image: \(thisEvent.images)")
+        }
+        
+        // else just return to main vc
+        //  _ = navigationController?.popToRootViewController(animated: true)
         
     }
 }

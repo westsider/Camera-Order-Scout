@@ -30,14 +30,30 @@
 //  task: set up + populate filters                     tue 2/7
 //  task: set up + populate support                     tue 2/7
 
-/*---------------------------------------------------------------------------------------
- |                                                                                       |
- |             How am i using Event, User andtableviewarrays?                            |
- |             i hope thisEvent:Event() has a user + tableview...                        |
- |             prove it! before save/view print this event                               |
- |              make sure i am using thisEvent in pastorders...                          |
- |                                                                                       |
- ---------------------------------------------------------------------------------------*/
+/*                               |
+    make sure i am using thisEvent in pastorders...
+    print array of events and
+ 
+    make plan to store in core data, not sure of the one to may relationship from Event to User
+ 
+    Entity =  Event
+    attributes =
+    var eventName: String = "Default"
+    var user: User
+    var tableViewArray = [[Any]]()
+    var images = [UIImage]()
+
+    Entity = User
+    Attributes = 
+     var name: String
+     var production: String
+     var company: String
+     var city: String
+     var date: String
+     var weather: String
+     var icon: UIImage
+ 
+*/
 
 //  task: Core Data persistence of Important objects       wed 2/9 was thur - ahead of schedule
 //  task: Tutorial framework of alert views that page by   thur 2/10
