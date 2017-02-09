@@ -30,6 +30,15 @@
 //  task: set up + populate filters                     tue 2/7
 //  task: set up + populate support                     tue 2/7
 
+/*---------------------------------------------------------------------------------------
+ |                                                                                       |
+ |             How am i using Event, User andtableviewarrays?                            |
+ |             i hope thisEvent:Event() has a user + tableview...                        |
+ |             prove it! before save/view print this event                               |
+ |              make sure i am using thisEvent in pastorders...                          |
+ |                                                                                       |
+ ---------------------------------------------------------------------------------------*/
+
 //  task: Core Data persistence of Important objects       wed 2/9 was thur - ahead of schedule
 //  task: Tutorial framework of alert views that page by   thur 2/10
 //  task: turn print into share                            thur 2/10
@@ -97,7 +106,12 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         } else {
             // if we come back from user update the taleview user
             
+            
         }
+        
+        // update thisUser"s tableview array on return from other views
+        thisEvent.tableViewArray = tableViewArrays.tableViewArray
+        
         myTableView.reloadData() // reload when returning to this VC
         
         print("updated main Tableview\(tableViewArrays)")
@@ -113,6 +127,9 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         
         // append the equipment to the tableview
         tableViewArrays.appendTableViewArray(title: pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1], detail: pickerEquipment.pickerSelection[2] + " " + pickerEquipment.pickerSelection[3], icon: UIImage(named: "manIcon")!, compState: pickerEquipment.pickerState)
+        
+        // update thisUser
+        thisEvent.tableViewArray = tableViewArrays.tableViewArray
         
         myTableView.reloadData()
         
@@ -131,8 +148,19 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     //MARK: - Share Camera Order
     @IBAction func shareAction(_ sender: Any) {
         
-          let message = tableViewArrays.messageContent()
-          print(message)
+        let message = tableViewArrays.messageContent()
+        print(message)
+        print("\nThe Event!\n")
+        
+        
+        // remember to update the user when returning from past orders...
+        // make sure user is stored in core data
+        
+        print("thisEvent.eventName: \(thisEvent.eventName)")
+        print("thisEvent.user, prod, company, city: \(thisEvent.user.name)  \(thisEvent.user.production)  \(thisEvent.user.company)  \(thisEvent.user.city)")
+        print("thisEvent.tableviewarray: \(thisEvent.tableViewArray)")
+        print("thisEvent.image: \(thisEvent.images)")
+
     }
     
 
