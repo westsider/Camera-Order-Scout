@@ -49,7 +49,7 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         // return edited lens string back to main tableview array
         tableViewArrays.editedLensKitReturendToMainTableView(sendString: tableViewSwitches.returnedString)
-        print("updated main Tableview\(tableViewArrays.tableViewArray)")
+        print("updated Tableview\(tableViewArrays.tableViewArray)")
         
         _ = navigationController?.popToRootViewController(animated: true)
     }

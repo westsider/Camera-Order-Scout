@@ -30,11 +30,10 @@
 //  task: set up + populate filters                     tue 2/7
 //  task: set up + populate support                     tue 2/7
 
-
-//  task: Core Data persistence of Important objects       thur 2/9
-//  task: Tutorial framework of alert views that page by   fri 2/10
-//  task: turn print into share                            fri 2/10
-//  task: finish all extra equipment                       sat 2/11
+//  task: Core Data persistence of Important objects       wed 2/9 was thur - ahead of schedule
+//  task: Tutorial framework of alert views that page by   thur 2/10
+//  task: turn print into share                            thur 2/10
+//  task: finish all extra equipment                       fri 2/11
 
 // fix back to say back
 
@@ -58,7 +57,7 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     var defaultUser = User(name: "Warren Hansen", production: "Nike", company: "CO3", city: "Santa Monica, CA", date: "12 / 20 / 2016", weather: "Sunny 72", icon: UIImage(named: "manIcon")!)
     var image = [UIImage]()
 
-     let cellIdentifier = "ListTableViewCell"
+    let cellIdentifier = "ListTableViewCell"
 
     //MARK: - Lifecycle Functions
     override func viewDidLoad() {
@@ -66,6 +65,13 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         title = "C A M E R A  O R D E R"
         self.myPicker.dataSource = self
         self.myPicker.delegate = self
+        
+        /*---------------------------------------------------------------------------------------
+         |                                                                                       |
+         |                             core data for thisEvent                                   |
+         |                                                                                       |
+         ---------------------------------------------------------------------------------------*/
+        
         
         // populate event on 1st load only
         if thisEvent == nil {
@@ -93,6 +99,8 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             
         }
         myTableView.reloadData() // reload when returning to this VC
+        
+        print("updated main Tableview\(tableViewArrays)")
     }
     
     /*---------------------------------------------------------------------------------------

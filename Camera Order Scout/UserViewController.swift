@@ -62,7 +62,7 @@ class UserViewController: UIViewController, UITextFieldDelegate {
     
     /*---------------------------------------------------------------------------------------
      |                                                                                       |
-     |                             update this user - segue back                               |
+     |                             update this user - segue back                             |
      |                                                                                       |
      ---------------------------------------------------------------------------------------*/
     
