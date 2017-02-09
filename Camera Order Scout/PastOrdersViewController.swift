@@ -22,8 +22,6 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var image = UIImage()
     
-    var tableviewArraysFAKE = [[Any]]() 
-    
     @IBOutlet weak var eventsTableView: UITableView!
     
     @IBOutlet weak var eventNameInput: UITextField!
@@ -45,7 +43,11 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
 
         // create past events until I persist
         let imagey = [UIImage]()
-        tableviewArraysFAKE = [["Warren Hansen Director of Photography", "Camera Order Nike 12 / 20 / 2016", image], ["1 Camera", "Arri Alexa", image], ["1 Primes", "12mm, 18mm, 21mm, 35mm, 40mm, Zeiss ZMP", image]]
+        let tableviewArraysFAKE = [["Warren Hansen Director of Photography", "Camera Order Nike 12 / 20 / 2016", image], ["1 Camera", "Arri Alexa", image], ["1 Primes", "12mm, 18mm, 21mm, 35mm, 40mm, Zeiss ZMP", image]]
+        
+        let tableviewArraysFAKE01 = [["Tom Lazarevich Director of Photography", "Camera Order Nike 12 / 20 / 2016", image], ["1 Camera", "Arri Alexa", image], ["1 Primes", "12mm, 18mm, 21mm, 35mm, 40mm, Zeiss ZMP", image]]
+        
+        let tableviewArraysFAKE02 = [["Dean Hawking Director of Photography", "Camera Order Nike 12 / 20 / 2016", image], ["1 Camera", "Arri Alexa", image], ["1 Primes", "12mm, 18mm, 21mm, 35mm, 40mm, Zeiss ZMP", image]]
 
         newEvent = thisEvent
         
@@ -55,8 +57,8 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
         let pastUser02 = User(name: "Roger Deakins", production: "No COntry", company: "The Brothers", city: "Venice, CA", date: "12 / 20 / 2016", weather: "Sunny 72", icon: UIImage(named: "manIcon")!)
         
         let pastEvent00 = Event(eventName: "daylight order fake", user: pastUser00, tableViewArray: tableviewArraysFAKE, images: imagey)
-        let pastEvent01 = Event(eventName: "tungsten order fake", user: pastUser01, tableViewArray: tableviewArraysFAKE, images: imagey)
-        let pastEvent02 = Event(eventName: "studio order fake", user: pastUser02, tableViewArray: tableviewArraysFAKE, images: imagey)
+        let pastEvent01 = Event(eventName: "tungsten order fake", user: pastUser01, tableViewArray: tableviewArraysFAKE01, images: imagey)
+        let pastEvent02 = Event(eventName: "studio order fake", user: pastUser02, tableViewArray: tableviewArraysFAKE02, images: imagey)
         
         
         if allEvents.count == 0 {
@@ -115,5 +117,19 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
         
         return cell
     }
-
+    
+    /*---------------------------------------------------------------------------------------
+     |                                                                                       |
+     |              Tap on Table View ro returns the Event to main tableview                 |
+     |                                                                                       |
+     ---------------------------------------------------------------------------------------*/
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // update main tableview array
+        // update main event
+        //update main user
+        
+            _ = navigationController?.popToRootViewController(animated: true)
+        
+    }
 }
