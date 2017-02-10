@@ -20,6 +20,30 @@
      |             updating the table view lenses                                            |
      |                                                                                       |
      ---------------------------------------------------------------------------------------*/
+/*                               |
+ make sure i am using thisEvent in pastorders...
+ print array of events and
+ 
+ make plan to store in core data, not sure of the one to may relationship from Event to User
+ 
+ Entity =  Event
+ attributes =
+ var eventName: String = "Default"
+ var user: User
+ var tableViewArray = [[Any]]()
+ var images = [UIImage]()
+ 
+ Entity = User
+ Attributes =
+ var name: String
+ var production: String
+ var company: String
+ var city: String
+ var date: String
+ var weather: String
+ var icon: UIImage
+ 
+ */
 
 //  task: set up lenses vc
 //  task: populate lense vc - return to main vc tue     mon 2/6
@@ -29,39 +53,16 @@
 //  task: set up + populate aks - feed to lenses?       tue 2/7
 //  task: set up + populate filters                     tue 2/7
 //  task: set up + populate support                     tue 2/7
+//  task: implement core data - nogo
+//  task: finish past orders                            thur 2/10
 
-/*                               |
-    make sure i am using thisEvent in pastorders...
-    print array of events and
- 
-    make plan to store in core data, not sure of the one to may relationship from Event to User
- 
-    Entity =  Event
-    attributes =
-    var eventName: String = "Default"
-    var user: User
-    var tableViewArray = [[Any]]()
-    var images = [UIImage]()
-
-    Entity = User
-    Attributes = 
-     var name: String
-     var production: String
-     var company: String
-     var city: String
-     var date: String
-     var weather: String
-     var icon: UIImage
- 
-*/
-
-//  task: Core Data persistence of Important objects       wed 2/9 was thur - ahead of schedule
-//  task: Tutorial framework of alert views that page by   thur 2/10
-//  task: turn print into share                            thur 2/10
-//  task: finish all extra equipment                       fri 2/11
+//  task: Realm persistence of Important objects        fri 2/11
+//  task: Tutorial framework of alert views that page by   sat 2/11
+//  task: turn print into share                            sat 2/11
+//  task: finish all extra equipment                       sun 2/12
 
 // fix back to say back
-// tableview array object -- should replace witn  thisEvent.tableViewArray, copy updateUser and updateTableView
+// tableview array object -- should replace with  thisEvent.tableViewArray, copy updateUser and updateTableView
 
 import Foundation
 import UIKit
@@ -84,6 +85,8 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     var image = [UIImage]()
 
     let cellIdentifier = "ListTableViewCell"
+    
+    let isFirstLaunch = UserDefaults.isFirstLaunch()
 
     //MARK: - Lifecycle Functions
     override func viewDidLoad() {

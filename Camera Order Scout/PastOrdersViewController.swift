@@ -10,8 +10,9 @@
 // task: make sure thisEvent is being update to the selected event in pastOrders
 // yet it is but not showing in main tableview...
 // task: return a previous order to main vc
-
 // // task: when clicking on element 0... funki
+
+// save replaces all new events
 
 import UIKit
 
@@ -71,12 +72,21 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
             allEvents.append(pastEvent02)
         }
         
+
+        reloadTableViewNames()
+        
+    }
+    
+    func reloadTableViewNames() {
+        tableViewTitleArray.removeAll()
         // load table view name array
         for events in allEvents {
+            
             let name =  events.eventName
+            print("\nname loop fires \(name)")
             tableViewTitleArray.append(name)
+            
         }
-        
     }
     
     /*---------------------------------------------------------------------------------------
@@ -87,19 +97,19 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
     //MARK: - Save Event
     @IBAction func saveEvent(_ sender: Any) {
         
+        print("Before Save allEvents.count\(allEvents.count)")
+        
         // make sure textInput contains a new name
         if eventNameInput.text != "" {
             
             if let textInput = eventNameInput.text {
                 print("here is textInput: \(textInput)")
                 thisEvent.eventName = textInput
-                tableViewTitleArray.insert(thisEvent.eventName, at: 0)
-                print("\ni have updated the name of this event to: \(thisEvent.eventName)")
+
                 // i change this because its supposed to be thisEvent
-                allEvents.insert(thisEvent, at: 0)
-//                newEvent.eventName = textInput 
-//                tableViewTitleArray.insert(newEvent.eventName, at: 0)
-//                allEvents.insert(newEvent, at: 0)
+                allEvents.append(thisEvent)
+                print("after Save allEvents.count\(allEvents.count)")
+                reloadTableViewNames()
             }
         } else {
             print("No text input")
@@ -139,8 +149,9 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
         let theRow = indexPath.row
         
         //print("row is \(theRow)")
+        // whatever row you click on it replaces that order
         
-        if theRow != 0 {
+        //if theRow != 0 {
             //if we are passing in an old event then
             //print("\(allEvents[theRow])")
             
@@ -157,7 +168,7 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
             print("thisEvent.user, prod, company, city: \(thisEvent.user.name)  \(thisEvent.user.production)  \(thisEvent.user.company)  \(thisEvent.user.city)")
             print("thisEvent.tableviewarray: \(thisEvent.tableViewArray)")
             print("thisEvent.image: \(thisEvent.images)")
-        }
+        //}
         
         // else just return to main vc
         _ = navigationController?.popToRootViewController(animated: true)
