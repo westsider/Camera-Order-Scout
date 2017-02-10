@@ -8,7 +8,10 @@
 
 // task: make sure this event's name is being updated in pastOrders
 // task: make sure thisEvent is being update to the selected event in pastOrders
+// yet it is but not showing in main tableview...
 // task: return a previous order to main vc
+
+// // task: when clicking on element 0... funki
 
 import UIKit
 
@@ -135,19 +138,21 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let theRow = indexPath.row
         
-        print("row is \(theRow)")
+        //print("row is \(theRow)")
         
         if theRow != 0 {
             //if we are passing in an old event then
-            print("\(allEvents[theRow])")
+            //print("\(allEvents[theRow])")
             
             // update main event
             thisEvent = allEvents[theRow]
             
             // update main tableview array
             thisEvent.tableViewArray = allEvents[theRow].tableViewArray
+            //thisEvent.user = allEvents[theRow].user
             
             //update main user
+            print("\nUpdating this event and returning to man View >>>>>>>>>>>>>>>>>>>>>>>>>>>")
             print("thisEvent.eventName: \(thisEvent.eventName)")
             print("thisEvent.user, prod, company, city: \(thisEvent.user.name)  \(thisEvent.user.production)  \(thisEvent.user.company)  \(thisEvent.user.city)")
             print("thisEvent.tableviewarray: \(thisEvent.tableViewArray)")
@@ -155,7 +160,7 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         
         // else just return to main vc
-        //  _ = navigationController?.popToRootViewController(animated: true)
+        _ = navigationController?.popToRootViewController(animated: true)
         
     }
 }

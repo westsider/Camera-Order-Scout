@@ -61,6 +61,7 @@
 //  task: finish all extra equipment                       fri 2/11
 
 // fix back to say back
+// tableview array object -- should replace witn  thisEvent.tableViewArray, copy updateUser and updateTableView
 
 import Foundation
 import UIKit
@@ -71,7 +72,7 @@ var defaultUser: User!        // fuck default user - its in the event?
 
 var pickerEquipment = Equipment()       // picker equipment object
 
-var tableViewArrays = TableViewArrays()   // tableview array object
+var tableViewArrays = TableViewArrays()   // tableview array object -- should replace witn  thisEvent.tableViewArray
 
 class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDelegate, UITableViewDataSource {
 
@@ -121,16 +122,26 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
            tableViewArrays.appendTableViewArray(title: "\(thisEvent.user.name) Director of Photography", detail: "Camera Order \(thisEvent.user.production) \(thisEvent.user.date)", icon: thisEvent.user.icon, compState: [0,0,0,0])
         } else {
             // if we come back from user update the taleview user
-            
+            print("\nview will appera Else")
+            tableViewArrays.tableViewArray = thisEvent.tableViewArray // should do away with tableViewArrays.tableViewArray
+            tableViewArrays.updateUser(title: "\(thisEvent.user.name) Director of Photography", detail: "Camera Order \(thisEvent.user.production) \(thisEvent.user.date)")
+            //update main user
+            print("\nView will appear Main View >>>>>>>>>>>>>>>>>>>>>>>>>>>")
+            print("thisEvent.eventName: \(thisEvent.eventName)")
+            print("thisEvent.user, prod, company, city: \(thisEvent.user.name)  \(thisEvent.user.production)  \(thisEvent.user.company)  \(thisEvent.user.city)")
+            print("thisEvent.tableviewarray: \(thisEvent.tableViewArray)")
+            print("thisEvent.image: \(thisEvent.images)")
             
         }
         
+       
+    
         // update thisUser"s tableview array on return from other views
-        thisEvent.tableViewArray = tableViewArrays.tableViewArray
+       // thisEvent.tableViewArray = tableViewArrays.tableViewArray
         
         myTableView.reloadData() // reload when returning to this VC
         
-        print("updated main Tableview\(tableViewArrays)")
+        
     }
     
     /*---------------------------------------------------------------------------------------
