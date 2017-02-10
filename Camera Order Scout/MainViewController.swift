@@ -57,7 +57,8 @@
 //  task: finish past orders                            thur 2/10
 
 //  task: Realm persistence of Important objects        fri 2/11
-//  task: Tutorial framework of alert views that page by   sat 2/11
+//  task: Tutorial framework of alert views that page by   sat 2/11 
+//  http://stackoverflow.com/questions/13335540/how-to-make-first-launch-iphone-app-tour-guide-with-xcode
 //  task: turn print into share                            sat 2/11
 //  task: finish all extra equipment                       sun 2/12
 
@@ -73,7 +74,7 @@ var defaultUser: User!        // fuck default user - its in the event?
 
 var pickerEquipment = Equipment()       // picker equipment object
 
-var tableViewArrays = TableViewArrays()   // tableview array object -- should replace witn  thisEvent.tableViewArray
+var tableViewArrays = TableViewArrays()   // tableview array object -- should replace wit  thisEvent.tableViewArray
 
 class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDelegate, UITableViewDataSource {
 
