@@ -149,17 +149,8 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
      ---------------------------------------------------------------------------------------*/
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        // what if I didnbt add a row and just want row 0?
-        
         let theRow = indexPath.row
         
-        //print("row is \(theRow)")
-        // whatever row you click on it replaces that order
-        
-        //if theRow != 0 {
-            //if we are passing in an old event then
-            //print("\(allEvents[theRow])")
-            
             // update main event
             thisEvent = allEvents[theRow]
             

@@ -20,20 +20,16 @@
      |             updating the table view lenses                                            |
      |                                                                                       |
      ---------------------------------------------------------------------------------------*/
-/*                               |
- make sure i am using thisEvent in pastorders...
- print array of events and
- 
- make plan to store in core data, not sure of the one to may relationship from Event to User
- 
- Entity =  Event
+/*  
+ realm objects
+ Class =  Event
  attributes =
  var eventName: String = "Default"
  var user: User
  var tableViewArray = [[Any]]()
  var images = [UIImage]()
  
- Entity = User
+ Class = User
  Attributes =
  var name: String
  var production: String
@@ -42,7 +38,6 @@
  var date: String
  var weather: String
  var icon: UIImage
- 
  */
 
 //  task: set up lenses vc
@@ -57,10 +52,10 @@
 //  task: finish past orders                            thur 2/10
 
 //  task: Realm persistence of Important objects        fri 2/11
-//  task: Tutorial framework of alert views that page by   sat 2/11 
+//  task: first run Tutorial                            sat 2/11
 //  http://stackoverflow.com/questions/13335540/how-to-make-first-launch-iphone-app-tour-guide-with-xcode
-//  task: turn print into share                            sat 2/11
-//  task: finish all extra equipment                       sun 2/12
+//  task: turn print into share                         sat 2/11
+//  task: finish all extra equipment                    sun 2/12
 
 // fix back to say back
 // tableview array object -- should replace with  thisEvent.tableViewArray, copy updateUser and updateTableView
@@ -137,14 +132,7 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             print("thisEvent.image: \(thisEvent.images)")
             
         }
-        
-       
-    
-        // update thisUser"s tableview array on return from other views
-       // thisEvent.tableViewArray = tableViewArrays.tableViewArray
-        
         myTableView.reloadData() // reload when returning to this VC
-        
         
     }
     
@@ -181,16 +169,12 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         
         let message = tableViewArrays.messageContent()
         print(message)
-        print("\nThe Event!\n")
         
-        
-        // remember to update the user when returning from past orders...
-        // make sure user is stored in core data
-        
-        print("thisEvent.eventName: \(thisEvent.eventName)")
-        print("thisEvent.user, prod, company, city: \(thisEvent.user.name)  \(thisEvent.user.production)  \(thisEvent.user.company)  \(thisEvent.user.city)")
-        print("thisEvent.tableviewarray: \(thisEvent.tableViewArray)")
-        print("thisEvent.image: \(thisEvent.images)")
+//        print("\nThe Event!\n")  // debugging past orsers
+//        print("thisEvent.eventName: \(thisEvent.eventName)")
+//        print("thisEvent.user, prod, company, city: \(thisEvent.user.name)  \(thisEvent.user.production)  \(thisEvent.user.company)  \(thisEvent.user.city)")
+//        print("thisEvent.tableviewarray: \(thisEvent.tableViewArray)")
+//        print("thisEvent.image: \(thisEvent.images)")
 
     }
     
