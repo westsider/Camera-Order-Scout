@@ -59,10 +59,6 @@ class UserViewController: UIViewController, UITextFieldDelegate {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-//        userName.text = thisEvent.user.name            // crash here
-//        production.text = thisEvent.user.production
-//        company.text = thisEvent.user.company
-//        dateTextInput.text = thisEvent.user.date
         
         // get user from realm
         let savedUser = realm.objects(UserRealm.self)
@@ -170,13 +166,6 @@ class UserViewController: UIViewController, UITextFieldDelegate {
         print("\nEvent Lifecycle 3, user vwl, update the event \(thisEvent.eventName, thisEvent.user.name, thisEvent.user.production, thisEvent.user.company, thisEvent.user.city, thisEvent.user.date, thisEvent.user.weather)")
         
     }
-    // next do this thisEvent.user *** un needed because I am usig the event objet
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "userToMain" {
-//            let controller = segue.destination as! MainTableViewController
-//            controller.defaultUser = defaultUser
-//        }
-//    }
     
     // MARK: - Keyboard behavior functions
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -196,9 +185,6 @@ class UserViewController: UIViewController, UITextFieldDelegate {
         weatherDisplay.text = "Launching Search..."
         
         activityDial.startAnimating()
-        
-        //  print("Text Input: \(citySearch.text)")
-        //  print("forecastURL: \(CurrentLocation.sharedInstance.forcastURL)")
         
         let searchResult  =  CurrentLocation.sharedInstance.parseCurrentLocation(input: citySearch.text!)
         weatherDisplay.text = searchResult

@@ -50,9 +50,11 @@
 //  task: set up + populate support                     tue 2/7
 //  task: implement core data - nogo
 //  task: finish past orders                            thur 2/10
-
 //  task: realm persistence of user                     fri 2/11
+
 //  task: realm persistence of event                    fri 2/11
+//  task: realm persistence of past events              fri 2/11
+
 //  task: first run Tutorial                            sat 2/11
 //  http://stackoverflow.com/questions/13335540/how-to-make-first-launch-iphone-app-tour-guide-with-xcode
 //  task: turn print into share                         sat 2/11
