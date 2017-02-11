@@ -24,6 +24,7 @@
 		0DBCF75D1E496BEB00205017 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBCF75C1E496BEB00205017 /* DatePicker.swift */; };
 		0DC677041E4E3AF600F9A137 /* UserRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC677031E4E3AF600F9A137 /* UserRealm.swift */; };
 		0DC677061E4E40AC00F9A137 /* RealmTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC677051E4E40AC00F9A137 /* RealmTestViewController.swift */; };
+		0DC677311E4EAB4A00F9A137 /* EventRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC677301E4EAB4A00F9A137 /* EventRealm.swift */; };
 		0DC895751E4E34EA00FA7588 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC895731E4E34EA00FA7588 /* Realm.framework */; };
 		0DC895761E4E34EA00FA7588 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC895731E4E34EA00FA7588 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0DC895771E4E34EA00FA7588 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC895741E4E34EA00FA7588 /* RealmSwift.framework */; };
@@ -71,6 +72,7 @@
 		0DBCF75C1E496BEB00205017 /* DatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
 		0DC677031E4E3AF600F9A137 /* UserRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserRealm.swift; path = "Camera Order Scout/UserRealm.swift"; sourceTree = "<group>"; };
 		0DC677051E4E40AC00F9A137 /* RealmTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmTestViewController.swift; sourceTree = "<group>"; };
+		0DC677301E4EAB4A00F9A137 /* EventRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventRealm.swift; sourceTree = "<group>"; };
 		0DC895731E4E34EA00FA7588 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		0DC895741E4E34EA00FA7588 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		0DE208D21E47012400619AEF /* Event Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Event Class.swift"; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				0DBCF75A1E496BCF00205017 /* Keyboard Helpers.swift */,
 				0DBCF75C1E496BEB00205017 /* DatePicker.swift */,
 				0DE208D21E47012400619AEF /* Event Class.swift */,
+				0DC677301E4EAB4A00F9A137 /* EventRealm.swift */,
 				0DE208D41E47013600619AEF /* User Class.swift */,
 				0DC677031E4E3AF600F9A137 /* UserRealm.swift */,
 				0DE208DC1E47FE3200619AEF /* Icon Class.swift */,
@@ -279,6 +282,7 @@
 				0DE208DB1E47E13A00619AEF /* TableView Array Class.swift in Sources */,
 				0D81902B1E48140000237B11 /* primeLensTableViewCell.swift in Sources */,
 				0D63935D1E46D84A003055DB /* AppDelegate.swift in Sources */,
+				0DC677311E4EAB4A00F9A137 /* EventRealm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
