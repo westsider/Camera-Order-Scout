@@ -199,7 +199,7 @@ class TableViewArrays {
         var counter = 0
         for line in tableViewArray {
             if counter == 0 {
-                message += "\nC a m e r a   O r d e r\n\r"
+                message += "\nCamera  Order\n\r"
                 message += "\(line[0])\n\r"
                 message += "\(thisEvent.user.production) \(thisEvent.user.company) \(thisEvent.user.date)\n\r"
                 message +=  "Weather Forecast for \(thisEvent.user.city)\n\(thisEvent.user.weather)\n\r"

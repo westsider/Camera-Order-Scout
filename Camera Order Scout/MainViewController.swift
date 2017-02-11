@@ -51,7 +51,8 @@
 //  task: implement core data - nogo
 //  task: finish past orders                            thur 2/10
 
-//  task: Realm persistence of Important objects        fri 2/11
+//  task: realm persistence of user                     fri 2/11
+//  task: realm persistence of event                    fri 2/11
 //  task: first run Tutorial                            sat 2/11
 //  http://stackoverflow.com/questions/13335540/how-to-make-first-launch-iphone-app-tour-guide-with-xcode
 //  task: turn print into share                         sat 2/11
@@ -62,6 +63,7 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
 var thisEvent: Event! // has user instanciate one here next, user crash on way back to main vc, past orders crashed on update
 
@@ -83,6 +85,15 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     let cellIdentifier = "ListTableViewCell"
     
     let isFirstLaunch = UserDefaults.isFirstLaunch()
+    
+    /*---------------------------------------------------------------------------------------
+     |                                                                                       |
+     |                                  Realm Storage                                        |
+     |                                                                                       |
+     ---------------------------------------------------------------------------------------*/
+    
+    let realm = try! Realm()            // Get the default Realm
+    let user = UserRealm()              // Use them like regular Swift objects
 
     //MARK: - Lifecycle Functions
     override func viewDidLoad() {
@@ -90,13 +101,6 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         title = "C A M E R A  O R D E R"
         self.myPicker.dataSource = self
         self.myPicker.delegate = self
-        
-        /*---------------------------------------------------------------------------------------
-         |                                                                                       |
-         |                             core data for thisEvent                                   |
-         |                                                                                       |
-         ---------------------------------------------------------------------------------------*/
-        
         
         // populate event on 1st load only
         if thisEvent == nil {
@@ -116,9 +120,33 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     
     override func viewWillAppear(_ animated: Bool) {
         
+        // get user from realm
+        let savedUser = realm.objects(UserRealm.self)
+        // set up default user
+        if savedUser.count == 0 {
+            // Persist your data easily
+            try! realm.write {
+                realm.add(user)
+                print("add user")
+            }
+        }
+            var userRealm = ""
+            var productionRealm  = ""
+            //var companyRealm  = ""
+            var dateRealm  = ""
+            //var iconRealm = NSData(data: UIImagePNGRepresentation(#imageLiteral(resourceName: "manIcon"))!)
+            for items in savedUser {
+                userRealm        = items.name
+                productionRealm  = items.production
+                //companyRealm     = items.company
+                dateRealm        = items.date
+                // iconRealm       = items.icon!
+            }
+        
+        
         // add defalt user if tableview array is empty - first load
         if tableViewArrays.tableViewArray.isEmpty {
-           tableViewArrays.appendTableViewArray(title: "\(thisEvent.user.name) Director of Photography", detail: "Camera Order \(thisEvent.user.production) \(thisEvent.user.date)", icon: thisEvent.user.icon, compState: [0,0,0,0])
+           tableViewArrays.appendTableViewArray(title: "\(userRealm) Director of Photography", detail: "Camera Order \(productionRealm) \(dateRealm)", icon: thisEvent.user.icon, compState: [0,0,0,0])
         } else {
             // if we come back from user update the taleview user
             print("\nview will appera Else")
@@ -132,6 +160,7 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             print("thisEvent.image: \(thisEvent.images)")
             
         }
+       
         myTableView.reloadData() // reload when returning to this VC
         
     }
@@ -169,12 +198,6 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         
         let message = tableViewArrays.messageContent()
         print(message)
-        
-//        print("\nThe Event!\n")  // debugging past orsers
-//        print("thisEvent.eventName: \(thisEvent.eventName)")
-//        print("thisEvent.user, prod, company, city: \(thisEvent.user.name)  \(thisEvent.user.production)  \(thisEvent.user.company)  \(thisEvent.user.city)")
-//        print("thisEvent.tableviewarray: \(thisEvent.tableViewArray)")
-//        print("thisEvent.image: \(thisEvent.images)")
 
     }
     
