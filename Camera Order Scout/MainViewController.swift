@@ -108,7 +108,7 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         self.myPicker.dataSource = self
         self.myPicker.delegate = self
         
-        // populate event on 1st load only
+        // populate event on 1st load only this is still loading from old array
         if thisEvent == nil {
             thisEvent = Event(eventName: "an event", user: defaultUser, tableViewArray: [["1","cam","arri","alexa"]], images: image)
         } else {
@@ -126,17 +126,7 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     
     override func viewWillAppear(_ animated: Bool) {
         
-//        // get user from realm
-//        let savedUser = realm.objects(UserRealm.self)
-//        
-//        // set up default user
-//        if savedUser.count == 0 {
-//            // Persist your data easily
-//            try! realm.write {
-//                realm.add(user)
-//                print("add user")
-//            }
-//        }
+        // get event and user from realm
         
 //        try! realm.write {
 //            realm.deleteAll()
@@ -172,9 +162,6 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             }
         }
 
-        
-        
-        
         // add defalt user if tableview array is empty - first load
         if tableViewArrays.tableViewArray.isEmpty {
            tableViewArrays.appendTableViewArray(title: "\(user.name) Director of Photography", detail: "Camera Order \(user.production) \(user.date)", icon: thisEvent.user.icon, compState: [0,0,0,0])
