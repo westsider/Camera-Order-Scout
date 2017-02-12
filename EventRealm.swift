@@ -14,7 +14,7 @@ class EventRealm: Object {
     dynamic var eventName = "Default"
     //  dynamic var user = UserRealm()  //'The `EventRealm.user` property must be marked as being optional.'
     //dynamic var tableViewArray = [[Any]]()
-    //dynamic var images = [NSData]()
+
     
 // Specify properties to ignore (Realm won't persist these)
     

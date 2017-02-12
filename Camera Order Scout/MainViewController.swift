@@ -51,13 +51,17 @@
 //  task: implement core data - nogo
 //  task: finish past orders                            thur 2/10
 //  task: realm persistence of user                     fri 2/11
+//  task: realm persistence of event                    sat 2/11
+//  create and Event that can store Event Name 
 
-//  task: realm persistence of event                    fri 2/11
-//  task: realm persistence of past events              fri 2/11
+        //  task: create and Event that can store User 
+        //  task: create and Event that can store EventTableView
+//  task: realm persistence of past events              sat 2/11
 
-//  task: first run Tutorial                            sat 2/11
+//  feat: don with persistance
+//  task: first run Tutorial                            sun 2/12
 //  http://stackoverflow.com/questions/13335540/how-to-make-first-launch-iphone-app-tour-guide-with-xcode
-//  task: turn print into share                         sat 2/11
+//  task: turn print into share                         sun 2/12
 //  task: finish all extra equipment                    sun 2/12
 
 // fix back to say back

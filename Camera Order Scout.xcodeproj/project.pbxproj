@@ -35,6 +35,7 @@
 		0DE208DB1E47E13A00619AEF /* TableView Array Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE208DA1E47E13A00619AEF /* TableView Array Class.swift */; };
 		0DE208DD1E47FE3200619AEF /* Icon Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE208DC1E47FE3200619AEF /* Icon Class.swift */; };
 		0DE208DF1E48097900619AEF /* LensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE208DE1E48097900619AEF /* LensesViewController.swift */; };
+		0DE968721E50189B009D52DF /* TableViewArrayRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE968711E50189B009D52DF /* TableViewArrayRealm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -81,6 +82,7 @@
 		0DE208DA1E47E13A00619AEF /* TableView Array Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TableView Array Class.swift"; sourceTree = "<group>"; };
 		0DE208DC1E47FE3200619AEF /* Icon Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Icon Class.swift"; path = "Camera Order Scout/Icon Class.swift"; sourceTree = "<group>"; };
 		0DE208DE1E48097900619AEF /* LensesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LensesViewController.swift; sourceTree = "<group>"; };
+		0DE968711E50189B009D52DF /* TableViewArrayRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewArrayRealm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,17 +134,18 @@
 		0DB53A391E46FD6D0049F0D2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0DC677301E4EAB4A00F9A137 /* EventRealm.swift */,
+				0DC677031E4E3AF600F9A137 /* UserRealm.swift */,
 				0D63936E1E46D8FC003055DB /* Equipment Class.swift */,
 				0D6393701E46D932003055DB /* Equipment Helpers.swift */,
 				0DE208DA1E47E13A00619AEF /* TableView Array Class.swift */,
+				0DE968711E50189B009D52DF /* TableViewArrayRealm.swift */,
 				0DBCF7581E496BAE00205017 /* Location API.swift */,
 				0DBCF7561E496B8A00205017 /* Weather API.swift */,
 				0DBCF75A1E496BCF00205017 /* Keyboard Helpers.swift */,
 				0DBCF75C1E496BEB00205017 /* DatePicker.swift */,
 				0DE208D21E47012400619AEF /* Event Class.swift */,
-				0DC677301E4EAB4A00F9A137 /* EventRealm.swift */,
 				0DE208D41E47013600619AEF /* User Class.swift */,
-				0DC677031E4E3AF600F9A137 /* UserRealm.swift */,
 				0DE208DC1E47FE3200619AEF /* Icon Class.swift */,
 				0D6D1A501E4D641500B53B0E /* firstLaunch.swift */,
 			);
@@ -273,6 +276,7 @@
 				0DE208DF1E48097900619AEF /* LensesViewController.swift in Sources */,
 				0DBCF7571E496B8A00205017 /* Weather API.swift in Sources */,
 				0D6393711E46D932003055DB /* Equipment Helpers.swift in Sources */,
+				0DE968721E50189B009D52DF /* TableViewArrayRealm.swift in Sources */,
 				0D63936F1E46D8FC003055DB /* Equipment Class.swift in Sources */,
 				0DC677061E4E40AC00F9A137 /* RealmTestViewController.swift in Sources */,
 				0DBCF7531E495DAA00205017 /* PastOrdersViewController.swift in Sources */,

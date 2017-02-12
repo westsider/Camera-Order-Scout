@@ -19,9 +19,9 @@ class UserRealm: Object {
     dynamic var weather = ""
     dynamic var icon:  NSData?
     
-// Specify properties to ignore (Realm won't persist these)
+    // Specify properties to ignore (Realm won't persist these)
     
-//  override static func ignoredProperties() -> [String] {
-//    return []
-//  }
+    //  override static func ignoredProperties() -> [String] {
+    //    return []
+    //  }
 }
