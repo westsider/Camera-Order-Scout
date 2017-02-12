@@ -158,6 +158,12 @@ class UserViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    @IBAction func clearDBAction(_ sender: Any) {
+        
+                try! realm.write {
+                    realm.deleteAll()
+                }
+    }
     
     @IBAction func showUserAction(_ sender: Any) {
 
