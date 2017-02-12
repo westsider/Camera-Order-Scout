@@ -50,11 +50,12 @@ class UserViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         
         // get event + user from realm
-        let savedEvent = realm.objects(EventRealm.self)
+        let defaultEvent = realm.objects(EventRealm.self)
 
         // Awesome!
         // Populate vc with saved event / user
-        for index in savedEvent {
+        for index in defaultEvent {
+            citySearch.text     = index.userInfo!.city
             userName.text       = index.userInfo!.name
             production.text     = index.userInfo!.production
             company.text        = index.userInfo!.company
@@ -71,9 +72,9 @@ class UserViewController: UIViewController, UITextFieldDelegate {
     @IBAction func updateAction(_ sender: Any) {
         
         // overwite event + user with text input
-        let savedEvent = realm.objects(EventRealm.self)
+        let defaultEvent = realm.objects(EventRealm.self)
         
-        for things in savedEvent {
+        for things in defaultEvent {
             guard let evnt = things.userInfo else {
                 print("error")
                 return

@@ -6,21 +6,21 @@
 //  Copyright © 2017 Warren Hansen. All rights reserved.
 //
 /*  feat: a new feature
-    fix: a bug fix
-    docs: changes to documentation
-    style: formatting, missing semi colons, etc; no code change
-    refactor: refactoring production code
-    test: adding tests, refactoring test; no production code change
-    chore: updating build tasks, package manager configs, etc; no production code change    */
+ fix: a bug fix
+ docs: changes to documentation
+ style: formatting, missing semi colons, etc; no code change
+ refactor: refactoring production code
+ test: adding tests, refactoring test; no production code change
+ chore: updating build tasks, package manager configs, etc; no production code change    */
 
-    /*---------------------------------------------------------------------------------------
-     |                                                                                       |
-     |             The Big difference in this iteration is the tableview equipment           |
-     |             is now stored in the event class and will avoid confusion when            | 
-     |             updating the table view lenses                                            |
-     |                                                                                       |
-     ---------------------------------------------------------------------------------------*/
-/*  
+/*---------------------------------------------------------------------------------------
+ |                                                                                       |
+ |             The Big difference in this iteration is the tableview equipment           |
+ |             is now stored in the event class and will avoid confusion when            |
+ |             updating the table view lenses                                            |
+ |                                                                                       |
+ ---------------------------------------------------------------------------------------*/
+/*
  realm objects
  Class =  Event
  attributes =
@@ -52,10 +52,16 @@
 //  task: finish past orders                            thur 2/10
 //  task: realm persistence of user                     fri 2/11
 //  task: realm persistence of event                    sat 2/11
-//  create and Event that can store Event Name 
+//  create and Event that can store Event Name
 //  task: create and Event that can store User          sat 2/11
 //  task: use realm to add tableview rows               sun 2/12
+//  check add user, - working except date bug
+//  bug - getting multiple events, should only be created on first run
+//  task: add items to tableview
 
+//  task: first load tableview does not load all equipment
+//  task: get rid of optional in tableview
+//  task: add lens kit to tableview  array event realm
 //  task: store EventTableView inside event             sun 2/12
 //  task: populate tableview for event tableview
 
@@ -83,14 +89,14 @@ var pickerEquipment = Equipment()       // picker equipment object
 var tableViewArrays = TableViewArrays()   // tableview array object -- should replace wit  thisEvent.tableViewArray
 
 class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDelegate, UITableViewDataSource {
-
+    
     @IBOutlet weak var myPicker: UIPickerView!
     
     @IBOutlet weak var myTableView: UITableView!
     
     var defaultUser = User(name: "Warren Hansen", production: "Nike", company: "CO3", city: "Santa Monica, CA", date: "12 / 20 / 2016", weather: "Sunny 72", icon: UIImage(named: "manIcon")!)
     var image = [UIImage]()
-
+    
     let cellIdentifier = "ListTableViewCell"
     
     let isFirstLaunch = UserDefaults.isFirstLaunch()
@@ -103,7 +109,7 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     
     let realm = try! Realm()            // Get the default Realm
     let user = UserRealm()              // Use them like regular Swift objects
-
+    
     //MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,62 +121,65 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     
     override func viewWillAppear(_ animated: Bool) {
         
-        
-        
 //        try! realm.write {
 //            realm.deleteAll()
 //        }
-        // get event and user from realm
-        let savedEvent = realm.objects(EventRealm.self)
-        // create a  user object
-        let user = UserRealm()
         
-        if savedEvent.count == 0 {
+        // populate eaquipment and tableView array before view appears
+        //populateEquipmentArray(component: 0, row: 0)
+        
+        // get event from realm
+        let defaultEvent = realm.objects(EventRealm.self)
+        print("defaultEvent count: \(defaultEvent.count)")
+        // on first run create a new user, new tableview ands populate event
+        if defaultEvent.count == 0 {
             
+            //                  create a  user object
+            let defaultUser = UserRealm()
             // in first run fill in values with defaut
-            user.name = "default"
-            user.production  = "default"
-            user.company  = "default"
-            user.date  = "default"
+            defaultUser.name = "default"
+            defaultUser.production  = "default"
+            defaultUser.company  = "default"
+            defaultUser.date  = "default"
             
-            // fill event with saved user
-            let event = EventRealm()
-            event.userInfo = user
+            //                  create tableview object
+            let rowOne = TableViewRow()
+            rowOne.icon = "man icon default" ; rowOne.title = "default D.O.P." ; rowOne.detail = "Camera Order default default"
+            let rowTwo = TableViewRow()
+            rowTwo.icon = "cam icon default";  rowTwo.title = "1 Camera default";  rowTwo.detail = "Arri Alexa default"
             
-            // persiste event
+            let defaultTableview = EventTableView()
+            defaultTableview.rows.append(objectsIn: [rowOne, rowTwo])
+            
+            //                  create event object
+            let defaultEvent = EventRealm()
+            defaultEvent.userInfo = defaultUser
+            defaultEvent.tableViewArray = defaultTableview
+            
+            //                  persiste default event
             try! realm.write {
-                realm.add(event)
+                realm.add(defaultEvent)
             }
+            
+            // populate the tablevie in this view
+            tableViewArrays.appendTableViewArray(title: "\(defaultTableview.rows[0].title)" , detail: "\(defaultTableview.rows[0].title)", icon: #imageLiteral(resourceName: "manIcon"), compState: [0,0,0,0])
         } else {
-            // fill user with saved event user
-            for index in savedEvent {
-                user.name = index.userInfo!.name
-                user.production  = index.userInfo!.production
-                user.company  = index.userInfo!.company
-                user.date  =  index.userInfo!.date
+            // on subsequent runs load event.user and event.table view
+            for index in defaultEvent {
+                print("default event index \(index)")
+                print(index.userInfo?.name ?? "no value")
+                print(index.userInfo?.production ?? "no value")
+                print(index.userInfo?.date ?? "no value")
+                
+                // populate the tablevie in this view
+                if tableViewArrays.tableViewArray.isEmpty {
+                    tableViewArrays.appendTableViewArray(title: "\(index.userInfo?.name) Director of Photography", detail: "Camera Order \(index.userInfo?.production) \(index.userInfo?.date)", icon: UIImage(named: "manIcon")!, compState: pickerEquipment.pickerState)
+                } else {
+                    tableViewArrays.updateUser(title: "\(index.userInfo?.name) Director of Photography", detail: "Camera Order \(index.userInfo?.production) \(index.userInfo?.date)")
+                }
             }
         }
-        // lad tableview every time until I pesist real tablevire array
-        // add defalt user if tableview array is empty - first load
-        if tableViewArrays.tableViewArray.isEmpty {
-           tableViewArrays.appendTableViewArray(title: "\(user.name) Director of Photography", detail: "Camera Order \(user.production) \(user.date)", icon: #imageLiteral(resourceName: "manIcon"), compState: [0,0,0,0])
-        }
-//       else {
-//            // if we come back from user update the taleview user
-//            print("\nview will appera Else")
-//            tableViewArrays.tableViewArray = thisEvent.tableViewArray // should do away with tableViewArrays.tableViewArray
-//            tableViewArrays.updateUser(title: "\(thisEvent.user.name) Director of Photography", detail: "Camera Order \(thisEvent.user.production) \(thisEvent.user.date)")
-//            //update main user
-//            print("\nView will appear Main View >>>>>>>>>>>>>>>>>>>>>>>>>>>")
-//            print("thisEvent.eventName: \(thisEvent.eventName)")
-//            print("thisEvent.user, prod, company, city: \(thisEvent.user.name)  \(thisEvent.user.production)  \(thisEvent.user.company)  \(thisEvent.user.city)")
-//            print("thisEvent.tableviewarray: \(thisEvent.tableViewArray)")
-//            print("thisEvent.image: \(thisEvent.images)")
-//            
-//        }
-       
         myTableView.reloadData() // reload when returning to this VC
-        
     }
     
     /*---------------------------------------------------------------------------------------
@@ -181,33 +190,32 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     //MARK: - Add Action
     @IBAction func addAction(_ sender: Any) {
         
-        //  add class 
+        //  add class
         //  add objects to this vc
-//        let newRow = TableViewRow()
-//        newRow.icon = "? icon" ;
-//        newRow.title = pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1]
-//        newRow.detail = pickerEquipment.pickerSelection[2] + " " +  pickerEquipment.pickerSelection[3]
-//
-//        
-//        let defaultTableview = EventTableView()
-//        defaultTableview.rows.append(objectsIn: [newRow])
-//        // save tableview
-//        try! realm.write {
-//            realm.add(defaultTableview)
-//        }
+        let newRow = TableViewRow()
+        newRow.icon = "? icon" ;
+        newRow.title = pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1]
+        newRow.detail = pickerEquipment.pickerSelection[2] + " " +  pickerEquipment.pickerSelection[3]
         
-        // retrive tavleview
-        let savedTableview = realm.objects(EventTableView.self)
-
-        //print("\nsavedTableview: \(savedTableview)")
-        
-        //  get the tableview arrauy back out
-        for index in savedTableview {
-            print("\n*****************")
-            print("\n\(index.rows[0].icon) \(index.rows[0].title)")
-            print("         \(index.rows[0].detail)")
+        /// re fetch event
+        let defaultEvent = realm.objects(EventRealm.self)
+        for indexTwo in defaultEvent {
+            // append new row
+            try? realm .write {
+                indexTwo.tableViewArray?.rows.append(objectsIn: [newRow])
+            }
         }
+        // get user from realm
+        let savedEventCheck = realm.objects(EventRealm.self)
         
+        print("this is savedEventCheck -- checking number of events")
+        print("defaultEvent.count: \(defaultEvent.count)")
+        print("savedEventCheck count: \(savedEventCheck.count)")
+        for index in savedEventCheck {
+            print(index.userInfo!.name, index.userInfo!.production, index.userInfo!.company)
+            print(index.eventName)
+            print(index.tableViewArray!)
+        }
         
         // append the equipment to the tableview
         tableViewArrays.appendTableViewArray(title: pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1], detail: pickerEquipment.pickerSelection[2] + " " + pickerEquipment.pickerSelection[3], icon: UIImage(named: "manIcon")!, compState: pickerEquipment.pickerState)
@@ -234,10 +242,10 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         
         let message = tableViewArrays.messageContent()
         print(message)
-
+        
     }
     
-
+    
     /*---------------------------------------------------------------------------------------
      |                                                                                       |
      |                             NEW AWESOME PICKER OBJECT                                 |
@@ -251,14 +259,14 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     // The number of rows of data
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return   pickerEquipment.pickerArray[component].count //pickerEquipment[component].count
-    
+        
     }
     
     // The data to return for the row and component (column) that's being passed in
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerEquipment.pickerArray[component][row]
     }
-
+    
     // MARK: - when picker wheels move change the pickerArray and reload
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
@@ -326,10 +334,10 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     }
     
     /*---------------------------------------------------------------------------------------
-    |                                                                                       |
-    |                             NEW AWESOME TABLEVIEW OBJECT                              |
-    |                                                                                       |
-    ---------------------------------------------------------------------------------------*/
+     |                                                                                       |
+     |                             NEW AWESOME TABLEVIEW OBJECT                              |
+     |                                                                                       |
+     ---------------------------------------------------------------------------------------*/
     
     //MARK: Set up Table View
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -353,6 +361,6 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             performSegue(withIdentifier: "mainToUser", sender: self)
         }
     }
-
+    
 }
 
