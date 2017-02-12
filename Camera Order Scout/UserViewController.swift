@@ -94,7 +94,7 @@ class UserViewController: UIViewController, UITextFieldDelegate {
             // Persist your data easily
             try! realm.write {
                 savedUser[0].name = name    // update in realm
-                savedUser[0].icon = NSData(data: UIImagePNGRepresentation(#imageLiteral(resourceName: "manIcon"))!)
+                //savedUser[0].icon = NSData(data: UIImagePNGRepresentation(#imageLiteral(resourceName: "manIcon"))!)
                 print("user name uodated to: \(savedUser[0].name)")
             }
         }

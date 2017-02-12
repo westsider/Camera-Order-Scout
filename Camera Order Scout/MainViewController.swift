@@ -58,7 +58,7 @@
         //  task: create and Event that can store EventTableView
 //  task: realm persistence of past events              sat 2/11
 
-//  feat: don with persistance
+//  feat: done with persistance
 //  task: first run Tutorial                            sun 2/12
 //  http://stackoverflow.com/questions/13335540/how-to-make-first-launch-iphone-app-tour-guide-with-xcode
 //  task: turn print into share                         sun 2/12
@@ -128,6 +128,11 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         
         // get user from realm
         let savedUser = realm.objects(UserRealm.self)
+        
+        try! realm.write {
+            realm.delete(savedUser)
+        }
+        
         // set up default user
         if savedUser.count == 0 {
             // Persist your data easily
@@ -136,18 +141,19 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
                 print("add user")
             }
         }
-            var userRealm = ""
-            var productionRealm  = ""
-            //var companyRealm  = ""
-            var dateRealm  = ""
-            //var iconRealm = NSData(data: UIImagePNGRepresentation(#imageLiteral(resourceName: "manIcon"))!)
-            for items in savedUser {
-                userRealm        = items.name
-                productionRealm  = items.production
-                //companyRealm     = items.company
-                dateRealm        = items.date
-                // iconRealm       = items.icon!
-            }
+        
+        var userRealm = ""
+        var productionRealm  = ""
+        //var companyRealm  = ""
+        var dateRealm  = ""
+        //var iconRealm = NSData(data: UIImagePNGRepresentation(#imageLiteral(resourceName: "manIcon"))!)
+        for items in savedUser {
+            userRealm        = items.name
+            productionRealm  = items.production
+            //companyRealm     = items.company
+            dateRealm        = items.date
+            // iconRealm       = items.icon!
+        }
         
         
         // add defalt user if tableview array is empty - first load

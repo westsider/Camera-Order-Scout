@@ -17,7 +17,7 @@ class UserRealm: Object {
     dynamic var city = ""
     dynamic var date = ""
     dynamic var weather = ""
-    dynamic var icon:  NSData?
+    //dynamic var icon:  NSData?
     
     // Specify properties to ignore (Realm won't persist these)
     
