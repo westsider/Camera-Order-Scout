@@ -58,9 +58,9 @@
 //  check add user, - working except date bug
 //  bug - getting multiple events, should only be created on first run
 //  task: add items to tableview
+//  task: get rid of optional in tableview
 
 //  task: first load tableview does not load all equipment
-//  task: get rid of optional in tableview
 //  task: add lens kit to tableview  array event realm
 //  task: store EventTableView inside event             sun 2/12
 //  task: populate tableview for event tableview
@@ -121,12 +121,7 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     
     override func viewWillAppear(_ animated: Bool) {
         
-//        try! realm.write {
-//            realm.deleteAll()
-//        }
-        
-        // populate eaquipment and tableView array before view appears
-        //populateEquipmentArray(component: 0, row: 0)
+        //  deleteRealmObject()
         
         // get event from realm
         let defaultEvent = realm.objects(EventRealm.self)
@@ -173,9 +168,9 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
                 
                 // populate the tablevie in this view
                 if tableViewArrays.tableViewArray.isEmpty {
-                    tableViewArrays.appendTableViewArray(title: "\(index.userInfo?.name) Director of Photography", detail: "Camera Order \(index.userInfo?.production) \(index.userInfo?.date)", icon: UIImage(named: "manIcon")!, compState: pickerEquipment.pickerState)
+                    tableViewArrays.appendTableViewArray(title: "\(index.userInfo!.name) Director of Photography", detail: "Camera Order \(index.userInfo?.production) \(index.userInfo!.date)", icon: UIImage(named: "manIcon")!, compState: pickerEquipment.pickerState)
                 } else {
-                    tableViewArrays.updateUser(title: "\(index.userInfo?.name) Director of Photography", detail: "Camera Order \(index.userInfo?.production) \(index.userInfo?.date)")
+                    tableViewArrays.updateUser(title: "\(index.userInfo!.name) Director of Photography", detail: "Camera Order \(index.userInfo!.production) \(index.userInfo!.date)")
                 }
             }
         }
@@ -359,6 +354,12 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             //  print("Row: \(indexPath.row) segue to User")
             
             performSegue(withIdentifier: "mainToUser", sender: self)
+        }
+    }
+    
+    func deleteRealmObject() {
+        try! realm.write {
+            realm.deleteAll()
         }
     }
     
