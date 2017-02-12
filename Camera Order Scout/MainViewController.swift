@@ -53,9 +53,9 @@
 //  task: realm persistence of user                     fri 2/11
 //  task: realm persistence of event                    sat 2/11
 //  create and Event that can store Event Name 
+//  task: create and Event that can store User
 
-        //  task: create and Event that can store User 
-        //  task: create and Event that can store EventTableView
+//  task: create and Event that can store EventTableView
 //  task: realm persistence of past events              sat 2/11
 
 //  feat: done with persistance
@@ -126,39 +126,58 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     
     override func viewWillAppear(_ animated: Bool) {
         
-        // get user from realm
-        let savedUser = realm.objects(UserRealm.self)
+//        // get user from realm
+//        let savedUser = realm.objects(UserRealm.self)
+//        
+//        // set up default user
+//        if savedUser.count == 0 {
+//            // Persist your data easily
+//            try! realm.write {
+//                realm.add(user)
+//                print("add user")
+//            }
+//        }
         
-        try! realm.write {
-            realm.delete(savedUser)
-        }
+//        try! realm.write {
+//            realm.deleteAll()
+//        }
         
-        // set up default user
-        if savedUser.count == 0 {
-            // Persist your data easily
+        let savedEvent = realm.objects(EventRealm.self)
+        // create a  user object
+        let user = UserRealm()
+        
+        if savedEvent.count == 0 {
+            
+            // in first run fill in values with defaut
+            user.name = "default"
+            user.production  = "default"
+            user.company  = "default"
+            user.date  = "default"
+            
+            // fill event with saved user
+            let event = EventRealm()
+            event.userInfo = user
+            
+            // persiste event
             try! realm.write {
-                realm.add(user)
-                print("add user")
+                realm.add(event)
+            }
+        } else {
+            // fill user with saved event user
+            for index in savedEvent {
+                user.name = index.userInfo!.name
+                user.production  = index.userInfo!.production
+                user.company  = index.userInfo!.company
+                user.date  =  index.userInfo!.date
             }
         }
+
         
-        var userRealm = ""
-        var productionRealm  = ""
-        //var companyRealm  = ""
-        var dateRealm  = ""
-        //var iconRealm = NSData(data: UIImagePNGRepresentation(#imageLiteral(resourceName: "manIcon"))!)
-        for items in savedUser {
-            userRealm        = items.name
-            productionRealm  = items.production
-            //companyRealm     = items.company
-            dateRealm        = items.date
-            // iconRealm       = items.icon!
-        }
         
         
         // add defalt user if tableview array is empty - first load
         if tableViewArrays.tableViewArray.isEmpty {
-           tableViewArrays.appendTableViewArray(title: "\(userRealm) Director of Photography", detail: "Camera Order \(productionRealm) \(dateRealm)", icon: thisEvent.user.icon, compState: [0,0,0,0])
+           tableViewArrays.appendTableViewArray(title: "\(user.name) Director of Photography", detail: "Camera Order \(user.production) \(user.date)", icon: thisEvent.user.icon, compState: [0,0,0,0])
         } else {
             // if we come back from user update the taleview user
             print("\nview will appera Else")

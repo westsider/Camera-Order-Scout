@@ -38,7 +38,7 @@ class UserViewController: UIViewController, UITextFieldDelegate {
     
     let realm = try! Realm()            // Get the default Realm
     
-    let user = UserRealm()              // Use them like regular Swift objects
+    //let user = UserRealm()              // Use them like regular Swift objects
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,18 +60,27 @@ class UserViewController: UIViewController, UITextFieldDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         
-        // get user from realm
-        let savedUser = realm.objects(UserRealm.self)
+//        // get user from realm
+//        let savedUser = realm.objects(UserRealm.self)
+//        
+//        for items in savedUser {
+//            userName.text       = items.name
+//            production.text     = items.production
+//            company.text        = items.company
+//            dateTextInput.text  = items.date
+//        }
+        // get event / user from realm
+        let savedEvent = realm.objects(EventRealm.self)
+        print("\nsavedEvent in user vc: \(savedEvent)")
+        // Awesome!
+        // Populate vc with saved event / user
         
-        for items in savedUser {
-            userName.text       = items.name
-            production.text     = items.production
-            company.text        = items.company
-            dateTextInput.text  = items.date
+        for index in savedEvent {
+            userName.text = index.userInfo!.name
+            production.text     = index.userInfo!.production
+            company.text        = index.userInfo!.company
+            dateTextInput.text  = index.userInfo!.date
         }
-        
-        //  get user from main vc - use event
-        print("\nEvent Lifecycle 2, user vwl, create the event \(thisEvent.eventName, thisEvent.user.name, thisEvent.user.production, thisEvent.user.company, thisEvent.user.city, thisEvent.user.date, thisEvent.user.weather)")
     }
     
     /*---------------------------------------------------------------------------------------
@@ -82,7 +91,7 @@ class UserViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func updateAction(_ sender: Any) {
         
-        let savedUser = realm.objects(UserRealm.self)
+
         
         // change default text to user name
         if (userName.text?.isEmpty)! {
@@ -90,13 +99,7 @@ class UserViewController: UIViewController, UITextFieldDelegate {
         } else {
             let name = userName.text!
             thisEvent.user.name = name
-            
-            // Persist your data easily
-            try! realm.write {
-                savedUser[0].name = name    // update in realm
-                //savedUser[0].icon = NSData(data: UIImagePNGRepresentation(#imageLiteral(resourceName: "manIcon"))!)
-                print("user name uodated to: \(savedUser[0].name)")
-            }
+
         }
         
         // change default text to production
@@ -105,10 +108,10 @@ class UserViewController: UIViewController, UITextFieldDelegate {
         } else {
               thisEvent.user.production = production.text!
             // Persist your data easily
-            try! realm.write {
-                savedUser[0].production = production.text!    // update in realm
-                print("user production uodated to: \(savedUser[0].production)")
-            }
+//            try! realm.write {
+//                user.production = production.text!    // update in realm
+//                print("user production uodated to: \(user.production )")
+//            }
         }
         
         // change default text to company
@@ -117,10 +120,10 @@ class UserViewController: UIViewController, UITextFieldDelegate {
         } else {
               thisEvent.user.company = company.text!
             // Persist your data easily
-            try! realm.write {
-                savedUser[0].company = company.text!    // update in realm
-                print("user company uodated to: \(savedUser[0].company)")
-            }
+//            try! realm.write {
+//                user.company = company.text!    // update in realm
+//                print("user company uodated to: \(user.company)")
+//            }
         }
         
         // change default text to date
@@ -130,10 +133,10 @@ class UserViewController: UIViewController, UITextFieldDelegate {
               thisEvent.user.city = citySearch.text!
             
             // Persist your data easily
-            try! realm.write {
-                savedUser[0].city = citySearch.text!    // update in realm
-                print("user city uodated to: \(savedUser[0].city)")
-            }
+//            try! realm.write {
+//                user.city = citySearch.text!    // update in realm
+//                print("user city uodated to: \(user.city)")
+//            }
         }
         
         // change default text to date
@@ -142,11 +145,11 @@ class UserViewController: UIViewController, UITextFieldDelegate {
         } else {
             thisEvent.user.date = dateTextInput.text!
             
-            // Persist your data easily
-            try! realm.write {
-                savedUser[0].date = dateTextInput.text!    // update in realm
-                print("user date uodated to: \(savedUser[0].date)")
-            }
+//            // Persist your data easily
+//            try! realm.write {
+//                user.date = dateTextInput.text!    // update in realm
+//                print("user date uodated to: \(user.date)")
+//            }
         }
         
         // chznge default text to weather
@@ -155,15 +158,35 @@ class UserViewController: UIViewController, UITextFieldDelegate {
         } else {
             thisEvent.user.weather = weatherDisplay.text
             
-            // Persist your data easily
-            try! realm.write {
-                savedUser[0].weather = weatherDisplay.text!    // update in realm
-                print("user weather uodated to: \(savedUser[0].weather)")
-            }
+//            // Persist your data easily
+//            try! realm.write {
+//                user.weather = weatherDisplay.text!    // update in realm
+//                print("user weather uodated to: \(user.weather)")
+//            }
         }
         
-        //  get user from main vc - use event
-        print("\nEvent Lifecycle 3, user vwl, update the event \(thisEvent.eventName, thisEvent.user.name, thisEvent.user.production, thisEvent.user.company, thisEvent.user.city, thisEvent.user.date, thisEvent.user.weather)")
+//        //  get user from main vc - use event
+//        print("\nEvent Lifecycle 3, user vwl, update the event \(thisEvent.eventName, thisEvent.user.name, thisEvent.user.production, thisEvent.user.company, thisEvent.user.city, thisEvent.user.date, thisEvent.user.weather)")
+        
+        // overwite user with text input
+        let savedEvent = realm.objects(EventRealm.self)
+        
+        for things in savedEvent {
+            guard let evnt = things.userInfo else {
+                print("error")
+                return
+            }
+            
+            // Persist your data easily
+            try! realm.write {
+                evnt.name = userName.text!
+                evnt.production = production.text!
+                evnt.company = company.text!
+                evnt.city = citySearch.text!
+                evnt.date = dateTextField.text!
+                
+            }
+        }
         
     }
     
@@ -235,19 +258,37 @@ class UserViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func showUserAction(_ sender: Any) {
-        let savedUser = realm.objects(UserRealm.self)
-        var message = "users = \(savedUser.count)"
+//          let savedUser = realm.objects(UserRealm.self)
+//        var message = "users = \(savedUser.count)"
+//        
+//        for items in savedUser {
+//            print("\nsavedUser from Job Info \(savedUser.count)  \(items.name)") // => 1
+//            message += "\nName: \(items.name)"
+//            message += "\nProduction: \(items.production)"
+//            message += "\ncompany: \(items.company)"
+//            message += "\ncity: \(items.city)"
+//            message += "\ndate: \(items.date)"
+//            message += "\nweather: \(items.weather)"
+//        }
         
-        for items in savedUser {
-            print("\nsavedUser from Job Info \(savedUser.count)  \(items.name)") // => 1
-            message += "\nName: \(items.name)"
-            message += "\nProduction: \(items.production)"
-            message += "\ncompany: \(items.company)"
-            message += "\ncity: \(items.city)"
-            message += "\ndate: \(items.date)"
-            message += "\nweather: \(items.weather)"
+        //  get the  user back out
+        // get event / user from realm
+        let savedEvent = realm.objects(EventRealm.self)
+        var message = ""
+        for things in savedEvent {
+            guard let evnty = things.userInfo else {
+                print("error")
+                return
+            }
+            message += "users = \(savedEvent.count)"
+            message += "\nName: \(evnty.name)"
+            message += "\nProduction: \(evnty.production)"
+            message += "\ncompany: \(evnty.company)"
+            message += "\ncity: \(evnty.city)"
+            message += "\ndate: \(evnty.date)"
+            message += "\nweather: \(evnty.weather)"
+            
         }
-        
         userData.text = message
     }
     
