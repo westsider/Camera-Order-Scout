@@ -40,6 +40,10 @@ class TableViewArrays {
         }
     }
     
+    func removeAll() {
+        tableViewArray.removeAll()
+    }
+    
     /// populate tableview in Lens VC
     func lensTableView() {
         
@@ -201,8 +205,8 @@ class TableViewArrays {
             if counter == 0 {
                 message += "\nCamera  Order\n\r"
                 message += "\(line[0])\n\r"
-                message += "\(thisEvent.user.production) \(thisEvent.user.company) \(thisEvent.user.date)\n\r"
-                message +=  "Weather Forecast for \(thisEvent.user.city)\n\(thisEvent.user.weather)\n\r"
+                //  message += "\(thisEvent.user.production) \(thisEvent.user.company) \(thisEvent.user.date)\n\r"
+                //  message +=  "Weather Forecast for \(thisEvent.user.city)\n\(thisEvent.user.weather)\n\r"
             
             } else {
                 message += "\(line[0])\n\(line[1])\n\r"

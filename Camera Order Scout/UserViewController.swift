@@ -91,6 +91,9 @@ class UserViewController: UIViewController, UITextFieldDelegate {
             }
         }
         
+        print("\ndefaultEvent after save: \(defaultEvent)")
+         _ = navigationController?.popToRootViewController(animated: true)
+        
     }
     
     // MARK: - Keyboard behavior functions
@@ -155,7 +158,7 @@ class UserViewController: UIViewController, UITextFieldDelegate {
         
         dateTextInput.text = dateFormatter.string(from: sender.date)
         
-        thisEvent.user.date  = dateFormatter.string(from: sender.date)
+//thisEvent.user.date  = dateFormatter.string(from: sender.date)
         
     }
     

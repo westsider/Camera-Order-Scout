@@ -97,29 +97,29 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
         print("\nBefore Save allEvents.count\(allEvents.count)")
         
         // make sure textInput contains a new name
-        if eventNameInput.text != "" {
+ //       if eventNameInput.text != "" {
             
-            if let textInput = eventNameInput.text {
+//            if let textInput = eventNameInput.text {
                 
                 // classes are passes by reference - must create new instance or I get repeated event names
-                let newEvent = Event(eventName: textInput, user: thisEvent.user, tableViewArray: thisEvent.tableViewArray, images: imagey)
+//                let newEvent = Event(eventName: textInput, user: thisEvent.user, tableViewArray: thisEvent.tableViewArray, images: imagey)
                 
                 //newEvent.eventName = textInput
-                print("\nGive thisEvent a name: \(newEvent.eventName)")
-                
-                allEvents.append(newEvent)
-                for event in allEvents {
-                    print("Name: \(event.eventName)")
-                }
-                
-                print("\nAfter aopending allEvents count is \(allEvents.count)")
-                print("\nNow append tableViewTitleArray with \(newEvent.eventName)")
-                tableViewTitleArray.append(newEvent.eventName)
-            }
-        } else {
-            print("No text input")
-            eventNameInput.text = "Please enter a name for this order"
-        }
+//                print("\nGive thisEvent a name: \(newEvent.eventName)")
+//                
+//                allEvents.append(newEvent)
+//                for event in allEvents {
+//                    print("Name: \(event.eventName)")
+//                }
+//                
+//                print("\nAfter aopending allEvents count is \(allEvents.count)")
+//                print("\nNow append tableViewTitleArray with \(newEvent.eventName)")
+//                tableViewTitleArray.append(newEvent.eventName)
+//            }
+//        } else {
+//            print("No text input")
+//            eventNameInput.text = "Please enter a name for this order"
+//        }
         eventsTableView.reloadData()
     }
 
@@ -149,21 +149,15 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
      ---------------------------------------------------------------------------------------*/
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let theRow = indexPath.row
+//        let theRow = indexPath.row
         
-            // update main event
-            thisEvent = allEvents[theRow]
-            
-            // update main tableview array
-            thisEvent.tableViewArray = allEvents[theRow].tableViewArray
-            //thisEvent.user = allEvents[theRow].user
-            
-            //update main user
-            print("\nUpdating this event and returning to man View >>>>>>>>>>>>>>>>>>>>>>>>>>>")
-            print("thisEvent.eventName: \(thisEvent.eventName)")
-            print("thisEvent.user, prod, company, city: \(thisEvent.user.name)  \(thisEvent.user.production)  \(thisEvent.user.company)  \(thisEvent.user.city)")
-            print("thisEvent.tableviewarray: \(thisEvent.tableViewArray)")
-            print("thisEvent.image: \(thisEvent.images)")
+//            // update main event
+//            thisEvent = allEvents[theRow]
+//            
+//            // update main tableview array
+//            thisEvent.tableViewArray = allEvents[theRow].tableViewArray
+//            //thisEvent.user = allEvents[theRow].user
+        
 
         _ = navigationController?.popToRootViewController(animated: true)
         

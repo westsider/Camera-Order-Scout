@@ -59,12 +59,12 @@
 //  bug - getting multiple events, should only be created on first run
 //  task: add items to tableview
 //  task: get rid of optional in tableview
-
-//  task: first load tableview does not load all equipment
-//  task: add lens kit to tableview  array event realm
+//  task: first load tableview and subsequent runs load the tableview correctly
 //  task: store EventTableView inside event             sun 2/12
-//  task: populate tableview for event tableview
+//  task: populate tableview from event tableview
 
+//  task: add lens kit to tableview  array event realm
+//  task: fix date
 //  task: realm persistence of past events              sun 2/12
 
 //  feat: done with persistance
@@ -80,9 +80,9 @@ import Foundation
 import UIKit
 import RealmSwift
 
-var thisEvent: Event! // has user instanciate one here next, user crash on way back to main vc, past orders crashed on update
+//var thisEvent: Event! // has user instanciate one here next, user crash on way back to main vc, past orders crashed on update
 
-var defaultUser: User!        // fuck default user - its in the event?
+//var defaultUser: User!        // fuck default user - its in the event?
 
 var pickerEquipment = Equipment()       // picker equipment object
 
@@ -121,30 +121,34 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     
     override func viewWillAppear(_ animated: Bool) {
         
-        //  deleteRealmObject()
+          //deleteRealmObject()
+        
+        // return to main tableview generates another user
+        // user never populates from realm
         
         // get event from realm
         let defaultEvent = realm.objects(EventRealm.self)
         print("defaultEvent count: \(defaultEvent.count)")
+        
         // on first run create a new user, new tableview ands populate event
         if defaultEvent.count == 0 {
-            
+            print("\nFIRST RUN TRIGGERED defaultEvent in viewWIllAppear")
             //                  create a  user object
             let defaultUser = UserRealm()
             // in first run fill in values with defaut
-            defaultUser.name = "default"
-            defaultUser.production  = "default"
-            defaultUser.company  = "default"
-            defaultUser.date  = "default"
+            defaultUser.name = "new user"
+            defaultUser.production  = "new production"
+            defaultUser.company  = "new company"
+            defaultUser.date  = "new date"
             
             //                  create tableview object
             let rowOne = TableViewRow()
-            rowOne.icon = "man icon default" ; rowOne.title = "default D.O.P." ; rowOne.detail = "Camera Order default default"
-            let rowTwo = TableViewRow()
-            rowTwo.icon = "cam icon default";  rowTwo.title = "1 Camera default";  rowTwo.detail = "Arri Alexa default"
+            rowOne.icon = "man icon default" ; rowOne.title = "\(defaultUser.name) Director of Photography" ; rowOne.detail = "Camera Order \(defaultUser.production) \(defaultUser.date )"
+            //let rowTwo = TableViewRow()
+            //rowTwo.icon = "cam icon default";  rowTwo.title = "1 Camera default";  rowTwo.detail = "Arri Alexa default"
             
             let defaultTableview = EventTableView()
-            defaultTableview.rows.append(objectsIn: [rowOne, rowTwo])
+            defaultTableview.rows.append(objectsIn: [rowOne])
             
             //                  create event object
             let defaultEvent = EventRealm()
@@ -155,21 +159,54 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             try! realm.write {
                 realm.add(defaultEvent)
             }
-            
+             print("viewWIllAppear default event loaded: \(defaultEvent)")
             // populate the tablevie in this view
-            tableViewArrays.appendTableViewArray(title: "\(defaultTableview.rows[0].title)" , detail: "\(defaultTableview.rows[0].title)", icon: #imageLiteral(resourceName: "manIcon"), compState: [0,0,0,0])
+            tableViewArrays.appendTableViewArray(title: "\(defaultTableview.rows[0].title)" , detail: "\(defaultTableview.rows[0].detail)", icon: #imageLiteral(resourceName: "manIcon"), compState: [0,0,0,0])
         } else {
-            // on subsequent runs load event.user and event.table view
+            // on subsequent runs load event.user and event.table view, clear the tableview array
+            print("\nSubsequrnt run triggered")
             for index in defaultEvent {
-                print("default event index \(index)")
+                print("clear the array")
+                tableViewArrays.removeAll()
+                print("\nindex in defaultEvent -------------------------------------- Using Index to access")
+                print("default event index \(index)----------------------------------- the whole index")
                 print(index.userInfo?.name ?? "no value")
                 print(index.userInfo?.production ?? "no value")
                 print(index.userInfo?.date ?? "no value")
+                 //print("row 0: \(index.tableViewArray?.rows[0])")
+                        print("row 0  title: \(index.tableViewArray?.rows[0].title)")
+                print("row 0  title: \(index.tableViewArray?.rows[0].detail)")
+                // put the current user into the Event
+                try! realm.write {
+                    index.tableViewArray?.rows[0].title  = "\(index.userInfo!.name) Director of Photography"
+                    index.tableViewArray?.rows[0].detail  = "Camera Order \(index.userInfo!.production) \(index.userInfo!.date)"
+                }
                 
-                // populate the tablevie in this view
+                
+                
+                // populate the tableview in this view
                 if tableViewArrays.tableViewArray.isEmpty {
-                    tableViewArrays.appendTableViewArray(title: "\(index.userInfo!.name) Director of Photography", detail: "Camera Order \(index.userInfo?.production) \(index.userInfo!.date)", icon: UIImage(named: "manIcon")!, compState: pickerEquipment.pickerState)
+                    print("tableViewArrays.tableViewArray.isEmpty and not appending detail correctly--------------------------")
+                    // find count of table view arrays in realm and for loop
+                    let items = index.tableViewArray
+                    print("\nitems?.rows.count: \(items?.rows.count)")
+                    for theRows in (items?.rows)! {
+                        print(theRows.icon, theRows.title)
+                        print(theRows.detail)
+                        // append the array for each row
+                        tableViewArrays.appendTableViewArray(title: theRows.title, detail: theRows.detail , icon: UIImage(named: "manIcon")!, compState: pickerEquipment.pickerState)
+                        
+                    }
+                    /*---------------------------------------------------------------------------------------
+                     |                                                                                       |
+                     |                       send event tableview array  to tableview                        |
+                     |                                                                                       |
+                     ---------------------------------------------------------------------------------------*/
+                    
                 } else {
+                    // im not sure why I'd update the user here???
+                    print("\nim not sure why I'd update the user here???")
+                    print("tableViewArrays.tableViewArray is not Empty so update user in tableview array")
                     tableViewArrays.updateUser(title: "\(index.userInfo!.name) Director of Photography", detail: "Camera Order \(index.userInfo!.production) \(index.userInfo!.date)")
                 }
             }

@@ -22,4 +22,8 @@ class TableViewRow: Object {
 class EventTableView: Object {
     let rows = List<TableViewRow>()
     //override var description: String { return "Car {\(brand), \(name), \(year)}" }
+    
+    func replaceUser(){
+        print("replace user called")
+    }
 }

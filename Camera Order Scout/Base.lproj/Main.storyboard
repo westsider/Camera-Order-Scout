@@ -560,7 +560,6 @@
                                 <state key="normal" title="Update"/>
                                 <connections>
                                     <action selector="updateAction:" destination="FrI-I6-0QT" eventType="touchUpInside" id="C5q-xT-z1Q"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="userToMain" id="sqS-it-Caf"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -750,6 +749,6 @@
         <image name="myAppIcon" width="90" height="90"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sqS-it-Caf"/>
+        <segue reference="NdS-bg-kai"/>
     </inferredMetricsTieBreakers>
 </document>
