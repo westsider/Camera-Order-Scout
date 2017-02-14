@@ -10,34 +10,7 @@ import UIKit
 import RealmSwift
 
 // Define your models like regular Swift classes
-/*
-class Dog: Object {
-    dynamic var name = ""
-    dynamic var age = 0
-}
-class Person: Object {
-    dynamic var name = ""
-    dynamic var picture: NSData? = nil // optionals supported
-    let dogs = List<Dog>()
-}
 
-class UserRealm: Object {
-    
-    dynamic var name = ""
-    dynamic var production = ""
-    dynamic var company = ""
-    dynamic var city = ""
-    dynamic var date = ""
-    dynamic var weather = ""
-    dynamic var icon:  NSData?
-    
-    // Specify properties to ignore (Realm won't persist these)
-    
-    //  override static func ignoredProperties() -> [String] {
-    //    return []
-    //  }
-}
-*/
 class RealmTestViewController: UIViewController {
  @IBOutlet weak var loadAction: NSLayoutConstraint!
      @IBOutlet weak var saveAction: UIButton!
@@ -46,6 +19,7 @@ class RealmTestViewController: UIViewController {
 
     @IBOutlet weak var savedText: UITextView!
     
+    @IBOutlet weak var iconImage: UIImageView!
     
     
     // Get the default Realm
@@ -113,31 +87,18 @@ class RealmTestViewController: UIViewController {
         print("user after delete \(savedUser.count)")
     }
     
+    @IBAction func setImage(_ sender: Any) {
+        
+       // let input = "1 Camera" as Any
+        
+        //iconImage.image = setTableViewIco
+    }
+    
+    @IBAction func clearImage(_ sender: Any) {
+        
+        iconImage.image = UIImage(named: "manIcon")
+        
+    }
+    
 }
 
-/*
- in main vc add user if user.count = 0
- 
- // Get the default Realm
- let realm = try! Realm()
- // Use them like regular Swift objects
- let user = UserRealm()
- 
-// check for users
- if user.count = 0 {}
- try! realm.write {
- realm.add(user)
- print("add user")
- }
- 
- 
- in user vc just update the user values --
- 
- // Get the default Realm
- let realm = try! Realm()
- // Use them like regular Swift objects
- let user = UserRealm()
- 
- user.name = userName.text
- 
- */

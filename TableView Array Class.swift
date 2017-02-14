@@ -20,15 +20,69 @@ class TableViewArrays {
     
     var thePrimes = String()
     
+    func setTableViewIcon(title: String )-> UIImage {
+        
+        //print("\nInside setTableViewIcon getting Catagory \(title) as Any")
+        
+        let image = UIImage(named: "manIcon")!
+        
+        let catagory = title
+        
+        //print("\nInside setTableViewIcon getting Catagory \(title) as String")
+        //print("\nThe Catagory is: \(title)")
+        
+        
+        if catagory.range(of:"Camera") != nil {
+            print("Setting Camera")
+            return UIImage(named: "cameraIcon")!
+        }
+        
+        if catagory.range(of:"Primes") != nil {
+            return UIImage(named: "lensIcon")!
+        }
+        
+        if catagory.range(of:"Macros") != nil {
+            return UIImage(named: "lensIcon")!
+        }
+        
+        if catagory.range(of:"Probe Lens") != nil {
+            return UIImage(named: "lensIcon")!
+        }
+        
+        if catagory.range(of:"Zoom Lens") != nil {
+            return UIImage(named: "lensIcon")!
+        }
+        
+        if catagory.range(of:"AKS") != nil {
+            return UIImage(named: "gearIcon")!
+        }
+        
+        if catagory.range(of:"Finder") != nil {
+            return UIImage(named: "gearIcon")!
+        }
+        
+        if catagory.range(of:"Filters") != nil {
+            return UIImage(named: "gearIcon")!
+        }
+        
+        if catagory.range(of:"Support") != nil {
+            return UIImage(named: "gearIcon")!
+        }
+        print("\nInside setTableViewIcon returning image \(image)")
+        return image
+    }
+    
     /// add picker selection to tableview array
-    func appendTableViewArray(title: String, detail: String, icon: UIImage, compState: [Int] ) {   // when Adding to tableview in main VC
+    func appendTableViewArray(title: String, detail: String, compState: [Int] ) {   // when Adding to tableview in main VC
 
             var newRow = [Any]()
             newRow.append(title)
             newRow.append(detail)
-            newRow.append(icon)
+            newRow.append(setTableViewIcon(title: title))
             tableViewArray.append(newRow)
+        //print("\n The TRICKY icon state:m \(title) \n\(detail) \n\(icon)")
     }
+    
     
     func removeAll() {
         tableViewArray.removeAll()

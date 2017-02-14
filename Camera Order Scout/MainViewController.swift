@@ -63,9 +63,10 @@
 //  task: store EventTableView inside event             sun 2/12
 //  task: populate tableview from event tableview
 //  task: add lens kit to tableview  array event realm
-
 //  task: fix date
-//  task: implement icon                                mon 2/13
+//  task: implement icon + removed problem with load tableview
+
+//  task: print statements and unused functions and files                               mon 2/13
 //  task: realm persistence of past events
 
 //  feat: done with persistance
@@ -130,12 +131,17 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
                 
                 init_Current_User_To_Event_Tableview(index: index); print("\nput current user into event tableview")
                 
+                /*---------------------------------------------------------------------------------------
+                 |                                                                                       |
+                 |                      populate tableview on start up   & return to vc                   |
+                 |                                                                                       |
+                 ---------------------------------------------------------------------------------------*/
                 if tableViewArrays.tableViewArray.isEmpty {    print("\ntableViewArrays.tableViewArray.isEmpty")
                     
                     let items = index.tableViewArray;           print("\ntableview rows count: \(items?.rows.count)")
                     
-                    // bug here, detail copies the lens kit for all rows
-                    populateTableviewArray(items: items!);       print("\n*** Bug Here *** populate  theTableviewArray")
+                    populateTableviewArray(items: items!);
+                    print("\n*****First Run I populatete the tableview correctly passing in\(items!)")
                 }
             }
         }
@@ -151,13 +157,14 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     //MARK: - Add Action
     @IBAction func addAction(_ sender: Any) {
         
+        print("\nEntering Action to populate tableview")
         // if a new camera
         if pickerEquipment.pickerState[1] == 0 {
             //  create tableview row realm objects
             let newRow = TableViewRow()
-            newRow.icon = "? icon" ;
-            newRow.title = pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1]
-            newRow.detail = pickerEquipment.pickerSelection[2] + " " +  pickerEquipment.pickerSelection[3]
+            newRow.icon = pickerEquipment.pickerSelection[1];                                               print("Realm Icon:\(newRow.icon)")
+            newRow.title = pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1];   print("Realm Title:\(newRow.title)")
+            newRow.detail = pickerEquipment.pickerSelection[2] + " " +  pickerEquipment.pickerSelection[3]; print("Realm Detail:\(newRow.detail)")
             
             // get realm event and append tableview row objects
             let defaultEvent = realm.objects(EventRealm.self)
@@ -167,13 +174,16 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
                     indexTwo.tableViewArray?.rows.append(objectsIn: [newRow])
                 }
             }
+            //let pickit = pickerEquipment.pickerSelection[1]
+            // append the equipment to the tableview;       
+            print("\nEntering tableViewArrays.appendTableViewArray")
+            print("Passing: \(pickerEquipment.pickerSelection[1]) to setTableViewIcon")
+            //tableViewArrays.appendTableViewArray(title: pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1], detail: pickerEquipment.pickerSelection[2] + " " + pickerEquipment.pickerSelection[3], icon: setTableViewIcon(title: pickerEquipment.pickerSelection[1]), compState: pickerEquipment.pickerState)
             
-            // append the equipment to the tableview
-            tableViewArrays.appendTableViewArray(title: pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1], detail: pickerEquipment.pickerSelection[2] + " " + pickerEquipment.pickerSelection[3], icon: UIImage(named: "manIcon")!, compState: pickerEquipment.pickerState)
-            
+            tableViewArrays.appendTableViewArray(title: pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1], detail: pickerEquipment.pickerSelection[2] + " " + pickerEquipment.pickerSelection[3], compState: pickerEquipment.pickerState)
             myTableView.reloadData()
         }
-        
+// this part is not correct for icon
         // if a lens segue to lenses
         if pickerEquipment.pickerState[1] > 0 && pickerEquipment.pickerState[1] <= 5  {
             tableViewArrays.setPrimesKit(compState: pickerEquipment.pickerState) // populate the next controller?
@@ -186,7 +196,6 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         // if new item isnt a camera
         if pickerEquipment.pickerState[1] >= 5{
             tableViewArrays.setPrimesKit(compState: pickerEquipment.pickerState) // populate the next controller?
-            //performSegue(withIdentifier: "mainToLenses", sender: self)
             
             tableViewArrays.setPrimesKit(compState: pickerEquipment.pickerState)
             let myVc = storyboard?.instantiateViewController(withIdentifier: "lensViewController") as! LensesViewController
@@ -332,14 +341,15 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     //Mark: - populate the tableview
     func populateTableviewArray(items: EventTableView) {
         
-        //print("\nnow inside populateTableviewArray - EventTableView is:\(items)")
-        //print("End EventTableView - now looping through theRows")
+        print("\nnow inside populateTableviewArray - EventTableView is:\(items)")
+        print("****End EventTableView - now looping through theRows")
         
         for theRows in (items.rows) {         // tableview matches event tableview
-            // print("\ntheRows loop:", theRows.icon, theRows.title);   print(theRows.detail)
-            //  print("\nnow appending the tableview")
-            tableViewArrays.appendTableViewArray(title: theRows.title, detail: theRows.detail , icon: UIImage(named: "manIcon")!, compState: pickerEquipment.pickerState)
-            //  print("/nbottom of loop tabelViewArrays contain:\(tableViewArrays.tableViewArray)")
+            print("\ntheRows loop:", theRows.icon, theRows.title);   print(theRows.detail)
+            print("\nnow appending the tableview")
+           // tableViewArrays.appendTableViewArray(title: theRows.title, detail: theRows.detail , icon: theRows.title, compState: pickerEquipment.pickerState)
+            tableViewArrays.appendTableViewArray(title: theRows.title, detail: theRows.detail, compState: pickerEquipment.pickerState)
+            print("\n****bottom of loop INCORERECT tabelViewArrays contain:\(tableViewArrays.tableViewArray)")
         }
     }
     //Mark: = Realm- add event and set up tyableview for first run
@@ -354,7 +364,7 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         
         //                  create tableview object
         let rowOne = TableViewRow()
-        rowOne.icon = "man icon default" ; rowOne.title = "\(defaultUser.name) Director of Photography" ; rowOne.detail = "Camera Order \(defaultUser.production) \(defaultUser.date )"
+        rowOne.icon = "man" ; rowOne.title = "\(defaultUser.name) Director of Photography" ; rowOne.detail = "Camera Order \(defaultUser.production) \(defaultUser.date )"
         
         let defaultTableview = EventTableView()
         defaultTableview.rows.append(objectsIn: [rowOne])
@@ -368,7 +378,9 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         }
         print("viewWIllAppear default event loaded: \(defaultEvent)")
         // populate the tablevie in this view
-        tableViewArrays.appendTableViewArray(title: "\(defaultTableview.rows[0].title)" , detail: "\(defaultTableview.rows[0].detail)", icon: #imageLiteral(resourceName: "manIcon"), compState: [0,0,0,0])
+        //tableViewArrays.appendTableViewArray(title: "\(defaultTableview.rows[0].title)" , detail: "\(defaultTableview.rows[0].detail)", icon: #imageLiteral(resourceName: "manIcon"), compState: [0,0,0,0])
+        
+        tableViewArrays.appendTableViewArray(title: "\(defaultTableview.rows[0].title)", detail: "\(defaultTableview.rows[0].detail)", compState: [0,0,0,0])
     }
     
     @IBAction func clearRealmAction(_ sender: Any) {

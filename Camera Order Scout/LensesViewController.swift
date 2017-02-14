@@ -50,7 +50,7 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         //  create tableview row realm objects
         let newRow = TableViewRow()
-        newRow.icon = "? icon" ;
+        newRow.icon = pickerEquipment.pickerSelection[1]
         newRow.title = pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1]  + " " + pickerEquipment.pickerSelection[2] + " " +  pickerEquipment.pickerSelection[3]
         newRow.detail = newLensKit
         
