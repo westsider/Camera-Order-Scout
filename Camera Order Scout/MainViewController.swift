@@ -64,14 +64,9 @@
 //  task: populate tableview from event tableview
 //  task: add lens kit to tableview  array event realm
 
-//  find lens kit
-//  pass lenskit to lens tableview
-//      convert to array and populate tableview
-//            that array edited
-//                  that array returned to update realm tableview
-
 //  task: fix date
-//  task: realm persistence of past events              sun 2/12
+//  task: implement icon                                mon 2/13
+//  task: realm persistence of past events
 
 //  feat: done with persistance
 //  task: first run Tutorial                            mon 2/13
@@ -95,8 +90,6 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     @IBOutlet weak var myPicker: UIPickerView!
     
     @IBOutlet weak var myTableView: UITableView!
-    
-    //var defaultUser = User(name: "Warren Hansen", production: "Nike", company: "CO3", city: "Santa Monica, CA", date: "12 / 20 / 2016", weather: "Sunny 72", icon: UIImage(named: "manIcon")!)
     
     var image = [UIImage]()
     
@@ -176,32 +169,29 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             }
             
             // append the equipment to the tableview
-            //MARK: - BUG here when i just update the camera
             tableViewArrays.appendTableViewArray(title: pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1], detail: pickerEquipment.pickerSelection[2] + " " + pickerEquipment.pickerSelection[3], icon: UIImage(named: "manIcon")!, compState: pickerEquipment.pickerState)
             
             myTableView.reloadData()
         }
         
         // if a lens segue to lenses
-        if pickerEquipment.pickerState[1] == 1 {
-             tableViewArrays.setPrimesKit(compState: pickerEquipment.pickerState) // populate the next controller?
-            
-            
-            tableViewArrays.setPrimesKit(compState: pickerEquipment.pickerState)
+        if pickerEquipment.pickerState[1] > 0 && pickerEquipment.pickerState[1] <= 5  {
+            tableViewArrays.setPrimesKit(compState: pickerEquipment.pickerState) // populate the next controller?
             
             let myVc = storyboard?.instantiateViewController(withIdentifier: "lensViewController") as! LensesViewController
             myVc.thePrimes = tableViewArrays.thePrimes
             navigationController?.pushViewController(myVc, animated: true)
-
         }
         
         // if new item isnt a camera
         if pickerEquipment.pickerState[1] >= 5{
             tableViewArrays.setPrimesKit(compState: pickerEquipment.pickerState) // populate the next controller?
-            performSegue(withIdentifier: "mainToLenses", sender: self)
+            //performSegue(withIdentifier: "mainToLenses", sender: self)
             
             tableViewArrays.setPrimesKit(compState: pickerEquipment.pickerState)
-            
+            let myVc = storyboard?.instantiateViewController(withIdentifier: "lensViewController") as! LensesViewController
+            myVc.thePrimes = tableViewArrays.thePrimes
+            navigationController?.pushViewController(myVc, animated: true)
         }
     }
     
@@ -217,30 +207,30 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
      |                             NEW AWESOME PICKER OBJECT                                 |
      |                                                                                       |
      ---------------------------------------------------------------------------------------*/
-    // MARK: - Set up Picker
+    //MARK: - Set up Picker
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 4
     }
     
-    // The number of rows of data
+    //Mark: - The number of rows of data
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return   pickerEquipment.pickerArray[component].count //pickerEquipment[component].count
         
     }
     
-    // The data to return for the row and component (column) that's being passed in
+    //Mark: - The data to return for the row and component (column) that's being passed in
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerEquipment.pickerArray[component][row]
     }
     
-    // MARK: - when picker wheels move change the pickerArray and reload
+    //MARK: - when picker wheels move change the pickerArray and reload
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
- // when picker wheel 2 or 3 moves, update the lens or aks array  tableViewArrays.lensTableView() // populate the next controller?
+
         dontReloadOnComp0or3(component: component, row: row, lastCatagory: pickerEquipment.prevCatagory)
         reloadComponentsAndText(component: component, row: row)
         zeroThePicker(component: component, row: row)
         
-        //TODO: - set pickerSelected property with picker array current selection *** I wish this was a function
+        // set pickerSelected property with picker array current selection *** I wish this was a function
         pickerEquipment.pickerState = [ myPicker.selectedRow(inComponent: 0), myPicker.selectedRow(inComponent: 1), myPicker.selectedRow(inComponent: 2), myPicker.selectedRow(inComponent: 3) ]
         
         //Mark: - update pickerSelection
@@ -248,7 +238,7 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
 
     }
     
-    //  make picker text fill horizontal space allowed
+    //Mark: -  make picker text fill horizontal space allowed
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let pickerLabel = UILabel()
         pickerLabel.textColor = UIColor.black
@@ -278,7 +268,7 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         }
     }
     
-    ///  dont reload localPickerIndex when component 0 or 3 move
+    //Mark: -  dont reload localPickerIndex when component 0 or 3 move
     func dontReloadOnComp0or3(component: Int, row: Int, lastCatagory: Int) {
         
         if component == 1 || component == 2 {     //  full update on comp 1 and 2 only
@@ -286,7 +276,7 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         }
     }
     
-    /// zero the picker wheels when Catagory changes
+    //Mark: - zero the picker wheels when Catagory changes
     func zeroThePicker(component: Int, row: Int){
         if component == 1 {  // with new catagory set wheel 2 and 3 safely to index 0
             myPicker.selectRow(0, inComponent: 2, animated: true)
@@ -294,7 +284,7 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             pickerEquipment.prevCatagory = row    // if wheel 1 moves save the componennt to pass to setPickerArray
         }
     }
-    ///Mark: - update pickerSelection
+    //Mark: - update pickerSelection
     func updatePickerSelection() {
         pickerEquipment.pickerSelection[0] = pickerEquipment.pickerArray[0][pickerEquipment.pickerState[0]]
         pickerEquipment.pickerSelection[1] = pickerEquipment.pickerArray[1][pickerEquipment.pickerState[1]]
@@ -308,7 +298,7 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
      |                                                                                       |
      ---------------------------------------------------------------------------------------*/
     
-    //MARK: Set up Table View
+    //MARK: - Set up Table View
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableViewArrays.tableViewArray.count
     }
@@ -322,7 +312,7 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         return cell
     }
     
-    // MARK: - Segue to User VC
+    //MARK: - Segue to User VC
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             //  print("Row: \(indexPath.row) segue to User")
@@ -331,13 +321,7 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         }
     }
     
-    /*---------------------------------------------------------------------------------------
-     |                                                                                       |
-     |                             Realm Functions                                           |
-     |                                                                                       |
-     ---------------------------------------------------------------------------------------*/
-    
-    // put the current user into event
+    //Mark: - Realm- put the current user into event
     func init_Current_User_To_Event_Tableview(index: EventRealm) {
         //  Put the current user into the Event
         try! realm.write {
@@ -345,21 +329,20 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             index.tableViewArray?.rows[0].detail  = "Camera Order \(index.userInfo!.production) \(index.userInfo!.date)"
         }
     }
-    // populate the tableview
+    //Mark: - populate the tableview
     func populateTableviewArray(items: EventTableView) {
         
-        print("\nnow inside populateTableviewArray - EventTableView is:\(items)")
-        print("End EventTableView - now looping through theRows")
+        //print("\nnow inside populateTableviewArray - EventTableView is:\(items)")
+        //print("End EventTableView - now looping through theRows")
         
         for theRows in (items.rows) {         // tableview matches event tableview
-            print("\ntheRows loop:", theRows.icon, theRows.title);   print(theRows.detail)
-            
-            print("\nnow appending the tableview")
+            // print("\ntheRows loop:", theRows.icon, theRows.title);   print(theRows.detail)
+            //  print("\nnow appending the tableview")
             tableViewArrays.appendTableViewArray(title: theRows.title, detail: theRows.detail , icon: UIImage(named: "manIcon")!, compState: pickerEquipment.pickerState)
-            print("/nbottom of loop tabelViewArrays contain:\(tableViewArrays.tableViewArray)")
+            //  print("/nbottom of loop tabelViewArrays contain:\(tableViewArrays.tableViewArray)")
         }
     }
-    // add event and set up tyableview for first run
+    //Mark: = Realm- add event and set up tyableview for first run
     func init_User_Event_TableViewArray() {           print("\nFIRST RUN TRIGGERED in viewWIllAppear")
         
         // in first run fill in values with defaut

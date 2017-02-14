@@ -5,11 +5,6 @@
 //  Created by Warren Hansen on 2/5/17.
 //  Copyright © 2017 Warren Hansen. All rights reserved.
 //
-//  find lens kit
-//  pass lenskit to lens tableview
-//  convert to array and populate tableview
-//            that array edited
-//                  that array returned to update realm tableview
 
 import UIKit
 import RealmSwift
@@ -24,8 +19,6 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var originalArray = [String]()
     
-    var lensKitArrayEdited = tableViewArrays.editedLensArray
-    
     var thePrimes = String()
     
     let realm = try! Realm()            // Get the default Realm
@@ -35,23 +28,15 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "L E N S  O R D E R"
-        print("\nWe got the primes from main vc \(thePrimes)")
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
-        
+        // convert string to array
         originalArray = thePrimes.components(separatedBy: ", ")
         print("\noriginalArray: \(originalArray)")
-        
-        //tableViewArrays.lensTableView() // load table view lense
-        //originalArray = tableViewArrays.tableViewArray
-        //print("originalArray: \(originalArray)")
-        //lensKitArrayEdited = tableViewArrays.editedLensArray
-        //print("lensKitArrayEdited: \(lensKitArrayEdited)")
-        // VDL  assign the original array
-        //tableViewSwitches.populateArrays(array: lensKitArrayEdited)
+        // populate the array to edit with switches
+        tableViewSwitches.populateArrays(array: originalArray)
     }
     
     //MARK: - Update the lens kit and return to main VC
@@ -59,10 +44,6 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         // return string of edited lens array
         tableViewSwitches.finalizeLensArray()
-        
-        // return edited lens string back to main tableview array
-        tableViewArrays.editedLensKitReturendToMainTableView(sendString: tableViewSwitches.returnedString)
-        print("\nupdated Tableview inside lenses vc: \(tableViewArrays.tableViewArray)")
         
         let newLensKit = tableViewSwitches.returnedString
         print("\n OK newLensKit is \(newLensKit)\n")
