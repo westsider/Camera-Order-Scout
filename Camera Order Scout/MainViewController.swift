@@ -346,10 +346,11 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     func init_User_Event_TableViewArray() {           print("\nFIRST RUN TRIGGERED in viewWIllAppear")
         
         // in first run fill in values with defaut
+        defaultUser.city = "Santa Monica, CA"
         defaultUser.name = "new user"
         defaultUser.production  = "new production"
         defaultUser.company  = "new company"
-        defaultUser.date  = "new date"
+        defaultUser.date  = ""
         
         //                  create tableview object
         let rowOne = TableViewRow()

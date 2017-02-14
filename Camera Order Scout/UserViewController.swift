@@ -86,12 +86,11 @@ class UserViewController: UIViewController, UITextFieldDelegate {
                 evnt.production = production.text!
                 evnt.company = company.text!
                 evnt.city = citySearch.text!
-                evnt.date = dateTextField.text!
+                evnt.date = dateTextInput.text!
                 evnt.weather = weatherDisplay.text
             }
         }
-        
-        print("\ndefaultEvent after save: \(defaultEvent)")
+
          _ = navigationController?.popToRootViewController(animated: true)
         
     }
@@ -144,7 +143,8 @@ class UserViewController: UIViewController, UITextFieldDelegate {
         
         sender.inputView = datePickerView
         
-        datePickerView.addTarget(self, action: #selector(UserViewController.datePickerValueChanged(sender:)), for: UIControlEvents.valueChanged)
+        //datePickerView.addTarget(self, action: #selector(UserViewController.datePickerValueChanged(sender:)), for: UIControlEvents.valueChanged)
+        datePickerView.addTarget(self, action: #selector(datePickerValueChanged(sender:)), for: UIControlEvents.valueChanged)
     }
     
     //MARK: - format the selected Date and update vars used in weather forcast

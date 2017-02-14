@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 /** Functions to convert picker date to a Day in the future for forecast */
 class DatePickerUtility {
