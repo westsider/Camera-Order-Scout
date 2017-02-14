@@ -65,8 +65,10 @@
 //  task: add lens kit to tableview  array event realm
 //  task: fix date
 //  task: implement icon + removed problem with load tableview
-
 //  task: print statements and unused functions and files                               mon 2/13
+//  task: black or white icons only
+//  fix: add aks arrow down removed from tableview
+
 //  task: realm persistence of past events
 
 //  feat: done with persistance
@@ -191,8 +193,8 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             navigationController?.pushViewController(myVc, animated: true)
         }
         
-        // if new item isnt a camera
-        if pickerEquipment.pickerState[1] >= 5{
+        // segue to aks ect
+        if pickerEquipment.pickerState[1] > 5{
             tableViewArrays.setPrimesKit(compState: pickerEquipment.pickerState) // populate the next controller?
             
             tableViewArrays.setPrimesKit(compState: pickerEquipment.pickerState)

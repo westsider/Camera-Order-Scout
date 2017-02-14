@@ -143,7 +143,6 @@ class UserViewController: UIViewController, UITextFieldDelegate {
         
         sender.inputView = datePickerView
         
-        //datePickerView.addTarget(self, action: #selector(UserViewController.datePickerValueChanged(sender:)), for: UIControlEvents.valueChanged)
         datePickerView.addTarget(self, action: #selector(datePickerValueChanged(sender:)), for: UIControlEvents.valueChanged)
     }
     
@@ -157,8 +156,6 @@ class UserViewController: UIViewController, UITextFieldDelegate {
         dateFormatter.timeStyle = DateFormatter.Style.none
         
         dateTextInput.text = dateFormatter.string(from: sender.date)
-        
-//thisEvent.user.date  = dateFormatter.string(from: sender.date)
         
     }
     

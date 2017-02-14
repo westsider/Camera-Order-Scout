@@ -34,7 +34,7 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         // convert string to array
         originalArray = thePrimes.components(separatedBy: ", ")
-        print("\noriginalArray: \(originalArray)")
+        //  print("\noriginalArray: \(originalArray)")
         // populate the array to edit with switches
         tableViewSwitches.populateArrays(array: originalArray)
     }
@@ -46,13 +46,18 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableViewSwitches.finalizeLensArray()
         
         let newLensKit = tableViewSwitches.returnedString
-        print("\n OK newLensKit is \(newLensKit)\n")
+        //  print("\n OK newLensKit is \(newLensKit)\n")
         
-        //  create tableview row realm objects
+        //  create tableview row realm objects and differentiate lenses from aks
         let newRow = TableViewRow()
         newRow.icon = pickerEquipment.pickerSelection[1]
-        newRow.title = pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1]  + " " + pickerEquipment.pickerSelection[2] + " " +  pickerEquipment.pickerSelection[3]
-        newRow.detail = newLensKit
+        if pickerEquipment.pickerState[1] < 5 {        //  populate lenses
+            newRow.title = pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1]  + " " + pickerEquipment.pickerSelection[2] + " " +  pickerEquipment.pickerSelection[3]
+            newRow.detail = newLensKit
+        } else {                                        //     populate AKS ect
+            newRow.title = pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1] 
+            newRow.detail = newLensKit
+        }
         
         // get realm event and append tableview row objects
         let defaultEvent = realm.objects(EventRealm.self)
