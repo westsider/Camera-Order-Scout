@@ -176,14 +176,12 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             }
             //let pickit = pickerEquipment.pickerSelection[1]
             // append the equipment to the tableview;       
-            print("\nEntering tableViewArrays.appendTableViewArray")
-            print("Passing: \(pickerEquipment.pickerSelection[1]) to setTableViewIcon")
-            //tableViewArrays.appendTableViewArray(title: pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1], detail: pickerEquipment.pickerSelection[2] + " " + pickerEquipment.pickerSelection[3], icon: setTableViewIcon(title: pickerEquipment.pickerSelection[1]), compState: pickerEquipment.pickerState)
+            //print("\nEntering tableViewArrays.appendTableViewArray")
+            //print("Passing: \(pickerEquipment.pickerSelection[1]) to setTableViewIcon")
             
             tableViewArrays.appendTableViewArray(title: pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1], detail: pickerEquipment.pickerSelection[2] + " " + pickerEquipment.pickerSelection[3], compState: pickerEquipment.pickerState)
             myTableView.reloadData()
         }
-// this part is not correct for icon
         // if a lens segue to lenses
         if pickerEquipment.pickerState[1] > 0 && pickerEquipment.pickerState[1] <= 5  {
             tableViewArrays.setPrimesKit(compState: pickerEquipment.pickerState) // populate the next controller?
@@ -341,15 +339,15 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     //Mark: - populate the tableview
     func populateTableviewArray(items: EventTableView) {
         
-        print("\nnow inside populateTableviewArray - EventTableView is:\(items)")
-        print("****End EventTableView - now looping through theRows")
+        //  print("\nnow inside populateTableviewArray - EventTableView is:\(items)")
+        //  print("****End EventTableView - now looping through theRows")
         
         for theRows in (items.rows) {         // tableview matches event tableview
-            print("\ntheRows loop:", theRows.icon, theRows.title);   print(theRows.detail)
-            print("\nnow appending the tableview")
+            //  print("\ntheRows loop:", theRows.icon, theRows.title);   print(theRows.detail)
+            //  print("\nnow appending the tableview")
            // tableViewArrays.appendTableViewArray(title: theRows.title, detail: theRows.detail , icon: theRows.title, compState: pickerEquipment.pickerState)
             tableViewArrays.appendTableViewArray(title: theRows.title, detail: theRows.detail, compState: pickerEquipment.pickerState)
-            print("\n****bottom of loop INCORERECT tabelViewArrays contain:\(tableViewArrays.tableViewArray)")
+            //  print("\n****bottom of loop INCORERECT tabelViewArrays contain:\(tableViewArrays.tableViewArray)")
         }
     }
     //Mark: = Realm- add event and set up tyableview for first run
@@ -376,7 +374,7 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         try! realm.write {
             realm.add(defaultEvent)
         }
-        print("viewWIllAppear default event loaded: \(defaultEvent)")
+        //  print("viewWIllAppear default event loaded: \(defaultEvent)")
         // populate the tablevie in this view
         //tableViewArrays.appendTableViewArray(title: "\(defaultTableview.rows[0].title)" , detail: "\(defaultTableview.rows[0].detail)", icon: #imageLiteral(resourceName: "manIcon"), compState: [0,0,0,0])
         

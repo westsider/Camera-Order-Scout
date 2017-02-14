@@ -33,7 +33,6 @@
 		0DE208D51E47013600619AEF /* User Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE208D41E47013600619AEF /* User Class.swift */; };
 		0DE208D71E4797A400619AEF /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE208D61E4797A400619AEF /* ListTableViewCell.swift */; };
 		0DE208DB1E47E13A00619AEF /* TableView Array Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE208DA1E47E13A00619AEF /* TableView Array Class.swift */; };
-		0DE208DD1E47FE3200619AEF /* Icon Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE208DC1E47FE3200619AEF /* Icon Class.swift */; };
 		0DE208DF1E48097900619AEF /* LensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE208DE1E48097900619AEF /* LensesViewController.swift */; };
 		0DE968721E50189B009D52DF /* TableViewArrayRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE968711E50189B009D52DF /* TableViewArrayRealm.swift */; };
 /* End PBXBuildFile section */
@@ -80,7 +79,6 @@
 		0DE208D41E47013600619AEF /* User Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User Class.swift"; sourceTree = "<group>"; };
 		0DE208D61E4797A400619AEF /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListTableViewCell.swift; path = ../ListTableViewCell.swift; sourceTree = "<group>"; };
 		0DE208DA1E47E13A00619AEF /* TableView Array Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TableView Array Class.swift"; sourceTree = "<group>"; };
-		0DE208DC1E47FE3200619AEF /* Icon Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Icon Class.swift"; path = "Camera Order Scout/Icon Class.swift"; sourceTree = "<group>"; };
 		0DE208DE1E48097900619AEF /* LensesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LensesViewController.swift; sourceTree = "<group>"; };
 		0DE968711E50189B009D52DF /* TableViewArrayRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewArrayRealm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,7 +144,6 @@
 				0DBCF75C1E496BEB00205017 /* DatePicker.swift */,
 				0DE208D21E47012400619AEF /* Event Class.swift */,
 				0DE208D41E47013600619AEF /* User Class.swift */,
-				0DE208DC1E47FE3200619AEF /* Icon Class.swift */,
 				0D6D1A501E4D641500B53B0E /* firstLaunch.swift */,
 			);
 			name = Model;
@@ -265,7 +262,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0DE208DD1E47FE3200619AEF /* Icon Class.swift in Sources */,
 				0DBCF75D1E496BEB00205017 /* DatePicker.swift in Sources */,
 				0DE208D71E4797A400619AEF /* ListTableViewCell.swift in Sources */,
 				0DBCF7551E49660D00205017 /* UserViewController.swift in Sources */,
