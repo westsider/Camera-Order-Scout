@@ -22,22 +22,12 @@ class TableViewArrays {
     
     /// add picker selection to tableview array
     func appendTableViewArray(title: String, detail: String, icon: UIImage, compState: [Int] ) {   // when Adding to tableview in main VC
-        
-        if compState[1]  == 0 { // if selection is a camera
-            
+
             var newRow = [Any]()
             newRow.append(title)
             newRow.append(detail)
             newRow.append(icon)
             tableViewArray.append(newRow)
-        } else {        //  this is a lens
-            var newRow = [Any]()
-            newRow.append(title)
-            setPrimesKit(compState: compState)  // get what prime lenses are
-            newRow.append(tableViewArrays.thePrimes) // add prime lens string to tableview array
-            newRow.append(icon)
-            tableViewArray.append(newRow)
-        }
     }
     
     func removeAll() {
@@ -264,6 +254,6 @@ class TableViewSwitches {
         print("Finalize no hashes: \(edited)")
         // convert to string
         returnedString = edited.joined(separator: ",")
-        print("returnedString is: \(returnedString)")
+        print("\nreturnedString is: \(returnedString)")
     }
 }
