@@ -25,6 +25,8 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     let user = UserRealm()              // Use them like regular Swift objects
     
+    var eventToWorkOn = EventRealm()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "L E N S  O R D E R"
@@ -62,10 +64,21 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // get realm event and append tableview row objects
         let defaultEvent = realm.objects(EventRealm.self)
         for indexTwo in defaultEvent {
-            // append new row
-            try? realm .write {
-                indexTwo.tableViewArray?.rows.append(objectsIn: [newRow])
+            
+            print("\nloaded savedEvent : \(indexTwo.eventName)")
+            
+            if globalCurrentEvent == indexTwo.eventName {
+                print("\nWHOA!! We have a match bettween \(globalCurrentEvent) and \(indexTwo.eventName)")
+                eventToWorkOn = indexTwo
+                print("\nthis is the eventToWorkOn: \(eventToWorkOn)")
+                
+                // append new row
+                try? realm .write {
+                    eventToWorkOn.tableViewArray?.rows.append(objectsIn: [newRow])
+                }
             }
+            
+            
         }
         
         _ = navigationController?.popToRootViewController(animated: true)

@@ -8,12 +8,15 @@
 //  save a new user
 //  task: saved events - populate the tableview array with event names
 //  task: click on a row and prove the event cpontents
+//  fix: trouble with 2 events loading in main VC... if returning only load the saved array on add or  clicked array
 
 //  task: delete row in tableview to prove this
 //  click on row and replace defaultUser with selection
 
 import UIKit
 import RealmSwift
+
+var globalCurrentEvent = "Default"
 
 class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
@@ -68,6 +71,8 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
                 print(textInput)
                 let savedEvent = realm.objects(EventRealm.self)
                 print("\n loaded savedEvent : \(savedEvent)")
+                
+                globalCurrentEvent = textInput
                 
                 for index in savedEvent {
                     print("In the loop yo")

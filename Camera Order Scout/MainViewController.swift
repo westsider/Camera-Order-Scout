@@ -108,6 +108,8 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     
     let defaultEvent = EventRealm()
     
+    var eventToWorkOn = EventRealm()
+    
     //MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,7 +122,6 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     
     override func viewWillAppear(_ animated: Bool) {
         
-        
         let defaultEvent = realm.objects(EventRealm.self); print("defaultEvent count: \(defaultEvent.count)")
         
         if defaultEvent.count == 0 {
@@ -129,11 +130,26 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             
         } else {    print("\nSubsequent run triggered in viewWIllAppear")   // subsequent runs, clear tableview array load event.user and event.table view
             
+            //Mark: -  find the selected event from past orders
+            //let savedEvent = realm.objects(EventRealm.self)
+            print("\nfind the selected event from past orders")
             for index in defaultEvent {
+                print("\nIn the loop yo")
+                // use the loop to find default and copy it to new event
+                print("\nloaded savedEvent : \(index.eventName)")
+                
+                if globalCurrentEvent == index.eventName {
+                    print("\nWHOA!! We have a match bettween \(globalCurrentEvent) and \(index.eventName)")
+                    eventToWorkOn = index
+                    print("\nthis is the eventToWorkOn: \(eventToWorkOn)")
+                }
+            }
+            
+            //for index in eventToWorkOn {
                 
                 tableViewArrays.removeAll(); print("\nclear the array")
                 
-                init_Current_User_To_Event_Tableview(index: index); print("\nput current user into event tableview")
+                init_Current_User_To_Event_Tableview(index: eventToWorkOn); print("\nput current user into event tableview")
                 
                 /*---------------------------------------------------------------------------------------
                  |                                                                                       |
@@ -142,15 +158,16 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
                  ---------------------------------------------------------------------------------------*/
                 if tableViewArrays.tableViewArray.isEmpty {    print("\ntableViewArrays.tableViewArray.isEmpty")
                     
-                    let items = index.tableViewArray;           print("\ntableview rows count: \(items?.rows.count)")
+                    //let items = index.tableViewArray;           print("\ntableview rows count: \(items?.rows.count)")
                     
-                    populateTableviewArray(items: items!);
-                    print("\n*****First Run I populatete the tableview correctly passing in\(items!)")
+                    populateTableviewArray(items: eventToWorkOn.tableViewArray!);
+                    print("\n*****First Run I populatete the tableview correctly passing in\(eventToWorkOn.tableViewArray!)")
                 }
-            }
+           // }
         }
         
         myTableView.reloadData(); print("\nEnd of viewWillAppear ") // reload when returning to this VC
+        
     }
     
     /*---------------------------------------------------------------------------------------
@@ -173,10 +190,24 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             // get realm event and append tableview row objects
             let defaultEvent = realm.objects(EventRealm.self)
             for indexTwo in defaultEvent {
-                // append new row
-                try? realm .write {
-                    indexTwo.tableViewArray?.rows.append(objectsIn: [newRow])
+                
+                print("\nloaded savedEvent : \(indexTwo.eventName)")
+                
+                if globalCurrentEvent == indexTwo.eventName {
+                    print("\nWHOA!! We have a match bettween \(globalCurrentEvent) and \(indexTwo.eventName)")
+                    eventToWorkOn = indexTwo
+                    print("\nthis is the eventToWorkOn: \(eventToWorkOn)")
+                    
+                    // append new row
+                    try? realm .write {
+                        eventToWorkOn.tableViewArray?.rows.append(objectsIn: [newRow])
+                    }
                 }
+                
+//                // append new row
+//                try? realm .write {
+//                    indexTwo.tableViewArray?.rows.append(objectsIn: [newRow])
+//                }
             }
             
             tableViewArrays.appendTableViewArray(title: pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1], detail: pickerEquipment.pickerSelection[2] + " " + pickerEquipment.pickerSelection[3], compState: pickerEquipment.pickerState)
@@ -329,21 +360,22 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
                 // handle delete (by removing the data from your array and updating the tableview)
             
             // get realm event and delete tableview row objects
-            let defaultEvent = realm.objects(EventRealm.self)
+//let defaultEvent = realm.objects(EventRealm.self)
+            print("this is the event loaded \(eventToWorkOn)")
             
-            for index in defaultEvent {
+//for index in defaultEvent {
                 
-                print("\nindex of rows\(index.tableViewArray?.rows[indexPath.row])")
+                print("\nindex of rows\(eventToWorkOn.tableViewArray?.rows[indexPath.row])")
                 // delete  row
                 realm.beginWrite()
-                realm.delete((index.tableViewArray?.rows[indexPath.row])!)
+                realm.delete((eventToWorkOn.tableViewArray?.rows[indexPath.row])!)
                 try! realm.commitWrite()
             }
-            print("exiting loop with \(defaultEvent)")
+            print("exiting loop with \(eventToWorkOn)")
             tableViewArrays.tableViewArray.remove(at: indexPath.row)
             tableView.reloadData()
         }
-    }
+//    }
     
     //MARK: - Segue to User VC
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
