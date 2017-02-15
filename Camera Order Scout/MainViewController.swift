@@ -73,6 +73,7 @@
 //  task: move equipment and tableviewarrays inside this class and push to lenses vc
 
 //  feat: done with persistance
+//  fix: prevent row 1 from deletion
 //  task: first run Tutorial                            mon 2/13
 //  http://stackoverflow.com/questions/13335540/how-to-make-first-launch-iphone-app-tour-guide-with-xcode
 //  task: turn print into share                         mon 2/13
@@ -177,10 +178,6 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
                     indexTwo.tableViewArray?.rows.append(objectsIn: [newRow])
                 }
             }
-            //let pickit = pickerEquipment.pickerSelection[1]
-            // append the equipment to the tableview;       
-            //print("\nEntering tableViewArrays.appendTableViewArray")
-            //print("Passing: \(pickerEquipment.pickerSelection[1]) to setTableViewIcon")
             
             tableViewArrays.appendTableViewArray(title: pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1], detail: pickerEquipment.pickerSelection[2] + " " + pickerEquipment.pickerSelection[3], compState: pickerEquipment.pickerState)
             myTableView.reloadData()
@@ -320,6 +317,32 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         cell.titleTableView?.text =  tableViewArrays.tableViewArray[indexPath.row][0] as? String
         cell.detailTableView?.text =  tableViewArrays.tableViewArray[indexPath.row][1] as? String
         return cell
+    }
+    
+    //Mark: - Swipe left to delete row on tableview
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+                print("\nrow \(indexPath.row) selected to delete")
+                // handle delete (by removing the data from your array and updating the tableview)
+            
+            // get realm event and delete tableview row objects
+            let defaultEvent = realm.objects(EventRealm.self)
+            
+            for index in defaultEvent {
+                
+                print("\nindex of rows\(index.tableViewArray?.rows[indexPath.row])")
+                // delete  row
+                realm.beginWrite()
+                realm.delete((index.tableViewArray?.rows[indexPath.row])!)
+                try! realm.commitWrite()
+            }
+            print("exiting loop with \(defaultEvent)")
+            tableViewArrays.tableViewArray.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
     }
     
     //MARK: - Segue to User VC
