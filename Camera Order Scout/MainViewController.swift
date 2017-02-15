@@ -70,6 +70,7 @@
 //  fix: add aks arrow down removed from tableview
 
 //  task: realm persistence of past events
+//  task: move equipment and tableviewarrays inside this class and push to lenses vc
 
 //  feat: done with persistance
 //  task: first run Tutorial                            mon 2/13
@@ -84,7 +85,7 @@ import Foundation
 import UIKit
 import RealmSwift
 
-var pickerEquipment = Equipment()       // needs to move inside the class
+var pickerEquipment = Equipment()       // needs to move inside the class and pushed to lenses vc
 
 var tableViewArrays = TableViewArrays()
 
