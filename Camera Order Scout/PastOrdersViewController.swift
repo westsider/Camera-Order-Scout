@@ -7,8 +7,9 @@
 //
 //  save a new user
 //  task: saved events - populate the tableview array with event names
+//  task: click on a row and prove the event cpontents
 
-//  click on a row and prove the event cpontents
+//  task: delete row in tableview to prove this
 //  click on row and replace defaultUser with selection
 
 import UIKit
@@ -24,12 +25,6 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
     
     let realm = try! Realm()
 
-    
-    
-    
-    var emptyEventCount = 0
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "S A V E / L O A D"
@@ -57,9 +52,6 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         eventsTableView.reloadData()
     }
-    
-
-    
     
     /*---------------------------------------------------------------------------------------
      |                                                                                       |
@@ -121,9 +113,21 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
      ---------------------------------------------------------------------------------------*/
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-       // let theRow = indexPath.row
+       let theRow = indexPath.row
+        print("find the tabkeview row\(theRow)")
         
-        _ = navigationController?.popToRootViewController(animated: true)
+        let savedEvent = realm.objects(EventRealm.self)
+        print("\nSelected Event Only")
+        print("\n loaded savedEvent : \(savedEvent[theRow])")
+        
+        for index in savedEvent {
+            //print("In the loop yo")
+            // use the loop to find default and copy it to new event
+            //print("\n loaded savedEvent : \(savedEvent)")
+            
+           
+        }
+        //_ = navigationController?.popToRootViewController(animated: true)
         
     }
 }
