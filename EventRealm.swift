@@ -10,8 +10,8 @@ import Foundation
 import RealmSwift
 
 // this class unused for big model change
-class EventRealm: Object {
-    dynamic var eventName = "Default"
-    dynamic var userInfo: UserRealm?
-    dynamic var tableViewArray:  EventTableView?
-}
+//class EventRealm: Object {
+//    dynamic var eventName = "Default"
+//    dynamic var userInfo: UserRealm?
+//    dynamic var tableViewArray:  EventTableView?
+//}

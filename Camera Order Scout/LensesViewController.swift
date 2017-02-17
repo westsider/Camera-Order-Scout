@@ -23,9 +23,9 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     let realm = try! Realm()            // Get the default Realm
     
-    let user = UserRealm()              // Use them like regular Swift objects
+    //let user = UserRealm()              // Use them like regular Swift objects
     
-    var eventToWorkOn = EventRealm()
+    //var eventToWorkOn = EventRealm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,7 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewWillAppear(_ animated: Bool) {
         
-        // convert string to array
+        // convert string from main vc to an array i can edit
         originalArray = thePrimes.components(separatedBy: ", ")
         //  print("\noriginalArray: \(originalArray)")
         // populate the array to edit with switches
@@ -62,24 +62,16 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         
         // get realm event and append tableview row objects
-        let defaultEvent = realm.objects(EventRealm.self)
-        for indexTwo in defaultEvent {
-            
-            print("\nloaded savedEvent : \(indexTwo.eventName)")
-            
-            if globalCurrentEvent == indexTwo.eventName {
-                print("\nWHOA!! We have a match bettween \(globalCurrentEvent) and \(indexTwo.eventName)")
-                eventToWorkOn = indexTwo
-                print("\nthis is the eventToWorkOn: \(eventToWorkOn)")
-                
-                // append new row
-                try? realm .write {
-                    eventToWorkOn.tableViewArray?.rows.append(objectsIn: [newRow])
-                }
-            }
-            
-            
+        let id = getLastIdUsed()
+        
+        //var message = "Saved id is\n\(id)\n"
+        
+        let currentEvent = realm.objects(EventUserRealm.self).filter("taskID == %@", id)
+        
+        try! realm.write {
+            currentEvent[0].tableViewArray?.rows.append(objectsIn: [newRow])
         }
+
         
         _ = navigationController?.popToRootViewController(animated: true)
     }
@@ -109,5 +101,30 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         // change array of lenses with tableview switches
         tableViewSwitches.updateArray(index: index, switchPos: sender.isOn)
+    }
+    
+    func saveLastID(ID: String) {
+        // save last used event id
+        let id = EventTracking()
+        try! realm.write {
+            id.lastID = ID
+            realm.add(id)
+        }
+    }
+    
+    func getLastIdUsed() -> String {
+        //get lst id used
+        let id = realm.objects(EventTracking.self)
+        print("last is\(id)")
+        var lastIDvalue = String()
+        if id.count > 0 {
+            print("more than 1 id\(id.count)")
+            let thelastID = id.last
+            lastIDvalue = (thelastID?.lastID)!
+        } else {
+            print("only 1 ID")
+            lastIDvalue = "\(id)"
+        }
+        return lastIDvalue
     }
 }

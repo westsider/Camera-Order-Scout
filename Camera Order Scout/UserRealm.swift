@@ -10,12 +10,12 @@ import Foundation
 import RealmSwift
 
 // this class unused for big model change
-class UserRealm: Object {
-    
-    dynamic var name = ""
-    dynamic var production = ""
-    dynamic var company = ""
-    dynamic var city = ""
-    dynamic var date = ""
-    dynamic var weather = ""
-}
+//class UserRealm: Object {
+//    
+//    dynamic var name = ""
+//    dynamic var production = ""
+//    dynamic var company = ""
+//    dynamic var city = ""
+//    dynamic var date = ""
+//    dynamic var weather = ""
+//}

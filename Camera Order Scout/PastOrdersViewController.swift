@@ -24,11 +24,11 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBOutlet weak var eventNameInput: UITextField!
     
-    let realm = try! Realm()
+    //let realm = try! Realm()
     
-    var eventToWorkOn = EventRealm()
+    //var eventToWorkOn = EventRealm()
     
-     var tableViewTitleArray = [String]()
+    var tableViewTitleArray = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,14 +48,14 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func reloadTableViewNames() {
 
-        let savedEvent = realm.objects(EventRealm.self)
-        tableViewTitleArray.removeAll()
-
-        for index in savedEvent {
-            print("\nIn the loop reload tableviews\(index.eventName)")
-            tableViewTitleArray.append(index.eventName)
-        }
-        eventsTableView.reloadData()
+//        let savedEvent = realm.objects(EventRealm.self)
+//        tableViewTitleArray.removeAll()
+//
+//        for index in savedEvent {
+//            print("\nIn the loop reload tableviews\(index.eventName)")
+//            tableViewTitleArray.append(index.eventName)
+//        }
+//        eventsTableView.reloadData()
     }
     
     /*---------------------------------------------------------------------------------------
@@ -75,32 +75,32 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
             
             if let textInput = eventNameInput.text {
                 print(textInput)
-                let savedEvent = realm.objects(EventRealm.self)
-                print("\n loaded savedEvent : \(savedEvent)")
-                let savedUsers = realm.objects(UserRealm.self)
-                
-               print("\n*** attempting to copy and event - saved event count: \(savedEvent.count) and user count is:\(savedUsers.count)")
-                
-                for index in savedEvent {
-                    print("In the loop yo")
-                    // use the loop to find default and copy it to new event
-                    if index.eventName == globalCurrentEvent {
-                        try! realm.write() {
-                            realm.create(EventRealm.self, value: ["eventName": textInput,"userInfo": index.userInfo!, "tableViewArray": index.tableViewArray!])
-                        }
-                    }
-                }
-                 globalCurrentEvent = textInput
-                
-                print("\n added to savedEvent : \(savedEvent)")
+//                let savedEvent = realm.objects(EventRealm.self)
+//                print("\n loaded savedEvent : \(savedEvent)")
+//                let savedUsers = realm.objects(UserRealm.self)
+//                
+//               print("\n*** attempting to copy and event - saved event count: \(savedEvent.count) and user count is:\(savedUsers.count)")
+//                
+//                for index in savedEvent {
+//                    print("In the loop yo")
+//                    // use the loop to find default and copy it to new event
+//                    if index.eventName == globalCurrentEvent {
+//                        try! realm.write() {
+//                            realm.create(EventRealm.self, value: ["eventName": textInput,"userInfo": index.userInfo!, "tableViewArray": index.tableViewArray!])
+//                        }
+//                    }
+//                }
+//                 globalCurrentEvent = textInput
+//                
+//                print("\n added to savedEvent : \(savedEvent)")
             }
         } else {
             print("No text input")
             eventNameInput.text = "Please enter a name for this order"
         }
          reloadTableViewNames()
-        let newObjects =  realm.objects(EventRealm.self)
-        print("\n*** leaving copy  event -  count: \(newObjects.count)")
+//        let newObjects =  realm.objects(EventRealm.self)
+//        print("\n*** leaving copy  event -  count: \(newObjects.count)")
     }
 
     /*---------------------------------------------------------------------------------------
@@ -129,18 +129,18 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
      ---------------------------------------------------------------------------------------*/
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("\nJust tapped tableview row to Load new enebt")
-       let theRow = indexPath.row
-        print("find the tabkeview row\(theRow)")
-        
-        //
-        print("\n globalCurrentEvent event is: \(globalCurrentEvent)")
-        
-        print("\n selected event is: \(tableViewTitleArray[theRow])")
-        
-        print("\nnow replace the \(globalCurrentEvent) with selected event: \(tableViewTitleArray[theRow])")
-        
-        // reaplace the global event with this event and return to main vc
-        globalCurrentEvent = tableViewTitleArray[theRow]
+//       let theRow = indexPath.row
+//        print("find the tabkeview row\(theRow)")
+//        
+//        //
+//        print("\n globalCurrentEvent event is: \(globalCurrentEvent)")
+//        
+//        print("\n selected event is: \(tableViewTitleArray[theRow])")
+//        
+//        print("\nnow replace the \(globalCurrentEvent) with selected event: \(tableViewTitleArray[theRow])")
+//        
+//        // reaplace the global event with this event and return to main vc
+//        globalCurrentEvent = tableViewTitleArray[theRow]
         _ = navigationController?.popToRootViewController(animated: true)
         
     }

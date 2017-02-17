@@ -25,7 +25,7 @@ class RealmTestViewController: UIViewController {
     // Get the default Realm
     let realm = try! Realm()
     // Use them like regular Swift objects
-    let user = UserRealm()
+    //let user = UserRealm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,56 +35,56 @@ class RealmTestViewController: UIViewController {
    
         if textInput.text != "" {
             
-            var message = ""
-            let textToSave = textInput.text
-            
-            user.name = textToSave!
-
-            print("name of  new user: \(user.name)")
-            message = "name of  new user: \(user.name)"
-            
-            let savedUser = realm.objects(UserRealm.self)
-            
-            print("savedUser before write \(savedUser.count)")
-            message += "\nsavedUser before write \(savedUser.count)"
-            
-            // Persist your data easily
-            try! realm.write {
-                realm.add(user)
-                print("add user")
-            }
-            
-            // Queries are updated in realtime
-            print("user after write \(savedUser.count)")
-            message += "\nuser after write \(savedUser.count)"
-            savedText.text = message
+//            var message = ""
+//            let textToSave = textInput.text
+//            
+//            user.name = textToSave!
+//
+//            print("name of  new user: \(user.name)")
+//            message = "name of  new user: \(user.name)"
+//            
+//            let savedUser = realm.objects(UserRealm.self)
+//            
+//            print("savedUser before write \(savedUser.count)")
+//            message += "\nsavedUser before write \(savedUser.count)"
+//            
+//            // Persist your data easily
+//            try! realm.write {
+//                realm.add(user)
+//                print("add user")
+//            }
+//            
+//            // Queries are updated in realtime
+//            print("user after write \(savedUser.count)")
+//            message += "\nuser after write \(savedUser.count)"
+//            savedText.text = message
         }
     }
 
     @IBAction func loadIItAction(_ sender: Any) {
         
-        let savedUser = realm.objects(UserRealm.self)
-        var message = "user count = \(savedUser.count)"
-        
-        print("user name: \(savedUser[0].name)")
-        
-        for items in savedUser {
-         print("loadTheSavedUsers from loadIItAction \(savedUser.count)  \(items.name)") // => 1
-            message += "\nUser Name: \(items.name)"
-        }
-        savedText.text = message
+//        let savedUser = realm.objects(UserRealm.self)
+//        var message = "user count = \(savedUser.count)"
+//        
+//        print("user name: \(savedUser[0].name)")
+//        
+//        for items in savedUser {
+//         print("loadTheSavedUsers from loadIItAction \(savedUser.count)  \(items.name)") // => 1
+//            message += "\nUser Name: \(items.name)"
+//        }
+//        savedText.text = message
     }
     
     @IBAction func deleteAction(_ sender: Any) {
         
-        let savedUser = realm.objects(UserRealm.self)
-        
-        print("savedUser before delete \(savedUser.count)")
-        try! realm.write {
-            realm.deleteAll()
-            
-        }
-        print("user after delete \(savedUser.count)")
+//        let savedUser = realm.objects(UserRealm.self)
+//        
+//        print("savedUser before delete \(savedUser.count)")
+//        try! realm.write {
+//            realm.deleteAll()
+//            
+//        }
+//        print("user after delete \(savedUser.count)")
     }
     
     @IBAction func setImage(_ sender: Any) {

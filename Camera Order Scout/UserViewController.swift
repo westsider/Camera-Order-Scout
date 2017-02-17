@@ -50,16 +50,17 @@ class UserViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         
         // get event + user from realm      // globalCurrentEvent
-        let currentEvent = realm.objects(EventRealm.self).filter("eventName == %@", globalCurrentEvent)
+        let currentEvent = realm.objects(EventUserRealm.self)
+        //.filter("eventName == %@", globalCurrentEvent)
 
         // Awesome!
         // Populate vc with saved event / user
         for index in currentEvent {
-            citySearch.text     = index.userInfo!.city
-            userName.text       = index.userInfo!.name
-            production.text     = index.userInfo!.production
-            company.text        = index.userInfo!.company
-            dateTextInput.text  = index.userInfo!.date
+            citySearch.text     = index.city
+            userName.text       = index.userName
+            production.text     = index.production
+            company.text        = index.company
+            dateTextInput.text  = index.date
         }
     }
     
@@ -72,22 +73,17 @@ class UserViewController: UIViewController, UITextFieldDelegate {
     @IBAction func updateAction(_ sender: Any) {
         
         // overwite event + user with text input
-        let defaultEvent = realm.objects(EventRealm.self)
+        let defaultEvent = realm.objects(EventUserRealm.self)
         
         for things in defaultEvent {
-            guard let evnt = things.userInfo else {
-                print("error")
-                return
-            }
-            
-            // Persist your data easily
+        
             try! realm.write {
-                evnt.name = userName.text!
-                evnt.production = production.text!
-                evnt.company = company.text!
-                evnt.city = citySearch.text!
-                evnt.date = dateTextInput.text!
-                evnt.weather = weatherDisplay.text
+                things.userName = userName.text!
+                things.production = production.text!
+                things.company = company.text!
+                things.city = citySearch.text!
+                things.date = dateTextInput.text!
+                things.weather = weatherDisplay.text
             }
         }
 
@@ -169,20 +165,18 @@ class UserViewController: UIViewController, UITextFieldDelegate {
     @IBAction func showUserAction(_ sender: Any) {
 
         // get event / user from realm
-        let savedEvent = realm.objects(EventRealm.self)
+        let savedEvent = realm.objects(EventUserRealm.self)
         var message = ""
         for things in savedEvent {
-            guard let evnty = things.userInfo else {
-                print("error")
-                return
-            }
+            
             message += "event count = \(savedEvent.count)"
-            message += "\neventName: \(evnty.name)"
-            message += "\nProduction: \(evnty.production)"
-            message += "\ncompany: \(evnty.company)"
-            message += "\ncity: \(evnty.city)"
-            message += "\ndate: \(evnty.date)"
-            message += "\nweather: \(evnty.weather)"
+            message += "\neventName: \(things.eventName)"
+            message += "\nuserName: \(things.userName)"
+            message += "\nProduction: \(things.production)"
+            message += "\ncompany: \(things.company)"
+            message += "\ncity: \(things.city)"
+            message += "\ndate: \(things.date)"
+            message += "\nweather: \(things.weather)"
             
         }
         userData.text = message
