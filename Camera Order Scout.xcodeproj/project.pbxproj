@@ -96,6 +96,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D5AC2BC1E567EC6008CBC63 /* un used items */ = {
+			isa = PBXGroup;
+			children = (
+				0DE208D21E47012400619AEF /* Event Class.swift */,
+				0DE208D41E47013600619AEF /* User Class.swift */,
+			);
+			name = "un used items";
+			sourceTree = "<group>";
+		};
 		0D6393501E46D84A003055DB = {
 			isa = PBXGroup;
 			children = (
@@ -134,16 +143,15 @@
 			children = (
 				0DC677301E4EAB4A00F9A137 /* EventRealm.swift */,
 				0DC677031E4E3AF600F9A137 /* UserRealm.swift */,
-				0D63936E1E46D8FC003055DB /* Equipment Class.swift */,
 				0DE968711E50189B009D52DF /* TableViewArrayRealm.swift */,
+				0D63936E1E46D8FC003055DB /* Equipment Class.swift */,
 				0D6393701E46D932003055DB /* Equipment Helpers.swift */,
 				0DE208DA1E47E13A00619AEF /* TableView Array Class.swift */,
 				0DBCF7581E496BAE00205017 /* Location API.swift */,
 				0DBCF7561E496B8A00205017 /* Weather API.swift */,
 				0DBCF75A1E496BCF00205017 /* Keyboard Helpers.swift */,
 				0DBCF75C1E496BEB00205017 /* DatePicker.swift */,
-				0DE208D21E47012400619AEF /* Event Class.swift */,
-				0DE208D41E47013600619AEF /* User Class.swift */,
+				0D5AC2BC1E567EC6008CBC63 /* un used items */,
 				0D6D1A501E4D641500B53B0E /* firstLaunch.swift */,
 			);
 			name = Model;

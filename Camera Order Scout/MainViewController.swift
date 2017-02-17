@@ -70,7 +70,10 @@
 //  fix: add aks arrow down removed from tableview
 
 //  chore: need to update the user model and event model to move foreward
-
+//      clear realm, change models, fix errors
+//          get model working
+//              update ui for debugging
+//                  get update user working
 //  task: realm persistence of past events
 //  task: move equipment and tableviewarrays inside this class and push to lenses vc
 
