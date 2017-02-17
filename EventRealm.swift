@@ -9,20 +9,7 @@
 import Foundation
 import RealmSwift
 
-//class EventRealm: Object {
-//    
-//    dynamic var eventName = "Default"
-//    //  dynamic var user = UserRealm()  //'The `EventRealm.user` property must be marked as being optional.'
-//    //dynamic var tableViewArray = [[Any]]()
-//
-//    
-//// Specify properties to ignore (Realm won't persist these)
-//    
-////  override static func ignoredProperties() -> [String] {
-////    return []
-////  }
-//}
-
+// this class unused for big model change
 class EventRealm: Object {
     dynamic var eventName = "Default"
     dynamic var userInfo: UserRealm?

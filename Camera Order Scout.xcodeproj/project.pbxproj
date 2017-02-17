@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D5AC2BE1E568008008CBC63 /* Event User Realm Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5AC2BD1E568008008CBC63 /* Event User Realm Object.swift */; };
 		0D63935D1E46D84A003055DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D63935C1E46D84A003055DB /* AppDelegate.swift */; };
 		0D63935F1E46D84A003055DB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D63935E1E46D84A003055DB /* MainViewController.swift */; };
 		0D6393621E46D84A003055DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D6393601E46D84A003055DB /* Main.storyboard */; };
@@ -53,6 +54,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0D5AC2BD1E568008008CBC63 /* Event User Realm Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Event User Realm Object.swift"; sourceTree = "<group>"; };
 		0D6393591E46D84A003055DB /* Camera Order Scout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Camera Order Scout.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D63935C1E46D84A003055DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D63935E1E46D84A003055DB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -99,10 +101,21 @@
 		0D5AC2BC1E567EC6008CBC63 /* un used items */ = {
 			isa = PBXGroup;
 			children = (
+				0DC677031E4E3AF600F9A137 /* UserRealm.swift */,
+				0DC677301E4EAB4A00F9A137 /* EventRealm.swift */,
 				0DE208D21E47012400619AEF /* Event Class.swift */,
 				0DE208D41E47013600619AEF /* User Class.swift */,
 			);
 			name = "un used items";
+			sourceTree = "<group>";
+		};
+		0D5AC2BF1E56804D008CBC63 /* Weather Objects */ = {
+			isa = PBXGroup;
+			children = (
+				0DBCF7581E496BAE00205017 /* Location API.swift */,
+				0DBCF7561E496B8A00205017 /* Weather API.swift */,
+			);
+			name = "Weather Objects";
 			sourceTree = "<group>";
 		};
 		0D6393501E46D84A003055DB = {
@@ -141,14 +154,12 @@
 		0DB53A391E46FD6D0049F0D2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0DC677301E4EAB4A00F9A137 /* EventRealm.swift */,
-				0DC677031E4E3AF600F9A137 /* UserRealm.swift */,
+				0D5AC2BD1E568008008CBC63 /* Event User Realm Object.swift */,
 				0DE968711E50189B009D52DF /* TableViewArrayRealm.swift */,
 				0D63936E1E46D8FC003055DB /* Equipment Class.swift */,
 				0D6393701E46D932003055DB /* Equipment Helpers.swift */,
 				0DE208DA1E47E13A00619AEF /* TableView Array Class.swift */,
-				0DBCF7581E496BAE00205017 /* Location API.swift */,
-				0DBCF7561E496B8A00205017 /* Weather API.swift */,
+				0D5AC2BF1E56804D008CBC63 /* Weather Objects */,
 				0DBCF75A1E496BCF00205017 /* Keyboard Helpers.swift */,
 				0DBCF75C1E496BEB00205017 /* DatePicker.swift */,
 				0D5AC2BC1E567EC6008CBC63 /* un used items */,
@@ -279,6 +290,7 @@
 				0D63935F1E46D84A003055DB /* MainViewController.swift in Sources */,
 				0DE208DF1E48097900619AEF /* LensesViewController.swift in Sources */,
 				0DBCF7571E496B8A00205017 /* Weather API.swift in Sources */,
+				0D5AC2BE1E568008008CBC63 /* Event User Realm Object.swift in Sources */,
 				0D6393711E46D932003055DB /* Equipment Helpers.swift in Sources */,
 				0DE968721E50189B009D52DF /* TableViewArrayRealm.swift in Sources */,
 				0D63936F1E46D8FC003055DB /* Equipment Class.swift in Sources */,
