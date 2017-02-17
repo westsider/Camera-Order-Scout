@@ -25,6 +25,4 @@ class EventUserRealm: Object {
 
 class EventTracking: Object {
     dynamic var lastID = ""
-    
-    
 }

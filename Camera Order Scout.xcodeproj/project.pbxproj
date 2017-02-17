@@ -23,15 +23,11 @@
 		0DBCF7591E496BAE00205017 /* Location API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBCF7581E496BAE00205017 /* Location API.swift */; };
 		0DBCF75B1E496BCF00205017 /* Keyboard Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBCF75A1E496BCF00205017 /* Keyboard Helpers.swift */; };
 		0DBCF75D1E496BEB00205017 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBCF75C1E496BEB00205017 /* DatePicker.swift */; };
-		0DC677041E4E3AF600F9A137 /* UserRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC677031E4E3AF600F9A137 /* UserRealm.swift */; };
 		0DC677061E4E40AC00F9A137 /* RealmTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC677051E4E40AC00F9A137 /* RealmTestViewController.swift */; };
-		0DC677311E4EAB4A00F9A137 /* EventRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC677301E4EAB4A00F9A137 /* EventRealm.swift */; };
 		0DC895751E4E34EA00FA7588 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC895731E4E34EA00FA7588 /* Realm.framework */; };
 		0DC895761E4E34EA00FA7588 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC895731E4E34EA00FA7588 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0DC895771E4E34EA00FA7588 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC895741E4E34EA00FA7588 /* RealmSwift.framework */; };
 		0DC895781E4E34EA00FA7588 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC895741E4E34EA00FA7588 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0DE208D31E47012400619AEF /* Event Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE208D21E47012400619AEF /* Event Class.swift */; };
-		0DE208D51E47013600619AEF /* User Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE208D41E47013600619AEF /* User Class.swift */; };
 		0DE208D71E4797A400619AEF /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE208D61E4797A400619AEF /* ListTableViewCell.swift */; };
 		0DE208DB1E47E13A00619AEF /* TableView Array Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE208DA1E47E13A00619AEF /* TableView Array Class.swift */; };
 		0DE208DF1E48097900619AEF /* LensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE208DE1E48097900619AEF /* LensesViewController.swift */; };
@@ -72,13 +68,9 @@
 		0DBCF7581E496BAE00205017 /* Location API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location API.swift"; sourceTree = "<group>"; };
 		0DBCF75A1E496BCF00205017 /* Keyboard Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Keyboard Helpers.swift"; sourceTree = "<group>"; };
 		0DBCF75C1E496BEB00205017 /* DatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
-		0DC677031E4E3AF600F9A137 /* UserRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserRealm.swift; path = "Camera Order Scout/UserRealm.swift"; sourceTree = "<group>"; };
 		0DC677051E4E40AC00F9A137 /* RealmTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmTestViewController.swift; sourceTree = "<group>"; };
-		0DC677301E4EAB4A00F9A137 /* EventRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventRealm.swift; sourceTree = "<group>"; };
 		0DC895731E4E34EA00FA7588 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		0DC895741E4E34EA00FA7588 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
-		0DE208D21E47012400619AEF /* Event Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Event Class.swift"; sourceTree = "<group>"; };
-		0DE208D41E47013600619AEF /* User Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User Class.swift"; sourceTree = "<group>"; };
 		0DE208D61E4797A400619AEF /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListTableViewCell.swift; path = ../ListTableViewCell.swift; sourceTree = "<group>"; };
 		0DE208DA1E47E13A00619AEF /* TableView Array Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TableView Array Class.swift"; sourceTree = "<group>"; };
 		0DE208DE1E48097900619AEF /* LensesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LensesViewController.swift; sourceTree = "<group>"; };
@@ -98,15 +90,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0D5AC2BC1E567EC6008CBC63 /* un used items */ = {
+		0D285B6D1E5794FD004149CF /* Equipment */ = {
 			isa = PBXGroup;
 			children = (
-				0DC677031E4E3AF600F9A137 /* UserRealm.swift */,
-				0DC677301E4EAB4A00F9A137 /* EventRealm.swift */,
-				0DE208D21E47012400619AEF /* Event Class.swift */,
-				0DE208D41E47013600619AEF /* User Class.swift */,
+				0D63936E1E46D8FC003055DB /* Equipment Class.swift */,
+				0D6393701E46D932003055DB /* Equipment Helpers.swift */,
+				0DE208DA1E47E13A00619AEF /* TableView Array Class.swift */,
 			);
-			name = "un used items";
+			name = Equipment;
 			sourceTree = "<group>";
 		};
 		0D5AC2BF1E56804D008CBC63 /* Weather Objects */ = {
@@ -156,13 +147,10 @@
 			children = (
 				0D5AC2BD1E568008008CBC63 /* Event User Realm Object.swift */,
 				0DE968711E50189B009D52DF /* TableViewArrayRealm.swift */,
-				0D63936E1E46D8FC003055DB /* Equipment Class.swift */,
-				0D6393701E46D932003055DB /* Equipment Helpers.swift */,
-				0DE208DA1E47E13A00619AEF /* TableView Array Class.swift */,
+				0D285B6D1E5794FD004149CF /* Equipment */,
 				0D5AC2BF1E56804D008CBC63 /* Weather Objects */,
 				0DBCF75A1E496BCF00205017 /* Keyboard Helpers.swift */,
 				0DBCF75C1E496BEB00205017 /* DatePicker.swift */,
-				0D5AC2BC1E567EC6008CBC63 /* un used items */,
 				0D6D1A501E4D641500B53B0E /* firstLaunch.swift */,
 			);
 			name = Model;
@@ -285,7 +273,6 @@
 				0DE208D71E4797A400619AEF /* ListTableViewCell.swift in Sources */,
 				0DBCF7551E49660D00205017 /* UserViewController.swift in Sources */,
 				0DBCF7591E496BAE00205017 /* Location API.swift in Sources */,
-				0DE208D31E47012400619AEF /* Event Class.swift in Sources */,
 				0DBCF75B1E496BCF00205017 /* Keyboard Helpers.swift in Sources */,
 				0D63935F1E46D84A003055DB /* MainViewController.swift in Sources */,
 				0DE208DF1E48097900619AEF /* LensesViewController.swift in Sources */,
@@ -296,13 +283,10 @@
 				0D63936F1E46D8FC003055DB /* Equipment Class.swift in Sources */,
 				0DC677061E4E40AC00F9A137 /* RealmTestViewController.swift in Sources */,
 				0DBCF7531E495DAA00205017 /* PastOrdersViewController.swift in Sources */,
-				0DC677041E4E3AF600F9A137 /* UserRealm.swift in Sources */,
 				0D6D1A511E4D641500B53B0E /* firstLaunch.swift in Sources */,
-				0DE208D51E47013600619AEF /* User Class.swift in Sources */,
 				0DE208DB1E47E13A00619AEF /* TableView Array Class.swift in Sources */,
 				0D81902B1E48140000237B11 /* primeLensTableViewCell.swift in Sources */,
 				0D63935D1E46D84A003055DB /* AppDelegate.swift in Sources */,
-				0DC677311E4EAB4A00F9A137 /* EventRealm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

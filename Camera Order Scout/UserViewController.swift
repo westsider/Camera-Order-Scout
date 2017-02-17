@@ -84,31 +84,53 @@ class UserViewController: UIViewController, UITextFieldDelegate {
         //get last id used
         let id = getLastIdUsed()
         
-        var message = "Saved id is\n\(id)\n"
+        var message = "Saved id is\n\(id) inside update this user\n"
         
         let currentEvent = realm.objects(EventUserRealm.self).filter("taskID == %@", id)
         
-        message += "\(currentEvent.count) Event(s) fetched and are:\n\(currentEvent)"
+        message += "\(currentEvent.count) Event(s) fetched inside update this user and are:\n\(currentEvent)"
         
         message += " Event user name updated to \(currentEvent[0].userName)\n event now shows\n\(currentEvent)"
         
         print(message)
         
         // update last used event with this user
-        for update in currentEvent {
+        //for update in currentEvent {
         
             try! realm.write {
-                update.userName = userName.text!
-                update.production = production.text!
-                update.company = company.text!
-                update.city = citySearch.text!
-                update.date = dateTextInput.text!
-                update.weather = weatherDisplay.text
+                
+                currentEvent[0].userName = userName.text!
+                currentEvent[0].production = production.text!
+                currentEvent[0].company = company.text!
+                currentEvent[0].city = citySearch.text!
+                currentEvent[0].date = dateTextInput.text!
+                currentEvent[0].weather = weatherDisplay.text
                 // update user in tableview row 0 as well
-                update.tableViewArray?.rows[0].title = "\(userName.text!) Director of Photography"
-                update.tableViewArray?.rows[0].detail = "Camera Order \(production.text!) \(dateTextInput.text!)"
+                print("\n--------------------------------------------------------------------------------")
+                print("\nwhat is in currentEvent[0].tableViewArray?.rows[0].title \(currentEvent[0].tableViewArray?.rows[0].title )")
+                print("\nwhat is in currentEvent[0].tableViewArray?.rows[0].detail \(currentEvent[0].tableViewArray?.rows[0].detail )")
+                //currentEvent[0].tableViewArray?.rows[0].title = "\(userName.text!) Director of Photography"
+                //currentEvent[0].tableViewArray?.rows[0].detail = "Camera Order \(production.text!) \(dateTextInput.text!)"
+                
+                let newTvr = TableViewRow()
+                
+                newTvr.icon = "a new icon"
+                newTvr.title = userName.text!
+                newTvr.detail = "a new detail"
+                
+                currentEvent[0].tableViewArray?.replaceUser(newRow: newTvr)
+                
+//                update.userName = userName.text!
+//                update.production = production.text!
+//                update.company = company.text!
+//                update.city = citySearch.text!
+//                update.date = dateTextInput.text!
+//                update.weather = weatherDisplay.text
+//                // update user in tableview row 0 as well
+//                update.tableViewArray?.rows[0].title = "\(userName.text!) Director of Photography"
+//                update.tableViewArray?.rows[0].detail = "Camera Order \(production.text!) \(dateTextInput.text!)"
             }
-        }
+        //}
          _ = navigationController?.popToRootViewController(animated: true)
         
     }
