@@ -69,6 +69,8 @@
 //  task: black or white icons only
 //  fix: add aks arrow down removed from tableview
 
+//  chore: need to update the user model and event model to move foreward
+
 //  task: realm persistence of past events
 //  task: move equipment and tableviewarrays inside this class and push to lenses vc
 
@@ -124,6 +126,10 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         
         let defaultEvent = realm.objects(EventRealm.self); print("defaultEvent count: \(defaultEvent.count)")
         
+        print("**** All of the events -----------------------------------------------------------")
+        print("\nAll of the events:\(defaultEvent)")
+        print("End of all of the events -----------------------------------------------------------")
+        
         if defaultEvent.count == 0 {
             
             init_User_Event_TableViewArray()  //    *** on first run create a new user, event, tableview and populate tableview ***
@@ -167,6 +173,11 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         }
         
         myTableView.reloadData(); print("\nEnd of viewWillAppear ") // reload when returning to this VC
+    }
+    
+    //Mark: - Save current Event
+    @IBAction func saveAction(_ sender: Any) {
+        
         
     }
     
@@ -197,7 +208,7 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
                     print("\nWHOA!! We have a match bettween \(globalCurrentEvent) and \(indexTwo.eventName)")
                     eventToWorkOn = indexTwo
                     print("\nthis is the eventToWorkOn: \(eventToWorkOn)")
-                    
+                    let results = try! Realm().objects(EventRealm)
                     // append new row
                     try? realm .write {
                         eventToWorkOn.tableViewArray?.rows.append(objectsIn: [newRow])

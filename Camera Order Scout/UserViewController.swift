@@ -49,12 +49,12 @@ class UserViewController: UIViewController, UITextFieldDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         
-        // get event + user from realm
-        let defaultEvent = realm.objects(EventRealm.self)
+        // get event + user from realm      // globalCurrentEvent
+        let currentEvent = realm.objects(EventRealm.self).filter("eventName == %@", globalCurrentEvent)
 
         // Awesome!
         // Populate vc with saved event / user
-        for index in defaultEvent {
+        for index in currentEvent {
             citySearch.text     = index.userInfo!.city
             userName.text       = index.userInfo!.name
             production.text     = index.userInfo!.production
@@ -176,8 +176,8 @@ class UserViewController: UIViewController, UITextFieldDelegate {
                 print("error")
                 return
             }
-            message += "users = \(savedEvent.count)"
-            message += "\nName: \(evnty.name)"
+            message += "event count = \(savedEvent.count)"
+            message += "\neventName: \(evnty.name)"
             message += "\nProduction: \(evnty.production)"
             message += "\ncompany: \(evnty.company)"
             message += "\ncity: \(evnty.city)"
