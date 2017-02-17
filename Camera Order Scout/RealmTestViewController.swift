@@ -32,47 +32,13 @@ class RealmTestViewController: UIViewController {
     }
 
     @IBAction func saveItAction(_ sender: Any) {
-   
-        if textInput.text != "" {
-            
-//            var message = ""
-//            let textToSave = textInput.text
-//            
-//            user.name = textToSave!
-//
-//            print("name of  new user: \(user.name)")
-//            message = "name of  new user: \(user.name)"
-//            
-//            let savedUser = realm.objects(UserRealm.self)
-//            
-//            print("savedUser before write \(savedUser.count)")
-//            message += "\nsavedUser before write \(savedUser.count)"
-//            
-//            // Persist your data easily
-//            try! realm.write {
-//                realm.add(user)
-//                print("add user")
-//            }
-//            
-//            // Queries are updated in realtime
-//            print("user after write \(savedUser.count)")
-//            message += "\nuser after write \(savedUser.count)"
-//            savedText.text = message
-        }
+
     }
 
     @IBAction func loadIItAction(_ sender: Any) {
         
-//        let savedUser = realm.objects(UserRealm.self)
-//        var message = "user count = \(savedUser.count)"
-//        
-//        print("user name: \(savedUser[0].name)")
-//        
-//        for items in savedUser {
-//         print("loadTheSavedUsers from loadIItAction \(savedUser.count)  \(items.name)") // => 1
-//            message += "\nUser Name: \(items.name)"
-//        }
-//        savedText.text = message
+        let currentEvent = realm.objects(EventUserRealm.self)
+        savedText.text =  "all events\n\(currentEvent)"
     }
     
     @IBAction func deleteAction(_ sender: Any) {

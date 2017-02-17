@@ -16,17 +16,15 @@
 import UIKit
 import RealmSwift
 
-var globalCurrentEvent = "Default"
-
 class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     @IBOutlet weak var eventsTableView: UITableView!
     
     @IBOutlet weak var eventNameInput: UITextField!
     
-    //let realm = try! Realm()
+    let realm = try! Realm()
     
-    //var eventToWorkOn = EventRealm()
+    var tasks: Results<EventUserRealm>! // for tableview
     
     var tableViewTitleArray = [String]()
 
@@ -36,8 +34,9 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
         eventsTableView.delegate = self
         eventsTableView.dataSource = self
         print("\n*** Entering PastOrdersViewController *** vDL loads first")
-        reloadTableViewNames()
-
+        tasks = realm.objects(EventUserRealm.self)  // for tableview
+        
+        
     }
 
     //MARK: - Lifecycle Events
@@ -46,26 +45,12 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
 
     }
     
-    func reloadTableViewNames() {
-
-//        let savedEvent = realm.objects(EventRealm.self)
-//        tableViewTitleArray.removeAll()
-//
-//        for index in savedEvent {
-//            print("\nIn the loop reload tableviews\(index.eventName)")
-//            tableViewTitleArray.append(index.eventName)
-//        }
-//        eventsTableView.reloadData()
-    }
-    
     /*---------------------------------------------------------------------------------------
      |                                                                                       |
      |                                    Save New Event                                     |
      |                                                                                       |
      ---------------------------------------------------------------------------------------*/
     
-    // problem is ther is only 1 user ever and i should creat a new user and save it to the event... 
-    //****          or just update the event with this user info what I update user
     //MARK: - Save Event
     @IBAction func saveEvent(_ sender: Any) {
 
@@ -75,32 +60,38 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
             
             if let textInput = eventNameInput.text {
                 print(textInput)
-//                let savedEvent = realm.objects(EventRealm.self)
-//                print("\n loaded savedEvent : \(savedEvent)")
-//                let savedUsers = realm.objects(UserRealm.self)
-//                
-//               print("\n*** attempting to copy and event - saved event count: \(savedEvent.count) and user count is:\(savedUsers.count)")
-//                
-//                for index in savedEvent {
-//                    print("In the loop yo")
-//                    // use the loop to find default and copy it to new event
-//                    if index.eventName == globalCurrentEvent {
-//                        try! realm.write() {
-//                            realm.create(EventRealm.self, value: ["eventName": textInput,"userInfo": index.userInfo!, "tableViewArray": index.tableViewArray!])
-//                        }
-//                    }
-//                }
-//                 globalCurrentEvent = textInput
-//                
-//                print("\n added to savedEvent : \(savedEvent)")
+                let newEvntUser = EventUserRealm()
+                
+                let id = getLastIdUsed()
+                
+                // get the current event to poplate new event tableview
+                let currentEvent = realm.objects(EventUserRealm.self).filter("taskID == %@", id)
+                
+                // populate tableview equipment from current oorder
+                newEvntUser.tableViewArray = currentEvent[0].tableViewArray
+                // update all details
+                newEvntUser.eventName = textInput
+                newEvntUser.userName = currentEvent[0].userName
+                newEvntUser.production = currentEvent[0].production
+                newEvntUser.company = currentEvent[0].company
+                newEvntUser.city = currentEvent[0].city
+                newEvntUser.date = currentEvent[0].date
+        
+                try! realm.write {
+                    realm.add(newEvntUser)
+                }
+                // save last used event id
+                saveLastID(ID: newEvntUser.taskID)
             }
         } else {
             print("No text input")
             eventNameInput.text = "Please enter a name for this order"
         }
-         reloadTableViewNames()
-//        let newObjects =  realm.objects(EventRealm.self)
-//        print("\n*** leaving copy  event -  count: \(newObjects.count)")
+        let allEvents = realm.objects(EventUserRealm.self)
+        
+        print("New EventUser added:\n\(allEvents)")
+        
+        eventsTableView.reloadData()
     }
 
     /*---------------------------------------------------------------------------------------
@@ -110,14 +101,20 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
      ---------------------------------------------------------------------------------------*/
     //MARK:- Set up Table View
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return tableViewTitleArray.count
+        return tasks.count
+        //return tableViewTitleArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "Cell")
+        
+        //cell.textLabel?.text = tableViewTitleArray[indexPath.row]
+        
+        let task =  "\(tasks[indexPath.row].eventName) for \(tasks[indexPath.row].userName)"
+        
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "Cell")
         
-        cell.textLabel?.text = tableViewTitleArray[indexPath.row]
+        cell.textLabel?.text =  task //testTableViewArray[indexPath.row]
         
         return cell
     }
@@ -129,19 +126,41 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
      ---------------------------------------------------------------------------------------*/
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("\nJust tapped tableview row to Load new enebt")
-//       let theRow = indexPath.row
-//        print("find the tabkeview row\(theRow)")
-//        
-//        //
-//        print("\n globalCurrentEvent event is: \(globalCurrentEvent)")
-//        
-//        print("\n selected event is: \(tableViewTitleArray[theRow])")
-//        
-//        print("\nnow replace the \(globalCurrentEvent) with selected event: \(tableViewTitleArray[theRow])")
-//        
-//        // reaplace the global event with this event and return to main vc
-//        globalCurrentEvent = tableViewTitleArray[theRow]
+       let theRow = indexPath.row
+        print("\nthe row is \(theRow)\nthe task id is \(tasks[theRow].taskID)")
+        
+        // save event id as lastId - last event, which is the current eventloaded in the main vc becomes the selected event and can be loaded into the main vs
+        let id = EventTracking()
+        try! realm.write {
+            id.lastID = tasks[theRow].taskID
+            realm.add(id)
+        }
         _ = navigationController?.popToRootViewController(animated: true)
         
+    }
+    
+    func saveLastID(ID: String) {
+        // save last used event id
+        let id = EventTracking()
+        try! realm.write {
+            id.lastID = ID
+            realm.add(id)
+        }
+    }
+    
+    func getLastIdUsed() -> String {
+        //get lst id used
+        let id = realm.objects(EventTracking.self)
+        print("last is\(id)")
+        var lastIDvalue = String()
+        if id.count > 0 {
+            print("more than 1 id\(id.count)")
+            let thelastID = id.last
+            lastIDvalue = (thelastID?.lastID)!
+        } else {
+            print("only 1 ID")
+            lastIDvalue = "\(id)"
+        }
+        return lastIDvalue
     }
 }

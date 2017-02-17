@@ -46,8 +46,9 @@
 //      clear realm, change models, fix errors
 //          get model working add camera good, add lens good
 //              get update user working
-
 //                  get add new event working
+
+//                  find bug: updating user name sets both tableview names
 //                      delete items in current tableview
 
 //  task: realm persistence of past events
@@ -214,7 +215,6 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     
     //MARK: - Share Camera Order
     @IBAction func shareAction(_ sender: Any) {
-        
         let message = tableViewArrays.messageContent()
         print(message)
     }
@@ -349,9 +349,8 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         
         for items in currentEvent {     // populate tableview
             // here's whats in the event
-            
             print("here's whats in each item tableview row: \(items.tableViewArray?.rows[0].title)")
-            
+
             for eachRow in (items.tableViewArray?.rows)! {
                 print("\nhere is each row: \(eachRow)")
                 
