@@ -45,13 +45,15 @@
 //  chore: need to update the user model and event model to move foreward
 //      clear realm, change models, fix errors
 //          get model working add camera good, add lens good
-//              next get update user working
+//              get update user working
+
+//                  get add new event working
+//                      delete items in current tableview
 
 //  task: realm persistence of past events
 //  task: move equipment and tableviewarrays inside this class and push to lenses vc
 
 //  feat: done with persistance
-//  fix: prevent row 1 from deletion
 //  task: first run Tutorial                            mon 2/13
 //  http://stackoverflow.com/questions/13335540/how-to-make-first-launch-iphone-app-tour-guide-with-xcode
 //  task: turn print into share                         mon 2/13
@@ -87,7 +89,7 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     //MARK: - Lifecycle Functions
     override func viewWillAppear(_ animated: Bool) {
         
-        // checkFor first run
+        //Mark: - on first run
         let checkEventUser = realm.objects(EventUserRealm.self)
         
         if checkEventUser.count == 0 {
@@ -123,7 +125,7 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             saveLastID(ID: defaultEventUsers.taskID)
             print("\nFirst Run event name: \(defaultEventUsers.eventName) user name: \(defaultEventUsers.userName) savedID = \(defaultEventUsers.taskID)")
         } else {
-            // we have a past user and will get last id used
+            //Mark: - we have a past user and will get last id used
             let id = getLastIdUsed()
             
             var message = "we have more than one event and last saved id is \(id)\n"
@@ -351,7 +353,7 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             print("here's whats in each item tableview row: \(items.tableViewArray?.rows[0].title)")
             
             for eachRow in (items.tableViewArray?.rows)! {
-                print("\nhere is each rows: \(eachRow)")
+                print("\nhere is each row: \(eachRow)")
                 
                 tableViewArrays.appendTableViewArray(title: eachRow.title, detail: eachRow.detail, compState: pickerEquipment.pickerState)
             }

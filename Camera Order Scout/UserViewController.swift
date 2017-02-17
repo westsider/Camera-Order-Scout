@@ -49,9 +49,18 @@ class UserViewController: UIViewController, UITextFieldDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         
-        // get event + user from realm      // globalCurrentEvent
-        let currentEvent = realm.objects(EventUserRealm.self)
-        //.filter("eventName == %@", globalCurrentEvent)
+        //get last id used
+        let id = getLastIdUsed()
+        
+        var message = "Saved id is\n\(id)\n"
+        
+        let currentEvent = realm.objects(EventUserRealm.self).filter("taskID == %@", id)
+        
+        message += "\(currentEvent.count) Event(s) fetched and are:\n\(currentEvent)"
+        
+        message += " Event user name updated to \(currentEvent[0].userName)\n event now shows\n\(currentEvent)"
+        
+        print(message)
 
         // Awesome!
         // Populate vc with saved event / user
@@ -72,21 +81,34 @@ class UserViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func updateAction(_ sender: Any) {
         
-        // overwite event + user with text input
-        let defaultEvent = realm.objects(EventUserRealm.self)
+        //get last id used
+        let id = getLastIdUsed()
         
-        for things in defaultEvent {
+        var message = "Saved id is\n\(id)\n"
+        
+        let currentEvent = realm.objects(EventUserRealm.self).filter("taskID == %@", id)
+        
+        message += "\(currentEvent.count) Event(s) fetched and are:\n\(currentEvent)"
+        
+        message += " Event user name updated to \(currentEvent[0].userName)\n event now shows\n\(currentEvent)"
+        
+        print(message)
+        
+        // update last used event with this user
+        for update in currentEvent {
         
             try! realm.write {
-                things.userName = userName.text!
-                things.production = production.text!
-                things.company = company.text!
-                things.city = citySearch.text!
-                things.date = dateTextInput.text!
-                things.weather = weatherDisplay.text
+                update.userName = userName.text!
+                update.production = production.text!
+                update.company = company.text!
+                update.city = citySearch.text!
+                update.date = dateTextInput.text!
+                update.weather = weatherDisplay.text
+                // update user in tableview row 0 as well
+                update.tableViewArray?.rows[0].title = "\(userName.text!) Director of Photography"
+                update.tableViewArray?.rows[0].detail = "Camera Order \(production.text!) \(dateTextInput.text!)"
             }
         }
-
          _ = navigationController?.popToRootViewController(animated: true)
         
     }
@@ -164,12 +186,16 @@ class UserViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func showUserAction(_ sender: Any) {
 
-        // get event / user from realm
-        let savedEvent = realm.objects(EventUserRealm.self)
-        var message = ""
-        for things in savedEvent {
+        //get last id used
+        let id = getLastIdUsed()
+        
+        var message = "Saved id is\n\(id)\n"
+        
+        let currentEvent = realm.objects(EventUserRealm.self).filter("taskID == %@", id)
+        
+        for things in currentEvent {
             
-            message += "event count = \(savedEvent.count)"
+            message += "\nevent count = \(currentEvent.count)"
             message += "\neventName: \(things.eventName)"
             message += "\nuserName: \(things.userName)"
             message += "\nProduction: \(things.production)"
@@ -177,9 +203,32 @@ class UserViewController: UIViewController, UITextFieldDelegate {
             message += "\ncity: \(things.city)"
             message += "\ndate: \(things.date)"
             message += "\nweather: \(things.weather)"
-            
         }
         userData.text = message
     }
     
+    func saveLastID(ID: String) {
+        // save last used event id
+        let id = EventTracking()
+        try! realm.write {
+            id.lastID = ID
+            realm.add(id)
+        }
+    }
+    
+    func getLastIdUsed() -> String {
+        //get lst id used
+        let id = realm.objects(EventTracking.self)
+        print("last is\(id)")
+        var lastIDvalue = String()
+        if id.count > 0 {
+            print("more than 1 id\(id.count)")
+            let thelastID = id.last
+            lastIDvalue = (thelastID?.lastID)!
+        } else {
+            print("only 1 ID")
+            lastIDvalue = "\(id)"
+        }
+        return lastIDvalue
+    }
 }
