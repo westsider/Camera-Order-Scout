@@ -215,8 +215,11 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     
     //MARK: - Share Camera Order
     @IBAction func shareAction(_ sender: Any) {
-        let message = tableViewArrays.messageContent()
-        print(message)
+//        let message = tableViewArrays.messageContent()
+//        print(message)
+        let allEvents = realm.objects(EventUserRealm.self)
+        
+        print("\nThese are all of the events currently in realm ---------------------------------------------\n\(allEvents)\n")
     }
     
     /*---------------------------------------------------------------------------------------

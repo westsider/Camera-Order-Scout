@@ -94,8 +94,7 @@ class UserViewController: UIViewController, UITextFieldDelegate {
         
         print(message)
         
-        // update last used event with this user
-        //for update in currentEvent {
+// This is where im having troubnle updating the tableviewArray.rows of just this EventUserRealm object. Its updaing every EventUserRealm  object
         
             try! realm.write {
                 
@@ -109,26 +108,8 @@ class UserViewController: UIViewController, UITextFieldDelegate {
                 print("\n--------------------------------------------------------------------------------")
                 print("\nwhat is in currentEvent[0].tableViewArray?.rows[0].title \(currentEvent[0].tableViewArray?.rows[0].title )")
                 print("\nwhat is in currentEvent[0].tableViewArray?.rows[0].detail \(currentEvent[0].tableViewArray?.rows[0].detail )")
-                //currentEvent[0].tableViewArray?.rows[0].title = "\(userName.text!) Director of Photography"
-                //currentEvent[0].tableViewArray?.rows[0].detail = "Camera Order \(production.text!) \(dateTextInput.text!)"
-                
-                let newTvr = TableViewRow()
-                
-                newTvr.icon = "a new icon"
-                newTvr.title = userName.text!
-                newTvr.detail = "a new detail"
-                
-                currentEvent[0].tableViewArray?.replaceUser(newRow: newTvr)
-                
-//                update.userName = userName.text!
-//                update.production = production.text!
-//                update.company = company.text!
-//                update.city = citySearch.text!
-//                update.date = dateTextInput.text!
-//                update.weather = weatherDisplay.text
-//                // update user in tableview row 0 as well
-//                update.tableViewArray?.rows[0].title = "\(userName.text!) Director of Photography"
-//                update.tableViewArray?.rows[0].detail = "Camera Order \(production.text!) \(dateTextInput.text!)"
+                currentEvent[0].tableViewArray?.rows[0].title = "\(userName.text!) Director of Photography"
+                currentEvent[0].tableViewArray?.rows[0].detail = "Camera Order \(production.text!) \(dateTextInput.text!)"
             }
         //}
          _ = navigationController?.popToRootViewController(animated: true)

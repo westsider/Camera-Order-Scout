@@ -21,12 +21,15 @@ class TableViewRow: Object {
 //  tableview object for realm
 class EventTableView: Object {
     let rows = List<TableViewRow>()
-    //override var description: String { return "Car {\(brand), \(name), \(year)}" }
-    
-    func replaceUser(newRow: TableViewRow){
-        print("replace user called")
-        print("these are the rows\(rows)")
-        print("replacing index o")
-        rows[0].title = newRow.title
-    }
 }
+
+
+// older versions
+//override var description: String { return "Car {\(brand), \(name), \(year)}" }
+
+//func replaceUser(newRow: TableViewRow){
+//    print("replace user called")
+//    print("these are the rows\(rows)")
+//    print("replacing index o")
+//    rows[0].title = newRow.title
+//}

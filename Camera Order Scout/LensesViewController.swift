@@ -23,9 +23,6 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     let realm = try! Realm()            // Get the default Realm
     
-    //let user = UserRealm()              // Use them like regular Swift objects
-    
-    //var eventToWorkOn = EventRealm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
