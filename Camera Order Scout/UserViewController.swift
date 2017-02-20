@@ -54,23 +54,23 @@ class UserViewController: UIViewController, UITextFieldDelegate {
         
         var message = "Saved id is\n\(id)\n"
         
-        let currentEvent = realm.objects(EventUserRealm.self).filter("taskID == %@", id)
+        let currentEvent = realm.objects(EventUserRealm.self).filter("taskID == %@", id).first!
         
-        message += "\(currentEvent.count) Event(s) fetched and are:\n\(currentEvent)"
+        //message += "\(currentEvent.count) Event(s) fetched and are:\n\(currentEvent)"
         
-        message += " Event user name updated to \(currentEvent[0].userName)\n event now shows\n\(currentEvent)"
+        message += " Event user name updated to \(currentEvent.userName)\n event now shows\n\(currentEvent)"
         
         print(message)
 
         // Awesome!
         // Populate vc with saved event / user
-        for index in currentEvent {
-            citySearch.text     = index.city
-            userName.text       = index.userName
-            production.text     = index.production
-            company.text        = index.company
-            dateTextInput.text  = index.date
-        }
+        //for index in currentEvent {
+            citySearch.text     = currentEvent.city
+            userName.text       = currentEvent.userName
+            production.text     = currentEvent.production
+            company.text        = currentEvent.company
+            dateTextInput.text  = currentEvent.date
+        //}
     }
     
     /*---------------------------------------------------------------------------------------
@@ -86,11 +86,11 @@ class UserViewController: UIViewController, UITextFieldDelegate {
         
         var message = "Saved id is\n\(id) inside update this user\n"
         
-        let currentEvent = realm.objects(EventUserRealm.self).filter("taskID == %@", id)
+        let currentEvent = realm.objects(EventUserRealm.self).filter("taskID == %@", id).first!
         
-        message += "\(currentEvent.count) Event(s) fetched inside update this user and are:\n\(currentEvent)"
+       // message += "\(currentEvent.count) Event(s) fetched inside update this user and are:\n\(currentEvent)"
         
-        message += " Event user name updated to \(currentEvent[0].userName)\n event now shows\n\(currentEvent)"
+        message += " Event user name updated to \(currentEvent.userName)\n event now shows\n\(currentEvent)"
         
         print(message)
         
@@ -98,18 +98,18 @@ class UserViewController: UIViewController, UITextFieldDelegate {
         
             try! realm.write {
                 
-                currentEvent[0].userName = userName.text!
-                currentEvent[0].production = production.text!
-                currentEvent[0].company = company.text!
-                currentEvent[0].city = citySearch.text!
-                currentEvent[0].date = dateTextInput.text!
-                currentEvent[0].weather = weatherDisplay.text
+                currentEvent.userName = userName.text!
+                currentEvent.production = production.text!
+                currentEvent.company = company.text!
+                currentEvent.city = citySearch.text!
+                currentEvent.date = dateTextInput.text!
+                currentEvent.weather = weatherDisplay.text
                 // update user in tableview row 0 as well
                 print("\n--------------------------------------------------------------------------------")
-                print("\nwhat is in currentEvent[0].tableViewArray?.rows[0].title \(currentEvent[0].tableViewArray?.rows[0].title )")
-                print("\nwhat is in currentEvent[0].tableViewArray?.rows[0].detail \(currentEvent[0].tableViewArray?.rows[0].detail )")
-                currentEvent[0].tableViewArray?.rows[0].title = "\(userName.text!) Director of Photography"
-                currentEvent[0].tableViewArray?.rows[0].detail = "Camera Order \(production.text!) \(dateTextInput.text!)"
+                print("\nwhat is in currentEvent[0].tableViewArray?.rows[0].title \(currentEvent.tableViewArray[0].title )")
+                print("\nwhat is in currentEvent[0].tableViewArray?.rows[0].detail \(currentEvent.tableViewArray[0].detail )")
+                currentEvent.tableViewArray[0].title = "\(userName.text!) Director of Photography"
+                currentEvent.tableViewArray[0].detail = "Camera Order \(production.text!) \(dateTextInput.text!)"
             }
         //}
          _ = navigationController?.popToRootViewController(animated: true)

@@ -57,16 +57,17 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             newRow.title = pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1] 
             newRow.detail = newLensKit
         }
+        print("\nWe created a newRow\(newRow)")
         
         // get realm event and append tableview row objects
         let id = getLastIdUsed()
         
         //var message = "Saved id is\n\(id)\n"
         
-        let currentEvent = realm.objects(EventUserRealm.self).filter("taskID == %@", id)
+        let currentEvent = realm.objects(EventUserRealm.self).filter("taskID == %@", id).first!
         
         try! realm.write {
-            currentEvent[0].tableViewArray?.rows.append(objectsIn: [newRow])
+            currentEvent.tableViewArray.append(newRow)
         }
 
         

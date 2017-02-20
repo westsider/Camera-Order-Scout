@@ -52,7 +52,7 @@
 //                      delete items in current tableview
 
 //  task: realm persistence of past events
-//  task: move equipment and tableviewarrays inside this class and push to lenses vc
+//  task: move equipment and tableviewarrays inside this class and push to lenses vc, by using realm notofication from a tableview array theat is populated directly from realm.   https://realm.io/docs/swift/latest/#notifications
 
 //  feat: done with persistance
 //  task: first run Tutorial                            mon 2/13
@@ -85,7 +85,7 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     
     let realm = try! Realm()
     
-    let defaultEvent = EventUserRealm()
+   // let defaultEvent = EventUserRealm()
     
     //MARK: - Lifecycle Functions
     override func viewWillAppear(_ animated: Bool) {
@@ -109,11 +109,12 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             let rowOne = TableViewRow()
             rowOne.icon = "man" ; rowOne.title = "\(defaultEventUsers.userName) Director of Photography" ; rowOne.detail = "Camera Order \(defaultEventUsers.production) \(defaultEventUsers.date )"
             
-            let defaultTableview = EventTableView()
-            defaultTableview.rows.append(objectsIn: [rowOne])
+            //let defaultTableview = EventTableView()
+            //defaultTableview.append(objectsIn: [rowOne])
+            
             //defaultEvent.tableViewArray = defaultTableview
-            defaultEventUsers.tableViewArray = defaultTableview
-            tableViewArrays.appendTableViewArray(title: "\(defaultTableview.rows[0].title)", detail: "\(defaultTableview.rows[0].detail)", compState: [0,0,0,0])
+            defaultEventUsers.tableViewArray.append(rowOne) // = defaultTableview
+            tableViewArrays.appendTableViewArray(title: "\(defaultEventUsers.tableViewArray[0].title)", detail: "\(defaultEventUsers.tableViewArray[0].detail)", compState: [0,0,0,0])
   
             print(defaultEventUsers)
             print("\nFirst run defaultEventUsers:\n\(defaultEventUsers)")
@@ -127,13 +128,10 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             print("\nFirst Run event name: \(defaultEventUsers.eventName) user name: \(defaultEventUsers.userName) savedID = \(defaultEventUsers.taskID)")
         } else {
             //Mark: - we have a past user and will get last id used
-            let id = getLastIdUsed()
             
-            var message = "we have more than one event and last saved id is \(id)\n"
+            let currentEvent = getLastEvent()
             
-            let currentEvent = realm.objects(EventUserRealm.self).filter("taskID == %@", id)
-            
-            message += "\nLast event was fetched and is this: \n\(currentEvent)"; print(message)
+            //message += "\nLast event was fetched and is this: \n\(currentEvent)"; print(message)
             
             populateTableviewFromEvent(currentEvent: currentEvent)      // populate tableview
         }
@@ -175,19 +173,19 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             newRow.title = pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1];   print("Realm Title:\(newRow.title)")
             newRow.detail = pickerEquipment.pickerSelection[2] + " " +  pickerEquipment.pickerSelection[3]; print("Realm Detail:\(newRow.detail)")
             
+            print("\nWe created a newRow\(newRow)")
+            
             // get realm event and append tableview row objects
             //get lst id used
-            let id = getLastIdUsed()
+        
             
-            var message = "Saved id is\n\(id)\n"
-            
-            let currentEvent = realm.objects(EventUserRealm.self).filter("taskID == %@", id)
+            let currentEvent = getLastEvent()
             
             try! realm.write {
-                currentEvent[0].tableViewArray?.rows.append(objectsIn: [newRow])
+                currentEvent.tableViewArray.append(newRow)
             }
             
-            message += "\(currentEvent.count) Event(s) fetched and are:\n\(currentEvent)"
+            //message += "\(currentEvent.count) Event(s) fetched and are:\n\(currentEvent)"
             
             // append camera to tableview
             tableViewArrays.appendTableViewArray(title: pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1], detail: pickerEquipment.pickerSelection[2] + " " + pickerEquipment.pickerSelection[3], compState: pickerEquipment.pickerState)
@@ -346,20 +344,18 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     
 
     //Mark: - populate the tableview
-    func populateTableviewFromEvent(currentEvent: Results<EventUserRealm> ) {
+    func populateTableviewFromEvent(currentEvent: EventUserRealm ) {
         
         tableViewArrays.removeAll(); print("\nclear the tableview array\n")
         
-        for items in currentEvent {     // populate tableview
+        //for items in currentEvent {     // populate tableview
             // here's whats in the event
-            print("here's whats in each item tableview row: \(items.tableViewArray?.rows[0].title)")
-
-            for eachRow in (items.tableViewArray?.rows)! {
+            for eachRow in currentEvent.tableViewArray {
                 print("\nhere is each row: \(eachRow)")
                 
                 tableViewArrays.appendTableViewArray(title: eachRow.title, detail: eachRow.detail, compState: pickerEquipment.pickerState)
             }
-        }
+        //}
         myTableView.reloadData()
     }
 
@@ -375,27 +371,30 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     
     func saveLastID(ID: String) {
         // save last used event id
-        let id = EventTracking()
+        var newID = false
+        let id: EventTracking
+        if let existingID = realm.objects(EventTracking.self).first {
+            id = existingID
+        } else {
+            newID = true
+            id = EventTracking()
+        }
+
         try! realm.write {
+            if newID {
+                realm.add(id)
+            }
             id.lastID = ID
-            realm.add(id)
         }
     }
     
-    func getLastIdUsed() -> String {
+    func getLastEvent() -> EventUserRealm {
         //get lst id used
-        let id = realm.objects(EventTracking.self)
-        print("last is\(id)")
-        var lastIDvalue = String()
-        if id.count > 0 {
-            print("more than 1 id\(id.count)")
-            let thelastID = id.last
-            lastIDvalue = (thelastID?.lastID)!
-        } else {
-            print("only 1 ID")
-            lastIDvalue = "\(id)"
-        }
-        return lastIDvalue
+        let id = realm.objects(EventTracking.self)[0].lastID
+        print("getLastEvent id is:\(id)")
+        let currentEvent = realm.objects(EventUserRealm.self).filter("taskID == %@", id).first!
+    
+        return currentEvent
     }
 }
 

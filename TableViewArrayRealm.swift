@@ -19,9 +19,9 @@ class TableViewRow: Object {
 }
 
 //  tableview object for realm
-class EventTableView: Object {
-    let rows = List<TableViewRow>()
-}
+//class EventTableView: Object {
+//    let rows = List<TableViewRow>()
+//}
 
 
 // older versions

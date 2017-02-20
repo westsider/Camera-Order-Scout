@@ -65,17 +65,23 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
                 let id = getLastIdUsed()
                 
                 // get the current event to poplate new event tableview
-                let currentEvent = realm.objects(EventUserRealm.self).filter("taskID == %@", id)
+                let currentEvent = realm.objects(EventUserRealm.self).filter("taskID == %@", id).first!
                 
-                // populate tableview equipment from current oorder
-                newEvntUser.tableViewArray = currentEvent[0].tableViewArray
+                // populate tableview equipment from current order
+                for oldRow in currentEvent.tableViewArray {
+                    let newRow = TableViewRow()
+                    newRow.detail = oldRow.detail
+                    newRow.title = oldRow.title
+                    newRow.icon = oldRow.icon
+                    newEvntUser.tableViewArray.append(newRow)
+                }
                 // update all details
                 newEvntUser.eventName = textInput
-                newEvntUser.userName = currentEvent[0].userName
-                newEvntUser.production = currentEvent[0].production
-                newEvntUser.company = currentEvent[0].company
-                newEvntUser.city = currentEvent[0].city
-                newEvntUser.date = currentEvent[0].date
+                newEvntUser.userName = currentEvent.userName
+                newEvntUser.production = currentEvent.production
+                newEvntUser.company = currentEvent.company
+                newEvntUser.city = currentEvent.city
+                newEvntUser.date = currentEvent.date
         
                 try! realm.write {
                     realm.add(newEvntUser)
@@ -127,7 +133,7 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("\nJust tapped tableview row to Load new enebt")
        let theRow = indexPath.row
-        print("\nthe row is \(theRow)\nthe task id is \(tasks[theRow].taskID)")
+//print("\nthe row is \(theRow)\nthe task id is \(tasks[theRow].taskID)")
         
         // save event id as lastId - last event, which is the current eventloaded in the main vc becomes the selected event and can be loaded into the main vs
         let id = EventTracking()

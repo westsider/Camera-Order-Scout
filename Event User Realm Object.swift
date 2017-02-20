@@ -20,7 +20,8 @@ class EventUserRealm: Object {
     dynamic var date = ""
     dynamic var weather = ""
     
-    dynamic var tableViewArray:  EventTableView?
+    var tableViewArray = List<TableViewRow>()
+
 }
 
 class EventTracking: Object {
