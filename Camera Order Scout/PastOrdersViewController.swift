@@ -112,14 +112,21 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
 
         let theRow = indexPath.row
         let id = EventTracking()
+        
         try! realm.write {
             id.lastID = tasks[theRow].taskID
             realm.add(id)
         }
+        saveLastID(ID: id.lastID)
+        print("last ID saved in Past Orders= \(id.lastID)")
+        
+        print("last ID retrieved in Past Orders= \(getLastIdUsed())")
+        
         _ = navigationController?.popToRootViewController(animated: true)
         
     }
     
+    //Mark: - save sast id and get last id done differenltly than class onject
     func saveLastID(ID: String) {
         let id = EventTracking()
         try! realm.write {

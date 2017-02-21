@@ -79,6 +79,8 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     
     @IBOutlet weak var myTableView: UITableView!
     
+    @IBOutlet weak var currentEventLable: UILabel!
+    
     var image = [UIImage]()
     
     let cellIdentifier = "ListTableViewCell"
@@ -86,6 +88,9 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     let isFirstLaunch = UserDefaults.isFirstLaunch()
     
     let realm = try! Realm()
+    
+    //  var tasks: Results<EventUserRealm>! // for tableview
+    var tableviewEvent = EventUserRealm()
     
     //MARK: - Lifecycle Functions
     override func viewWillAppear(_ animated: Bool) {
@@ -104,6 +109,7 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             defaultEventUsers.production  = "new production"
             defaultEventUsers.company  = "new company"
             defaultEventUsers.date  = "no date yet"
+            currentEventLable.text = "first event"
             
             //                  create tableview object
             let rowOne = TableViewRow()
@@ -119,13 +125,21 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             
             // save last used event id
             saveLastID(ID: defaultEventUsers.taskID)
+            
+            tableviewEvent = defaultEventUsers
 
         } else {
             
             //Mark: - we have a past user and will get last id used
             let currentEvent = getLastEvent()
             
-            populateTableviewFromEvent(currentEvent: currentEvent)      // populate tableview
+            print("here is the event loaded in vWA \(currentEvent.eventName)")
+            
+            tableviewEvent = currentEvent
+            
+            currentEventLable.text = currentEvent.eventName
+                
+            //populateTableviewFromEvent(currentEvent: currentEvent)      // populate tableview
         }
         
         myTableView.reloadData();
@@ -140,6 +154,7 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         self.myPicker.delegate = self
         myTableView.reloadData()
         updatePickerSelection() // so we dont get nil on first run
+        //tasks = realm.objects(EventUserRealm.self)  // for tableview
     }
     
     //Mark: - Save current Event
@@ -298,15 +313,27 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     
     //MARK: - Set up Table View
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableViewArrays.tableViewArray.count
+        //return tableViewArrays.tableViewArray.count
+        return tableviewEvent.tableViewArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ListTableViewCell
-        cell.imageTableViewCell.image = tableViewArrays.tableViewArray[indexPath.row][2] as? UIImage
-        cell.titleTableView?.text =  tableViewArrays.tableViewArray[indexPath.row][0] as? String
-        cell.detailTableView?.text =  tableViewArrays.tableViewArray[indexPath.row][1] as? String
+        
+       // let tableViewRow = tableviewEvent.tableViewArray[indexPath.row].ta
+        
+        //cell.imageTableViewCell.image = tableViewArrays.tableViewArray[indexPath.row][2] as? UIImage
+        
+        cell.imageTableViewCell.image = UIImage(named: "manIcon")
+            
+        //cell.titleTableView?.text =  tableViewArrays.tableViewArray[indexPath.row][0] as? String
+        
+        cell.titleTableView?.text = tableviewEvent.tableViewArray[indexPath.row].title
+        
+        //cell.detailTableView?.text =  tableViewArrays.tableViewArray[indexPath.row][1] as? String
+        cell.detailTableView?.text = tableviewEvent.tableViewArray[indexPath.row].detail
+        
         return cell
     }
     
@@ -360,10 +387,19 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         }
     }
     
+    /// the purpose of this func is to get the last event used
     func getLastEvent() -> EventUserRealm {
         
-        let id = realm.objects(EventTracking.self)[0].lastID
+        let allIds = realm.objects(EventTracking.self)
+        print("this is all id's \(allIds)")
+        let allIdCount = allIds.count
+        print("this is the count \(allIdCount)")
+        let index = allIdCount - 1
+        print("this is the index \(index)")
+        let id = realm.objects(EventTracking.self)[index].lastID
+        print("this is the last id used \(id)")
         let currentEvent = realm.objects(EventUserRealm.self).filter("taskID == %@", id).first!
+        print("this is the last event used  \(currentEvent.taskID)")
         return currentEvent
     }
 }

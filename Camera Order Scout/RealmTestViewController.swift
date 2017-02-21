@@ -29,6 +29,7 @@ class RealmTestViewController: UIViewController {
         for events in allEvents {
             message += "\n\(events.eventName)"
             message += "\n\(events.userName)"
+            message += "\n\(events.taskID)"
             for rows in events.tableViewArray {
                 message += "\n\(rows.title)"
                 message += "\n\(rows.detail)"
