@@ -120,7 +120,8 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
         //print(tasks)
         // get last id in events to save new last id
         let numItems = allEvents.count
-        let index = numItems - 1
+        var index = numItems - 1
+        if index < 0 {  index = 0   } // catch -1 index if events edited to 1 event
         let thisID = tasks[index].taskID
         saveLastID(ID: thisID)
         eventsTableView.reloadData()

@@ -52,14 +52,10 @@
 //                          bug: adding lens doesnt show up in tableview, construct tableview from RealmEvent
 //                              task: move equipment and tableviewarrays inside this class and push to lenses vc
 //                                  task: delete items in current tableview
-
 //                                      task: delete items in events
 //                                          task:add tableview icons
-
-
-
-
 //  feat: done with persistance
+
 //  task: first run Tutorial                            mon 2/13
 //  http://stackoverflow.com/questions/13335540/how-to-make-first-launch-iphone-app-tour-guide-with-xcode
 //  task: turn print into share                         mon 2/13
@@ -314,11 +310,11 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        // consider refactoring the way I get a tableview icon... from previous core data approach
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ListTableViewCell
+        let iconString = tableviewEvent.tableViewArray[indexPath.row].icon
         
-        //cell.imageTableViewCell.image = tableViewArrays.tableViewArray[indexPath.row][2] as? UIImage
-        
-        cell.imageTableViewCell.image = UIImage(named: "manIcon")
+        cell.imageTableViewCell.image = tableViewArrays.setTableViewIcon(title: iconString)
         
         cell.titleTableView?.text = tableviewEvent.tableViewArray[indexPath.row].title
 
@@ -404,7 +400,8 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         //  print("this is all id's \(allIds)")
         let allIdCount = allIds.count
         //   print("this is the count \(allIdCount)")
-        let index = allIdCount - 1
+        var index = allIdCount - 1
+        if index < 0 { index = 0 }  // catch edited events causing index -1
         //  print("this is the index \(index)")
         let id = realm.objects(EventTracking.self)[index].lastID
         //   print("this is the last id used \(id)")

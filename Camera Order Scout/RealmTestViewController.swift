@@ -31,6 +31,7 @@ class RealmTestViewController: UIViewController {
             message += "\n\(events.userName)"
             message += "\n\(events.taskID)"
             for rows in events.tableViewArray {
+                message += "\nicon = \(rows.icon)"
                 message += "\n\(rows.title)"
                 message += "\n\(rows.detail)"
             }
