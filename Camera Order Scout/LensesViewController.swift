@@ -21,8 +21,7 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var thePrimes = String()
     
-    let realm = try! Realm()            // Get the default Realm
-    
+    let realm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,21 +30,16 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewWillAppear(_ animated: Bool) {
         
-        // convert string from main vc to an array i can edit
-        originalArray = thePrimes.components(separatedBy: ", ")
-        //  print("\noriginalArray: \(originalArray)")
-        // populate the array to edit with switches
-        tableViewSwitches.populateArrays(array: originalArray)
+        originalArray = thePrimes.components(separatedBy: ", ")     // convert string from main vc to an array i can edit
+        tableViewSwitches.populateArrays(array: originalArray)       // populate the array to edit with switches
     }
     
     //MARK: - Update the lens kit and return to main VC
     @IBAction func updateAction(_ sender: Any) {
         
-        // return string of edited lens array
-        tableViewSwitches.finalizeLensArray()
+        tableViewSwitches.finalizeLensArray()         // return string of edited lens array
         
         let newLensKit = tableViewSwitches.returnedString
-        //  print("\n OK newLensKit is \(newLensKit)\n")
         
         //  create tableview row realm objects and differentiate lenses from aks
         let newRow = TableViewRow()
@@ -57,12 +51,9 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             newRow.title = pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1] 
             newRow.detail = newLensKit
         }
-        print("\nWe created a newRow\(newRow)")
         
         // get realm event and append tableview row objects
         let id = getLastIdUsed()
-        
-        //var message = "Saved id is\n\(id)\n"
         
         let currentEvent = realm.objects(EventUserRealm.self).filter("taskID == %@", id).first!
         
@@ -70,7 +61,6 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             currentEvent.tableViewArray.append(newRow)
         }
 
-        
         _ = navigationController?.popToRootViewController(animated: true)
     }
     
@@ -94,9 +84,7 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
         let index = sender.tag
         let content = sender.restorationIdentifier!
-        
         print("Lens Switch Index: \(index) For: \(content) Is On: \(sender.isOn)")
-        
         // change array of lenses with tableview switches
         tableViewSwitches.updateArray(index: index, switchPos: sender.isOn)
     }
@@ -113,14 +101,11 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func getLastIdUsed() -> String {
         //get lst id used
         let id = realm.objects(EventTracking.self)
-        print("last is\(id)")
         var lastIDvalue = String()
         if id.count > 0 {
-            print("more than 1 id\(id.count)")
             let thelastID = id.last
             lastIDvalue = (thelastID?.lastID)!
         } else {
-            print("only 1 ID")
             lastIDvalue = "\(id)"
         }
         return lastIDvalue

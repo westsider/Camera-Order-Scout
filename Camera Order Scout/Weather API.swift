@@ -128,7 +128,6 @@ extension ForecastDetail {
     
     /// An array of ForecastDetail structs from JSON data.
     /// - parameter json: JSON data
-    
     static func forecastDetialArray(json: [String: Any]) -> [ForecastDetail]? {
         guard let forecast = json["forecast"] as? [String: Any] else { return nil }
         guard let simpleforecast = forecast["simpleforecast"] as? [String: Any] else { return nil }
@@ -144,8 +143,6 @@ class GetWeather {
         
         var theWeather: String = ""
         
-        print("forecastURL- Weather API: \(CurrentLocation.sharedInstance.forcastURL)")
-        
         let task = URLSession.shared.dataTask(with: CurrentLocation.sharedInstance.forcastURL! as URL) {(data, response, error) in
             
             let json: [String: Any]?
@@ -155,7 +152,6 @@ class GetWeather {
                 
             } catch {
                 json = nil
-                print("Error is \(error.localizedDescription)")
             }
             // weather detail object
             if  let forecastDetail = ForecastDetail.forecastDetialArray(json: json!) {
@@ -183,12 +179,9 @@ class GetWeather {
                     i = i + 1
                 }
                 
-                //print(dateDetailArray)
-                
                 DispatchQueue.main.async(execute: {
                     // create text block for weather forecast array
                     for element in dateDetailArray {
-                        //print(element)
                         let newElement = element
                         theWeather = theWeather + newElement
                     }

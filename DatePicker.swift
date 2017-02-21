@@ -33,7 +33,6 @@ class DatePickerUtility {
     func addDays(days: Int) -> Date {
         let today = Date()
         let tomorrow = Calendar.current.date(byAdding: .day, value: days, to: today)
-        print("\(tomorrow)")
         return tomorrow!
     }
     
@@ -41,8 +40,6 @@ class DatePickerUtility {
     func numOfDaysToShortDate(numOfDays: Int) -> String {
         
         let firstFutureDate = self.addDays(days: numOfDays)
-        
-        print("Is This the first future DATE? \(firstFutureDate)")     // future DATE
         
         return self.convertShortDate(date: firstFutureDate)
     }

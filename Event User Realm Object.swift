@@ -9,6 +9,7 @@
 import Foundation
 import RealmSwift
 
+// class to hold each event, user and tableview list of equipment
 class EventUserRealm: Object {
     
     dynamic var eventName = "Default"
@@ -21,9 +22,6 @@ class EventUserRealm: Object {
     dynamic var weather = ""
     
     var tableViewArray = List<TableViewRow>()
-
 }
 
-class EventTracking: Object {
-    dynamic var lastID = ""
-}
+

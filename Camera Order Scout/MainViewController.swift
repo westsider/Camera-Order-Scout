@@ -47,9 +47,11 @@
 //          get model working add camera good, add lens good
 //              get update user working
 //                  get add new event working
+//                      find bug: updating user name sets both tableview names
 
-//                  find bug: updating user name sets both tableview names
-//                      delete items in current tableview
+//                          take debugging class, use realm as tableview
+//                          bug: adding lens doesnt show up in tableview, construct tableview from RealmEvent
+//                              delete items in current tableview
 
 //  task: realm persistence of past events
 //  task: move equipment and tableviewarrays inside this class and push to lenses vc, by using realm notofication from a tableview array theat is populated directly from realm.   https://realm.io/docs/swift/latest/#notifications
@@ -69,7 +71,7 @@ import RealmSwift
 
 var pickerEquipment = Equipment()       // needs to move inside the class and pushed to lenses vc
 
-var tableViewArrays = TableViewArrays()
+var tableViewArrays = TableViewArrays() // this is the tableview array
 
 class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDelegate, UITableViewDataSource {
     
@@ -84,8 +86,6 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     let isFirstLaunch = UserDefaults.isFirstLaunch()
     
     let realm = try! Realm()
-    
-   // let defaultEvent = EventUserRealm()
     
     //MARK: - Lifecycle Functions
     override func viewWillAppear(_ animated: Bool) {
@@ -108,16 +108,10 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             //                  create tableview object
             let rowOne = TableViewRow()
             rowOne.icon = "man" ; rowOne.title = "\(defaultEventUsers.userName) Director of Photography" ; rowOne.detail = "Camera Order \(defaultEventUsers.production) \(defaultEventUsers.date )"
-            
-            //let defaultTableview = EventTableView()
-            //defaultTableview.append(objectsIn: [rowOne])
-            
-            //defaultEvent.tableViewArray = defaultTableview
+
             defaultEventUsers.tableViewArray.append(rowOne) // = defaultTableview
             tableViewArrays.appendTableViewArray(title: "\(defaultEventUsers.tableViewArray[0].title)", detail: "\(defaultEventUsers.tableViewArray[0].detail)", compState: [0,0,0,0])
   
-            print(defaultEventUsers)
-            print("\nFirst run defaultEventUsers:\n\(defaultEventUsers)")
             //  persiste default event
             try! realm.write {
                 realm.add(defaultEventUsers)
@@ -125,18 +119,16 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             
             // save last used event id
             saveLastID(ID: defaultEventUsers.taskID)
-            print("\nFirst Run event name: \(defaultEventUsers.eventName) user name: \(defaultEventUsers.userName) savedID = \(defaultEventUsers.taskID)")
+
         } else {
+            
             //Mark: - we have a past user and will get last id used
-            
             let currentEvent = getLastEvent()
-            
-            //message += "\nLast event was fetched and is this: \n\(currentEvent)"; print(message)
             
             populateTableviewFromEvent(currentEvent: currentEvent)      // populate tableview
         }
         
-        //myTableView.reloadData(); print("\nEnd of viewWillAppear ") // reload when returning to this VC
+        myTableView.reloadData();
     }
     
 
@@ -164,28 +156,19 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     //MARK: - Add Action
     @IBAction func addAction(_ sender: Any) {
         
-        print("\nEntering Action to populate tableview")
         // if a new camera
         if pickerEquipment.pickerState[1] == 0 {
             //  create tableview row realm objects
             let newRow = TableViewRow()
-            newRow.icon = pickerEquipment.pickerSelection[1];                                               print("Realm Icon:\(newRow.icon)")
-            newRow.title = pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1];   print("Realm Title:\(newRow.title)")
-            newRow.detail = pickerEquipment.pickerSelection[2] + " " +  pickerEquipment.pickerSelection[3]; print("Realm Detail:\(newRow.detail)")
-            
-            print("\nWe created a newRow\(newRow)")
-            
-            // get realm event and append tableview row objects
-            //get lst id used
-        
-            
+            newRow.icon = pickerEquipment.pickerSelection[1];
+            newRow.title = pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1];
+            newRow.detail = pickerEquipment.pickerSelection[2] + " " +  pickerEquipment.pickerSelection[3];
+
             let currentEvent = getLastEvent()
             
             try! realm.write {
                 currentEvent.tableViewArray.append(newRow)
             }
-            
-            //message += "\(currentEvent.count) Event(s) fetched and are:\n\(currentEvent)"
             
             // append camera to tableview
             tableViewArrays.appendTableViewArray(title: pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1], detail: pickerEquipment.pickerSelection[2] + " " + pickerEquipment.pickerSelection[3], compState: pickerEquipment.pickerState)
@@ -213,11 +196,8 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     
     //MARK: - Share Camera Order
     @IBAction func shareAction(_ sender: Any) {
-//        let message = tableViewArrays.messageContent()
-//        print(message)
-        let allEvents = realm.objects(EventUserRealm.self)
-        
-        print("\nThese are all of the events currently in realm ---------------------------------------------\n\(allEvents)\n")
+
+        //let allEvents = realm.objects(EventUserRealm.self)
     }
     
     /*---------------------------------------------------------------------------------------
@@ -336,8 +316,6 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     //MARK: - Segue to User VC
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-
-            
             performSegue(withIdentifier: "mainToUser", sender: self)
         }
     }
@@ -346,16 +324,10 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     //Mark: - populate the tableview
     func populateTableviewFromEvent(currentEvent: EventUserRealm ) {
         
-        tableViewArrays.removeAll(); print("\nclear the tableview array\n")
-        
-        //for items in currentEvent {     // populate tableview
-            // here's whats in the event
-            for eachRow in currentEvent.tableViewArray {
-                print("\nhere is each row: \(eachRow)")
-                
+        tableViewArrays.removeAll();
+            for eachRow in currentEvent.tableViewArray {                
                 tableViewArrays.appendTableViewArray(title: eachRow.title, detail: eachRow.detail, compState: pickerEquipment.pickerState)
             }
-        //}
         myTableView.reloadData()
     }
 
@@ -389,11 +361,9 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     }
     
     func getLastEvent() -> EventUserRealm {
-        //get lst id used
+        
         let id = realm.objects(EventTracking.self)[0].lastID
-        print("getLastEvent id is:\(id)")
         let currentEvent = realm.objects(EventUserRealm.self).filter("taskID == %@", id).first!
-    
         return currentEvent
     }
 }

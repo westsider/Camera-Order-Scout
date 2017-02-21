@@ -22,18 +22,11 @@ class TableViewArrays {
     
     func setTableViewIcon(title: String )-> UIImage {
         
-        //print("\nInside setTableViewIcon getting Catagory \(title) as Any")
-        
         let image = UIImage(named: "manIcon")!
         
         let catagory = title
         
-        //print("\nInside setTableViewIcon getting Catagory \(title) as String")
-        //print("\nThe Catagory is: \(title)")
-        
-        
         if catagory.range(of:"Camera") != nil {
-            print("Setting Camera")
             return UIImage(named: "cameraIcon")!
         }
         
@@ -68,7 +61,6 @@ class TableViewArrays {
         if catagory.range(of:"Support") != nil {
             return UIImage(named: "gearIcon")!
         }
-        print("\nInside setTableViewIcon returning image \(image)")
         return image
     }
     
@@ -80,7 +72,6 @@ class TableViewArrays {
             newRow.append(detail)
             newRow.append(setTableViewIcon(title: title))
             tableViewArray.append(newRow)
-        //print("\n The TRICKY icon state:m \(title) \n\(detail) \n\(icon)")
     }
     
     
@@ -242,15 +233,12 @@ class TableViewArrays {
     //MARK: - format message
     /// format message string
     func messageContent()-> String {
-        //print(tableViewArray)
         var message = ""
         var counter = 0
         for line in tableViewArray {
             if counter == 0 {
                 message += "\nCamera  Order\n\r"
                 message += "\(line[0])\n\r"
-                //  message += "\(thisEvent.user.production) \(thisEvent.user.company) \(thisEvent.user.date)\n\r"
-                //  message +=  "Weather Forecast for \(thisEvent.user.city)\n\(thisEvent.user.weather)\n\r"
             
             } else {
                 message += "\(line[0])\n\(line[1])\n\r"
@@ -286,7 +274,6 @@ class TableViewSwitches {
             } else {
                 edited[index] = original[index]
             }
-            print("edited array\(edited)")
             
         } else {
             print("⚡️the index \(index) does not exist you big 🤓")
@@ -300,14 +287,11 @@ class TableViewSwitches {
             if let index = edited.index(of: "#") {
                 hasHash = true
                 edited.remove(at: index)
-                print("finalize has removed a hash \(edited)")
             } else {
                 hasHash = false
             }
         }
-        print("Finalize no hashes: \(edited)")
         // convert to string
         returnedString = edited.joined(separator: ",")
-        print("\nreturnedString is: \(returnedString)")
     }
 }

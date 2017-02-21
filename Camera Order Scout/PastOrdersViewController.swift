@@ -28,21 +28,16 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var tableViewTitleArray = [String]()
 
+    //MARK: - Lifecycle Events
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "S A V E / L O A D"
         eventsTableView.delegate = self
         eventsTableView.dataSource = self
-        print("\n*** Entering PastOrdersViewController *** vDL loads first")
         tasks = realm.objects(EventUserRealm.self)  // for tableview
-        
-        
     }
 
-    //MARK: - Lifecycle Events
     override func viewWillAppear(_ animated: Bool) {
-        print("vWA laods second")
-
     }
     
     /*---------------------------------------------------------------------------------------
@@ -54,14 +49,11 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
     //MARK: - Save Event
     @IBAction func saveEvent(_ sender: Any) {
 
-        print("\nEntering Save Event")
         // make sure textInput contains a new name
         if eventNameInput.text != "" {
             
             if let textInput = eventNameInput.text {
-                print(textInput)
                 let newEvntUser = EventUserRealm()
-                
                 let id = getLastIdUsed()
                 
                 // get the current event to poplate new event tableview
@@ -86,16 +78,11 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
                 try! realm.write {
                     realm.add(newEvntUser)
                 }
-                // save last used event id
                 saveLastID(ID: newEvntUser.taskID)
             }
         } else {
-            print("No text input")
             eventNameInput.text = "Please enter a name for this order"
         }
-        let allEvents = realm.objects(EventUserRealm.self)
-        
-        print("New EventUser added:\n\(allEvents)")
         
         eventsTableView.reloadData()
     }
@@ -108,13 +95,9 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
     //MARK:- Set up Table View
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tasks.count
-        //return tableViewTitleArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "Cell")
-        
-        //cell.textLabel?.text = tableViewTitleArray[indexPath.row]
         
         let task =  "\(tasks[indexPath.row].eventName) for \(tasks[indexPath.row].userName)"
         
@@ -131,11 +114,8 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
      |                                                                                       |
      ---------------------------------------------------------------------------------------*/
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("\nJust tapped tableview row to Load new enebt")
-       let theRow = indexPath.row
-//print("\nthe row is \(theRow)\nthe task id is \(tasks[theRow].taskID)")
-        
-        // save event id as lastId - last event, which is the current eventloaded in the main vc becomes the selected event and can be loaded into the main vs
+
+        let theRow = indexPath.row
         let id = EventTracking()
         try! realm.write {
             id.lastID = tasks[theRow].taskID
@@ -146,7 +126,6 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func saveLastID(ID: String) {
-        // save last used event id
         let id = EventTracking()
         try! realm.write {
             id.lastID = ID
@@ -155,16 +134,13 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func getLastIdUsed() -> String {
-        //get lst id used
+
         let id = realm.objects(EventTracking.self)
-        print("last is\(id)")
         var lastIDvalue = String()
         if id.count > 0 {
-            print("more than 1 id\(id.count)")
             let thelastID = id.last
             lastIDvalue = (thelastID?.lastID)!
         } else {
-            print("only 1 ID")
             lastIDvalue = "\(id)"
         }
         return lastIDvalue

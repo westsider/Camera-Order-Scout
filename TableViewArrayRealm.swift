@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-// tableview row object for realm
+// class to add tableview rows to each event
 class TableViewRow: Object {
     dynamic var icon = ""
     dynamic var title = ""
@@ -18,18 +18,7 @@ class TableViewRow: Object {
     override var description: String { return "TableViewRow {\(icon), \(title), \(detail)}" }
 }
 
-//  tableview object for realm
-//class EventTableView: Object {
-//    let rows = List<TableViewRow>()
-//}
-
-
-// older versions
-//override var description: String { return "Car {\(brand), \(name), \(year)}" }
-
-//func replaceUser(newRow: TableViewRow){
-//    print("replace user called")
-//    print("these are the rows\(rows)")
-//    print("replacing index o")
-//    rows[0].title = newRow.title
-//}
+//  class to track past events
+class EventTracking: Object {
+    dynamic var lastID = ""
+}

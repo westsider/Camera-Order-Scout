@@ -54,8 +54,6 @@ class CurrentLocation {
             first = first.replacingOccurrences(of: ",", with: "")
             // set forecast url
             self.forcastURL = NSURL(string: "https://api.wunderground.com/api/f6373e95fa296c84/forecast10day/q/" + last + "/" + first + ".json")
-            print("Location API- Last/First \(last) \(first)")
-            print("Location API- forcastURL \(forcastURL)")
             return first + last
             
         // city city city, state -- Marina Del Rey, CA
@@ -68,15 +66,12 @@ class CurrentLocation {
             first = first.replacingOccurrences(of: ",", with: "")
             // set forecast url
             self.forcastURL = NSURL(string: "https://api.wunderground.com/api/f6373e95fa296c84/forecast10day/q/" + last + "/" + first + ".json")
-            print("Location API- Last/First First First \(last) \(first)")
-            print("Location API- forcastURL \(forcastURL)")
             return first + last
         // only 1 word entered, need more info
         default:
             //  first = String(split.prefix(upTo: 1).joined(separator: [" "]))
             //  url = NSURL(string: "https://api.wunderground.com/api/f6373e95fa296c84/conditions/q/" + first + ".json")
             //  forcastURL = NSURL(string: "https://api.wunderground.com/api/f6373e95fa296c84/forecast10day/q/" + first + ".json")
-            //  print("ERROR: Please include a state or country")
             return "Please include a state or country"
         }
         
