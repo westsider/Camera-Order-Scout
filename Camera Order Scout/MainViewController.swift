@@ -48,9 +48,9 @@
 //              get update user working
 //                  get add new event working
 //                      find bug: updating user name sets both tableview names
-
 //                          take debugging class, use realm as tableview
 //                          bug: adding lens doesnt show up in tableview, construct tableview from RealmEvent
+
 //                              delete items in current tableview
 
 //  task: realm persistence of past events
@@ -71,8 +71,6 @@ import RealmSwift
 
 var pickerEquipment = Equipment()       // needs to move inside the class and pushed to lenses vc
 
-var tableViewArrays = TableViewArrays() // this is the tableview array
-
 class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var myPicker: UIPickerView!
@@ -87,9 +85,10 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     
     let isFirstLaunch = UserDefaults.isFirstLaunch()
     
+    var tableViewArrays = TableViewArrays() // this is only to pass primes kit to next vc
+    
     let realm = try! Realm()
     
-    //  var tasks: Results<EventUserRealm>! // for tableview
     var tableviewEvent = EventUserRealm()
     
     //MARK: - Lifecycle Functions
@@ -116,17 +115,15 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             rowOne.icon = "man" ; rowOne.title = "\(defaultEventUsers.userName) Director of Photography" ; rowOne.detail = "Camera Order \(defaultEventUsers.production) \(defaultEventUsers.date )"
 
             defaultEventUsers.tableViewArray.append(rowOne) // = defaultTableview
-            tableViewArrays.appendTableViewArray(title: "\(defaultEventUsers.tableViewArray[0].title)", detail: "\(defaultEventUsers.tableViewArray[0].detail)", compState: [0,0,0,0])
+            //tableViewArrays.appendTableViewArray(title: "\(defaultEventUsers.tableViewArray[0].title)", detail: "\(defaultEventUsers.tableViewArray[0].detail)", compState: [0,0,0,0])
   
-            //  persiste default event
-            try! realm.write {
+            try! realm.write {                   //  persiste default event
                 realm.add(defaultEventUsers)
             }
             
-            // save last used event id
-            saveLastID(ID: defaultEventUsers.taskID)
+            saveLastID(ID: defaultEventUsers.taskID)    // save last used event id
             
-            tableviewEvent = defaultEventUsers
+            tableviewEvent = defaultEventUsers  // populate tableview
 
         } else {
             
@@ -135,11 +132,9 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             
             print("here is the event loaded in vWA \(currentEvent.eventName)")
             
-            tableviewEvent = currentEvent
+            tableviewEvent = currentEvent   // populate tableview
             
-            currentEventLable.text = currentEvent.eventName
-                
-            //populateTableviewFromEvent(currentEvent: currentEvent)      // populate tableview
+            currentEventLable.text = currentEvent.eventName // show event name in UI
         }
         
         myTableView.reloadData();
@@ -186,22 +181,20 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             }
             
             // append camera to tableview
-            tableViewArrays.appendTableViewArray(title: pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1], detail: pickerEquipment.pickerSelection[2] + " " + pickerEquipment.pickerSelection[3], compState: pickerEquipment.pickerState)
+            //tableViewArrays.appendTableViewArray(title: pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1], detail: pickerEquipment.pickerSelection[2] + " " + pickerEquipment.pickerSelection[3], compState: pickerEquipment.pickerState)
             myTableView.reloadData()
         }
         // if a lens segue to lenses
         if pickerEquipment.pickerState[1] > 0 && pickerEquipment.pickerState[1] <= 5  {
-            tableViewArrays.setPrimesKit(compState: pickerEquipment.pickerState) // populate the next controller?
-            
+            tableViewArrays.setPrimesKit(compState: pickerEquipment.pickerState) // populate var for the next controller
             let myVc = storyboard?.instantiateViewController(withIdentifier: "lensViewController") as! LensesViewController
-            myVc.thePrimes = tableViewArrays.thePrimes
+            myVc.thePrimes = tableViewArrays.thePrimes   //TableViewArrays().setPrimesKit(compState: pickerEquipment.pickerState)
             navigationController?.pushViewController(myVc, animated: true)
         }
         
         // segue to aks ect
         if pickerEquipment.pickerState[1] > 5{
             tableViewArrays.setPrimesKit(compState: pickerEquipment.pickerState) // populate the next controller?
-            
             tableViewArrays.setPrimesKit(compState: pickerEquipment.pickerState)
             let myVc = storyboard?.instantiateViewController(withIdentifier: "lensViewController") as! LensesViewController
             myVc.thePrimes = tableViewArrays.thePrimes
