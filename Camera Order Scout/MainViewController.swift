@@ -54,16 +54,15 @@
 //                                  task: delete items in current tableview
 //                                      task: delete items in events
 //                                          task:add tableview icons
-//  feat: finished implementing persistance with realm
+//  feat: finished implementing persistance with realm                                  tue 2/21
 //  cameras now plural
 //  task: turn print into share
+//  fix: back to <
 
 //  task: first run Tutorial
 //  http://stackoverflow.com/questions/13335540/how-to-make-first-launch-iphone-app-tour-guide-with-xcode
 //  task: finish all extra equipment
 
-// fix back to say back
-// tableview array object -- should replace with  thisEvent.tableViewArray, copy updateUser and updateTableView
 
 import Foundation
 import UIKit
@@ -146,6 +145,7 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         self.myPicker.delegate = self
         myTableView.reloadData()
         updatePickerSelection() // so we dont get nil on first run
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
     }
     
     //Mark: - Save current Event

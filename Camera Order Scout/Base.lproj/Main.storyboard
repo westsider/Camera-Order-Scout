@@ -249,7 +249,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jh9-N8-fbt" id="ab5-43-a28">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -765,6 +765,6 @@
         <image name="myAppIcon" width="90" height="90"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="NdS-bg-kai"/>
+        <segue reference="HIc-fX-01a"/>
     </inferredMetricsTieBreakers>
 </document>

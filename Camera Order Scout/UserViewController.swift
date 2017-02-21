@@ -45,6 +45,7 @@ class UserViewController: UIViewController, UITextFieldDelegate {
         self.company.delegate = self
         self.dateTextInput.delegate = self
         title = "J O B  I N F O"
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
