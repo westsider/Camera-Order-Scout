@@ -51,10 +51,10 @@
 //                          take debugging class, use realm as tableview
 //                          bug: adding lens doesnt show up in tableview, construct tableview from RealmEvent
 //                              task: move equipment and tableviewarrays inside this class and push to lenses vc
-//                              task: delete items in current tableview
+//                                  task: delete items in current tableview
 
-//                              task: delete items in events
-//                              task:add tableview icons
+//                                      task: delete items in events
+//                                          task:add tableview icons
 
 
 
@@ -339,6 +339,7 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             try! currentEvent.realm!.write {
                 let row = currentEvent.tableViewArray[indexPath.row]
                 row.realm!.delete(row)
+                
             }
             
             tableviewEvent = currentEvent   // re - populate tableview

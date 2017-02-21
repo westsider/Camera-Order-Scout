@@ -103,6 +103,30 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
     
+    //Mark: - delete tableview row
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            try! tasks.realm!.write {
+                let task = self.tasks[indexPath.row]
+                self.tasks.realm!.delete(task)
+            }
+        }
+        let allEvents = realm.objects(EventUserRealm.self)
+        //print(tasks)
+        // get last id in events to save new last id
+        let numItems = allEvents.count
+        let index = numItems - 1
+        let thisID = tasks[index].taskID
+        saveLastID(ID: thisID)
+        eventsTableView.reloadData()
+        
+    }
+    
     /*---------------------------------------------------------------------------------------
      |                                                                                       |
      |              Tap on Table View ro returns the Event to main tableview                 |
@@ -118,9 +142,9 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
             realm.add(id)
         }
         saveLastID(ID: id.lastID)
-        print("last ID saved in Past Orders= \(id.lastID)")
+        //  print("last ID saved in Past Orders= \(id.lastID)")
         
-        print("last ID retrieved in Past Orders= \(getLastIdUsed())")
+        //print("last ID retrieved in Past Orders= \(getLastIdUsed())")
         
         _ = navigationController?.popToRootViewController(animated: true)
         
