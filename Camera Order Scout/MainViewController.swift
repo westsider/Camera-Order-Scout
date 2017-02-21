@@ -54,7 +54,7 @@
 //                                  task: delete items in current tableview
 //                                      task: delete items in events
 //                                          task:add tableview icons
-//  feat: done with persistance
+//  feat: finished implementing persistance with realm
 
 //  task: first run Tutorial                            mon 2/13
 //  http://stackoverflow.com/questions/13335540/how-to-make-first-launch-iphone-app-tour-guide-with-xcode
@@ -114,7 +114,6 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             rowOne.icon = "man" ; rowOne.title = "\(defaultEventUsers.userName) Director of Photography" ; rowOne.detail = "Camera Order \(defaultEventUsers.production) \(defaultEventUsers.date )"
 
             defaultEventUsers.tableViewArray.append(rowOne) // = defaultTableview
-            //tableViewArrays.appendTableViewArray(title: "\(defaultEventUsers.tableViewArray[0].title)", detail: "\(defaultEventUsers.tableViewArray[0].detail)", compState: [0,0,0,0])
   
             try! realm.write {                   //  persiste default event
                 realm.add(defaultEventUsers)
@@ -128,8 +127,6 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             
             //Mark: - we have a past user and will get last id used
             let currentEvent = getLastEvent()
-            
-            //print("here is the event loaded in vWA \(currentEvent.eventName)")
             
             tableviewEvent = currentEvent   // populate tableview
             
@@ -148,7 +145,6 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         self.myPicker.delegate = self
         myTableView.reloadData()
         updatePickerSelection() // so we dont get nil on first run
-        //tasks = realm.objects(EventUserRealm.self)  // for tableview
     }
     
     //Mark: - Save current Event
@@ -175,9 +171,6 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             try! realm.write {
                 currentEvent.tableViewArray.append(newRow)
             }
-            
-            // append camera to tableview
-            //tableViewArrays.appendTableViewArray(title: pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1], detail: pickerEquipment.pickerSelection[2] + " " + pickerEquipment.pickerSelection[3], compState: pickerEquipment.pickerState)
             myTableView.reloadData()
         }
         // if a lens segue to lenses
@@ -335,7 +328,6 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             try! currentEvent.realm!.write {
                 let row = currentEvent.tableViewArray[indexPath.row]
                 row.realm!.delete(row)
-                
             }
             
             tableviewEvent = currentEvent   // re - populate tableview
@@ -397,16 +389,11 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     func getLastEvent() -> EventUserRealm {
         
         let allIds = realm.objects(EventTracking.self)
-        //  print("this is all id's \(allIds)")
         let allIdCount = allIds.count
-        //   print("this is the count \(allIdCount)")
         var index = allIdCount - 1
         if index < 0 { index = 0 }  // catch edited events causing index -1
-        //  print("this is the index \(index)")
         let id = realm.objects(EventTracking.self)[index].lastID
-        //   print("this is the last id used \(id)")
         let currentEvent = realm.objects(EventUserRealm.self).filter("taskID == %@", id).first!
-        //  print("this is the last event used  \(currentEvent.taskID)")
         return currentEvent
     }
 }

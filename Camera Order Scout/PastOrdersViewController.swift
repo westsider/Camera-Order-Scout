@@ -28,7 +28,7 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
         eventsTableView.delegate = self
         eventsTableView.dataSource = self
         tasks = realm.objects(EventUserRealm.self)  // for tableview
-        // jusr for testing
+        // just for testing
         eventNameInput.text = "second event"
     }
 
@@ -117,7 +117,6 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         }
         let allEvents = realm.objects(EventUserRealm.self)
-        //print(tasks)
         // get last id in events to save new last id
         let numItems = allEvents.count
         var index = numItems - 1
@@ -143,9 +142,6 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
             realm.add(id)
         }
         saveLastID(ID: id.lastID)
-        //  print("last ID saved in Past Orders= \(id.lastID)")
-        
-        //print("last ID retrieved in Past Orders= \(getLastIdUsed())")
         
         _ = navigationController?.popToRootViewController(animated: true)
         
