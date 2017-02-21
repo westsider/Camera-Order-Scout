@@ -37,7 +37,7 @@
                                     <constraint firstAttribute="height" constant="30" id="HnP-PG-kBh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                <state key="normal" title="Save / Load">
+                                <state key="normal" title="Save">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -49,12 +49,11 @@
                                 <rect key="frame" x="125" y="215" width="124" height="30"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                <state key="normal" title="Send">
+                                <state key="normal" title="Share">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="shareAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MqS-Ay-ta8"/>
-                                    <segue destination="LOQ-ef-1HN" kind="show" id="Eij-QX-TAu"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KRb-jT-1Iz">
@@ -76,7 +75,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KgN-l6-YnW" id="6B2-1J-Wgx">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="manIcon" translatesAutoresizingMaskIntoConstraints="NO" id="TAL-q8-jzw">
@@ -296,7 +295,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nbf-wC-akH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1628" y="391"/>
+            <point key="canvasLocation" x="1577" y="367"/>
         </scene>
         <!--lensViewControllers-->
         <scene sceneID="EFX-CT-Hoq">
@@ -421,7 +420,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aih-az-rzj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="710" y="1500"/>
+            <point key="canvasLocation" x="2322" y="691"/>
         </scene>
         <!--User View Controller-->
         <scene sceneID="b0u-GE-6PL">
@@ -668,7 +667,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OWZ-hg-mJg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1656.8" y="1055.6221889055473"/>
+            <point key="canvasLocation" x="1577" y="1080"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Nmx-ND-gsL">
@@ -758,7 +757,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RIV-NB-WT1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4" y="1355.1724137931035"/>
+            <point key="canvasLocation" x="692" y="1384"/>
         </scene>
     </scenes>
     <resources>

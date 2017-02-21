@@ -55,11 +55,12 @@
 //                                      task: delete items in events
 //                                          task:add tableview icons
 //  feat: finished implementing persistance with realm
+//  cameras now plural
+//  task: turn print into share
 
-//  task: first run Tutorial                            mon 2/13
+//  task: first run Tutorial
 //  http://stackoverflow.com/questions/13335540/how-to-make-first-launch-iphone-app-tour-guide-with-xcode
-//  task: turn print into share                         mon 2/13
-//  task: finish all extra equipment                    mon 2/13
+//  task: finish all extra equipment
 
 // fix back to say back
 // tableview array object -- should replace with  thisEvent.tableViewArray, copy updateUser and updateTableView
@@ -158,14 +159,28 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     //MARK: - Add Action
     @IBAction func addAction(_ sender: Any) {
         
-        // if a new camera
-        if pickerEquipment.pickerState[1] == 0 {
+        // if 1 new camera
+        if pickerEquipment.pickerState[1] == 0  && pickerEquipment.pickerState[0] == 0 {
             //  create tableview row realm objects
             let newRow = TableViewRow()
             newRow.icon = pickerEquipment.pickerSelection[1];
             newRow.title = pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1];
             newRow.detail = pickerEquipment.pickerSelection[2] + " " +  pickerEquipment.pickerSelection[3];
 
+            let currentEvent = getLastEvent()
+            
+            try! realm.write {
+                currentEvent.tableViewArray.append(newRow)
+            }
+            myTableView.reloadData()
+        } else         // if 2+ new cameras
+        if pickerEquipment.pickerState[1] == 0  && pickerEquipment.pickerState[0] > 0 {
+            //  create tableview row realm objects
+            let newRow = TableViewRow()
+            newRow.icon = pickerEquipment.pickerSelection[1];
+            newRow.title = pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1] + "s";
+            newRow.detail = pickerEquipment.pickerSelection[2] + " " +  pickerEquipment.pickerSelection[3];
+            
             let currentEvent = getLastEvent()
             
             try! realm.write {
@@ -195,8 +210,43 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     
     //MARK: - Share Camera Order
     @IBAction func shareAction(_ sender: Any) {
+        
+        let thisEvent = getLastEvent()
+        
+        var messageArray = [String]()
+        
+        for rows in thisEvent.tableViewArray {
 
-        //let allEvents = realm.objects(EventUserRealm.self)
+            let mixedCase = rows.title.uppercased()
+            messageArray.append(mixedCase)
+            messageArray.append("\n")
+            messageArray.append(rows.detail)
+            messageArray.append("\n\n")
+        }
+        messageArray.append("\nWeather forecast for \(thisEvent.city)\n\(thisEvent.weather)")
+        messageArray.append("  ")
+        print(messageArray)
+        // write over user to add company
+        messageArray[0] = "\(thisEvent.userName.uppercased()) Director of Photography\n"
+        messageArray[1] = "Camera Order “\(thisEvent.production)” \(thisEvent.date) \(thisEvent.company)\n"
+        messageArray[2] = ""
+        
+        let message = messageArray.joined(separator: "")
+        let subject = messageArray[1] // this is for email subject line
+        print("")
+        print(message)
+        
+        // share section
+        // set up activity view controller
+        let textToShare = [ message ]
+        let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+        
+        // exclude some activity types from the list (optional)
+        //activityViewController.excludedActivityTypes = [ UIActivityType.postToFacebook ]
+        
+        // present the view controller
+        self.present(activityViewController, animated: true, completion: nil)
     }
     
     /*---------------------------------------------------------------------------------------
