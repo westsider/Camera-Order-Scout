@@ -5,13 +5,6 @@
 //  Created by Warren Hansen on 12/13/16.
 //  Copyright © 2017 Warren Hansen. All rights reserved.
 //
-//  save a new user
-//  task: saved events - populate the tableview array with event names
-//  task: click on a row and prove the event cpontents
-//  fix: trouble with 2 events loading in main VC... if returning only load the saved array on add or  clicked array
-//  task: delete row in tableview to prove this
-
-//  click on row and replace defaultUser with selection
 
 import UIKit
 import RealmSwift
@@ -35,6 +28,8 @@ class PastOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
         eventsTableView.delegate = self
         eventsTableView.dataSource = self
         tasks = realm.objects(EventUserRealm.self)  // for tableview
+        // jusr for testing
+        eventNameInput.text = "second event"
     }
 
     override func viewWillAppear(_ animated: Bool) {

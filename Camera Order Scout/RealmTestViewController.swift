@@ -25,7 +25,17 @@ class RealmTestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let allEvents = realm.objects(EventUserRealm.self)
-        savedText.text =  "\(allEvents)"
+        var message = ""
+        for events in allEvents {
+            message += "\n\(events.eventName)"
+            message += "\n\(events.userName)"
+            for rows in events.tableViewArray {
+                message += "\n\(rows.title)"
+                message += "\n\(rows.detail)"
+            }
+            message += "\n"
+        }
+        savedText.text =  message
     }
 
     @IBAction func saveItAction(_ sender: Any) {
