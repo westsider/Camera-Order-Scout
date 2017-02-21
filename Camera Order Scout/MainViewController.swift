@@ -50,11 +50,14 @@
 //                      find bug: updating user name sets both tableview names
 //                          take debugging class, use realm as tableview
 //                          bug: adding lens doesnt show up in tableview, construct tableview from RealmEvent
+//                              task: move equipment and tableviewarrays inside this class and push to lenses vc
+//                              task: delete items in current tableview
 
-//                              delete items in current tableview
+//                              task: delete items in events
+//                              task:add tableview icons
 
-//  task: realm persistence of past events
-//  task: move equipment and tableviewarrays inside this class and push to lenses vc, by using realm notofication from a tableview array theat is populated directly from realm.   https://realm.io/docs/swift/latest/#notifications
+
+
 
 //  feat: done with persistance
 //  task: first run Tutorial                            mon 2/13
@@ -68,8 +71,6 @@
 import Foundation
 import UIKit
 import RealmSwift
-
-var pickerEquipment = Equipment()       // needs to move inside the class and pushed to lenses vc
 
 class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDelegate, UITableViewDataSource {
     
@@ -86,6 +87,8 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     let isFirstLaunch = UserDefaults.isFirstLaunch()
     
     var tableViewArrays = TableViewArrays() // this is only to pass primes kit to next vc
+    
+    var pickerEquipment = Equipment()       // needs to move inside the class and pushed to lenses vc
     
     let realm = try! Realm()
     
@@ -130,7 +133,7 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             //Mark: - we have a past user and will get last id used
             let currentEvent = getLastEvent()
             
-            print("here is the event loaded in vWA \(currentEvent.eventName)")
+            //print("here is the event loaded in vWA \(currentEvent.eventName)")
             
             tableviewEvent = currentEvent   // populate tableview
             
@@ -153,10 +156,7 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     }
     
     //Mark: - Save current Event
-    @IBAction func saveAction(_ sender: Any) {
-        
-        
-    }
+    @IBAction func saveAction(_ sender: Any) { }
     
     /*---------------------------------------------------------------------------------------
      |                                                                                       |
@@ -189,6 +189,7 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             tableViewArrays.setPrimesKit(compState: pickerEquipment.pickerState) // populate var for the next controller
             let myVc = storyboard?.instantiateViewController(withIdentifier: "lensViewController") as! LensesViewController
             myVc.thePrimes = tableViewArrays.thePrimes   //TableViewArrays().setPrimesKit(compState: pickerEquipment.pickerState)
+            myVc.pickerEquipment = pickerEquipment  // push picker login to next vc
             navigationController?.pushViewController(myVc, animated: true)
         }
         
@@ -198,6 +199,7 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             tableViewArrays.setPrimesKit(compState: pickerEquipment.pickerState)
             let myVc = storyboard?.instantiateViewController(withIdentifier: "lensViewController") as! LensesViewController
             myVc.thePrimes = tableViewArrays.thePrimes
+            myVc.pickerEquipment = pickerEquipment  // push picker login to next vc
             navigationController?.pushViewController(myVc, animated: true)
         }
     }
@@ -314,22 +316,36 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ListTableViewCell
         
-       // let tableViewRow = tableviewEvent.tableViewArray[indexPath.row].ta
-        
         //cell.imageTableViewCell.image = tableViewArrays.tableViewArray[indexPath.row][2] as? UIImage
         
         cell.imageTableViewCell.image = UIImage(named: "manIcon")
-            
-        //cell.titleTableView?.text =  tableViewArrays.tableViewArray[indexPath.row][0] as? String
         
         cell.titleTableView?.text = tableviewEvent.tableViewArray[indexPath.row].title
-        
-        //cell.detailTableView?.text =  tableViewArrays.tableViewArray[indexPath.row][1] as? String
+
         cell.detailTableView?.text = tableviewEvent.tableViewArray[indexPath.row].detail
         
         return cell
     }
     
+    //Mark: - delete tableview row
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let currentEvent = getLastEvent()
+            
+            try! currentEvent.realm!.write {
+                let row = currentEvent.tableViewArray[indexPath.row]
+                row.realm!.delete(row)
+            }
+            
+            tableviewEvent = currentEvent   // re - populate tableview
+            tableView.reloadData()
+        }
+    }
+
 
 
     
@@ -384,15 +400,15 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     func getLastEvent() -> EventUserRealm {
         
         let allIds = realm.objects(EventTracking.self)
-        print("this is all id's \(allIds)")
+        //  print("this is all id's \(allIds)")
         let allIdCount = allIds.count
-        print("this is the count \(allIdCount)")
+        //   print("this is the count \(allIdCount)")
         let index = allIdCount - 1
-        print("this is the index \(index)")
+        //  print("this is the index \(index)")
         let id = realm.objects(EventTracking.self)[index].lastID
-        print("this is the last id used \(id)")
+        //   print("this is the last id used \(id)")
         let currentEvent = realm.objects(EventUserRealm.self).filter("taskID == %@", id).first!
-        print("this is the last event used  \(currentEvent.taskID)")
+        //  print("this is the last event used  \(currentEvent.taskID)")
         return currentEvent
     }
 }

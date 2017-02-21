@@ -15,6 +15,8 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var tableViewSwitches = TableViewSwitches()     // instanatiate switches object
     
+    var pickerEquipment = Equipment()       // needs to move inside the class and pushed to lenses vc
+    
     let cellIdentifier = "primeLensTableViewCell"
     
     var originalArray = [String]()
