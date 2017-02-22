@@ -28,7 +28,17 @@ class Equipment {
     
     
     func setPickerArray(component: Int, row: Int, lastCatagory: Int )   {
-        
+/*
+ 0   camera
+ 1   prime
+ 2   macro
+ 3   probe
+ 4   zoom
+ 5   aks
+ 6   finder
+ 7   filters
+ 8   support*/
+ 
         if component < 3 {
             switch component {
                 
@@ -42,8 +52,16 @@ class Equipment {
                     pickerArray = [Quantity, Catagory.allValues, MakerMacros.allValues, setMacrosModel(maker: .arri)] // macro
                 case 3:
                     pickerArray = [Quantity, Catagory.allValues, MakerProbe.allValues, setProbeModel(maker: .innovision)] // probe
-                case 5...8:     // 5-8
+                case 4:
+                    pickerArray = [Quantity, Catagory.allValues, MakerZoom.allValues,setZoomModel(maker: .angenieux)] // zoom
+                case 5:    
                     pickerArray = [Quantity, Catagory.allValues, MakerAKSFiltersSupport.allValues, setModelEmpty() ] // aks
+                case 6:
+                    pickerArray = [Quantity, Catagory.allValues, MakerFinder.allValues, setFinderModel(maker: .standard)] // finder
+                case 7:
+                    pickerArray = [Quantity, Catagory.allValues, MakerAKSFiltersSupport.allValues, setModelEmpty()] // filters
+                case 8:
+                    pickerArray = [Quantity, Catagory.allValues, MakerAKSFiltersSupport.allValues, setModelEmpty() ] // support
                 default:
                     pickerArray = [Quantity, Catagory.allValues, MakerCamera.allValues,["Array ","out ", "of ", "index"]]
                 }

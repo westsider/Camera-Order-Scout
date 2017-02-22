@@ -38,9 +38,10 @@ enum MakerCamera {
 }
 
 enum MakerPrimes {
-    case zeiss, leica, canon, cooke
+    case zeiss, leica, canon, cooke, vantage, bauschlomb, kowa, kineoptic, nikkor, red, camtec, anamorphic
     
-    static let allValues = ["Zeiss", "Leica", "Canon", "Cooke"]
+    static let allValues = ["Zeiss","Leica","Canon","Cooke", "Vantage", "Bausch + Lomb", "Kowa",
+                            "Kineoptic", "Nikkor", "Red", "CamTec", "Anamorphic"]
 }
 
 enum MakerMacros {
@@ -53,6 +54,11 @@ enum MakerProbe {
     case innovision, tRex, revolution, skater, century, optex
     
     static let allValues = ["Innovision", "T-Rex", "Revolution", "Skater", "Century", "Optex"]
+}
+/////////////////
+enum MakerZoom {
+    case angenieux, fujinon, cooke, zeissVP, hawk, century, canon, anamorphic
+    static let allValues = ["Angenieux","Fujinon", "Cooke","Zeiss VP", "Hawk", "Century", "Canon","Anamorphic"]
 }
 
 enum MakerAKSFiltersSupport {
@@ -71,27 +77,33 @@ class Maker {
     var makerPrimes: MakerPrimes
     var makerMacros: MakerMacros
     var makerProbes: MakerProbe
+    var makerZoom:   MakerZoom
     var makerAKSFiltersSupport: MakerAKSFiltersSupport
+    var makerFinder: MakerFinder
     
-    init(makerCamera: MakerCamera, makerPrimes: MakerPrimes, makerMacros: MakerMacros, makerProbes: MakerProbe, makerAKSFiltersSupport: MakerAKSFiltersSupport ) {
+    init(makerCamera: MakerCamera, makerPrimes: MakerPrimes, makerMacros: MakerMacros, makerProbes: MakerProbe, makerZoom: MakerZoom, makerAKSFiltersSupport: MakerAKSFiltersSupport, makerFinder: MakerFinder ) {
         self.makerCamera = makerCamera
         self.makerPrimes = makerPrimes
         self.makerMacros = makerMacros
         self.makerProbes = makerProbes
+        self.makerZoom = makerZoom
         self.makerAKSFiltersSupport = makerAKSFiltersSupport
+        self.makerFinder = makerFinder
     }
 }
 
 func setCamModel(maker: MakerCamera) -> [String] {
     switch maker {
     case .arri:
-        return ["Alexa", "Mini", "Amira"]
+        return ["Mini", "Amira", "Alexa", "Alexa STX", "Alexa XT+","Alexa +XR","Alexa ST XR","Alexa M", "235", "535B", "435", "Arricam LT", "Arricam ST", "SR3", "416"]
     case .red:
-        return ["Dragon", "Weapon", "Epic"]
+        return ["Weapon", "Epic","Epic Dragon","One"]
     case .phantom:
         return ["Flex 4k", "Flex", "HD Gold"]
     case .panavision:
-        return ["Genesis", "Platinium", "Millenioum"]
+        return ["Genesis", "XL2", "Platinum", "Gold-G2", "Millennium"]
+    case .sony:
+        return ["F-55", "F-65", "F-5","F-S5","F-S7"]
     default:
         return  ["set cam model", "failed", "break"]
     }
@@ -107,6 +119,22 @@ func setPrimesModel(maker: MakerPrimes) -> [String] {
         return ["K-35", "Telephoto"]
     case .cooke:
         return ["i5", "S4", "Speed Panchro"]
+    case .vantage:
+        return  ["One"]
+    case .bauschlomb:
+        return ["Super Baltar"]
+    case .kowa:
+        return ["Cine Prominar"]
+    case .kineoptic:
+        return ["Apochromat"]
+    case .nikkor:
+        return  ["Telephoto"]
+    case .red:
+        return ["Pro"]
+    case .camtec:
+        return ["Ultra Primes"]
+    case .anamorphic:
+        return ["Cooke Vintage", "Cooke", "Master Primes", "Arriscope", "Kowa", "Hawk VL", "Hawk V", "Hawk C", "Cineovision"]
     }
 }
 
@@ -135,9 +163,39 @@ func setProbeModel(maker: MakerProbe) -> [String] {
         return ["Excellence"]
     }
 }
-
+////////////// ["Angenieux","Fujinon", "Cooke","Zeiss VP", "Hawk", "Century", "Canon","Anamorphic" ]
+func setZoomModel(maker: MakerZoom)-> [String] {
+    switch maker {
+    case .angenieux:
+        return ["Probe II+"]
+    case .fujinon:
+        return ["Probe"]
+    case .cooke:
+        return ["Probe"]
+    case .zeissVP:
+        return ["Scope"]
+    case .hawk:
+        return ["Periscope"]
+    case .century:
+        return ["Excellence"]
+    case .canon:
+        return ["Periscope"]
+    case .anamorphic:
+        return ["Excellence"]
+    }
+}
 func setModelEmpty() -> [String] {
     return ["Add ⬇︎"]
+}
+
+func setFinderModel(maker: MakerFinder) -> [String] {
+    switch maker {
+    case .standard:
+        return ["Standard"]
+    case .anamorphic:
+        return ["Anamprphic"]
+
+    }
 }
 
 
