@@ -17,6 +17,7 @@
 		0D6393711E46D932003055DB /* Equipment Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6393701E46D932003055DB /* Equipment Helpers.swift */; };
 		0D6D1A511E4D641500B53B0E /* firstLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6D1A501E4D641500B53B0E /* firstLaunch.swift */; };
 		0D81902B1E48140000237B11 /* primeLensTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D81902A1E48140000237B11 /* primeLensTableViewCell.swift */; };
+		0D8F3DB41E5D099B00E036B8 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8F3DB31E5D099B00E036B8 /* InfoViewController.swift */; };
 		0DBCF7531E495DAA00205017 /* PastOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBCF7521E495DAA00205017 /* PastOrdersViewController.swift */; };
 		0DBCF7551E49660D00205017 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBCF7541E49660D00205017 /* UserViewController.swift */; };
 		0DBCF7571E496B8A00205017 /* Weather API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBCF7561E496B8A00205017 /* Weather API.swift */; };
@@ -62,6 +63,7 @@
 		0D6393701E46D932003055DB /* Equipment Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Equipment Helpers.swift"; sourceTree = "<group>"; };
 		0D6D1A501E4D641500B53B0E /* firstLaunch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = firstLaunch.swift; path = "Camera Order Scout/firstLaunch.swift"; sourceTree = "<group>"; };
 		0D81902A1E48140000237B11 /* primeLensTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = primeLensTableViewCell.swift; path = ../primeLensTableViewCell.swift; sourceTree = "<group>"; };
+		0D8F3DB31E5D099B00E036B8 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		0DBCF7521E495DAA00205017 /* PastOrdersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastOrdersViewController.swift; sourceTree = "<group>"; };
 		0DBCF7541E49660D00205017 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		0DBCF7561E496B8A00205017 /* Weather API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Weather API.swift"; path = "Camera Order Scout/Weather API.swift"; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				0DBCF7541E49660D00205017 /* UserViewController.swift */,
 				0DE208DE1E48097900619AEF /* LensesViewController.swift */,
 				0DBCF7521E495DAA00205017 /* PastOrdersViewController.swift */,
+				0D8F3DB31E5D099B00E036B8 /* InfoViewController.swift */,
 				0DC677051E4E40AC00F9A137 /* RealmTestViewController.swift */,
 			);
 			name = Controller;
@@ -287,6 +290,7 @@
 				0DE208DB1E47E13A00619AEF /* TableView Array Class.swift in Sources */,
 				0D81902B1E48140000237B11 /* primeLensTableViewCell.swift in Sources */,
 				0D63935D1E46D84A003055DB /* AppDelegate.swift in Sources */,
+				0D8F3DB41E5D099B00E036B8 /* InfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -58,9 +58,9 @@
 //  cameras now plural
 //  task: turn print into share
 //  fix: back to <
-
 //  task: first run Tutorial
 //  http://stackoverflow.com/questions/13335540/how-to-make-first-launch-iphone-app-tour-guide-with-xcode
+
 //  task: finish all extra equipment
 
 
@@ -122,6 +122,9 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             saveLastID(ID: defaultEventUsers.taskID)    // save last used event id
             
             tableviewEvent = defaultEventUsers  // populate tableview
+            
+            // on first launch go to info screen
+            performSegue(withIdentifier: "mainToInfo", sender: self)
 
         } else {
             
