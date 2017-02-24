@@ -758,9 +758,25 @@ class TableViewSwitches {
     var edited =  [String]()    //["i", "am", "edited"]
     var returnedString = String()
     
-    func populateArrays(array: [String]) {
+    func populateArrays(array: [String], reversed: Bool) {
+        // if this is a lens kit
         original = array
         edited = original
+        // else if switchon = false this is aks, filters, support
+        if reversed == false {
+            var editedReverse = [String]()
+            let i = edited.count
+            var counter = 0
+            
+            while counter < i {
+                counter += 1
+                editedReverse.append("#")
+            }
+            print("edited    \(edited.count)")
+            print("editedRev \(editedReverse.count)")
+            edited = editedReverse
+        }
+        
     }
     
     /// edit lens list using tableview switches

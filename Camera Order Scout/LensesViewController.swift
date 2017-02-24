@@ -13,6 +13,12 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBOutlet weak var lensTableView: UITableView!
     
+    @IBOutlet weak var titleDescription: UILabel!
+    
+    @IBOutlet weak var addButton: UIButton!
+    
+    var switchOn = true
+    
     var tableViewSwitches = TableViewSwitches()     // instanatiate switches object
     
     var pickerEquipment = Equipment()       // needs to move inside the class and pushed to lenses vc
@@ -25,18 +31,18 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var displayLensArray = [String]()
     
+    var switchPos = [Bool]()
+    
     let realm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "L E N S  O R D E R"
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         originalArray = thePrimes   //.components(separatedBy: ", ")     // convert string from main vc to an array i can edit
-        tableViewSwitches.populateArrays(array: originalArray)       // populate the array to edit with switches
+        setUpUI()
+        tableViewSwitches.populateArrays(array: originalArray, reversed: switchOn)
     }
     
     //MARK: - Update the lens kit and return to main VC
@@ -81,7 +87,8 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.lensSwitch.tag = indexPath.row
         cell.lensSwitch.restorationIdentifier = displayLensArray[indexPath.row] // lensKitArray[indexPath.row]
         cell.lensSwitch.addTarget(self, action: #selector(switchTriggered(sender:)), for: UIControlEvents.valueChanged)
-        cell.lensLabel.adjustsFontSizeToFitWidth = true 
+        cell.lensLabel.adjustsFontSizeToFitWidth = true
+        cell.lensSwitch.isOn = switchPos[indexPath.row] //   remember swich position durring scroll
         return cell
     }
     
@@ -93,6 +100,9 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         print("Lens Switch Index: \(index) For: \(content) Is On: \(sender.isOn)")
         // change array of lenses with tableview switches
         tableViewSwitches.updateArray(index: index, switchPos: sender.isOn)
+        switchPos[sender.tag] = sender.isOn
+        
+        print("switch position: \(switchPos)")
     }
     
     func saveLastID(ID: String) {
@@ -115,5 +125,45 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             lastIDvalue = "\(id)"
         }
         return lastIDvalue
+    }
+    
+    func setUpUI() {
+        // modify page info by picker state
+        if pickerEquipment.pickerState[1] == 1 {
+            print("sent form primes")
+            title = "Select Primes"
+            // chage description , hide button
+            titleDescription.text = "Switch off lenses not needed"
+            addButton.isHidden = true
+        }
+        // 5 aks
+        if pickerEquipment.pickerState[1] == 5 {
+            print("sent form AKS")
+            title = "Select AKS"
+            titleDescription.text = "Switch On items needed"
+            switchOn = false
+        }
+        // 7 filters
+        if pickerEquipment.pickerState[1] == 7 {
+            print("sent form Filters")
+            title = "Select Filters"
+            titleDescription.text = "Switch On filters needed"
+            switchOn = false
+        }
+        // 8 support
+        if pickerEquipment.pickerState[1] == 8 {
+            print("sent form Support")
+            title = "Select Support"
+            titleDescription.text = "Switch On items needed"
+            switchOn = false
+        }
+        
+        // array to persiste switch positions durring deque of cells
+        let i = displayLensArray.count
+        var c = 0
+        while c < i {
+            switchPos.append(switchOn) // set switch pos from prior vc - off for aks
+            c += 1
+        }
     }
 }

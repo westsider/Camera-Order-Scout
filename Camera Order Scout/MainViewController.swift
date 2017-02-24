@@ -64,13 +64,14 @@
 //  zoom & probe not repopulating lens
 //  probe populates lens items
 //  task: finish all extra equipment
-
-//  task: test switches thoroughly -  have longer lenses swich themselves off
-//  task: add write in AKS, Support
 //  fix: lens order title wrong for aks
 //  task: switches off by default for aks, support
+//  test: completed test of tableview switches
+
+//  task: add write in AKS, Support - add new view - add text to array - make persistant
 //  task: update realm
 //  task: sort list by: camera, primes, macros, probes, zooms, aks ect
+//  task: make how to images
 
 
 
@@ -146,6 +147,7 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             currentEventLable.text = currentEvent.eventName // show event name in UI
         }
         
+        currentEventLable.isHidden = true
         myTableView.reloadData();
     }
     
