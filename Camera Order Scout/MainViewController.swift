@@ -60,8 +60,18 @@
 //  fix: back to <
 //  task: first run Tutorial
 //  http://stackoverflow.com/questions/13335540/how-to-make-first-launch-iphone-app-tour-guide-with-xcode
-
+//  auto size lens tableview for longet lines
+//  zoom & probe not repopulating lens
+//  probe populates lens items
 //  task: finish all extra equipment
+
+//  task: test switches thoroughly -  have longer lenses swich themselves off
+//  task: add write in AKS, Support
+//  fix: lens order title wrong for aks
+//  task: switches off by default for aks, support
+//  task: update realm
+//  task: sort list by: camera, primes, macros, probes, zooms, aks ect
+
 
 
 import Foundation
@@ -162,7 +172,7 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     //MARK: - Add Action
     @IBAction func addAction(_ sender: Any) {
         
-        // if 1 new camera
+        // if 1 new camera or zoom 4
         if pickerEquipment.pickerState[1] == 0  && pickerEquipment.pickerState[0] == 0 {
             //  create tableview row realm objects
             let newRow = TableViewRow()
@@ -192,20 +202,54 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             myTableView.reloadData()
         }
         // if a lens segue to lenses
-        if pickerEquipment.pickerState[1] > 0 && pickerEquipment.pickerState[1] <= 5  {
+        if pickerEquipment.pickerState[1] > 0 && pickerEquipment.pickerState[1] <= 3  {
             tableViewArrays.setPrimesKit(compState: pickerEquipment.pickerState) // populate var for the next controller
             let myVc = storyboard?.instantiateViewController(withIdentifier: "lensViewController") as! LensesViewController
             myVc.thePrimes = tableViewArrays.thePrimes   //TableViewArrays().setPrimesKit(compState: pickerEquipment.pickerState)
+            myVc.displayLensArray = tableViewArrays.displayLensArray
             myVc.pickerEquipment = pickerEquipment  // push picker login to next vc
             navigationController?.pushViewController(myVc, animated: true)
         }
         
-        // segue to aks ect
-        if pickerEquipment.pickerState[1] > 5{
+        // if a zoom lens, just add
+        if pickerEquipment.pickerState[1] == 4 {
+            //  create tableview row realm objects
+            let newRow = TableViewRow()
+            newRow.icon = pickerEquipment.pickerSelection[1];
+            newRow.title = pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1];
+            newRow.detail = pickerEquipment.pickerSelection[2] + " " +  pickerEquipment.pickerSelection[3];
+            
+            let currentEvent = getLastEvent()
+            
+            try! realm.write {
+                currentEvent.tableViewArray.append(newRow)
+            }
+            myTableView.reloadData()
+        }
+        
+        // if a finder, just add
+        if pickerEquipment.pickerState[1] == 6 {
+            //  create tableview row realm objects
+            let newRow = TableViewRow()
+            newRow.icon = pickerEquipment.pickerSelection[1];
+            newRow.title = pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1];
+            newRow.detail = pickerEquipment.pickerSelection[2] + " " +  "Finder";
+            
+            let currentEvent = getLastEvent()
+            
+            try! realm.write {
+                currentEvent.tableViewArray.append(newRow)
+            }
+            myTableView.reloadData()
+        }
+        
+        // segue to aks filters support
+        if pickerEquipment.pickerState[1] == 5 || pickerEquipment.pickerState[1] > 6 {
             tableViewArrays.setPrimesKit(compState: pickerEquipment.pickerState) // populate the next controller?
             tableViewArrays.setPrimesKit(compState: pickerEquipment.pickerState)
             let myVc = storyboard?.instantiateViewController(withIdentifier: "lensViewController") as! LensesViewController
             myVc.thePrimes = tableViewArrays.thePrimes
+            myVc.displayLensArray = tableViewArrays.displayLensArray
             myVc.pickerEquipment = pickerEquipment  // push picker login to next vc
             navigationController?.pushViewController(myVc, animated: true)
         }

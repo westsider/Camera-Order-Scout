@@ -55,7 +55,7 @@ enum MakerProbe {
     
     static let allValues = ["Innovision", "T-Rex", "Revolution", "Skater", "Century", "Optex"]
 }
-/////////////////
+
 enum MakerZoom {
     case angenieux, fujinon, cooke, zeissVP, hawk, century, canon, anamorphic
     static let allValues = ["Angenieux","Fujinon", "Cooke","Zeiss VP", "Hawk", "Century", "Canon","Anamorphic"]
@@ -69,7 +69,7 @@ enum MakerAKSFiltersSupport {
 
 enum MakerFinder {
     case standard, anamorphic
-    static let allValues = ["Standard","Anamprphic"]
+    static let allValues = ["Standard","Anamorphic"]
 }
 
 class Maker {
@@ -104,15 +104,15 @@ func setCamModel(maker: MakerCamera) -> [String] {
         return ["Genesis", "XL2", "Platinum", "Gold-G2", "Millennium"]
     case .sony:
         return ["F-55", "F-65", "F-5","F-S5","F-S7"]
-    default:
-        return  ["set cam model", "failed", "break"]
+//    default:
+//        return  ["set cam model", "failed", "break"]
     }
 }
 
 func setPrimesModel(maker: MakerPrimes) -> [String] {
     switch maker {
     case .zeiss:
-        return ["Master Primes", "Ultra Primes", "Super Speeds"]
+        return ["Master Primes", "Ultra Primes", "Super Speeds", "Standard Speeds", "Compact S2"]
     case .leica:
         return ["Summilux-C", "Summicron-C", "Telephoto"]
     case .canon:
@@ -163,25 +163,26 @@ func setProbeModel(maker: MakerProbe) -> [String] {
         return ["Excellence"]
     }
 }
-////////////// ["Angenieux","Fujinon", "Cooke","Zeiss VP", "Hawk", "Century", "Canon","Anamorphic" ]
+
 func setZoomModel(maker: MakerZoom)-> [String] {
     switch maker {
     case .angenieux:
-        return ["Probe II+"]
+        return ["17-102", "16-42 Rouge", "30-80 Rouge", "45-120 Optimo", "28-76 Optimo", "15-40 Optimo","17-80 Optimo", "24-290 Optimo", "25-250 HR"]
     case .fujinon:
-        return ["Probe"]
+        return ["24-180 Premier", "75-400 Premier", "18-85 Premier", "45-250 Alura", "18-80 Alura"]
     case .cooke:
-        return ["Probe"]
+        return ["25-250 Mk2", "20-60", "15-40 CXX", "18-100"]
     case .zeissVP:
-        return ["Scope"]
+        return ["16-30", "29-60", "55-105"]
     case .hawk:
-        return ["Periscope"]
+        return ["17-35", "100-300", "150-450"]
     case .century:
-        return ["Excellence"]
+        return ["28-70", "17-35", "150-600"]
     case .canon:
-        return ["Periscope"]
+        return ["50-1000"]
     case .anamorphic:
-        return ["Excellence"]
+        return ["Angenieux 30-72", "Angenieux 56-152","Angenieux 34-204", "Angenieux 50-500",
+                "Angenieux 48-580","Cooke 40-120", "Cooke 36-200", "Cooke 40-200","Cooke 50-500"]
     }
 }
 func setModelEmpty() -> [String] {
@@ -193,7 +194,7 @@ func setFinderModel(maker: MakerFinder) -> [String] {
     case .standard:
         return ["Standard"]
     case .anamorphic:
-        return ["Anamprphic"]
+        return ["Anamorphic"]
 
     }
 }

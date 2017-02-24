@@ -116,8 +116,34 @@ class Equipment {
                         pickerArray = [Quantity, Catagory.allValues, MakerProbe.allValues, setProbeModel(maker: .revolution)]
                     case 3: //  prevCatagory = ProbeLens and Maker = Skater
                         pickerArray = [Quantity, Catagory.allValues, MakerProbe.allValues, setProbeModel(maker: .skater)]
+                    case 4: //  prevCatagory = ProbeLens and Maker = century
+                        pickerArray = [Quantity, Catagory.allValues, MakerProbe.allValues, setProbeModel(maker: .century)]
+                    case 5: //  prevCatagory = ProbeLens and Maker = optex
+                        pickerArray = [Quantity, Catagory.allValues, MakerProbe.allValues, setProbeModel(maker: .optex)]
                     default:
                         pickerArray = [Quantity, Catagory.allValues, MakerProbe.allValues, ["Array ","out ", "of ", "index"]]
+                    }
+                    
+                case 4: // zooms
+                    switch row {
+                    case 0:
+                        pickerArray = [Quantity, Catagory.allValues, MakerZoom.allValues, setZoomModel(maker: .angenieux)]
+                    case 1:
+                        pickerArray = [Quantity, Catagory.allValues, MakerZoom.allValues, setZoomModel(maker: .fujinon)]
+                    case 2:
+                        pickerArray = [Quantity, Catagory.allValues, MakerZoom.allValues, setZoomModel(maker: .cooke)]
+                    case 3:
+                        pickerArray = [Quantity, Catagory.allValues, MakerZoom.allValues, setZoomModel(maker: .zeissVP)]
+                    case 4:
+                        pickerArray = [Quantity, Catagory.allValues, MakerZoom.allValues, setZoomModel(maker: .hawk)]
+                    case 5:
+                        pickerArray = [Quantity, Catagory.allValues, MakerZoom.allValues, setZoomModel(maker: .century)]
+                    case 6:
+                        pickerArray = [Quantity, Catagory.allValues, MakerZoom.allValues, setZoomModel(maker: .canon)]
+                    case 7:
+                        pickerArray = [Quantity, Catagory.allValues, MakerZoom.allValues, setZoomModel(maker: .anamorphic)]
+                    default:
+                        pickerArray = [Quantity, Catagory.allValues, MakerZoom.allValues, ["Array ","out ", "of ", "index"]]
                     }
                 default:
                     break

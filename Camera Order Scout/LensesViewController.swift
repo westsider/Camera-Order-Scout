@@ -21,7 +21,9 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var originalArray = [String]()
     
-    var thePrimes = String()
+    var thePrimes = [String]()
+    
+    var displayLensArray = [String]()
     
     let realm = try! Realm()
     
@@ -33,7 +35,7 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewWillAppear(_ animated: Bool) {
         
-        originalArray = thePrimes.components(separatedBy: ", ")     // convert string from main vc to an array i can edit
+        originalArray = thePrimes   //.components(separatedBy: ", ")     // convert string from main vc to an array i can edit
         tableViewSwitches.populateArrays(array: originalArray)       // populate the array to edit with switches
     }
     
@@ -69,16 +71,17 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     // MARK: - Set up tableview  lensesToMain
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return originalArray.count
+        return displayLensArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! primeLensTableViewCell
-        cell.lensLabel?.text =   originalArray[indexPath.row]
+        cell.lensLabel?.text =   displayLensArray[indexPath.row]
         // Send switch state and indexpath ro to this func?
         cell.lensSwitch.tag = indexPath.row
-        cell.lensSwitch.restorationIdentifier = originalArray[indexPath.row] // lensKitArray[indexPath.row]
+        cell.lensSwitch.restorationIdentifier = displayLensArray[indexPath.row] // lensKitArray[indexPath.row]
         cell.lensSwitch.addTarget(self, action: #selector(switchTriggered(sender:)), for: UIControlEvents.valueChanged)
+        cell.lensLabel.adjustsFontSizeToFitWidth = true 
         return cell
     }
     

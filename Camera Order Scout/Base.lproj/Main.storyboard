@@ -338,7 +338,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prime Lens Section" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GwS-IP-Ufd">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kit Section" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GwS-IP-Ufd">
                                 <rect key="frame" x="16" y="88" width="241" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="leq-py-hFP"/>
@@ -353,7 +353,7 @@
                                     <constraint firstAttribute="width" constant="90" id="Gpe-P3-3MJ"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Switch off lenses not needed" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbS-Gt-71q">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Switch off items not needed" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbS-Gt-71q">
                                 <rect key="frame" x="16" y="112" width="241" height="42"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -377,20 +377,22 @@
                                                         <action selector="switchValueChanged:" destination="pfg-TD-O34" eventType="valueChanged" id="SIV-YU-o18"/>
                                                     </connections>
                                                 </switch>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uus-oW-ULp">
-                                                    <rect key="frame" x="8" y="6" width="267" height="31"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uus-oW-ULp">
+                                                    <rect key="frame" x="8" y="12" width="273" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Uus-oW-ULp" firstAttribute="bottom" secondItem="Qnq-HR-u2g" secondAttribute="bottom" id="3hJ-5c-RQi"/>
-                                                <constraint firstItem="Uus-oW-ULp" firstAttribute="leading" secondItem="sk3-Al-kUX" secondAttribute="leadingMargin" id="CKq-eN-GTj"/>
-                                                <constraint firstItem="Uus-oW-ULp" firstAttribute="top" secondItem="Qnq-HR-u2g" secondAttribute="top" id="GNz-Kf-ujk"/>
-                                                <constraint firstItem="Uus-oW-ULp" firstAttribute="centerY" secondItem="sk3-Al-kUX" secondAttribute="centerY" id="H7m-ps-MxE"/>
-                                                <constraint firstItem="Qnq-HR-u2g" firstAttribute="leading" secondItem="Uus-oW-ULp" secondAttribute="trailing" constant="9" id="czt-bQ-2KZ"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Qnq-HR-u2g" secondAttribute="trailing" constant="2" id="pJf-JB-LXZ"/>
+                                                <constraint firstAttribute="trailing" secondItem="Qnq-HR-u2g" secondAttribute="trailing" constant="10" id="99h-BP-kYU"/>
+                                                <constraint firstItem="Qnq-HR-u2g" firstAttribute="leading" secondItem="Uus-oW-ULp" secondAttribute="trailing" constant="3" id="JkQ-Mv-QtP"/>
+                                                <constraint firstItem="Qnq-HR-u2g" firstAttribute="top" secondItem="sk3-Al-kUX" secondAttribute="top" constant="6" id="KNJ-tm-s5f"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Uus-oW-ULp" secondAttribute="bottom" constant="3" id="KeX-AR-a3l"/>
+                                                <constraint firstItem="Uus-oW-ULp" firstAttribute="leading" secondItem="sk3-Al-kUX" secondAttribute="leadingMargin" id="QiW-ja-29e"/>
+                                                <constraint firstItem="Qnq-HR-u2g" firstAttribute="leading" secondItem="Uus-oW-ULp" secondAttribute="trailing" constant="3" id="bt4-cz-K30"/>
+                                                <constraint firstItem="Uus-oW-ULp" firstAttribute="top" secondItem="sk3-Al-kUX" secondAttribute="topMargin" constant="3" id="eOc-9w-cjw"/>
+                                                <constraint firstAttribute="bottom" secondItem="Qnq-HR-u2g" secondAttribute="bottom" constant="6" id="sQl-X6-iol"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -440,7 +442,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aih-az-rzj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2322" y="691"/>
+            <point key="canvasLocation" x="2320.8000000000002" y="690.40479760119945"/>
         </scene>
         <!--User View Controller-->
         <scene sceneID="b0u-GE-6PL">
