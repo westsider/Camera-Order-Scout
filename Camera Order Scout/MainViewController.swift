@@ -71,7 +71,7 @@
 //  task: add write in AKS, Support - add new view - add text to array - make persistant
 //  task: update realm
 //  task: sort list by: camera, primes, macros, probes, zooms, aks ect
-//  task: make how to images
+//  task: how-to images
 
 
 
@@ -108,6 +108,8 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         let checkEventUser = realm.objects(EventUserRealm.self)
         
         if checkEventUser.count == 0 {
+            
+            FirstRun().populateRealmKits() // set up realm kits for user additions
             
             let defaultEventUsers = EventUserRealm()
             
@@ -245,13 +247,13 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             myTableView.reloadData()
         }
         
-        // segue to aks filters support
+        // segue to aks[5] filters[7] support[8]
         if pickerEquipment.pickerState[1] == 5 || pickerEquipment.pickerState[1] > 6 {
             tableViewArrays.setPrimesKit(compState: pickerEquipment.pickerState) // populate the next controller?
             tableViewArrays.setPrimesKit(compState: pickerEquipment.pickerState)
-            let myVc = storyboard?.instantiateViewController(withIdentifier: "lensViewController") as! LensesViewController
-            myVc.thePrimes = tableViewArrays.thePrimes
-            myVc.displayLensArray = tableViewArrays.displayLensArray
+            let myVc = storyboard?.instantiateViewController(withIdentifier: "aksViewController") as! AksKitViewController
+            //myVc.thePrimes = tableViewArrays.thePrimes
+            //myVc.displayLensArray = tableViewArrays.displayLensArray
             myVc.pickerEquipment = pickerEquipment  // push picker login to next vc
             navigationController?.pushViewController(myVc, animated: true)
         }
@@ -282,8 +284,8 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         
         let message = messageArray.joined(separator: "")
         let subject = messageArray[1] // this is for email subject line
-        print("")
-        print(message)
+        print("\nsubject: \(subject)")
+        print("\nmessage: \(message)")
         
         // share section
         // set up activity view controller

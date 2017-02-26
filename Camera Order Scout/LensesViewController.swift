@@ -19,9 +19,9 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var switchOn = true
     
-    var tableViewSwitches = TableViewSwitches()     // instanatiate switches object
+    var tableViewSwitches = TableViewSwitches()
     
-    var pickerEquipment = Equipment()       // needs to move inside the class and pushed to lenses vc
+    var pickerEquipment = Equipment()
     
     let cellIdentifier = "primeLensTableViewCell"
     
@@ -40,10 +40,21 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        originalArray = thePrimes   //.components(separatedBy: ", ")     // convert string from main vc to an array i can edit
+        originalArray = thePrimes
         setUpUI()
         tableViewSwitches.populateArrays(array: originalArray, reversed: switchOn)
     }
+    
+    //MARK: - add items not in list
+    @IBAction func addItemsAction(_ sender: Any) {
+        
+        //  append new item to its realm object with switch pos 
+        //  recall this fucker to update the local tableview array
+        //  reload tableview
+
+    }
+    
+
     
     //MARK: - Update the lens kit and return to main VC
     @IBAction func updateAction(_ sender: Any) {
@@ -82,13 +93,15 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! primeLensTableViewCell
+        
         cell.lensLabel?.text =   displayLensArray[indexPath.row]
+        
         // Send switch state and indexpath ro to this func?
         cell.lensSwitch.tag = indexPath.row
         cell.lensSwitch.restorationIdentifier = displayLensArray[indexPath.row] // lensKitArray[indexPath.row]
         cell.lensSwitch.addTarget(self, action: #selector(switchTriggered(sender:)), for: UIControlEvents.valueChanged)
         cell.lensLabel.adjustsFontSizeToFitWidth = true
-        cell.lensSwitch.isOn = switchPos[indexPath.row] //   remember swich position durring scroll
+        //cell.lensSwitch.isOn = switchPos[indexPath.row] //   remember swich position durring scroll
         return cell
     }
     
@@ -127,7 +140,23 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return lastIDvalue
     }
     
-    func setUpUI() {
+    func setUpUI() {    // and fucking set up realm array
+        
+        //  DONE: load all arrays into realm on first load in main vc with switch pos
+        //  1. DONE: create realm objects for all fuckers aks, support filters
+        //  2. DONE: first run in main populate these objects
+        
+        //  1.  use the switch statement below 
+                //  DONE: find if aks or support has been loaded
+                //  load the realm object to the tableview array.. if not lens?
+        
+        // later how the fuck do I -
+        //  2.  append new item to its realm object with switch pos
+        
+        //  3.  recall this fucker to update the local tableview array
+        //  4.  reload tableview
+        
+        
         // modify page info by picker state
         if pickerEquipment.pickerState[1] == 1 {
             print("sent form primes")
@@ -142,6 +171,29 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             title = "Select AKS"
             titleDescription.text = "Switch On items needed"
             switchOn = false
+            
+            // load ream array to thos tableview... or skip this step and just use realm
+            let realm = try! Realm()
+            
+            var todoList: Results<AksItem> {
+                get {
+                    return realm.objects(AksItem.self)
+                }
+            }
+            
+            print("\nDid I get AKS from Realm? \(todoList)\n")
+            
+            //  is this all i need to to to send the realm item to the tableview?
+            
+            // this is where it gets fucke up becuase I alreadey have a complicated system for prime lense switches...
+            // i dont really want to re wirte that...
+            // lets just start witrgh creatiubg a new vc for aks....
+            // hopefuly can use it for aks filters support and ill have to devse a new switch system
+            
+            //  originalArray = todoList fucked
+            
+
+            
         }
         // 7 filters
         if pickerEquipment.pickerState[1] == 7 {
@@ -149,6 +201,17 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             title = "Select Filters"
             titleDescription.text = "Switch On filters needed"
             switchOn = false
+            
+            // load ream array to thos tableview... or skip this step and just use realm
+            let realm = try! Realm()
+            
+            var todoList: Results<FilterItem> {
+                get {
+                    return realm.objects(FilterItem.self)
+                }
+            }
+            
+            print("\nDid I get Filters from Realm? \(todoList)\n")
         }
         // 8 support
         if pickerEquipment.pickerState[1] == 8 {
@@ -156,6 +219,17 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             title = "Select Support"
             titleDescription.text = "Switch On items needed"
             switchOn = false
+            
+            // load ream array to thos tableview... or skip this step and just use realm
+            let realm = try! Realm()
+            
+            var todoList: Results<SupportItem> {
+                get {
+                    return realm.objects(SupportItem.self)
+                }
+            }
+            
+            print("\nDid I get Support from Realm? \(todoList)\n")
         }
         
         // array to persiste switch positions durring deque of cells
