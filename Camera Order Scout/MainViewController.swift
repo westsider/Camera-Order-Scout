@@ -67,12 +67,12 @@
 //  fix: lens order title wrong for aks
 //  task: switches off by default for aks, support
 //  test: completed test of tableview switches
-
 //  task: add write in AKS, Support - add new view - add text to array - make persistant
+
 //  task: update realm
 //  task: sort list by: camera, primes, macros, probes, zooms, aks ect
 //  task: how-to images
-
+//  task: make UI Awesome
 
 
 import Foundation

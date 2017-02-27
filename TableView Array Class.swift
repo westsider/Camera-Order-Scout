@@ -457,7 +457,10 @@ class TableViewArrays {
             thePrimes =  ["7in On Board Monitor",
                           "Remote Focus",
                           "Hand Held Rig",
-                          "Easy Rig",
+                          "Easy Rig 500",
+                          "Easy Rig 600",
+                          "Easy Rig 700",
+                          "Easy Rig 850",
                           "Arri Follow Focus 4 / Hand Held FF4 (Complete)",
                           "5 inch Assistant Color Monitor(w/Swing Bracket + 2 Cables)",
                           "Arri 24Volt Remote Switch (w/Extension Cable)",
@@ -718,6 +721,10 @@ class TableViewArrays {
                           "Ronford F-7 Head",
                           
                           "Tango Swing Plate",
+                          
+                          "Original Slider",
+                          "Slider",
+                          "P+S Technic Skater Jr",
                           
                           "Standards Sticks",
                           "Baby Sticks",

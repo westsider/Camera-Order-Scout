@@ -11,17 +11,17 @@ import RealmSwift
 
 class AksItem: Object {
     dynamic var detail = ""
-    dynamic var status = 0
+    dynamic var status = false
 }
 
 class FilterItem: Object {
     dynamic var detail = ""
-    dynamic var status = 0
+    dynamic var status = false
 }
 
 class SupportItem: Object {
     dynamic var detail = ""
-    dynamic var status = 0
+    dynamic var status = false
 }
 
 
@@ -42,7 +42,7 @@ class FirstRun { // aks filters support
             
             let aksItem = AksItem()
             aksItem.detail = item
-            aksItem.status = 0
+            aksItem.status = false
             
             try! self.realm.write({
                 self.realm.add(aksItem)
@@ -58,7 +58,7 @@ class FirstRun { // aks filters support
             
             let filterItem = FilterItem()
             filterItem.detail = item
-            filterItem.status = 0
+            filterItem.status = false
             
             try! self.realm.write({
                 self.realm.add(filterItem)
@@ -74,7 +74,7 @@ class FirstRun { // aks filters support
             
             let supportItem = SupportItem()
             supportItem.detail = item
-            supportItem.status = 0
+            supportItem.status = false
             
             try! self.realm.write({
                 self.realm.add(supportItem)

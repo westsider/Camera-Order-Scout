@@ -798,6 +798,9 @@
                                     <constraint firstAttribute="width" constant="97" id="VKi-a3-Bjw"/>
                                 </constraints>
                                 <state key="normal" title="Update"/>
+                                <connections>
+                                    <action selector="updateAction:" destination="pjh-0d-4GV" eventType="touchUpInside" id="ftX-vK-0d7"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
