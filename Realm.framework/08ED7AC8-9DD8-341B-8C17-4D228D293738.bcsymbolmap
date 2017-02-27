@@ -47,16 +47,16 @@ __ZTSN5realm4util17BadOptionalAccessE
 __ZTIN5realm4util17BadOptionalAccessE
 __ZTSNSt3__117bad_function_callE
 __ZTINSt3__117bad_function_callE
-Apple LLVM version 8.0.0 (clang-800.0.38)
+Apple LLVM version 8.0.0 (clang-800.0.42.1)
 /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/collection_change_builder.cpp
 /Users/realm/workspace/Package iOS Swift/tightdb_objc
 ~bad_function_call
-/Applications/Xcode-8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/functional
+/Applications/Xcode-8.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/functional
 __insertion_sort_incomplete<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/collection_change_builder.cpp:829:15) &, (anonymous namespace)::RowInfo *>
-/Applications/Xcode-8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/algorithm
+/Applications/Xcode-8.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/algorithm
 operator()<(anonymous namespace)::RowInfo, (anonymous namespace)::RowInfo>
 swap<(anonymous namespace)::RowInfo>
-/Applications/Xcode-8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/type_traits
+/Applications/Xcode-8.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/type_traits
 __sort5<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/collection_change_builder.cpp:829:15) &, (anonymous namespace)::RowInfo *>
 __sort4<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/collection_change_builder.cpp:829:15) &, (anonymous namespace)::RowInfo *>
 __sort3<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/collection_change_builder.cpp:829:15) &, (anonymous namespace)::RowInfo *>
@@ -75,16 +75,16 @@ __sort3<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/O
 __sort<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/collection_change_builder.cpp:777:47) &, (anonymous namespace)::RowInfo *>
 __insertion_sort_3<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/collection_change_builder.cpp:777:47) &, (anonymous namespace)::RowInfo *>
 __swap_out_circular_buffer
-/Applications/Xcode-8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/vector
+/Applications/Xcode-8.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/vector
 swap<(anonymous namespace)::RowInfo *>
 __end_cap
-/Applications/Xcode-8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/__split_buffer
+/Applications/Xcode-8.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/__split_buffer
 first
-/Applications/Xcode-8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory
+/Applications/Xcode-8.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory
 __construct_backward<(anonymous namespace)::RowInfo>
 __rotate_forward<std::__1::__wrap_iter<realm::IndexSet *> >
 operator++
-/Applications/Xcode-8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/iterator
+/Applications/Xcode-8.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/iterator
 operator==<realm::IndexSet *, realm::IndexSet *>
 swap<realm::IndexSet>
 ~IndexSet
@@ -112,7 +112,7 @@ operator!=<realm::IndexSet *, realm::IndexSet *>
 __split_buffer
 allocate
 __allocate
-/Applications/Xcode-8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/new
+/Applications/Xcode-8.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/new
 __compressed_pair
 __libcpp_compressed_pair_imp
 __alloc
@@ -126,9 +126,9 @@ __move_range
 move_backward<realm::IndexSet *, realm::IndexSet *>
 __move_backward<realm::IndexSet *, realm::IndexSet *>
 find<unsigned long>
-/Applications/Xcode-8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/__hash_table
+/Applications/Xcode-8.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/__hash_table
 __hash_iterator
-/Applications/Xcode-8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/unordered_map
+/Applications/Xcode-8.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/unordered_map
 __constrain_hash
 operator[]
 bucket_count
@@ -144,7 +144,7 @@ rehash
 __next_hash_pow2
 __clz
 ceil
-/Applications/Xcode-8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/cmath
+/Applications/Xcode-8.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/cmath
 max_load_factor
 __is_hash_power2
 remove
@@ -161,7 +161,7 @@ __destruct_at_end
 construct<std::__1::pair<unsigned long, unsigned long>, unsigned long, unsigned long &>
 __construct<std::__1::pair<unsigned long, unsigned long>, unsigned long, unsigned long &>
 pair<unsigned long, unsigned long &, void>
-/Applications/Xcode-8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/utility
+/Applications/Xcode-8.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/utility
 __recommend
 capacity
 __insertion_sort_incomplete<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/collection_change_builder.cpp:172:15) &, realm::CollectionChangeSet::Move *>
@@ -218,7 +218,7 @@ operator()<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Real
 operator!=<(anonymous namespace)::LongestCommonSubsequenceCalculator::Row *>
 end<std::__1::vector<(anonymous namespace)::LongestCommonSubsequenceCalculator::Row, std::__1::allocator<(anonymous namespace)::LongestCommonSubsequenceCalculator::Row> > >
 initializer_list
-/Applications/Xcode-8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/initializer_list
+/Applications/Xcode-8.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/initializer_list
 __push_back_slow_path<Length>
 __construct_backward<Length>
 construct<Length, Length>
@@ -237,7 +237,7 @@ begin<std::__1::vector<(anonymous namespace)::LongestCommonSubsequenceCalculator
 __insertion_sort_incomplete<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/collection_change_builder.cpp:735:33) &, (anonymous namespace)::LongestCommonSubsequenceCalculator::Row *>
 operator()<(anonymous namespace)::LongestCommonSubsequenceCalculator::Row, (anonymous namespace)::LongestCommonSubsequenceCalculator::Row>
 operator<<unsigned long &, unsigned long &, unsigned long &, unsigned long &>
-/Applications/Xcode-8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/tuple
+/Applications/Xcode-8.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/tuple
 operator()<std::__1::tuple<unsigned long &, unsigned long &>, std::__1::tuple<unsigned long &, unsigned long &> >
 swap<(anonymous namespace)::LongestCommonSubsequenceCalculator::Row>
 __sort5<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/collection_change_builder.cpp:735:33) &, (anonymous namespace)::LongestCommonSubsequenceCalculator::Row *>
@@ -473,10 +473,10 @@ construct<std::__1::shared_ptr<realm::_impl::CollectionNotifier>, const std::__1
 __construct<std::__1::shared_ptr<realm::_impl::CollectionNotifier>, const std::__1::shared_ptr<realm::_impl::CollectionNotifier> &>
 error
 unlock
-/Applications/Xcode-8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/__mutex_base
+/Applications/Xcode-8.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/__mutex_base
 lock
 __fill_n_false<std::__1::vector<bool, std::__1::allocator<bool> > >
-/Applications/Xcode-8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/__bit_reference
+/Applications/Xcode-8.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/__bit_reference
 min<unsigned long>
 min<unsigned long, std::__1::__less<unsigned long, unsigned long> >
 __fill_n_true<std::__1::vector<bool, std::__1::allocator<bool> > >
@@ -523,11 +523,11 @@ RelatedTable
 __push_back_slow_path<realm::_impl::DeepChangeChecker::RelatedTable>
 target_type
 target
-/Applications/Xcode-8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/typeinfo
+/Applications/Xcode-8.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/typeinfo
 __compare_nonunique_names
 name
 __call<realm::_impl::DeepChangeChecker &, unsigned long>
-/Applications/Xcode-8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/__functional_base
+/Applications/Xcode-8.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/__functional_base
 __invoke<realm::_impl::DeepChangeChecker &, unsigned long>
 destroy_deallocate
 ~__compressed_pair
@@ -586,7 +586,7 @@ deliver
 add_notifier
 after_advance
 operator!=<std::__1::shared_ptr<realm::_impl::CollectionNotifier> *>
-/Applications/Xcode-8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/exception
+/Applications/Xcode-8.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/exception
 get_transact_stage
 core/include/realm/group_shared.hpp
 before_advance
@@ -613,7 +613,7 @@ Realm/ObjectStore/src/impl/realm_coordinator.hpp
 wait<(lambda at Realm/ObjectStore/src/impl/realm_coordinator.hpp:175:30)>
 all_of<std::__1::__wrap_iter<std::__1::shared_ptr<realm::_impl::CollectionNotifier> *>, (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/collection_notifier.cpp:424:66)>
 have_callbacks
-/Applications/Xcode-8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/atomic
+/Applications/Xcode-8.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/atomic
 unique_lock
 NotifierPackage
 Optional
@@ -683,7 +683,7 @@ get_link_target
 BasicTableRef<realm::Table>
 bind_ptr<realm::Table>
 is_null_link
-/Applications/Xcode-8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/array
+/Applications/Xcode-8.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/array
 operator==<const realm::_impl::DeepChangeChecker::RelatedTable *, const realm::_impl::DeepChangeChecker::RelatedTable *>
 find_if<std::__1::__wrap_iter<const realm::_impl::DeepChangeChecker::RelatedTable *>, (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/collection_notifier.cpp:86:23)>
 operator!=<const realm::_impl::DeepChangeChecker::RelatedTable *>
@@ -738,12 +738,12 @@ __ZTVNSt3__119__async_assoc_stateIvNS_12__async_funcIZN5realm5_impl20ExternalCom
 __ZTSNSt3__119__async_assoc_stateIvNS_12__async_funcIZN5realm5_impl20ExternalCommitHelperC1ERNS3_16RealmCoordinatorEE3$_0JEEEEE
 __ZTINSt3__119__async_assoc_stateIvNS_12__async_funcIZN5realm5_impl20ExternalCommitHelperC1ERNS3_16RealmCoordinatorEE3$_0JEEEEE
 /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/apple/external_commit_helper.cpp
-/Applications/Xcode-8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/thread
+/Applications/Xcode-8.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/thread
 __thread_proxy<std::__1::tuple<void (std::__1::__async_assoc_state<void, std::__1::__async_func<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/apple/external_commit_helper.cpp:157:47)> >::*)(), std::__1::__async_assoc_state<void, std::__1::__async_func<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/apple/external_commit_helper.cpp:157:47)> > *> >
 __thread_execute<void (std::__1::__async_assoc_state<void, std::__1::__async_func<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/apple/external_commit_helper.cpp:157:47)> >::*)(), std::__1::__async_assoc_state<void, std::__1::__async_func<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/apple/external_commit_helper.cpp:157:47)> > *, 1>
 __invoke<void (std::__1::__async_assoc_state<void, std::__1::__async_func<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/apple/external_commit_helper.cpp:157:47)> >::*)(), std::__1::__async_assoc_state<void, std::__1::__async_func<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/apple/external_commit_helper.cpp:157:47)> > *, void>
 get<1, void (std::__1::__async_assoc_state<void, std::__1::__async_func<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/apple/external_commit_helper.cpp:157:47)> >::*)(), std::__1::__async_assoc_state<void, std::__1::__async_func<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/apple/external_commit_helper.cpp:157:47)> > *>
-/Applications/Xcode-8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/future
+/Applications/Xcode-8.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/future
 __execute<>
 __invoke<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/apple/external_commit_helper.cpp:157:47)>
 __execute
@@ -751,7 +751,7 @@ __on_zero_shared
 ~__async_assoc_state
 ~__assoc_sub_state
 __init<char *>
-/Applications/Xcode-8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/string
+/Applications/Xcode-8.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/string
 assign
 __set_long_size
 __set_long_cap
@@ -762,12 +762,12 @@ __set_short_size
 distance<char *>
 __distance<char *>
 str
-/Applications/Xcode-8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/sstream
+/Applications/Xcode-8.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/sstream
 basic_string
 __zero
 basic_string<char *>
 egptr
-/Applications/Xcode-8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/streambuf
+/Applications/Xcode-8.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/streambuf
 eback
 pbase
 pptr
@@ -782,21 +782,21 @@ __loadword<unsigned int>
 __rotate_by_at_least_1
 __weak_hash_len_32_with_seeds
 __pad_and_output<char, std::__1::char_traits<char> >
-/Applications/Xcode-8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/locale
+/Applications/Xcode-8.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/locale
 width
-/Applications/Xcode-8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/ios
+/Applications/Xcode-8.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/ios
 sputn
 data
 __get_pointer
 __get_long_pointer
 __is_long
 __put_character_sequence<char, std::__1::char_traits<char> >
-/Applications/Xcode-8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/ostream
+/Applications/Xcode-8.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/ostream
 setstate
 failed
 fill
 widen
-/Applications/Xcode-8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/__locale
+/Applications/Xcode-8.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/__locale
 use_facet<std::__1::ctype<char> >
 eq_int_type
 flags
@@ -827,7 +827,7 @@ operator long long
 seekoff
 fpos
 ~basic_stringbuf
-/Applications/Xcode-8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/iosfwd
+/Applications/Xcode-8.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/iosfwd
 _ZTv0_n24_NSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEED0Ev
 ~basic_ostringstream
 _ZTv0_n24_NSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev
@@ -884,11 +884,11 @@ _ZTv0_n24_NSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEED1E
 _ZThn16_NSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev
 format
 isdigit
-/Applications/Xcode-8.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/usr/include/ctype.h
+/Applications/Xcode-8.1.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.1.sdk/usr/include/ctype.h
 __isctype
 basic_stringstream
 basic_iostream
-/Applications/Xcode-8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/istream
+/Applications/Xcode-8.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/istream
 basic_istream
 print
 core/include/realm/string_data.hpp
@@ -1099,7 +1099,7 @@ Realm/ObjectStore/src/list.hpp
 OutOfBoundsIndexException
 /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/list.cpp
 out_of_range
-/Applications/Xcode-8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/stdexcept
+/Applications/Xcode-8.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/stdexcept
 format<unsigned long &, unsigned long &>
 add_notification_callback
 Handle<realm::_impl::ListNotifier>
@@ -1909,15 +1909,15 @@ destroy<std::__1::vector<unsigned long, std::__1::allocator<unsigned long> > >
 __destroy<std::__1::vector<unsigned long, std::__1::allocator<unsigned long> > >
 swap<realm::_impl::TransactionChangeInfo *>
 __construct_backward<realm::_impl::TransactionChangeInfo *>
-__insertion_sort_incomplete<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/realm_coordinator.cpp:477:20) &, std::__1::shared_ptr<realm::_impl::CollectionNotifier> *>
+__insertion_sort_incomplete<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/realm_coordinator.cpp:464:20) &, std::__1::shared_ptr<realm::_impl::CollectionNotifier> *>
 operator()<std::__1::shared_ptr<realm::_impl::CollectionNotifier> &, std::__1::shared_ptr<realm::_impl::CollectionNotifier> &>
 operator<
 swap<realm::_impl::CollectionNotifier>
-__sort5<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/realm_coordinator.cpp:477:20) &, std::__1::shared_ptr<realm::_impl::CollectionNotifier> *>
-__sort4<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/realm_coordinator.cpp:477:20) &, std::__1::shared_ptr<realm::_impl::CollectionNotifier> *>
-__sort3<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/realm_coordinator.cpp:477:20) &, std::__1::shared_ptr<realm::_impl::CollectionNotifier> *>
-__sort<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/realm_coordinator.cpp:477:20) &, std::__1::shared_ptr<realm::_impl::CollectionNotifier> *>
-__insertion_sort_3<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/realm_coordinator.cpp:477:20) &, std::__1::shared_ptr<realm::_impl::CollectionNotifier> *>
+__sort5<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/realm_coordinator.cpp:464:20) &, std::__1::shared_ptr<realm::_impl::CollectionNotifier> *>
+__sort4<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/realm_coordinator.cpp:464:20) &, std::__1::shared_ptr<realm::_impl::CollectionNotifier> *>
+__sort3<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/realm_coordinator.cpp:464:20) &, std::__1::shared_ptr<realm::_impl::CollectionNotifier> *>
+__sort<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/realm_coordinator.cpp:464:20) &, std::__1::shared_ptr<realm::_impl::CollectionNotifier> *>
+__insertion_sort_3<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/realm_coordinator.cpp:464:20) &, std::__1::shared_ptr<realm::_impl::CollectionNotifier> *>
 destroy<realm::BindingContext::ColumnInfo>
 __destroy<realm::BindingContext::ColumnInfo>
 ~ColumnInfo
@@ -1953,8 +1953,8 @@ __advance<char *>
 ~InvalidEncryptionKeyException
 set_transaction_callback
 process_available_async
-remove_if<std::__1::__wrap_iter<std::__1::shared_ptr<realm::_impl::CollectionNotifier> *>, (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/realm_coordinator.cpp:790:20)>
-find_if<std::__1::__wrap_iter<std::__1::shared_ptr<realm::_impl::CollectionNotifier> *>, (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/realm_coordinator.cpp:790:20) &>
+remove_if<std::__1::__wrap_iter<std::__1::shared_ptr<realm::_impl::CollectionNotifier> *>, (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/realm_coordinator.cpp:763:20)>
+find_if<std::__1::__wrap_iter<std::__1::shared_ptr<realm::_impl::CollectionNotifier> *>, (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/realm_coordinator.cpp:763:20) &>
 is_in_read_transaction
 promote_to_write
 ~NotifierPackage
@@ -1977,8 +1977,8 @@ operator()<std::__1::tuple<const unsigned long &, const unsigned long &, const u
 operator()<realm::_impl::ListChangeInfo>
 terminate<unsigned long long, unsigned long long>
 IncrementalChangeInfo
-sort<std::__1::shared_ptr<realm::_impl::CollectionNotifier>, (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/realm_coordinator.cpp:477:20)>
-sort<std::__1::shared_ptr<realm::_impl::CollectionNotifier> *, (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/realm_coordinator.cpp:477:20) &>
+sort<std::__1::shared_ptr<realm::_impl::CollectionNotifier>, (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/realm_coordinator.cpp:464:20)>
+sort<std::__1::shared_ptr<realm::_impl::CollectionNotifier> *, (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/realm_coordinator.cpp:464:20) &>
 open_helper_shared_group
 run_async_notifiers
 ~IncrementalChangeInfo
@@ -1998,7 +1998,7 @@ commit_write
 nonsync_transact_notify
 Realm/ObjectStore/src/sync/sync_session.hpp
 core/include/realm/lang_bind_helper.hpp
-any_of<std::__1::__wrap_iter<std::__1::shared_ptr<realm::_impl::CollectionNotifier> *>, (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/realm_coordinator.cpp:350:43)>
+any_of<std::__1::__wrap_iter<std::__1::shared_ptr<realm::_impl::CollectionNotifier> *>, (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/realm_coordinator.cpp:337:43)>
 operator()<std::__1::shared_ptr<realm::_impl::CollectionNotifier> &>
 read_only
 wake_up_notifier_worker
@@ -2022,13 +2022,13 @@ operator==<const realm::_impl::WeakRealmNotifier *, const realm::_impl::WeakReal
 operator-<const realm::_impl::WeakRealmNotifier *, realm::_impl::WeakRealmNotifier *>
 unregister_realm
 end<std::__1::vector<realm::_impl::WeakRealmNotifier, std::__1::allocator<realm::_impl::WeakRealmNotifier> > >
-remove_if<std::__1::__wrap_iter<realm::_impl::WeakRealmNotifier *>, (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/realm_coordinator.cpp:264:30)>
+remove_if<std::__1::__wrap_iter<realm::_impl::WeakRealmNotifier *>, (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/realm_coordinator.cpp:251:30)>
 operator()<realm::_impl::WeakRealmNotifier>
 expired
 use_count
 __libcpp_relaxed_load<long>
 operator==<realm::_impl::WeakRealmNotifier *, realm::_impl::WeakRealmNotifier *>
-find_if<std::__1::__wrap_iter<realm::_impl::WeakRealmNotifier *>, (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/realm_coordinator.cpp:264:30) &>
+find_if<std::__1::__wrap_iter<realm::_impl::WeakRealmNotifier *>, (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/impl/realm_coordinator.cpp:251:30) &>
 begin<std::__1::vector<realm::_impl::WeakRealmNotifier, std::__1::allocator<realm::_impl::WeakRealmNotifier> > >
 ~enable_shared_from_this
 BinaryData
@@ -2038,13 +2038,11 @@ get_schema
 emplace_back<std::__1::shared_ptr<realm::Realm> &, bool &>
 RealmFileException
 code
-/Applications/Xcode-8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/system_error
+/Applications/Xcode-8.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/system_error
 make_unique<realm::_impl::ExternalCommitHelper, realm::_impl::RealmCoordinator &>
 make_shared_realm
 make_shared<make_shared_enabler, realm::Realm::Config, std::__1::shared_ptr<realm::_impl::RealmCoordinator> >
 shared_from_this
-/Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/schema.hpp
-schema_version
 is_cached_for_execution_context
 ~MismatchedConfigException
 swap<realm::SyncConfig *>
@@ -2328,13 +2326,12 @@ ___destroy_helper_block_
 ____Z28RLMReplaceSharedSchemaMethodP10objc_classP15RLMObjectSchema_block_invoke
 ___copy_helper_block_.4
 ___destroy_helper_block_.5
-__ZL22RLMCreateAccessorClassP10objc_classP15RLMObjectSchemaP8NSStringPFPFvvEP11RLMProperty15RLMAccessorCodeESB_
-__ZL17RLMAccessorGetterP11RLMProperty15RLMAccessorCode
-__ZL17RLMAccessorSetterP11RLMProperty15RLMAccessorCode
-__ZL26RLMAccessorUnmanagedGetterP11RLMProperty15RLMAccessorCode
-__ZL26RLMAccessorUnmanagedSetterP11RLMProperty15RLMAccessorCode
+__ZL22RLMCreateAccessorClassP10objc_classP15RLMObjectSchemaPKcPFP11objc_objectP11RLMPropertyS4_ESA_
+__ZL17RLMAccessorGetterP11RLMPropertyPKc
+__ZL17RLMAccessorSetterP11RLMPropertyPKc
+__ZL26RLMAccessorUnmanagedGetterP11RLMPropertyPKc
+__ZL26RLMAccessorUnmanagedSetterP11RLMPropertyPKc
 __ZL14RLMCoerceToNilIU8__strongP11objc_objectET_S3_
-__ZL19accessorCodeForTypec15RLMPropertyType
 __ZL8getBoxedIxEP8NSNumberP13RLMObjectBasem
 __ZL8getBoxedIfEP8NSNumberP13RLMObjectBasem
 __ZL8getBoxedIdEP8NSNumberP13RLMObjectBasem
@@ -2345,232 +2342,222 @@ __ZL10RLMGetDataP13RLMObjectBasem
 __ZL10RLMGetLinkP13RLMObjectBasem
 __ZL11RLMGetArrayP13RLMObjectBasem
 __ZL20RLMGetLinkingObjectsP13RLMObjectBaseP11RLMProperty
-____ZL17RLMAccessorGetterP11RLMProperty15RLMAccessorCode_block_invoke
-__ZL3getIxET_P13RLMObjectBasem
-____ZL17RLMAccessorGetterP11RLMProperty15RLMAccessorCode_block_invoke_2
-____ZL17RLMAccessorGetterP11RLMProperty15RLMAccessorCode_block_invoke_3
-____ZL17RLMAccessorGetterP11RLMProperty15RLMAccessorCode_block_invoke_4
-____ZL17RLMAccessorGetterP11RLMProperty15RLMAccessorCode_block_invoke_5
-____ZL17RLMAccessorGetterP11RLMProperty15RLMAccessorCode_block_invoke_6
-____ZL17RLMAccessorGetterP11RLMProperty15RLMAccessorCode_block_invoke_7
-____ZL17RLMAccessorGetterP11RLMProperty15RLMAccessorCode_block_invoke_8
-____ZL17RLMAccessorGetterP11RLMProperty15RLMAccessorCode_block_invoke_9
-____ZL17RLMAccessorGetterP11RLMProperty15RLMAccessorCode_block_invoke_10
-____ZL17RLMAccessorGetterP11RLMProperty15RLMAccessorCode_block_invoke_11
-____ZL17RLMAccessorGetterP11RLMProperty15RLMAccessorCode_block_invoke_12
-____ZL17RLMAccessorGetterP11RLMProperty15RLMAccessorCode_block_invoke_13
-____ZL17RLMAccessorGetterP11RLMProperty15RLMAccessorCode_block_invoke_14
-____ZL17RLMAccessorGetterP11RLMProperty15RLMAccessorCode_block_invoke_15
-____ZL17RLMAccessorGetterP11RLMProperty15RLMAccessorCode_block_invoke_16
-____ZL17RLMAccessorGetterP11RLMProperty15RLMAccessorCode_block_invoke_17
-____ZL17RLMAccessorGetterP11RLMProperty15RLMAccessorCode_block_invoke_18
+__ZL9addMethodP10objc_classP11RLMPropertyPFP11objc_objectS2_PKcES8_
+____ZL17RLMAccessorGetterP11RLMPropertyPKc_block_invoke
+____ZL17RLMAccessorGetterP11RLMPropertyPKc_block_invoke_2
+____ZL17RLMAccessorGetterP11RLMPropertyPKc_block_invoke_3
+____ZL17RLMAccessorGetterP11RLMPropertyPKc_block_invoke_4
+____ZL17RLMAccessorGetterP11RLMPropertyPKc_block_invoke_5
+____ZL17RLMAccessorGetterP11RLMPropertyPKc_block_invoke_6
+____ZL17RLMAccessorGetterP11RLMPropertyPKc_block_invoke_7
+____ZL17RLMAccessorGetterP11RLMPropertyPKc_block_invoke_8
+____ZL17RLMAccessorGetterP11RLMPropertyPKc_block_invoke_9
+____ZL17RLMAccessorGetterP11RLMPropertyPKc_block_invoke_10
+____ZL17RLMAccessorGetterP11RLMPropertyPKc_block_invoke_11
+____ZL17RLMAccessorGetterP11RLMPropertyPKc_block_invoke_12
+____ZL17RLMAccessorGetterP11RLMPropertyPKc_block_invoke_13
+____ZL17RLMAccessorGetterP11RLMPropertyPKc_block_invoke_14
+____ZL17RLMAccessorGetterP11RLMPropertyPKc_block_invoke_15
+____ZL17RLMAccessorGetterP11RLMPropertyPKc_block_invoke_16
+____ZL17RLMAccessorGetterP11RLMPropertyPKc_block_invoke_17
+____ZL17RLMAccessorGetterP11RLMPropertyPKc_block_invoke_18
+___copy_helper_block_.100
+___destroy_helper_block_.101
+____ZL10makeSetterIU8__strongPU16objcproto6RLMInt8NSNumberS3_EP11objc_objectP11RLMProperty_block_invoke
+____ZL10makeSetterIU8__strongPU16objcproto6RLMInt8NSNumberS3_EP11objc_objectP11RLMProperty_block_invoke_2
+___copy_helper_block_.112
+___destroy_helper_block_.113
+__ZL27RLMVerifyInWriteTransactionP13RLMObjectBase
+____ZL10makeSetterIcxEP11objc_objectP11RLMProperty_block_invoke
+____ZL10makeSetterIcxEP11objc_objectP11RLMProperty_block_invoke_2
+___copy_helper_block_.124
+___destroy_helper_block_.125
+____ZL10makeSetterIsxEP11objc_objectP11RLMProperty_block_invoke
+____ZL10makeSetterIsxEP11objc_objectP11RLMProperty_block_invoke_2
 ___copy_helper_block_.130
 ___destroy_helper_block_.131
-____ZL13RLMMakeSetterIcxEPFvvEP11RLMProperty_block_invoke
-____ZL13RLMMakeSetterIcxEPFvvEP11RLMProperty_block_invoke_2
+____ZL10makeSetterIixEP11objc_objectP11RLMProperty_block_invoke
+____ZL10makeSetterIixEP11objc_objectP11RLMProperty_block_invoke_2
+___copy_helper_block_.136
+___destroy_helper_block_.137
+____ZL10makeSetterIlxEP11objc_objectP11RLMProperty_block_invoke
+____ZL10makeSetterIlxEP11objc_objectP11RLMProperty_block_invoke_2
 ___copy_helper_block_.142
 ___destroy_helper_block_.143
-__ZL27RLMVerifyInWriteTransactionP13RLMObjectBase
-____ZL13RLMMakeSetterIsxEPFvvEP11RLMProperty_block_invoke
-____ZL13RLMMakeSetterIsxEPFvvEP11RLMProperty_block_invoke_2
-___copy_helper_block_.152
-___destroy_helper_block_.153
-____ZL13RLMMakeSetterIixEPFvvEP11RLMProperty_block_invoke
-____ZL13RLMMakeSetterIixEPFvvEP11RLMProperty_block_invoke_2
-___copy_helper_block_.158
-___destroy_helper_block_.159
-____ZL13RLMMakeSetterIlxEPFvvEP11RLMProperty_block_invoke
-____ZL13RLMMakeSetterIlxEPFvvEP11RLMProperty_block_invoke_2
-___copy_helper_block_.164
-___destroy_helper_block_.165
-____ZL13RLMMakeSetterIxxEPFvvEP11RLMProperty_block_invoke
-____ZL13RLMMakeSetterIxxEPFvvEP11RLMProperty_block_invoke_2
-___copy_helper_block_.169
-___destroy_helper_block_.170
-____ZL13RLMMakeSetterIffEPFvvEP11RLMProperty_block_invoke
-____ZL13RLMMakeSetterIffEPFvvEP11RLMProperty_block_invoke_2
+____ZL10makeSetterIxxEP11objc_objectP11RLMProperty_block_invoke
+____ZL10makeSetterIxxEP11objc_objectP11RLMProperty_block_invoke_2
+___copy_helper_block_.147
+___destroy_helper_block_.148
+____ZL10makeSetterIU8__strongPU18objcproto8RLMFloat8NSNumberS3_EP11objc_objectP11RLMProperty_block_invoke
+____ZL10makeSetterIU8__strongPU18objcproto8RLMFloat8NSNumberS3_EP11objc_objectP11RLMProperty_block_invoke_2
+___copy_helper_block_.153
+___destroy_helper_block_.154
+____ZL10makeSetterIffEP11objc_objectP11RLMProperty_block_invoke
+____ZL10makeSetterIffEP11objc_objectP11RLMProperty_block_invoke_2
+___copy_helper_block_.161
+___destroy_helper_block_.162
+____ZL10makeSetterIU8__strongPU19objcproto9RLMDouble8NSNumberS3_EP11objc_objectP11RLMProperty_block_invoke
+____ZL10makeSetterIU8__strongPU19objcproto9RLMDouble8NSNumberS3_EP11objc_objectP11RLMProperty_block_invoke_2
+___copy_helper_block_.167
+___destroy_helper_block_.168
+____ZL10makeSetterIddEP11objc_objectP11RLMProperty_block_invoke
+____ZL10makeSetterIddEP11objc_objectP11RLMProperty_block_invoke_2
 ___copy_helper_block_.175
 ___destroy_helper_block_.176
-____ZL13RLMMakeSetterIddEPFvvEP11RLMProperty_block_invoke
-____ZL13RLMMakeSetterIddEPFvvEP11RLMProperty_block_invoke_2
+____ZL10makeSetterIU8__strongPU17objcproto7RLMBool8NSNumberS3_EP11objc_objectP11RLMProperty_block_invoke
+____ZL10makeSetterIU8__strongPU17objcproto7RLMBool8NSNumberS3_EP11objc_objectP11RLMProperty_block_invoke_2
 ___copy_helper_block_.181
 ___destroy_helper_block_.182
-____ZL13RLMMakeSetterIbbEPFvvEP11RLMProperty_block_invoke
-____ZL13RLMMakeSetterIbbEPFvvEP11RLMProperty_block_invoke_2
-___copy_helper_block_.187
-___destroy_helper_block_.188
-____ZL13RLMMakeSetterIU8__strongP8NSStringS2_EPFvvEP11RLMProperty_block_invoke
-____ZL13RLMMakeSetterIU8__strongP8NSStringS2_EPFvvEP11RLMProperty_block_invoke_2
-___copy_helper_block_.193
-___destroy_helper_block_.194
+____ZL10makeSetterIbbEP11objc_objectP11RLMProperty_block_invoke
+____ZL10makeSetterIbbEP11objc_objectP11RLMProperty_block_invoke_2
+___copy_helper_block_.189
+___destroy_helper_block_.190
+____ZL10makeSetterIU8__strongP8NSStringS2_EP11objc_objectP11RLMProperty_block_invoke
+____ZL10makeSetterIU8__strongP8NSStringS2_EP11objc_objectP11RLMProperty_block_invoke_2
+___copy_helper_block_.195
+___destroy_helper_block_.196
 __ZL11RLMSetValueP13RLMObjectBasemP8NSStringb
-____ZL13RLMMakeSetterIU8__strongP6NSDateS2_EPFvvEP11RLMProperty_block_invoke
-____ZL13RLMMakeSetterIU8__strongP6NSDateS2_EPFvvEP11RLMProperty_block_invoke_2
-___copy_helper_block_.201
-___destroy_helper_block_.202
+____ZL10makeSetterIU8__strongP6NSDateS2_EP11objc_objectP11RLMProperty_block_invoke
+____ZL10makeSetterIU8__strongP6NSDateS2_EP11objc_objectP11RLMProperty_block_invoke_2
+___copy_helper_block_.203
+___destroy_helper_block_.204
 __ZL11RLMSetValueP13RLMObjectBasemP6NSDateb
 __ZN5realm9TimestampC2Exi
-____ZL13RLMMakeSetterIU8__strongP6NSDataS2_EPFvvEP11RLMProperty_block_invoke
-____ZL13RLMMakeSetterIU8__strongP6NSDataS2_EPFvvEP11RLMProperty_block_invoke_2
-___copy_helper_block_.214
-___destroy_helper_block_.215
+____ZL10makeSetterIU8__strongP6NSDataS2_EP11objc_objectP11RLMProperty_block_invoke
+____ZL10makeSetterIU8__strongP6NSDataS2_EP11objc_objectP11RLMProperty_block_invoke_2
+___copy_helper_block_.216
+___destroy_helper_block_.217
 __ZL11RLMSetValueP13RLMObjectBasemP6NSDatab
-____ZL13RLMMakeSetterIU8__strongP13RLMObjectBaseS2_EPFvvEP11RLMProperty_block_invoke
-____ZL13RLMMakeSetterIU8__strongP13RLMObjectBaseS2_EPFvvEP11RLMProperty_block_invoke_2
-___copy_helper_block_.224
-___destroy_helper_block_.225
+____ZL10makeSetterIU8__strongP13RLMObjectBaseS2_EP11objc_objectP11RLMProperty_block_invoke
+____ZL10makeSetterIU8__strongP13RLMObjectBaseS2_EP11objc_objectP11RLMProperty_block_invoke_2
+___copy_helper_block_.226
+___destroy_helper_block_.227
 __ZL11RLMSetValueP13RLMObjectBasemS0_b
 __ZL26RLMGetLinkedObjectForValueP8RLMRealmP8NSStringP11objc_objectm
-____ZL13RLMMakeSetterIU8__strongP8RLMArrayS2_EPFvvEP11RLMProperty_block_invoke
-____ZL13RLMMakeSetterIU8__strongP8RLMArrayS2_EPFvvEP11RLMProperty_block_invoke_2
-___copy_helper_block_.247
-___destroy_helper_block_.248
+____ZL10makeSetterIU8__strongP8RLMArrayS2_EP11objc_objectP11RLMProperty_block_invoke
+____ZL10makeSetterIU8__strongP8RLMArrayS2_EP11objc_objectP11RLMProperty_block_invoke_2
+___copy_helper_block_.249
+___destroy_helper_block_.250
 __ZL11RLMSetValueP13RLMObjectBasemPU28objcproto17NSFastEnumeration11objc_objectb
-____ZL13RLMMakeSetterIU8__strongP11objc_objectS2_EPFvvEP11RLMProperty_block_invoke
-____ZL13RLMMakeSetterIU8__strongP11objc_objectS2_EPFvvEP11RLMProperty_block_invoke_2
-___copy_helper_block_.255
-___destroy_helper_block_.256
-__ZZZL13RLMMakeSetterIU8__strongP11objc_objectS2_EPFvvEP11RLMPropertyEUb1_ENKUlvE_clEv
+____ZL10makeSetterIU8__strongP11objc_objectS2_ES1_P11RLMProperty_block_invoke
+____ZL10makeSetterIU8__strongP11objc_objectS2_ES1_P11RLMProperty_block_invoke_2
+___copy_helper_block_.257
+___destroy_helper_block_.258
+__ZZZL10makeSetterIU8__strongP11objc_objectS2_ES1_P11RLMPropertyEUb1_ENKUlvE_clEv
 __ZL11RLMSetValueP13RLMObjectBasemP11objc_objectb
-____ZL13RLMMakeSetterIU8__strongPU16objcproto6RLMInt8NSNumberS3_EPFvvEP11RLMProperty_block_invoke
-____ZL13RLMMakeSetterIU8__strongPU16objcproto6RLMInt8NSNumberS3_EPFvvEP11RLMProperty_block_invoke_2
-___copy_helper_block_.263
-___destroy_helper_block_.264
-____ZL13RLMMakeSetterIU8__strongPU18objcproto8RLMFloat8NSNumberS3_EPFvvEP11RLMProperty_block_invoke
-____ZL13RLMMakeSetterIU8__strongPU18objcproto8RLMFloat8NSNumberS3_EPFvvEP11RLMProperty_block_invoke_2
-___copy_helper_block_.271
-___destroy_helper_block_.272
-____ZL13RLMMakeSetterIU8__strongPU19objcproto9RLMDouble8NSNumberS3_EPFvvEP11RLMProperty_block_invoke
-____ZL13RLMMakeSetterIU8__strongPU19objcproto9RLMDouble8NSNumberS3_EPFvvEP11RLMProperty_block_invoke_2
-___copy_helper_block_.279
-___destroy_helper_block_.280
-____ZL13RLMMakeSetterIU8__strongPU17objcproto7RLMBool8NSNumberS3_EPFvvEP11RLMProperty_block_invoke
-____ZL13RLMMakeSetterIU8__strongPU17objcproto7RLMBool8NSNumberS3_EPFvvEP11RLMProperty_block_invoke_2
-___copy_helper_block_.287
-___destroy_helper_block_.288
-____ZL26RLMAccessorUnmanagedGetterP11RLMProperty15RLMAccessorCode_block_invoke
+____ZL26RLMAccessorUnmanagedGetterP11RLMPropertyPKc_block_invoke
 __ZL11RLMSuperSetP13RLMObjectBaseP8NSStringP11objc_object
-___copy_helper_block_.297
-___destroy_helper_block_.298
-____ZL26RLMAccessorUnmanagedGetterP11RLMProperty15RLMAccessorCode_block_invoke.300
-____ZL26RLMAccessorUnmanagedSetterP11RLMProperty15RLMAccessorCode_block_invoke
-___copy_helper_block_.311
-___destroy_helper_block_.312
+___copy_helper_block_.267
+___destroy_helper_block_.268
+____ZL26RLMAccessorUnmanagedGetterP11RLMPropertyPKc_block_invoke.270
+____ZL26RLMAccessorUnmanagedSetterP11RLMPropertyPKc_block_invoke
+___copy_helper_block_.281
+___destroy_helper_block_.282
 __ZZ13RLMDynamicSetP13RLMObjectBaseP11RLMPropertyP11objc_objectmENK3$_0clEv
-__GLOBAL__sub_I_RLMAccessor.mm
 ___block_descriptor_tmp
+__ZZZ28RLMReplaceSharedSchemaMethodP10objc_classP15RLMObjectSchemaEUb_E19accessorClassPrefix
 ___block_descriptor_tmp.7
-__ZL18s_generatedClasses
-___block_descriptor_tmp.83
-___block_descriptor_tmp.86
-___block_descriptor_tmp.89
-___block_descriptor_tmp.92
+___block_descriptor_tmp.51
+___block_descriptor_tmp.54
+___block_descriptor_tmp.57
+___block_descriptor_tmp.60
+___block_descriptor_tmp.63
+___block_descriptor_tmp.65
+___block_descriptor_tmp.69
+___block_descriptor_tmp.72
+___block_descriptor_tmp.74
+___block_descriptor_tmp.77
+___block_descriptor_tmp.79
+___block_descriptor_tmp.82
+___block_descriptor_tmp.85
+___block_descriptor_tmp.88
+___block_descriptor_tmp.91
 ___block_descriptor_tmp.94
 ___block_descriptor_tmp.97
-___block_descriptor_tmp.100
 ___block_descriptor_tmp.103
-___block_descriptor_tmp.106
-___block_descriptor_tmp.109
-___block_descriptor_tmp.112
-___block_descriptor_tmp.115
-___block_descriptor_tmp.118
-___block_descriptor_tmp.123
-___block_descriptor_tmp.125
-___block_descriptor_tmp.127
-___block_descriptor_tmp.129
-___block_descriptor_tmp.133
-___block_descriptor_tmp.141
+___block_descriptor_tmp.111
 ___block_literal_global
+___block_descriptor_tmp.114
+___block_descriptor_tmp.122
+___block_literal_global.123
+___block_descriptor_tmp.126
+___block_descriptor_tmp.128
+___block_literal_global.129
+___block_descriptor_tmp.132
+___block_descriptor_tmp.134
+___block_literal_global.135
+___block_descriptor_tmp.138
+___block_descriptor_tmp.140
+___block_literal_global.141
 ___block_descriptor_tmp.144
-___block_descriptor_tmp.150
-___block_literal_global.151
-___block_descriptor_tmp.154
-___block_descriptor_tmp.156
-___block_literal_global.157
-___block_descriptor_tmp.160
-___block_descriptor_tmp.162
-___block_literal_global.163
-___block_descriptor_tmp.166
-___block_descriptor_tmp.167
-___block_literal_global.168
-___block_descriptor_tmp.171
+___block_descriptor_tmp.145
+___block_literal_global.146
+___block_descriptor_tmp.149
+___block_descriptor_tmp.151
+___block_literal_global.152
+___block_descriptor_tmp.155
+___block_descriptor_tmp.159
+___block_literal_global.160
+___block_descriptor_tmp.163
+___block_descriptor_tmp.165
+___block_literal_global.166
+___block_descriptor_tmp.169
 ___block_descriptor_tmp.173
 ___block_literal_global.174
 ___block_descriptor_tmp.177
 ___block_descriptor_tmp.179
 ___block_literal_global.180
 ___block_descriptor_tmp.183
-___block_descriptor_tmp.185
-___block_literal_global.186
-___block_descriptor_tmp.189
+___block_descriptor_tmp.187
+___block_literal_global.188
 ___block_descriptor_tmp.191
-___block_literal_global.192
-___block_descriptor_tmp.195
-___block_descriptor_tmp.199
-___block_literal_global.200
-___block_descriptor_tmp.203
-___block_descriptor_tmp.212
-___block_literal_global.213
-___block_descriptor_tmp.216
-___block_descriptor_tmp.222
-___block_literal_global.223
-___block_descriptor_tmp.226
-___block_descriptor_tmp.245
-___block_literal_global.246
-___block_descriptor_tmp.249
-___block_descriptor_tmp.253
-___block_literal_global.254
-___block_descriptor_tmp.257
-___block_descriptor_tmp.261
-___block_literal_global.262
-___block_descriptor_tmp.265
+___block_descriptor_tmp.193
+___block_literal_global.194
+___block_descriptor_tmp.197
+___block_descriptor_tmp.201
+___block_literal_global.202
+___block_descriptor_tmp.205
+___block_descriptor_tmp.214
+___block_literal_global.215
+___block_descriptor_tmp.218
+___block_descriptor_tmp.224
+___block_literal_global.225
+___block_descriptor_tmp.228
+___block_descriptor_tmp.247
+___block_literal_global.248
+___block_descriptor_tmp.251
+___block_descriptor_tmp.255
+___block_literal_global.256
+___block_descriptor_tmp.259
 ___block_descriptor_tmp.269
-___block_literal_global.270
-___block_descriptor_tmp.273
-___block_descriptor_tmp.277
-___block_literal_global.278
-___block_descriptor_tmp.281
-___block_descriptor_tmp.285
-___block_literal_global.286
-___block_descriptor_tmp.289
-___block_descriptor_tmp.299
-___block_descriptor_tmp.305
-___block_literal_global.306
-___block_descriptor_tmp.314
+___block_descriptor_tmp.275
+___block_literal_global.276
+___block_descriptor_tmp.284
 /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMAccessor.mm
-_GLOBAL__sub_I_RLMAccessor.mm
 RLMSetValue
 nullify_link
 __destroy_helper_block_
 __copy_helper_block_
-___ZL26RLMAccessorUnmanagedSetterP11RLMProperty15RLMAccessorCode_block_invoke
-___ZL26RLMAccessorUnmanagedGetterP11RLMProperty15RLMAccessorCode_block_invoke.300
+___ZL26RLMAccessorUnmanagedSetterP11RLMPropertyPKc_block_invoke
+___ZL26RLMAccessorUnmanagedGetterP11RLMPropertyPKc_block_invoke.270
 RLMSuperSet
-___ZL26RLMAccessorUnmanagedGetterP11RLMProperty15RLMAccessorCode_block_invoke
+___ZL26RLMAccessorUnmanagedGetterP11RLMPropertyPKc_block_invoke
 RLMSuperGet
-___ZL13RLMMakeSetterIU8__strongPU17objcproto7RLMBool8NSNumberS3_EPFvvEP11RLMProperty_block_invoke_2
-RLMWrapSetter<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMAccessor.mm:402:34)>
-___ZL13RLMMakeSetterIU8__strongPU17objcproto7RLMBool8NSNumberS3_EPFvvEP11RLMProperty_block_invoke
-___ZL13RLMMakeSetterIU8__strongPU19objcproto9RLMDouble8NSNumberS3_EPFvvEP11RLMProperty_block_invoke_2
-___ZL13RLMMakeSetterIU8__strongPU19objcproto9RLMDouble8NSNumberS3_EPFvvEP11RLMProperty_block_invoke
-___ZL13RLMMakeSetterIU8__strongPU18objcproto8RLMFloat8NSNumberS3_EPFvvEP11RLMProperty_block_invoke_2
-___ZL13RLMMakeSetterIU8__strongPU18objcproto8RLMFloat8NSNumberS3_EPFvvEP11RLMProperty_block_invoke
-___ZL13RLMMakeSetterIU8__strongPU16objcproto6RLMInt8NSNumberS3_EPFvvEP11RLMProperty_block_invoke_2
-___ZL13RLMMakeSetterIU8__strongPU16objcproto6RLMInt8NSNumberS3_EPFvvEP11RLMProperty_block_invoke
-___ZL13RLMMakeSetterIU8__strongP11objc_objectS2_EPFvvEP11RLMProperty_block_invoke_2
-___ZL13RLMMakeSetterIU8__strongP11objc_objectS2_EPFvvEP11RLMProperty_block_invoke
+___ZL10makeSetterIU8__strongP11objc_objectS2_ES1_P11RLMProperty_block_invoke_2
+RLMWrapSetter<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMAccessor.mm:389:34)>
+___ZL10makeSetterIU8__strongP11objc_objectS2_ES1_P11RLMProperty_block_invoke
 get_linklist
-___ZL13RLMMakeSetterIU8__strongP8RLMArrayS2_EPFvvEP11RLMProperty_block_invoke_2
-___ZL13RLMMakeSetterIU8__strongP8RLMArrayS2_EPFvvEP11RLMProperty_block_invoke
+___ZL10makeSetterIU8__strongP8RLMArrayS2_EP11objc_objectP11RLMProperty_block_invoke_2
+___ZL10makeSetterIU8__strongP8RLMArrayS2_EP11objc_objectP11RLMProperty_block_invoke
 RLMGetLinkedObjectForValue
 RLMDynamicCast<RLMObjectBase>
 /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMUtil.hpp
 operator!=<realm::Table, realm::Table>
-___ZL13RLMMakeSetterIU8__strongP13RLMObjectBaseS2_EPFvvEP11RLMProperty_block_invoke_2
-___ZL13RLMMakeSetterIU8__strongP13RLMObjectBaseS2_EPFvvEP11RLMProperty_block_invoke
+___ZL10makeSetterIU8__strongP13RLMObjectBaseS2_EP11objc_objectP11RLMProperty_block_invoke_2
+___ZL10makeSetterIU8__strongP13RLMObjectBaseS2_EP11objc_objectP11RLMProperty_block_invoke
 RLMBinaryDataForNSData
-___ZL13RLMMakeSetterIU8__strongP6NSDataS2_EPFvvEP11RLMProperty_block_invoke_2
-___ZL13RLMMakeSetterIU8__strongP6NSDataS2_EPFvvEP11RLMProperty_block_invoke
+___ZL10makeSetterIU8__strongP6NSDataS2_EP11objc_objectP11RLMProperty_block_invoke_2
+___ZL10makeSetterIU8__strongP6NSDataS2_EP11objc_objectP11RLMProperty_block_invoke
 terminate_with_info<const bool &, const bool &>
 terminate_with_info<int &>
 Timestamp
@@ -2579,53 +2566,62 @@ RLMTimestampForNSDate
 isnan<double>
 __libcpp_isnan<double>
 __inline_isnand
-/Applications/Xcode-8.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/usr/include/math.h
-___ZL13RLMMakeSetterIU8__strongP6NSDateS2_EPFvvEP11RLMProperty_block_invoke_2
-___ZL13RLMMakeSetterIU8__strongP6NSDateS2_EPFvvEP11RLMProperty_block_invoke
+/Applications/Xcode-8.1.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.1.sdk/usr/include/math.h
+___ZL10makeSetterIU8__strongP6NSDateS2_EP11objc_objectP11RLMProperty_block_invoke_2
+___ZL10makeSetterIU8__strongP6NSDateS2_EP11objc_objectP11RLMProperty_block_invoke
 RLMStringDataWithNSString
-___ZL13RLMMakeSetterIU8__strongP8NSStringS2_EPFvvEP11RLMProperty_block_invoke_2
-___ZL13RLMMakeSetterIU8__strongP8NSStringS2_EPFvvEP11RLMProperty_block_invoke
-___ZL13RLMMakeSetterIbbEPFvvEP11RLMProperty_block_invoke_2
-___ZL13RLMMakeSetterIbbEPFvvEP11RLMProperty_block_invoke
-___ZL13RLMMakeSetterIddEPFvvEP11RLMProperty_block_invoke_2
-___ZL13RLMMakeSetterIddEPFvvEP11RLMProperty_block_invoke
-___ZL13RLMMakeSetterIffEPFvvEP11RLMProperty_block_invoke_2
-___ZL13RLMMakeSetterIffEPFvvEP11RLMProperty_block_invoke
-___ZL13RLMMakeSetterIxxEPFvvEP11RLMProperty_block_invoke_2
-___ZL13RLMMakeSetterIxxEPFvvEP11RLMProperty_block_invoke
-___ZL13RLMMakeSetterIlxEPFvvEP11RLMProperty_block_invoke_2
-___ZL13RLMMakeSetterIlxEPFvvEP11RLMProperty_block_invoke
-___ZL13RLMMakeSetterIixEPFvvEP11RLMProperty_block_invoke_2
-___ZL13RLMMakeSetterIixEPFvvEP11RLMProperty_block_invoke
-___ZL13RLMMakeSetterIsxEPFvvEP11RLMProperty_block_invoke_2
-___ZL13RLMMakeSetterIsxEPFvvEP11RLMProperty_block_invoke
+___ZL10makeSetterIU8__strongP8NSStringS2_EP11objc_objectP11RLMProperty_block_invoke_2
+___ZL10makeSetterIU8__strongP8NSStringS2_EP11objc_objectP11RLMProperty_block_invoke
+___ZL10makeSetterIbbEP11objc_objectP11RLMProperty_block_invoke_2
+___ZL10makeSetterIbbEP11objc_objectP11RLMProperty_block_invoke
+___ZL10makeSetterIU8__strongPU17objcproto7RLMBool8NSNumberS3_EP11objc_objectP11RLMProperty_block_invoke_2
+___ZL10makeSetterIU8__strongPU17objcproto7RLMBool8NSNumberS3_EP11objc_objectP11RLMProperty_block_invoke
+___ZL10makeSetterIddEP11objc_objectP11RLMProperty_block_invoke_2
+___ZL10makeSetterIddEP11objc_objectP11RLMProperty_block_invoke
+___ZL10makeSetterIU8__strongPU19objcproto9RLMDouble8NSNumberS3_EP11objc_objectP11RLMProperty_block_invoke_2
+___ZL10makeSetterIU8__strongPU19objcproto9RLMDouble8NSNumberS3_EP11objc_objectP11RLMProperty_block_invoke
+___ZL10makeSetterIffEP11objc_objectP11RLMProperty_block_invoke_2
+___ZL10makeSetterIffEP11objc_objectP11RLMProperty_block_invoke
+___ZL10makeSetterIU8__strongPU18objcproto8RLMFloat8NSNumberS3_EP11objc_objectP11RLMProperty_block_invoke_2
+___ZL10makeSetterIU8__strongPU18objcproto8RLMFloat8NSNumberS3_EP11objc_objectP11RLMProperty_block_invoke
+___ZL10makeSetterIxxEP11objc_objectP11RLMProperty_block_invoke_2
+___ZL10makeSetterIxxEP11objc_objectP11RLMProperty_block_invoke
+___ZL10makeSetterIlxEP11objc_objectP11RLMProperty_block_invoke_2
+___ZL10makeSetterIlxEP11objc_objectP11RLMProperty_block_invoke
+___ZL10makeSetterIixEP11objc_objectP11RLMProperty_block_invoke_2
+___ZL10makeSetterIixEP11objc_objectP11RLMProperty_block_invoke
+___ZL10makeSetterIsxEP11objc_objectP11RLMProperty_block_invoke_2
+___ZL10makeSetterIsxEP11objc_objectP11RLMProperty_block_invoke
+___ZL10makeSetterIcxEP11objc_objectP11RLMProperty_block_invoke_2
+___ZL10makeSetterIcxEP11objc_objectP11RLMProperty_block_invoke
 RLMVerifyInWriteTransaction
 /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMObject_Private.hpp
 RLMVerifyAttached
-___ZL13RLMMakeSetterIcxEPFvvEP11RLMProperty_block_invoke_2
-___ZL13RLMMakeSetterIcxEPFvvEP11RLMProperty_block_invoke
-___ZL17RLMAccessorGetterP11RLMProperty15RLMAccessorCode_block_invoke_18
-___ZL17RLMAccessorGetterP11RLMProperty15RLMAccessorCode_block_invoke_17
-___ZL17RLMAccessorGetterP11RLMProperty15RLMAccessorCode_block_invoke_16
-___ZL17RLMAccessorGetterP11RLMProperty15RLMAccessorCode_block_invoke_15
-___ZL17RLMAccessorGetterP11RLMProperty15RLMAccessorCode_block_invoke_14
-___ZL17RLMAccessorGetterP11RLMProperty15RLMAccessorCode_block_invoke_13
-___ZL17RLMAccessorGetterP11RLMProperty15RLMAccessorCode_block_invoke_12
-___ZL17RLMAccessorGetterP11RLMProperty15RLMAccessorCode_block_invoke_11
-___ZL17RLMAccessorGetterP11RLMProperty15RLMAccessorCode_block_invoke_10
-___ZL17RLMAccessorGetterP11RLMProperty15RLMAccessorCode_block_invoke_9
-___ZL17RLMAccessorGetterP11RLMProperty15RLMAccessorCode_block_invoke_8
+___ZL10makeSetterIU8__strongPU16objcproto6RLMInt8NSNumberS3_EP11objc_objectP11RLMProperty_block_invoke_2
+___ZL10makeSetterIU8__strongPU16objcproto6RLMInt8NSNumberS3_EP11objc_objectP11RLMProperty_block_invoke
+___ZL17RLMAccessorGetterP11RLMPropertyPKc_block_invoke_18
+___ZL17RLMAccessorGetterP11RLMPropertyPKc_block_invoke_17
+___ZL17RLMAccessorGetterP11RLMPropertyPKc_block_invoke_16
+___ZL17RLMAccessorGetterP11RLMPropertyPKc_block_invoke_15
+___ZL17RLMAccessorGetterP11RLMPropertyPKc_block_invoke_14
+___ZL17RLMAccessorGetterP11RLMPropertyPKc_block_invoke_13
+___ZL17RLMAccessorGetterP11RLMPropertyPKc_block_invoke_12
 get<bool>
-___ZL17RLMAccessorGetterP11RLMProperty15RLMAccessorCode_block_invoke_7
+___ZL17RLMAccessorGetterP11RLMPropertyPKc_block_invoke_11
+___ZL17RLMAccessorGetterP11RLMPropertyPKc_block_invoke_10
 get<double>
-___ZL17RLMAccessorGetterP11RLMProperty15RLMAccessorCode_block_invoke_6
+___ZL17RLMAccessorGetterP11RLMPropertyPKc_block_invoke_9
+___ZL17RLMAccessorGetterP11RLMPropertyPKc_block_invoke_8
 get<float>
-___ZL17RLMAccessorGetterP11RLMProperty15RLMAccessorCode_block_invoke_5
-___ZL17RLMAccessorGetterP11RLMProperty15RLMAccessorCode_block_invoke_4
-___ZL17RLMAccessorGetterP11RLMProperty15RLMAccessorCode_block_invoke_3
-___ZL17RLMAccessorGetterP11RLMProperty15RLMAccessorCode_block_invoke_2
+___ZL17RLMAccessorGetterP11RLMPropertyPKc_block_invoke_7
+___ZL17RLMAccessorGetterP11RLMPropertyPKc_block_invoke_6
 get<long long>
-___ZL17RLMAccessorGetterP11RLMProperty15RLMAccessorCode_block_invoke
+___ZL17RLMAccessorGetterP11RLMPropertyPKc_block_invoke_5
+___ZL17RLMAccessorGetterP11RLMPropertyPKc_block_invoke_4
+___ZL17RLMAccessorGetterP11RLMPropertyPKc_block_invoke_3
+___ZL17RLMAccessorGetterP11RLMPropertyPKc_block_invoke_2
+___ZL17RLMAccessorGetterP11RLMPropertyPKc_block_invoke
+addMethod
 RLMDynamicGetByName
 RLMGetLinkingObjects
 RLMGetArray
@@ -2645,44 +2641,39 @@ getBoxed<bool>
 getBoxed<double>
 getBoxed<float>
 getBoxed<long long>
-accessorCodeForType
 RLMDynamicGet
 RLMGetAnyProperty
 get_mixed
 RLMCoerceToNil<id>
 RLMDynamicCast<RLMOptionalBase>
 RLMDynamicSet
-RLMWrapSetter<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMAccessor.mm:693:35)>
+RLMWrapSetter<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMAccessor.mm:609:35)>
 RLMDynamicValidatedSet
 RLMAccessorUnmanagedSetter
 RLMAccessorUnmanagedGetter
 RLMUnmanagedAccessorClassForObjectClass
 RLMAccessorSetter
-RLMMakeSetter<NSNumber<RLMBool> *, NSNumber<RLMBool> *>
-RLMMakeSetter<NSNumber<RLMDouble> *, NSNumber<RLMDouble> *>
-RLMMakeSetter<NSNumber<RLMFloat> *, NSNumber<RLMFloat> *>
-RLMMakeSetter<NSNumber<RLMInt> *, NSNumber<RLMInt> *>
-RLMMakeSetter<id, id>
-RLMMakeSetter<RLMArray *, RLMArray *>
-RLMMakeSetter<RLMObjectBase *, RLMObjectBase *>
-RLMMakeSetter<NSData *, NSData *>
-RLMMakeSetter<NSDate *, NSDate *>
-RLMMakeSetter<NSString *, NSString *>
-RLMMakeSetter<bool, bool>
-RLMMakeSetter<double, double>
-RLMMakeSetter<float, float>
-RLMMakeSetter<long long, long long>
-RLMMakeSetter<long, long long>
-RLMMakeSetter<int, long long>
-RLMMakeSetter<short, long long>
-RLMMakeSetter<char, long long>
+makeSetter<id, id>
+makeSetter<RLMArray *, RLMArray *>
+makeSetter<RLMObjectBase *, RLMObjectBase *>
+makeSetter<NSData *, NSData *>
+makeSetter<NSDate *, NSDate *>
+makeSetter<NSString *, NSString *>
+makeSetter<NSNumber<RLMBool> *, NSNumber<RLMBool> *>
+makeSetter<bool, bool>
+makeSetter<NSNumber<RLMDouble> *, NSNumber<RLMDouble> *>
+makeSetter<double, double>
+makeSetter<NSNumber<RLMFloat> *, NSNumber<RLMFloat> *>
+makeSetter<float, float>
+makeSetter<long long, long long>
+makeSetter<long, long long>
+makeSetter<int, long long>
+makeSetter<short, long long>
+makeSetter<char, long long>
+makeSetter<NSNumber<RLMInt> *, NSNumber<RLMInt> *>
 RLMAccessorGetter
 RLMCreateAccessorClass
-RLMMarkClassAsGenerated
-setterTypeStringForObjcCode
-getterTypeStringForObjcCode
-RLMAccessorClassForObjectClass
-RLMIsGeneratedClass
+RLMManagedAccessorClassForObjectClass
 ___Z28RLMReplaceSharedSchemaMethodP10objc_classP15RLMObjectSchema_block_invoke
 RLMReplaceSharedSchemaMethod
 ___Z25RLMReplaceClassNameMethodP10objc_classP8NSString_block_invoke
@@ -2789,8 +2780,8 @@ ___block_descriptor_tmp.39
 ___block_descriptor_tmp.44
 ___block_descriptor_tmp.47
 ___block_descriptor_tmp.52
-___block_descriptor_tmp.57
 ___block_descriptor_tmp.62
+___block_descriptor_tmp.100
 l_OBJC_PROTOCOL_$_NSObject
 l_OBJC_LABEL_PROTOCOL_$_NSObject
 l_OBJC_PROTOCOL_$_RLMThreadConfined_Private
@@ -2809,7 +2800,7 @@ _OBJC_IVAR_$_RLMSortDescriptor._ascending
 __39-[RLMArray indexOfObjectWithPredicate:]_block_invoke
 __28-[RLMArray removeAllObjects]_block_invoke
 NSMakeRange
-/Applications/Xcode-8.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSRange.h
+/Applications/Xcode-8.1.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSRange.h
 __52-[RLMArray exchangeObjectAtIndex:withObjectAtIndex:]_block_invoke
 changeArray<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMArray.mm:275:8)>
 __38-[RLMArray moveObjectAtIndex:toIndex:]_block_invoke
@@ -2909,10 +2900,8 @@ ___destroy_helper_block_.231
 __ZN5realm19ThreadSafeReferenceINS_4ListEED0Ev
 _OBJC_IVAR_$_RLMArrayLinkViewHandoverMetadata._parentClassName
 _OBJC_IVAR_$_RLMArrayLinkViewHandoverMetadata._key
-___block_descriptor_tmp.51
 ___block_descriptor_tmp.56
 ___block_descriptor_tmp.59
-___block_descriptor_tmp.65
 ___block_descriptor_tmp.68
 ___block_descriptor_tmp.71
 l_OBJC_PROTOCOL_$_RLMFastEnumerable
@@ -3139,6 +3128,7 @@ _OBJC_IVAR_$_RLMMigration._oldRealm
 _OBJC_IVAR_$_RLMMigration._schema
 /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMMigration.mm
 /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMMigration_Private.h
+schema_version
 +[RLMNetworkClient session]
 +[RLMNetworkClient urlForServer:endpoint:]
 +[RLMNetworkClient postRequestToEndpoint:server:JSON:completion:]
@@ -3354,11 +3344,9 @@ _OBJC_IVAR_$_RLMObjectSchema._allPropertiesByName
 _OBJC_IVAR_$_RLMObjectSchema._properties
 _OBJC_IVAR_$_RLMObjectSchema._computedProperties
 _OBJC_IVAR_$_RLMObjectSchema._primaryKeyProperty
-___block_descriptor_tmp.60
 ___block_literal_global.61
-___block_descriptor_tmp.74
 ___block_descriptor_tmp.153
-___block_descriptor_tmp.165
+___block_descriptor_tmp.195
 _OBJC_IVAR_$_RLMObjectSchema._objectClass
 _OBJC_IVAR_$_RLMObjectSchema._className
 _OBJC_IVAR_$_RLMObjectSchema._accessorClass
@@ -3386,6 +3374,7 @@ ___RLMDeleteObjectFromRealm_block_invoke
 __ZL37createOrGetRowForObjectWithPrimaryKeyRK12RLMClassInfoP11objc_objectPb
 __ZL18createRowForObjectRK12RLMClassInfo
 __ZZ23RLMRealmCreateAccessorsE5count
+___block_descriptor_tmp.84
 /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMObjectStore.mm
 createRowForObject
 createOrGetRowForObjectWithPrimaryKey
@@ -3409,11 +3398,11 @@ __Block_byref_object_copy_
 validateValueForProperty
 RLMCreateObjectInRealmWithValue
 createOrGetRowForObject<id (^)(RLMProperty *)>
-createOrGetRowForObject<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMObjectStore.mm:371:30)>
+createOrGetRowForObject<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMObjectStore.mm:378:30)>
 _ZZ31RLMCreateObjectInRealmWithValueEN3$_1C1ERKS_
 _ZZ31RLMCreateObjectInRealmWithValueEN3$_1C2ERKS_
 RLMAddObjectToRealm
-createOrGetRowForObject<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMObjectStore.mm:294:26)>
+createOrGetRowForObject<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMObjectStore.mm:301:26)>
 hasObservers
 /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMObservation.hpp
 RLMInitializeSwiftAccessorGenerics
@@ -3584,9 +3573,8 @@ PredicateExpressionTransformer
 -[RLMProperty initWithName:type:objectClassName:linkOriginPropertyName:indexed:optional:]
 -[RLMProperty setName:]
 -[RLMProperty updateAccessors]
--[RLMProperty setObjcCodeFromType]
--[RLMProperty setTypeFromRawType]
--[RLMProperty parseObjcProperty:]
+-[RLMProperty setTypeFromRawType:]
+-[RLMProperty parseObjcProperty:readOnly:rawType:]
 -[RLMProperty initSwiftPropertyWithName:indexed:linkPropertyDescriptor:property:instance:]
 ___90-[RLMProperty initSwiftPropertyWithName:indexed:linkPropertyDescriptor:property:instance:]_block_invoke
 -[RLMProperty initWithName:indexed:linkPropertyDescriptor:property:]
@@ -3612,10 +3600,6 @@ __ZL15RLMTypeToString15RLMPropertyType
 -[RLMProperty setOptional:]
 -[RLMProperty index]
 -[RLMProperty setIndex:]
--[RLMProperty objcType]
--[RLMProperty setObjcType:]
--[RLMProperty objcRawType]
--[RLMProperty setObjcRawType:]
 -[RLMProperty isPrimary]
 -[RLMProperty setIsPrimary:]
 -[RLMProperty swiftIvar]
@@ -3642,11 +3626,9 @@ _OBJC_IVAR_$_RLMProperty._getterName
 _OBJC_IVAR_$_RLMProperty._setterName
 _OBJC_IVAR_$_RLMProperty._getterSel
 _OBJC_IVAR_$_RLMProperty._setterSel
-_OBJC_IVAR_$_RLMProperty._objcType
-_OBJC_IVAR_$_RLMProperty._objcRawType
-__ZZ33-[RLMProperty setTypeFromRawType]E11arrayPrefix
-__ZZ33-[RLMProperty setTypeFromRawType]E12numberPrefix
-__ZZ33-[RLMProperty setTypeFromRawType]E20linkingObjectsPrefix
+__ZZ34-[RLMProperty setTypeFromRawType:]E11arrayPrefix
+__ZZ34-[RLMProperty setTypeFromRawType:]E12numberPrefix
+__ZZ34-[RLMProperty setTypeFromRawType:]E20linkingObjectsPrefix
 _OBJC_IVAR_$_RLMProperty._isPrimary
 _OBJC_IVAR_$_RLMProperty._index
 _OBJC_IVAR_$_RLMPropertyDescriptor._objectClass
@@ -3657,6 +3639,10 @@ _OBJC_IVAR_$_RLMPropertyDescriptor._propertyName
 /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/ObjectStore/src/property.hpp
 rawTypeIsComputedProperty
 __90-[RLMProperty initSwiftPropertyWithName:indexed:linkPropertyDescriptor:property:instance:]_block_invoke
+RLMValidateSwiftPropertyName
+islower
+__istype
+isascii
 RLMPropertyTypeIsComputed
 RLMPropertyTypeIsNullable
 __ZL15RLMPreconditionbP8NSStringS0_z
@@ -5213,8 +5199,8 @@ emplace_back<realm::SubQueryCountHandoverPatch *>
 SubQueryCountHandoverPatch
 make_subexpr<realm::SubQueryCount, const realm::SubQueryCount &>
 LinkMap
-accumulate<std::__1::__wrap_iter<unsigned long *>, unsigned long, (lambda at core/include/realm/query_expression.hpp:2738:79)>
-/Applications/Xcode-8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/numeric
+accumulate<std::__1::__wrap_iter<unsigned long *>, unsigned long, (lambda at core/include/realm/query_expression.hpp:2739:79)>
+/Applications/Xcode-8.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/numeric
 sort<unsigned long>
 sort<unsigned long *>
 sort<unsigned long *, std::__1::__less<unsigned long, unsigned long> >
@@ -6078,9 +6064,9 @@ __ZTIN12_GLOBAL__N_121RLMNotificationHelperE
 /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMRealmUtil.mm
 _GLOBAL__sub_I_RLMRealmUtil.mm
 map
-/Applications/Xcode-8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map
+/Applications/Xcode-8.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map
 __tree
-/Applications/Xcode-8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/__tree
+/Applications/Xcode-8.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/__tree
 __tree_right_rotate<std::__1::__tree_node_base<void *> *>
 __tree_is_left_child<std::__1::__tree_node_base<void *> *>
 __tree_left_rotate<std::__1::__tree_node_base<void *> *>
@@ -6227,8 +6213,6 @@ ___destroy_helper_block_.82
 -[RLMSchema description]
 -[RLMSchema objectStoreCopy]
 ___28-[RLMSchema objectStoreCopy]_block_invoke
-___copy_helper_block_.112
-___destroy_helper_block_.113
 -[RLMSchema objectSchemaByName]
 -[RLMSchema setObjectSchemaByName:]
 -[RLMSchema .cxx_destruct]
@@ -6240,11 +6224,8 @@ __ZL25s_privateObjectSubclasses
 _OBJC_IVAR_$_RLMSchema._objectSchemaByName
 _OBJC_IVAR_$_RLMSchema._objectSchema
 __ZL19s_sharedSchemaState
-___block_descriptor_tmp.63
 ___block_literal_global.66
-___block_descriptor_tmp.84
 _OBJC_IVAR_$_RLMSchema._objectStoreSchema
-___block_descriptor_tmp.114
 /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSchema.mm
 _GLOBAL__sub_I_RLMSchema.mm
 __cxx_global_var_init.6
@@ -6403,9 +6384,9 @@ ___31+[RLMSyncManager sharedManager]_block_invoke
 ___29-[RLMSyncManager _fireError:]_block_invoke
 -[RLMSyncManager _fireErrorWithCode:message:isFatal:session:userInfo:errorClass:]
 ___81-[RLMSyncManager _fireErrorWithCode:message:isFatal:session:userInfo:errorClass:]_block_invoke
-___81-[RLMSyncManager _fireErrorWithCode:message:isFatal:session:userInfo:errorClass:]_block_invoke.51
-___copy_helper_block_.52
-___destroy_helper_block_.53
+___81-[RLMSyncManager _fireErrorWithCode:message:isFatal:session:userInfo:errorClass:]_block_invoke.48
+___copy_helper_block_.49
+___destroy_helper_block_.50
 -[RLMSyncManager _allUsers]
 +[RLMSyncManager resetForTesting]
 -[RLMSyncManager errorHandler]
@@ -6426,7 +6407,6 @@ __ZL15s_sharedManager
 __ZL11s_onceToken
 _OBJC_IVAR_$_RLMSyncManager._appID
 ___block_descriptor_tmp.21
-___block_descriptor_tmp.54
 _OBJC_IVAR_$_RLMSyncManager._errorHandler
 _OBJC_IVAR_$_RLMSyncManager._sessionCompletionNotifier
 __ZTVN12_GLOBAL__N_122CocoaSyncLoggerFactoryE
@@ -6463,14 +6443,14 @@ Logger
 /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncManager_Private.h
 /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncManager.h
 operator!=<std::__1::shared_ptr<realm::SyncUser> *>
-__81-[RLMSyncManager _fireErrorWithCode:message:isFatal:session:userInfo:errorClass:]_block_invoke.51
+__81-[RLMSyncManager _fireErrorWithCode:message:isFatal:session:userInfo:errorClass:]_block_invoke.48
 __81-[RLMSyncManager _fireErrorWithCode:message:isFatal:session:userInfo:errorClass:]_block_invoke
 __29-[RLMSyncManager _fireError:]_block_invoke
 levelForSyncLogLevel
 logLevelForLevel
 __31+[RLMSyncManager sharedManager]_block_invoke
 _dispatch_once
-/Applications/Xcode-8.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/usr/include/dispatch/once.h
+/Applications/Xcode-8.1.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.1.sdk/usr/include/dispatch/once.h
 +[RLMSyncPermissionChange permissionChangeWithRealmURL:userID:read:write:manage:]
 +[RLMSyncPermissionChange requiredProperties]
 +[RLMSyncPermissionChange defaultPropertyValues]
@@ -6595,6 +6575,8 @@ _OBJC_IVAR_$_RLMSyncPermissionOfferResponse._realmUrl
 -[RLMProgressNotificationToken initWithTokenValue:session:]
 -[RLMProgressNotificationToken .cxx_destruct]
 -[RLMProgressNotificationToken .cxx_construct]
++[RLMSyncSession notificationsQueue]
+___36+[RLMSyncSession notificationsQueue]_block_invoke
 -[RLMSyncSession initWithSyncSession:]
 -[RLMSyncSession configuration]
 -[RLMSyncSession realmURL]
@@ -6635,6 +6617,8 @@ __ZNKSt3__110__function6__funcIZ65-[RLMSyncSession addProgressNotificationForDir
 ____ZZ65-[RLMSyncSession addProgressNotificationForDirection:mode:block:]ENK3$_2clEyy_block_invoke
 _OBJC_IVAR_$_RLMProgressNotificationToken._session
 _OBJC_IVAR_$_RLMProgressNotificationToken._token
+__ZZ36+[RLMSyncSession notificationsQueue]E5queue
+__ZZ36+[RLMSyncSession notificationsQueue]E9onceToken
 __ZTVNSt3__110__function6__funcIZ58-[RLMSyncSession waitForUploadCompletionOnQueue:callback:]E3$_0NS_9allocatorIS2_EEFvNS_10error_codeEEEE
 __ZTSNSt3__110__function6__funcIZ58-[RLMSyncSession waitForUploadCompletionOnQueue:callback:]E3$_0NS_9allocatorIS2_EEFvNS_10error_codeEEEE
 __ZTSNSt3__110__function6__baseIFvNS_10error_codeEEEE
@@ -6656,49 +6640,50 @@ __ZTSZ65-[RLMSyncSession addProgressNotificationForDirection:mode:block:]E3$_2
 __ZTIZ65-[RLMSyncSession addProgressNotificationForDirection:mode:block:]E3$_2
 /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm
 ___ZZ65-[RLMSyncSession addProgressNotificationForDirection:mode:block:]ENK3$_2clEyy_block_invoke
-__call<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:162:62) &, unsigned long long, unsigned long long>
-__invoke<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:162:62) &, unsigned long long, unsigned long long>
-__compressed_pair<const (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:162:62) &, const std::__1::allocator<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:162:62)> &>
-__libcpp_compressed_pair_imp<const (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:162:62) &, const std::__1::allocator<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:162:62)> &, 0, 0>
+__call<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:174:62) &, unsigned long long, unsigned long long>
+__invoke<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:174:62) &, unsigned long long, unsigned long long>
+__compressed_pair<const (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:174:62) &, const std::__1::allocator<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:174:62)> &>
+__libcpp_compressed_pair_imp<const (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:174:62) &, const std::__1::allocator<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:174:62)> &, 0, 0>
 _ZZ65-[RLMSyncSession addProgressNotificationForDirection:mode:block:]EN3$_2C1ERKS_
 _ZZ65-[RLMSyncSession addProgressNotificationForDirection:mode:block:]EN3$_2C2ERKS_
-__compressed_pair<const (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:162:62) &, std::__1::allocator<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:162:62)> &&>
-__libcpp_compressed_pair_imp<const (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:162:62) &, std::__1::allocator<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:162:62)> &&, 0, 0>
-__call<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:141:47) &, std::__1::error_code>
-__invoke<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:141:47) &, std::__1::error_code>
-__compressed_pair<const (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:141:47) &, const std::__1::allocator<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:141:47)> &>
-__libcpp_compressed_pair_imp<const (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:141:47) &, const std::__1::allocator<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:141:47)> &, 0, 0>
+__compressed_pair<const (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:174:62) &, std::__1::allocator<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:174:62)> &&>
+__libcpp_compressed_pair_imp<const (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:174:62) &, std::__1::allocator<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:174:62)> &&, 0, 0>
+__call<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:154:47) &, std::__1::error_code>
+__invoke<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:154:47) &, std::__1::error_code>
+__compressed_pair<const (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:154:47) &, const std::__1::allocator<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:154:47)> &>
+__libcpp_compressed_pair_imp<const (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:154:47) &, const std::__1::allocator<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:154:47)> &, 0, 0>
 _ZZ60-[RLMSyncSession waitForDownloadCompletionOnQueue:callback:]EN3$_1C1ERKS_
 _ZZ60-[RLMSyncSession waitForDownloadCompletionOnQueue:callback:]EN3$_1C2ERKS_
-__compressed_pair<const (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:141:47) &, std::__1::allocator<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:141:47)> &&>
-__libcpp_compressed_pair_imp<const (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:141:47) &, std::__1::allocator<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:141:47)> &&, 0, 0>
-__call<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:127:45) &, std::__1::error_code>
-__invoke<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:127:45) &, std::__1::error_code>
-__compressed_pair<const (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:127:45) &, const std::__1::allocator<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:127:45)> &>
-__libcpp_compressed_pair_imp<const (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:127:45) &, const std::__1::allocator<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:127:45)> &, 0, 0>
+__compressed_pair<const (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:154:47) &, std::__1::allocator<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:154:47)> &&>
+__libcpp_compressed_pair_imp<const (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:154:47) &, std::__1::allocator<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:154:47)> &&, 0, 0>
+__call<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:140:45) &, std::__1::error_code>
+__invoke<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:140:45) &, std::__1::error_code>
+__compressed_pair<const (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:140:45) &, const std::__1::allocator<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:140:45)> &>
+__libcpp_compressed_pair_imp<const (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:140:45) &, const std::__1::allocator<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:140:45)> &, 0, 0>
 _ZZ58-[RLMSyncSession waitForUploadCompletionOnQueue:callback:]EN3$_0C1ERKS_
 _ZZ58-[RLMSyncSession waitForUploadCompletionOnQueue:callback:]EN3$_0C2ERKS_
-__compressed_pair<const (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:127:45) &, std::__1::allocator<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:127:45)> &&>
-__libcpp_compressed_pair_imp<const (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:127:45) &, std::__1::allocator<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:127:45)> &&, 0, 0>
-function<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:162:62)>
-__compressed_pair<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:162:62) &&>
-__libcpp_compressed_pair_imp<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:162:62) &&, 0>
+__compressed_pair<const (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:140:45) &, std::__1::allocator<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:140:45)> &&>
+__libcpp_compressed_pair_imp<const (lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:140:45) &, std::__1::allocator<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:140:45)> &&, 0, 0>
+function<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:174:62)>
+__compressed_pair<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:174:62) &&>
+__libcpp_compressed_pair_imp<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:174:62) &&, 0>
 _ZZ65-[RLMSyncSession addProgressNotificationForDirection:mode:block:]EN3$_2C1EOS_
 _ZZ65-[RLMSyncSession addProgressNotificationForDirection:mode:block:]EN3$_2C2EOS_
-function<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:141:47)>
-__compressed_pair<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:141:47) &&>
-__libcpp_compressed_pair_imp<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:141:47) &&, 0>
+function<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:154:47)>
+__compressed_pair<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:154:47) &&>
+__libcpp_compressed_pair_imp<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:154:47) &&, 0>
 _ZZ60-[RLMSyncSession waitForDownloadCompletionOnQueue:callback:]EN3$_1C1EOS_
 _ZZ60-[RLMSyncSession waitForDownloadCompletionOnQueue:callback:]EN3$_1C2EOS_
-function<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:127:45)>
-__compressed_pair<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:127:45) &&>
-__libcpp_compressed_pair_imp<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:127:45) &&, 0>
+function<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:140:45)>
+__compressed_pair<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:140:45) &&>
+__libcpp_compressed_pair_imp<(lambda at /Users/realm/workspace/Package iOS Swift/tightdb_objc/Realm/RLMSyncSession.mm:140:45) &&, 0>
 _ZZ58-[RLMSyncSession waitForUploadCompletionOnQueue:callback:]EN3$_0C1EOS_
 _ZZ58-[RLMSyncSession waitForUploadCompletionOnQueue:callback:]EN3$_0C2EOS_
 user
 full_realm_url
 operator=<realm::SyncSession>
 weak_ptr<realm::SyncSession>
+__36+[RLMSyncSession notificationsQueue]_block_invoke
 -[RLMSyncSessionRefreshHandle initWithRealmURL:user:session:completionBlock:]
 -[RLMSyncSessionRefreshHandle dealloc]
 -[RLMSyncSessionRefreshHandle invalidate]
@@ -6710,8 +6695,8 @@ ___52-[RLMSyncSessionRefreshHandle scheduleRefreshTimer:]_block_invoke
 -[RLMSyncSessionRefreshHandle _onRefreshCompletionWithError:json:]
 -[RLMSyncSessionRefreshHandle _timerFired:]
 ___43-[RLMSyncSessionRefreshHandle _timerFired:]_block_invoke
-___copy_helper_block_.108
-___destroy_helper_block_.109
+___copy_helper_block_.110
+___destroy_helper_block_.111
 -[RLMSyncSessionRefreshHandle user]
 -[RLMSyncSessionRefreshHandle setUser:]
 -[RLMSyncSessionRefreshHandle pathToRealm]
@@ -6726,7 +6711,7 @@ ___destroy_helper_block_.109
 -[RLMSyncSessionRefreshHandle .cxx_construct]
 _OBJC_IVAR_$_RLMSyncSessionRefreshHandle._strongSession
 _OBJC_IVAR_$_RLMSyncSessionRefreshHandle._session
-___block_descriptor_tmp.111
+___block_descriptor_tmp.113
 _OBJC_IVAR_$_RLMSyncSessionRefreshHandle._user
 _OBJC_IVAR_$_RLMSyncSessionRefreshHandle._pathToRealm
 _OBJC_IVAR_$_RLMSyncSessionRefreshHandle._timer
@@ -7104,7 +7089,7 @@ free_lock_info
 core/include/realm/util/interprocess_mutex.hpp
 swap<realm::util::InterprocessMutex::LockInfo *>
 __call_once_proxy<std::__1::tuple<void (&)()> >
-/Applications/Xcode-8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/mutex
+/Applications/Xcode-8.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/mutex
 __invoke<void (&)()>
 get<0, void (&)()>
 initialize_statics
@@ -8840,6 +8825,10 @@ __ZN12_GLOBAL__N_111HistoryImpl17set_sync_progressEN5realm4sync12SyncProgressE
 __ZNK12_GLOBAL__N_111HistoryImpl29find_history_entry_for_uploadEyyRN5realm4sync12HistoryEntryERNSt3__110unique_ptrIA_cNS5_14default_deleteIS7_EEEE
 __ZN12_GLOBAL__N_111HistoryImpl27integrate_remote_changesetsEN5realm4sync12SyncProgressEPKNS2_11Transformer15RemoteChangesetEmPNS1_4util6LoggerERNSt3__18functionIFvNS1_9VersionIDESD_EEE
 __ZN12_GLOBAL__N_111HistoryImpl25get_upload_download_bytesERyS1_S1_S1_
+__ZNK12_GLOBAL__N_111HistoryImpl19get_cooked_progressEv
+__ZN12_GLOBAL__N_111HistoryImpl19set_cooked_progressEN5realm4sync11SyncHistory14CookedProgressE
+__ZNK12_GLOBAL__N_111HistoryImpl25get_num_cooked_changesetsEv
+__ZNK12_GLOBAL__N_111HistoryImpl20get_cooked_changesetExRN5realm4util12AppendBufferIcEE
 __ZN12_GLOBAL__N_111HistoryImpl25update_early_from_top_refEymm
 __ZN12_GLOBAL__N_111HistoryImpl18update_from_parentEy
 __ZNK12_GLOBAL__N_111HistoryImpl14get_changesetsEyyPN5realm14BinaryIteratorE
@@ -8867,7 +8856,7 @@ __ZN5realm11ReplicationD1Ev
 __ZN5realm11ReplicationD0Ev
 __ZNK12_GLOBAL__N_111HistoryImpl15update_from_refEmy
 __ZN12_GLOBAL__N_111HistoryImpl17prepare_for_writeEv
-__ZN12_GLOBAL__N_111HistoryImpl9add_entryEN5realm4sync12HistoryEntryE
+__ZN12_GLOBAL__N_111HistoryImpl17add_history_entryEN5realm4sync12HistoryEntryE
 __ZN5realm6BpTreeIxEC2ERNS_9AllocatorENS_6MemRefE
 __ZN12_GLOBAL__N_111HistoryImpl20update_sync_progressEN5realm4sync12SyncProgressE
 __ZN12_GLOBAL__N_111HistoryImpl12trim_historyEv
@@ -8877,6 +8866,7 @@ __ZNK12_GLOBAL__N_111HistoryImpl21do_find_history_entryEyyybRN5realm4sync12Histo
 __ZN5realm5_impl23SimpleNoCopyInputStreamD1Ev
 __ZN5realm5_impl23SimpleNoCopyInputStream10next_blockERPKcS4_
 __ZN5realm5_impl23SimpleNoCopyInputStreamD0Ev
+__ZN5realm4util12AppendBufferIcE6appendEPKcm
 __ZTVN12_GLOBAL__N_111HistoryImplE
 __ZTSN12_GLOBAL__N_111HistoryImplE
 __ZTSN5realm4sync11SyncHistoryE
@@ -9207,6 +9197,8 @@ __ZTIN5realm4util7network7Service8PostOperIZN12_GLOBAL__N_111SessionImpl22cancel
 __ZTVN5realm4util7network7Service8PostOperIZN12_GLOBAL__N_111SessionImpl14async_wait_forEbbNSt3__18functionIFvNS6_10error_codeEEEEE3$_6EE
 __ZTSN5realm4util7network7Service8PostOperIZN12_GLOBAL__N_111SessionImpl14async_wait_forEbbNSt3__18functionIFvNS6_10error_codeEEEEE3$_6EE
 __ZTIN5realm4util7network7Service8PostOperIZN12_GLOBAL__N_111SessionImpl14async_wait_forEbbNSt3__18functionIFvNS6_10error_codeEEEEE3$_6EE
+__ZNSt3__16vectorIN5realm4util8iv_tableENS_9allocatorIS3_EEED1Ev
+__ZN5realm4util16DecryptionFailedC1Ev
 __ZN5realm4util16DecryptionFailedD1Ev
 __ZN5realm4util16DecryptionFailedC2Ev
 __ZN5realm4util16DecryptionFailedD0Ev
@@ -9234,6 +9226,8 @@ __ZN5realm4util4File6ExistsD1Ev
 __ZN5realm4util4File8NotFoundD1Ev
 __ZN5realm4util4File6ExistsD0Ev
 __ZN5realm4util4File8NotFoundD0Ev
+__ZN5realm4util26do_encryption_read_barrierEPKvmPFmPKcEPNS0_20EncryptedFileMappingE
+__ZN5realm4util20EncryptedFileMapping12read_barrierEPKvmRNS0_10UniqueLockEPFmPKcE
 __GLOBAL__sub_I_file.cpp
 __ZN12_GLOBAL__N_116cached_page_sizeE
 __ZN5realm21AddressSpaceExhaustedD1Ev
@@ -9245,6 +9239,7 @@ __ZN5realm4util20MemoryInputStreambufD0Ev
 __ZN5realm4utilL18terminate_internalERNSt3__118basic_stringstreamIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE
 __ZN12_GLOBAL__N_15nslogEPKc
 __ZN12_GLOBAL__N_133termination_notification_callbackE
+__ZN5realm4util17InterprocessMutex4lockEv
 __GLOBAL__sub_I_to_string.cpp
 __ZN12_GLOBAL__N_114locale_classicE
 __ZN12_GLOBAL__N_116DefaultAllocatorD1Ev
@@ -9264,8 +9259,8 @@ __ZTSN5realm9AllocatorE
 __ZTIN5realm9AllocatorE
 __ZTIN12_GLOBAL__N_116DefaultAllocatorE
 __ZN12_GLOBAL__N_116InvalidFreeSpaceD1Ev
+__ZNK5realm9Allocator9translateEm
 __ZN5realm5Array25get_byte_size_from_headerEPKc
-__ZN5realm4util23encryption_read_barrierEPKvmPNS0_20EncryptedFileMappingEPFmPKcE
 __ZN5realm15InvalidDatabaseD1Ev
 __ZN12_GLOBAL__N_116InvalidFreeSpaceD0Ev
 __ZNK12_GLOBAL__N_116InvalidFreeSpace4whatEv
@@ -9292,14 +9287,18 @@ __ZTSNSt3__120__shared_ptr_emplaceIN5realm9SlabAlloc10MappedFileENS_9allocatorIS
 __ZTINSt3__120__shared_ptr_emplaceIN5realm9SlabAlloc10MappedFileENS_9allocatorIS3_EEEE
 __ZTSNSt3__120__shared_ptr_emplaceIKN5realm4util4File3MapIcEENS_9allocatorIS6_EEEE
 __ZTINSt3__120__shared_ptr_emplaceIKN5realm4util4File3MapIcEENS_9allocatorIS6_EEEE
+__ZN5realm5Array24get_capacity_from_headerEPKc
 __ZN5realm5ArrayD1Ev
-__ZN5realm5Array12destroy_deepEmRNS_9AllocatorE
+__ZNK5realm5Array13get_byte_sizeEv
+__ZN5realm5Array5writeEmRNS_9AllocatorERNS_5_impl15ArrayWriterBaseEb
+__ZN5realm5Array21get_wtype_from_headerEPKc
 __ZNK5realm5Array4findINS_5EqualEEEbNS_6ActionExmmmPNS_10QueryStateIxEEbb
 __ZNK5realm5Array4findINS_8NotEqualEEEbNS_6ActionExmmmPNS_10QueryStateIxEEbb
 __ZNK5realm5Array4findINS_7GreaterEEEbNS_6ActionExmmmPNS_10QueryStateIxEEbb
 __ZNK5realm5Array4findINS_4LessEEEbNS_6ActionExmmmPNS_10QueryStateIxEEbb
 __ZNK5realm5Array4findINS_4NoneEEEbNS_6ActionExmmmPNS_10QueryStateIxEEbb
 __ZNK5realm5Array4findINS_7NotNullEEEbNS_6ActionExmmmPNS_10QueryStateIxEEbb
+__ZN5realm7get_twoEPKcmm
 __ZN5realm9get_threeEPKcmmRmS2_S2_
 __ZN5realm5ArrayD0Ev
 ___cxx_global_var_init
@@ -9312,8 +9311,16 @@ ___cxx_global_var_init.31
 ___cxx_global_var_init.32
 __ZN5realm5Array12destroy_deepEv
 __ZN5realm14QueryStateBase7dyncastEv
+__ZNK5realm5Array16compare_equalityILb1ELNS_6ActionE0ELm16EPFbxEEEbxmmmPNS_10QueryStateIxEET2_
+__ZNK5realm5Array16compare_equalityILb0ELNS_6ActionE0ELm16EPFbxEEEbxmmmPNS_10QueryStateIxEET2_
+__ZNK5realm5Array16compare_equalityILb1ELNS_6ActionE0ELm1EPFbxEEEbxmmmPNS_10QueryStateIxEET2_
+__ZNK5realm5Array16compare_equalityILb0ELNS_6ActionE0ELm1EPFbxEEEbxmmmPNS_10QueryStateIxEET2_
 __ZNK5realm5Array16compare_equalityILb1ELNS_6ActionE0ELm2EPFbxEEEbxmmmPNS_10QueryStateIxEET2_
+__ZNK5realm5Array16compare_equalityILb0ELNS_6ActionE0ELm2EPFbxEEEbxmmmPNS_10QueryStateIxEET2_
 __ZNK5realm5Array16compare_equalityILb1ELNS_6ActionE0ELm4EPFbxEEEbxmmmPNS_10QueryStateIxEET2_
+__ZNK5realm5Array16compare_equalityILb0ELNS_6ActionE0ELm4EPFbxEEEbxmmmPNS_10QueryStateIxEET2_
+__ZNK5realm5Array16compare_equalityILb1ELNS_6ActionE0ELm8EPFbxEEEbxmmmPNS_10QueryStateIxEET2_
+__ZNK5realm5Array16compare_equalityILb0ELNS_6ActionE0ELm8EPFbxEEEbxmmmPNS_10QueryStateIxEET2_
 __ZNK5realm5Array16compare_equalityILb1ELNS_6ActionE5ELm16EPFbxEEEbxmmmPNS_10QueryStateIxEET2_
 __ZNK5realm5Array16compare_equalityILb1ELNS_6ActionE5ELm1EPFbxEEEbxmmmPNS_10QueryStateIxEET2_
 __ZNK5realm5Array16compare_equalityILb1ELNS_6ActionE5ELm2EPFbxEEEbxmmmPNS_10QueryStateIxEET2_
@@ -9339,12 +9346,16 @@ __ZNK5realm5Array16compare_equalityILb1ELNS_6ActionE4ELm1EPFbxEEEbxmmmPNS_10Quer
 __ZNK5realm5Array16compare_equalityILb1ELNS_6ActionE4ELm2EPFbxEEEbxmmmPNS_10QueryStateIxEET2_
 __ZNK5realm5Array16compare_equalityILb1ELNS_6ActionE4ELm4EPFbxEEEbxmmmPNS_10QueryStateIxEET2_
 __ZNK5realm5Array16compare_equalityILb1ELNS_6ActionE4ELm8EPFbxEEEbxmmmPNS_10QueryStateIxEET2_
+__ZNK5realm5Array16compare_equalityILb1ELNS_6ActionE7ELm16EPFbxEEEbxmmmPNS_10QueryStateIxEET2_
 __ZNK5realm5Array16compare_equalityILb1ELNS_6ActionE7ELm1EPFbxEEEbxmmmPNS_10QueryStateIxEET2_
 __ZNK5realm5Array16compare_equalityILb1ELNS_6ActionE7ELm2EPFbxEEEbxmmmPNS_10QueryStateIxEET2_
 __ZNK5realm5Array16compare_equalityILb1ELNS_6ActionE7ELm4EPFbxEEEbxmmmPNS_10QueryStateIxEET2_
+__ZNK5realm5Array16compare_equalityILb1ELNS_6ActionE7ELm8EPFbxEEEbxmmmPNS_10QueryStateIxEET2_
+__ZNK5realm5Array16compare_equalityILb0ELNS_6ActionE1ELm16EPFbxEEEbxmmmPNS_10QueryStateIxEET2_
 __ZNK5realm5Array16compare_equalityILb0ELNS_6ActionE1ELm1EPFbxEEEbxmmmPNS_10QueryStateIxEET2_
 __ZNK5realm5Array16compare_equalityILb0ELNS_6ActionE1ELm2EPFbxEEEbxmmmPNS_10QueryStateIxEET2_
 __ZNK5realm5Array16compare_equalityILb0ELNS_6ActionE1ELm4EPFbxEEEbxmmmPNS_10QueryStateIxEET2_
+__ZNK5realm5Array16compare_equalityILb0ELNS_6ActionE1ELm8EPFbxEEEbxmmmPNS_10QueryStateIxEET2_
 __ZNK5realm5Array16compare_equalityILb0ELNS_6ActionE3ELm16EPFbxEEEbxmmmPNS_10QueryStateIxEET2_
 __ZNK5realm5Array16compare_equalityILb0ELNS_6ActionE3ELm1EPFbxEEEbxmmmPNS_10QueryStateIxEET2_
 __ZNK5realm5Array16compare_equalityILb0ELNS_6ActionE3ELm2EPFbxEEEbxmmmPNS_10QueryStateIxEET2_
@@ -9365,14 +9376,18 @@ __ZNK5realm5Array16compare_equalityILb0ELNS_6ActionE5ELm1EPFbxEEEbxmmmPNS_10Quer
 __ZNK5realm5Array16compare_equalityILb0ELNS_6ActionE5ELm2EPFbxEEEbxmmmPNS_10QueryStateIxEET2_
 __ZNK5realm5Array16compare_equalityILb0ELNS_6ActionE5ELm4EPFbxEEEbxmmmPNS_10QueryStateIxEET2_
 __ZNK5realm5Array16compare_equalityILb0ELNS_6ActionE5ELm8EPFbxEEEbxmmmPNS_10QueryStateIxEET2_
+__ZNK5realm5Array16compare_equalityILb0ELNS_6ActionE7ELm16EPFbxEEEbxmmmPNS_10QueryStateIxEET2_
+__ZNK5realm5Array16compare_equalityILb0ELNS_6ActionE7ELm1EPFbxEEEbxmmmPNS_10QueryStateIxEET2_
 __ZNK5realm5Array16compare_equalityILb0ELNS_6ActionE7ELm2EPFbxEEEbxmmmPNS_10QueryStateIxEET2_
 __ZNK5realm5Array16compare_equalityILb0ELNS_6ActionE7ELm4EPFbxEEEbxmmmPNS_10QueryStateIxEET2_
+__ZNK5realm5Array16compare_equalityILb0ELNS_6ActionE7ELm8EPFbxEEEbxmmmPNS_10QueryStateIxEET2_
 __ZZN5realm5Array9bit_widthExE4bits
 __ZZNK5realm5Array13first_set_bitEjE27MultiplyDeBruijnBitPosition
 __ZTSN5realm10QueryStateIxEE
 __ZTSN5realm14QueryStateBaseE
 __ZTIN5realm14QueryStateBaseE
 __ZTIN5realm10QueryStateIxEE
+__ZN5realm11ArrayBinary8truncateEm
 __ZN5realm11ArrayBinaryD1Ev
 __ZN5realm11ArrayBinaryD0Ev
 __ZN5realm9ArrayBlobD1Ev
@@ -9387,12 +9402,16 @@ __ZN5realm13ArrayBigBlobsD1Ev
 __ZN5realm13ArrayBigBlobsD0Ev
 __ZTSN5realm13ArrayBigBlobsE
 __ZTIN5realm13ArrayBigBlobsE
+__ZN5realm12ArrayIntNull6insertEmNS_4util8OptionalIxEE
+__ZN5realm12ArrayIntNull3addENS_4util8OptionalIxEE
 __ZN5realm11ArrayStringD1Ev
 __ZN5realm11ArrayStringD0Ev
+__ZNK5realm15ArrayStringLong3getEm
 __ZN5realm15ArrayStringLongD1Ev
 __ZN5realm15ArrayStringLongD0Ev
 __ZTSN5realm15ArrayStringLongE
 __ZTIN5realm15ArrayStringLongE
+__ZN5realm10BpTreeNode21ensure_bptree_offsetsERNS_5ArrayE
 __ZN12_GLOBAL__N_129destroy_singlet_bptree_branchEN5realm6MemRefERNS0_9AllocatorERNS0_10BpTreeNode12EraseHandlerE
 __ZN12_GLOBAL__N_112ArrayOffsetsD1Ev
 __ZN12_GLOBAL__N_119foreach_bptree_leafINS_12VisitAdapterEEEbRN5realm5ArrayEmmT_m
@@ -9451,10 +9470,12 @@ __ZN5realm6BpTreeINS_4util8OptionalIxEEE12EraseHandler12destroy_leafENS_6MemRefE
 __ZN5realm6BpTreeINS_4util8OptionalIxEEE12EraseHandler20replace_root_by_leafENS_6MemRefE
 __ZN5realm6BpTreeINS_4util8OptionalIxEEE12EraseHandler26replace_root_by_empty_leafEv
 __ZN5realm6BpTreeINS_4util8OptionalIxEEE12EraseHandlerD0Ev
+__ZN5realm12ArrayIntNull3setEmNS_4util8OptionalIxEE
 __ZN5realm6BpTreeINS_4util8OptionalIxEEE13UpdateHandlerD1Ev
 __ZN5realm6BpTreeINS_4util8OptionalIxEEE13UpdateHandler6updateENS_6MemRefEPNS_11ArrayParentEmm
 __ZN5realm6BpTreeINS_4util8OptionalIxEEE13UpdateHandlerD0Ev
 __ZN5realm6BpTreeINS_4util8OptionalIxEEE12SliceHandler10slice_leafENS_6MemRefEmmRNS_9AllocatorE
+__ZN5realm12StringColumn17get_size_from_refEmRNS_9AllocatorE
 __ZTSN5realm10IndexArrayE
 __ZTIN5realm10IndexArrayE
 __ZTSN5realm6ColumnINS_4util8OptionalIxEEEE
@@ -9467,6 +9488,7 @@ __ZTSN5realm6BpTreeINS_4util8OptionalIxEEE13UpdateHandlerE
 __ZTIN5realm6BpTreeINS_4util8OptionalIxEEE13UpdateHandlerE
 __ZTSN5realm6BpTreeINS_4util8OptionalIxEEE12SliceHandlerE
 __ZTIN5realm6BpTreeINS_4util8OptionalIxEEE12SliceHandlerE
+__ZN5realm10ColumnBase17get_size_from_refEmRNS_9AllocatorE
 __ZN5realm14BacklinkColumnD1Ev
 __ZN5realm14BacklinkColumnD0Ev
 __ZN5realm14BacklinkColumn19adj_acc_insert_rowsEmm
@@ -9481,6 +9503,7 @@ __ZThn32_N5realm14BacklinkColumnD0Ev
 __ZNK5realm5Table12bump_versionEb
 __ZNK5realm12BinaryColumn4sizeEv
 __ZN12_GLOBAL__N_111SetLeafElemD1Ev
+__ZN5realm13ArrayBigBlobs5eraseEm
 __ZN5realm12BinaryColumn13EraseLeafElemD1Ev
 __ZN5realm12BinaryColumn10set_stringEmNS_10StringDataE
 __ZNK5realm12BinaryColumn11is_nullableEv
@@ -9512,6 +9535,7 @@ __ZTSN5realm12BinaryColumn13CreateHandlerE
 __ZTIN5realm12BinaryColumn13CreateHandlerE
 __ZTSN5realm12BinaryColumn12SliceHandlerE
 __ZTIN5realm12BinaryColumn12SliceHandlerE
+__ZN5realm5_impl28TransactLogConvenientEncoder12nullify_linkEPKNS_5TableEmm
 __ZNK5realm10LinkColumn11is_nullableEv
 __ZNK5realm10LinkColumn7is_nullEm
 __ZN5realm10LinkColumn8set_nullEm
@@ -9528,6 +9552,7 @@ __ZN5realm14LinkColumnBase4markEi
 __ZN5realm14LinkColumnBase30bump_link_origin_table_versionEv
 __ZN5realm10LinkColumn14do_update_linkEmmm
 __ZN5realm10LinkColumn12do_swap_linkEmmm
+__ZN5realm10LinkColumn8set_linkEmm
 __ZN5realm14LinkColumnBaseD1Ev
 __ZN5realm14LinkColumnBaseD0Ev
 __ZNK5realm14LinkListColumn11is_nullableEv
@@ -9541,8 +9566,10 @@ __ZThn64_N5realm14LinkListColumnD0Ev
 __ZNSt3__120__shared_ptr_emplaceIN5realm8LinkViewENS_9allocatorIS2_EEED1Ev
 __ZNSt3__120__shared_ptr_emplaceIN5realm8LinkViewENS_9allocatorIS2_EEED0Ev
 __ZN5realm8LinkViewC2ERKNS0_11ctor_cookieEPNS_5TableERNS_14LinkListColumnEm
+__ZN5realm8LinkViewD2Ev
 __ZTSNSt3__120__shared_ptr_emplaceIN5realm8LinkViewENS_9allocatorIS2_EEEE
 __ZTINSt3__120__shared_ptr_emplaceIN5realm8LinkViewENS_9allocatorIS2_EEEE
+__ZN5realm18SubtableColumnBaseD2Ev
 __ZNK5realm11MixedColumn4sizeEv
 __ZNK5realm11MixedColumn7get_intEm
 __ZNK5realm11MixedColumn8get_boolEm
@@ -9589,11 +9616,13 @@ __ZN5realm18SubtableColumnBase20record_subtable_pathEPmS1_
 __ZThn32_N5realm18SubtableColumnBase16update_child_refEmm
 __ZThn32_NK5realm18SubtableColumnBase13get_child_refEm
 __ZThn32_N5realm18SubtableColumnBase20record_subtable_pathEPmS1_
+__ZNK5realm11MixedColumn9get_valueEm
+__ZN5realm11MixedColumn16get_subtable_ptrEm
 __ZN5realm5_impl11TableFriend20record_subtable_pathERKNS_5TableEPmS5_
 __ZNK5realm11ArrayString3getEm
-__ZNK5realm15ArrayStringLong3getEm
 __ZNK5realm12StringColumn4sizeEv
 __ZN5realm12StringColumn13EraseLeafElemD1Ev
+__ZN5realm12StringColumn6insertEmNS_10StringDataE
 __ZN5realm12StringColumn10set_stringEmNS_10StringDataE
 __ZN5realm12StringColumn11insert_rowsEmmmb
 __ZN5realm12StringColumn10erase_rowsEmmmb
@@ -9628,8 +9657,8 @@ __ZN5realm16StringEnumColumn18move_last_row_overEmmb
 __ZN5realm16StringEnumColumn5clearEmb
 __ZNK5realm16StringEnumColumn21supports_search_indexEv
 __ZNK5realm16StringEnumColumn14compare_valuesEmm
-__ZN5realm5_impl11TableFriend15create_accessorERNS_9AllocatorEmPNS_5Table6ParentEm
 __ZN5realm5_impl11TableFriend15create_accessorENS_15ConstSubspecRefEPNS_5Table6ParentEm
+__ZN5realm18SubtableColumnBase23discard_child_accessorsEv
 __ZN5realm14SubtableColumnD1Ev
 __ZN5realm14SubtableColumnD0Ev
 __ZN5realm14SubtableColumn21refresh_accessor_treeEmRKNS_4SpecE
@@ -9639,7 +9668,8 @@ __ZN5realm18SubtableColumnBaseD1Ev
 __ZN5realm18SubtableColumnBaseD0Ev
 __ZThn32_N5realm18SubtableColumnBaseD1Ev
 __ZThn32_N5realm18SubtableColumnBaseD0Ev
-__ZN5realm18SubtableColumnBaseD2Ev
+__ZN5realm5TableC2ENS0_13ref_count_tagERNS_9AllocatorE
+__ZN5realm14SubtableColumnD2Ev
 __ZNK5realm15TimestampColumn16has_search_indexEv
 __ZNK5realm15TimestampColumn6minmaxINS_7GreaterEEENS_9TimestampEPm
 __ZNK5realm15TimestampColumn6minmaxINS_4LessEEENS_9TimestampEPm
@@ -9648,25 +9678,29 @@ __ZN5realm15TimestampColumnD0Ev
 __ZNK5realm15TimestampColumn21supports_search_indexEv
 __ZNK5realm15TimestampColumn16get_search_indexEv
 __ZN5realm15TimestampColumn16get_search_indexEv
+__ZN5realm15TimestampColumnD2Ev
 __ZN5realm15TimestampColumn13CreateHandlerINS_6BpTreeINS_4util8OptionalIxEEEEE11create_leafEm
 __ZN5realm15TimestampColumn13CreateHandlerINS_6BpTreeIxEEE11create_leafEm
 __ZTSN5realm15TimestampColumn13CreateHandlerINS_6BpTreeINS_4util8OptionalIxEEEEEE
 __ZTIN5realm15TimestampColumn13CreateHandlerINS_6BpTreeINS_4util8OptionalIxEEEEEE
 __ZTSN5realm15TimestampColumn13CreateHandlerINS_6BpTreeIxEEEE
 __ZTIN5realm15TimestampColumn13CreateHandlerINS_6BpTreeIxEEEE
+__ZN5realm10Descriptor6attachEPNS_5TableENSt3__110shared_ptrIS0_EEPNS_4SpecE
+__ZN5realm4SpecC2ENS_10SubspecRefE
 __ZNSt3__120__shared_ptr_emplaceIN5realm10DescriptorENS_9allocatorIS2_EEED1Ev
 __ZNSt3__120__shared_ptr_emplaceIN5realm10DescriptorENS_9allocatorIS2_EEED0Ev
 __ZTSNSt3__120__shared_ptr_emplaceIN5realm10DescriptorENS_9allocatorIS2_EEEE
 __ZTINSt3__120__shared_ptr_emplaceIN5realm10DescriptorENS_9allocatorIS2_EEEE
 __ZN5realm10LogicErrorD0Ev
+__ZNK5realm5Array20get_as_ref_or_taggedEm
 __ZN5realm18DescriptorMismatchD1Ev
 __ZN5realm14TableNameInUseD1Ev
-__ZN5realm5_impl11TableFriend26create_incomplete_accessorERNS_9AllocatorEmPNS_5Table6ParentEm
 __ZN5realm11NoSuchTableD1Ev
 __ZN5realm20CrossTableLinkTargetD1Ev
 __ZN5realm5Group18DefaultTableWriterD1Ev
 __ZN5realm4util4File9StreambufD1Ev
 __ZN5realm4util18MemoryOutputStreamD1Ev
+__ZNK5realm5Group14get_table_nameEm
 __ZN5realm5Group16update_child_refEmm
 __ZNK5realm5Group13get_child_refEm
 __ZNK5realm5Group14get_child_nameEm
@@ -9688,6 +9722,7 @@ __ZN5realm4util4File9StreambufD0Ev
 __ZN5realm4util4File9Streambuf7seekposENSt3__14fposI11__mbstate_tEEj
 __ZN5realm4util4File9Streambuf4syncEv
 __ZN5realm4util4File9Streambuf8overflowEi
+__ZN5realm4util4File9StreambufD2Ev
 __ZN5realm4util18MemoryOutputStreamD0Ev
 __ZTv0_n24_N5realm4util18MemoryOutputStreamD1Ev
 __ZTv0_n24_N5realm4util18MemoryOutputStreamD0Ev
@@ -9755,6 +9790,7 @@ __ZN5realm25FileFormatUpgradeRequiredD1Ev
 __ZN5realm20IncompatibleLockFileD0Ev
 __ZNSt3__120__shared_ptr_emplaceIN5realm4util17InterprocessMutex8LockInfoENS_9allocatorIS4_EEED1Ev
 __ZNSt3__120__shared_ptr_emplaceIN5realm4util17InterprocessMutex8LockInfoENS_9allocatorIS4_EEED0Ev
+__ZN5realm5Group28get_version_and_history_typeERKNS_5ArrayERyRi
 __ZN5realm21IncompatibleHistoriesC2ERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_
 __ZN5realm21IncompatibleHistoriesD0Ev
 __ZN5realm18MultipleSyncAgentsD0Ev
@@ -9768,6 +9804,8 @@ __ZTSN5realm18MultipleSyncAgentsE
 __ZTIN5realm18MultipleSyncAgentsE
 __ZTSNSt3__120__shared_ptr_emplaceIN5realm4util17InterprocessMutex8LockInfoENS_9allocatorIS4_EEEE
 __ZTINSt3__120__shared_ptr_emplaceIN5realm4util17InterprocessMutex8LockInfoENS_9allocatorIS4_EEEE
+__ZNK5realm5Array9get_widthEv
+__ZNK5realm5Array3getEm
 __ZTSN5realm5_impl15ArrayWriterBaseE
 __ZTIN5realm5_impl15ArrayWriterBaseE
 __ZN5realm5_impl14InRealmHistoryD1Ev
@@ -9787,7 +9825,7 @@ __ZNK5realm8LinkView4sizeEv
 __ZNK5realm8LinkView10is_in_syncEv
 __ZN5realm5_impl18TransactLogEncoder26append_variable_size_instrINS_4util8TypeConsImvEEZNS1_17link_list_set_allERKNS_6ColumnIxEEE4iterEEbNS0_11InstructionERKNS3_5TupleIT_EET0_SH_
 __ZN5realm13TableViewBaseC2EPNS_5TableE
-__ZN5realm8LinkViewD2Ev
+__ZN5realm18QueryHandoverPatchD2Ev
 __ZTSNSt3__123enable_shared_from_thisIN5realm8LinkViewEEE
 __ZTINSt3__123enable_shared_from_thisIN5realm8LinkViewEEE
 __ZN5realm10ParentNode9set_tableERKNS_5TableE
@@ -10077,6 +10115,7 @@ __ZN5realm15FloatDoubleNodeINS_6ColumnIdEENS_5EqualEE16find_first_localEmm
 __ZNK5realm15FloatDoubleNodeINS_6ColumnIdEENS_5EqualEE5cloneEPNSt3__16vectorINS5_10unique_ptrINS_22QueryNodeHandoverPatchENS5_14default_deleteIS8_EEEENS5_9allocatorISB_EEEE
 __ZN5realm15FloatDoubleNodeINS_6ColumnIdEENS_5EqualEE13table_changedEv
 __ZN5realm14StringNodeBaseC2ENS_10StringDataEm
+__ZN5realm14StringNodeBaseD2Ev
 __ZN5realm10StringNodeINS_5EqualEED1Ev
 __ZN5realm10StringNodeINS_5EqualEED0Ev
 __ZN5realm10StringNodeINS_5EqualEE4initEv
@@ -10389,6 +10428,7 @@ __ZN5realm15FloatDoubleNodeINS_6ColumnIdEENS_7GreaterEE4initEv
 __ZN5realm15FloatDoubleNodeINS_6ColumnIdEENS_7GreaterEE16find_first_localEmm
 __ZNK5realm15FloatDoubleNodeINS_6ColumnIdEENS_7GreaterEE5cloneEPNSt3__16vectorINS5_10unique_ptrINS_22QueryNodeHandoverPatchENS5_14default_deleteIS8_EEEENS5_9allocatorISB_EEEE
 __ZN5realm15FloatDoubleNodeINS_6ColumnIdEENS_7GreaterEE13table_changedEv
+__ZZN5realm15FloatDoubleNodeINS_6ColumnIdEENS_7GreaterEE16find_first_localEmmENKUlbE_clEb
 __ZN5realm15FloatDoubleNodeINS_6ColumnIdEENS_12GreaterEqualEED1Ev
 __ZN5realm15FloatDoubleNodeINS_6ColumnIdEENS_12GreaterEqualEED0Ev
 __ZN5realm15FloatDoubleNodeINS_6ColumnIdEENS_12GreaterEqualEE4initEv
@@ -10407,6 +10447,7 @@ __ZN5realm15FloatDoubleNodeINS_6ColumnIdEENS_4LessEE4initEv
 __ZN5realm15FloatDoubleNodeINS_6ColumnIdEENS_4LessEE16find_first_localEmm
 __ZNK5realm15FloatDoubleNodeINS_6ColumnIdEENS_4LessEE5cloneEPNSt3__16vectorINS5_10unique_ptrINS_22QueryNodeHandoverPatchENS5_14default_deleteIS8_EEEENS5_9allocatorISB_EEEE
 __ZN5realm15FloatDoubleNodeINS_6ColumnIdEENS_4LessEE13table_changedEv
+__ZZN5realm15FloatDoubleNodeINS_6ColumnIdEENS_4LessEE16find_first_localEmmENKUlbE_clEb
 __ZN5realm13TimestampNodeINS_7GreaterEED1Ev
 __ZN5realm13TimestampNodeINS_7GreaterEED0Ev
 __ZN5realm13TimestampNodeINS_7GreaterEE4initEv
@@ -10672,18 +10713,29 @@ __ZNK5realm7NotNode5cloneEPNSt3__16vectorINS1_10unique_ptrINS_22QueryNodeHandove
 __ZN5realm7NotNode20apply_handover_patchERNSt3__16vectorINS1_10unique_ptrINS_22QueryNodeHandoverPatchENS1_14default_deleteIS4_EEEENS1_9allocatorIS7_EEEERNS_5GroupE
 __ZN5realm7NotNode13table_changedEv
 __ZN5realm7NotNodeC2ERKS0_PNSt3__16vectorINS3_10unique_ptrINS_22QueryNodeHandoverPatchENS3_14default_deleteIS6_EEEENS3_9allocatorIS9_EEEE
+__ZN5realm4Spec15set_column_typeEmNS_10ColumnTypeE
 __ZN5realm10Descriptor18insert_column_linkEmNS_8DataTypeENS_10StringDataERNS_5TableENS_8LinkTypeE
 __ZN5realm10Descriptor13insert_columnEmNS_8DataTypeENS_10StringDataEPNSt3__110shared_ptrIS0_EEb
+__ZNK5realm10Descriptor16get_column_countEv
 __ZN5realm5Table21InsertSubtableColumnsD1Ev
 __ZN5realm5_impl28TransactLogConvenientEncoder13insert_columnERKNS_10DescriptorEmNS_8DataTypeENS_10StringDataERNS_14LinkTargetInfoEb
+__ZNK5realm4Spec16get_column_indexENS_10StringDataE
+__ZNK5realm4Spec15get_column_nameEm
+__ZNK5realm4Spec15get_column_attrEm
 __ZN5realm5_impl28TransactLogConvenientEncoder12erase_columnERKNS_10DescriptorEm
 __ZN5realm5Table20EraseSubtableColumnsD1Ev
 __ZN5realm5Table19MoveSubtableColumnsD1Ev
 __ZN5realm5Table21RenameSubtableColumnsD1Ev
+__ZNK5realm5Table20get_real_column_typeEm
+__ZN5realm5Array20get_size_from_headerEPKc
+__ZNK5realm5Table15get_column_typeEm
+__ZN5realm11MixedColumn12set_subtableEmPKNS_5TableE
 __ZN5realm5_impl28TransactLogConvenientEncoder8set_linkEPKNS_5TableEmmmNS0_11InstructionE
+__ZNK5realm14LinkListColumn14get_link_countEm
 __ZN12_GLOBAL__N_121get_group_ndx_blockedEmRNS_9AggrStateERN5realm5TableE
 __ZN12_GLOBAL__N_113get_group_ndxEmRNS_9AggrStateERN5realm5TableE
 __ZN5realm5Table11SliceWriterD1Ev
+__ZN12_GLOBAL__N_110out_stringERNSt3__113basic_ostreamIcNS0_11char_traitsIcEEEENS0_12basic_stringIcS3_NS0_9allocatorIcEEEEm
 __ZN5realm5Table6ParentD1Ev
 __ZN5realm5Table6ParentD0Ev
 __ZN5realm5Table21InsertSubtableColumns6updateERKNS_14SubtableColumnERNS_5ArrayE
@@ -10698,7 +10750,15 @@ __ZN5realm5Table19MoveSubtableColumnsD0Ev
 __ZN5realm5Table21RenameSubtableColumns6updateERKNS_14SubtableColumnERNS_5ArrayE
 __ZN5realm5Table21RenameSubtableColumns15update_accessorERS0_
 __ZN5realm5Table21RenameSubtableColumnsD0Ev
-__ZN5realm5_impl18TransactLogEncoder13set_timestampEmmNS_9TimestampENS0_11InstructionE
+__ZN5realm4util8for_eachINS_5_impl18TransactLogEncoder12EncodeNumberENS0_8TypeConsINS_8DataTypeENS5_ImNS5_ImNS5_IS6_NS5_IxvEEEEEEEEEEPPcEEvRKNS0_5TupleIT0_EERKT1_
+__ZN5realm4util8for_eachINS_5_impl18TransactLogEncoder12EncodeNumberENS0_8TypeConsINS_8DataTypeENS5_IxvEEEEPPcEEvRKNS0_5TupleIT0_EERKT1_
+__ZN5realm4util8for_eachINS_5_impl18TransactLogEncoder12EncodeNumberENS0_8TypeConsINS_8DataTypeENS5_ImNS5_ImNS5_IS6_NS5_IbvEEEEEEEEEEPPcEEvRKNS0_5TupleIT0_EERKT1_
+__ZN5realm4util8for_eachINS_5_impl18TransactLogEncoder12EncodeNumberENS0_8TypeConsINS_8DataTypeENS5_ImNS5_ImNS5_IS6_NS5_IfvEEEEEEEEEEPPcEEvRKNS0_5TupleIT0_EERKT1_
+__ZN5realm4util8for_eachINS_5_impl18TransactLogEncoder12EncodeNumberENS0_8TypeConsINS_8DataTypeENS5_ImNS5_ImNS5_IS6_NS5_IdvEEEEEEEEEEPPcEEvRKNS0_5TupleIT0_EERKT1_
+__ZN5realm4util8for_eachINS_5_impl18TransactLogEncoder12EncodeNumberENS0_8TypeConsINS_8DataTypeENS5_ImNS5_ImNS5_IS6_NS5_IxNS5_IivEEEEEEEEEEEEPPcEEvRKNS0_5TupleIT0_EERKT1_
+__ZNK5realm11MixedColumn16get_subtable_refEm
+__ZN5realm11MixedColumn9set_int64EmxNS0_12MixedColTypeES1_
+__ZN5realm11MixedColumn9set_valueEmxNS0_12MixedColTypeE
 __ZN5realm13TableViewBaseC2EPNS_5TableEmNS_12BasicRowExprIKS1_EE
 __ZN5realm5Table11SliceWriter11write_namesERNS_5_impl12OutputStreamE
 __ZN5realm5Table11SliceWriter12write_tablesERNS_5_impl12OutputStreamE
@@ -10911,14 +10971,15 @@ __ZL25original_protocol_getName
 __ZL36original_objc_copyClassNamesForImage
 __ZL12demangleLock
 __ZL9Demangled
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch arm64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c++11 -Wno-trigraphs -fno-exceptions -fno-rtti -mpascal-strings -Os -Wno-missing-field-initializers -Wmissing-prototypes -Wno-implicit-atomic-properties -Wno-arc-repeated-use-of-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -D NDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.Internal.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -miphoneos-version-min=4.3 -g -fno-threadsafe-statics -Wno-sign-conversion -Wno-infinite-recursion -Wno-move -fembed-bitcode -iquote /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~835/TempContent/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-generated-files.hmap -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~835/TempContent/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-own-target-headers.hmap -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~835/TempContent/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-all-target-headers.hmap -iquote /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~835/TempContent/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-project-headers.hmap -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~835/Symbols/BuiltProducts/include -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~835/TempContent/Objects/arclite.build/arclite_iOS.build/DerivedSources/arm64 -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~835/TempContent/Objects/arclite.build/arclite_iOS.build/DerivedSources -F/Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~835/Symbols/BuiltProducts -F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.Internal.sdk/System/Library/PrivateFrameworks -Wall -Wextra -Wno-gcc-compat -fgnu-inline-asm -MMD -MT dependencies -MF /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~835/TempContent/Objects/arclite.build/arclite_iOS.build/Objects-normal/arm64/arclite.d --serialize-diagnostics /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~835/TempContent/Objects/arclite.build/arclite_iOS.build/Objects-normal/arm64/arclite.dia -c /Library/Caches/com.apple.xbs/Sources/arclite_iOS/arclite-65/source/arclite.mm -o /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~835/TempContent/Objects/arclite.build/arclite_iOS.build/Objects-normal/arm64/arclite.o -mlinker-version=274.1
+Apple LLVM version 8.0.0 (clang-800.0.42)
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch arm64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c++11 -Wno-trigraphs -fno-exceptions -fno-rtti -mpascal-strings -Os -Wno-missing-field-initializers -Wmissing-prototypes -Wno-implicit-atomic-properties -Wno-arc-repeated-use-of-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -D NDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.1.Internal.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -miphoneos-version-min=4.3 -g -fno-threadsafe-statics -Wno-sign-conversion -Wno-infinite-recursion -Wno-move -fembed-bitcode -iquote /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~962/TempContent/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-generated-files.hmap -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~962/TempContent/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-own-target-headers.hmap -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~962/TempContent/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-all-target-headers.hmap -iquote /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~962/TempContent/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-project-headers.hmap -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~962/Symbols/BuiltProducts/include -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~962/TempContent/Objects/arclite.build/arclite_iOS.build/DerivedSources/arm64 -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~962/TempContent/Objects/arclite.build/arclite_iOS.build/DerivedSources -F/Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~962/Symbols/BuiltProducts -F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.1.Internal.sdk/System/Library/PrivateFrameworks -Wall -Wextra -Wno-gcc-compat -fgnu-inline-asm -Wno-error=incomplete-umbrella -Wno-error=incomplete-umbrella -MMD -MT dependencies -MF /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~962/TempContent/Objects/arclite.build/arclite_iOS.build/Objects-normal/arm64/arclite.d --serialize-diagnostics /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~962/TempContent/Objects/arclite.build/arclite_iOS.build/Objects-normal/arm64/arclite.dia -c /Library/Caches/com.apple.xbs/Sources/arclite_iOS/arclite-65/source/arclite.mm -o /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-65~962/TempContent/Objects/arclite.build/arclite_iOS.build/Objects-normal/arm64/arclite.o -mlinker-version=274.1
 /Library/Caches/com.apple.xbs/Sources/arclite_iOS/arclite-65/source/arclite.mm
 /Library/Caches/com.apple.xbs/Sources/arclite_iOS/arclite-65
 fixStringForCoreData
 cxxConstruct
 arclite_uninitialized_function
 scanMangledField
-/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.Internal.sdk/usr/include/ctype.h
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.1.Internal.sdk/usr/include/ctype.h
 demangledName
 copySwiftV1DemangledName
 copySwiftV1MangledName
