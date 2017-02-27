@@ -69,9 +69,11 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if pickerEquipment.pickerState[1] < 5 {        //  populate lenses
             newRow.title = pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1]  + " " + pickerEquipment.pickerSelection[2] + " " +  pickerEquipment.pickerSelection[3]
             newRow.detail = newLensKit
+            newRow.catagory = pickerEquipment.pickerState[1] // added for sort
         } else {                                        //     populate AKS ect
             newRow.title = pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1] 
             newRow.detail = newLensKit
+            newRow.catagory = pickerEquipment.pickerState[1] // added for sort
         }
         
         // get realm event and append tableview row objects
@@ -83,6 +85,8 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             currentEvent.tableViewArray.append(newRow)
         }
 
+        sortRealmEvent()
+        
         _ = navigationController?.popToRootViewController(animated: true)
     }
     
@@ -140,21 +144,7 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return lastIDvalue
     }
     
-    func setUpUI() {    // and fucking set up realm array
-        
-        //  DONE: load all arrays into realm on first load in main vc with switch pos
-        //  1. DONE: create realm objects for all fuckers aks, support filters
-        //  2. DONE: first run in main populate these objects
-        
-        //  1.  use the switch statement below 
-                //  DONE: find if aks or support has been loaded
-                //  load the realm object to the tableview array.. if not lens?
-        
-        // later how the fuck do I -
-        //  2.  append new item to its realm object with switch pos
-        
-        //  3.  recall this fucker to update the local tableview array
-        //  4.  reload tableview
+    func setUpUI() {
         
         
         // modify page info by picker state
@@ -180,21 +170,8 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     return realm.objects(AksItem.self)
                 }
             }
-            
-            print("\nDid I get AKS from Realm? \(todoList)\n")
-            
-            //  is this all i need to to to send the realm item to the tableview?
-            
-            // this is where it gets fucke up becuase I alreadey have a complicated system for prime lense switches...
-            // i dont really want to re wirte that...
-            // lets just start witrgh creatiubg a new vc for aks....
-            // hopefuly can use it for aks filters support and ill have to devse a new switch system
-            
-            //  originalArray = todoList fucked
-            
-
-            
         }
+        
         // 7 filters
         if pickerEquipment.pickerState[1] == 7 {
             print("sent form Filters")
@@ -238,6 +215,40 @@ class LensesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         while c < i {
             switchPos.append(switchOn) // set switch pos from prior vc - off for aks
             c += 1
+        }
+    }
+    
+    /// the purpose of this func is to get the last event used
+    func getLastEvent() -> EventUserRealm {
+        
+        let allIds = realm.objects(EventTracking.self)
+        let allIdCount = allIds.count
+        var index = allIdCount - 1
+        if index < 0 { index = 0 }  // catch edited events causing index -1
+        let id = realm.objects(EventTracking.self)[index].lastID
+        let currentEvent = realm.objects(EventUserRealm.self).filter("taskID == %@", id).first!
+        return currentEvent
+    }
+    
+    /// sort latest realm event by catagory
+    func sortRealmEvent() {
+        
+        let thisEvent = getLastEvent()
+        
+        let storageArea = thisEvent.tableViewArray
+        
+        let sorted = Array(storageArea.sorted(byKeyPath: "catagory"))
+        
+        try? realm.write {
+            let sortedEvent = getLastEvent()
+            sortedEvent.tableViewArray.removeAll()
+            
+            for items in sorted {
+                sortedEvent.tableViewArray.append(items)
+            }
+            print("\n------------------------------------------------------\n")
+            print("\nthis is the whole tableview replaced-----------\n\(sortedEvent)\n")
+            print("\n------------------------------------------------------\n")
         }
     }
 }

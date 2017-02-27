@@ -47,6 +47,7 @@ class AksKitViewController: UIViewController, UITableViewDelegate, UITableViewDa
         //     populate AKS ect
         newRow.title = pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1]
         newRow.detail = returnedString
+        newRow.catagory = pickerEquipment.pickerState[1] // added for sort
         
         // get realm event and append tableview row objects
         let id = getLastIdUsed()
@@ -56,6 +57,8 @@ class AksKitViewController: UIViewController, UITableViewDelegate, UITableViewDa
         try! realm.write {
             currentEvent.tableViewArray.append(newRow)
         }
+        
+        sortRealmEvent()
         
         //print("\nhere is what will be returned to realm as the kit:\n\(returnedString)\n")
         _ = navigationController?.popToRootViewController(animated: true)
@@ -336,5 +339,39 @@ class AksKitViewController: UIViewController, UITableViewDelegate, UITableViewDa
             lastIDvalue = "\(id)"
         }
         return lastIDvalue
+    }
+    
+    /// the purpose of this func is to get the last event used
+    func getLastEvent() -> EventUserRealm {
+        
+        let allIds = realm.objects(EventTracking.self)
+        let allIdCount = allIds.count
+        var index = allIdCount - 1
+        if index < 0 { index = 0 }  // catch edited events causing index -1
+        let id = realm.objects(EventTracking.self)[index].lastID
+        let currentEvent = realm.objects(EventUserRealm.self).filter("taskID == %@", id).first!
+        return currentEvent
+    }
+    
+    /// sort latest realm event by catagory
+    func sortRealmEvent() {
+        
+        let thisEvent = getLastEvent()
+        
+        let storageArea = thisEvent.tableViewArray
+        
+        let sorted = Array(storageArea.sorted(byKeyPath: "catagory"))
+        
+        try? realm.write {
+            let sortedEvent = getLastEvent()
+            sortedEvent.tableViewArray.removeAll()
+            
+            for items in sorted {
+                sortedEvent.tableViewArray.append(items)
+            }
+            print("\n------------------------------------------------------\n")
+            print("\nthis is the whole tableview replaced-----------\n\(sortedEvent)\n")
+            print("\n------------------------------------------------------\n")
+        }
     }
 }

@@ -69,10 +69,11 @@
 //  test: completed test of tableview switches
 //  task: add write in AKS, Support - add new view - add text to array - make persistant
 //  task: updated to realm 2.4.3
-
 //  task: sort list by: camera, primes, macros, probes, zooms, aks ect
-//  task: how-to images
+
 //  task: make UI Awesome
+//  task: how-to images
+
 
 
 import Foundation
@@ -125,6 +126,7 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             //                  create tableview object
             let rowOne = TableViewRow()
             rowOne.icon = "man" ; rowOne.title = "\(defaultEventUsers.userName) Director of Photography" ; rowOne.detail = "Camera Order \(defaultEventUsers.production) \(defaultEventUsers.date )"
+            rowOne.catagory = -1 // added for sort
 
             defaultEventUsers.tableViewArray.append(rowOne) // = defaultTableview
   
@@ -162,6 +164,7 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         self.myPicker.delegate = self
         myTableView.reloadData()
         updatePickerSelection() // so we dont get nil on first run
+        sortRealmEvent()
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
     }
     
@@ -183,13 +186,17 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             newRow.icon = pickerEquipment.pickerSelection[1];
             newRow.title = pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1];
             newRow.detail = pickerEquipment.pickerSelection[2] + " " +  pickerEquipment.pickerSelection[3];
+            newRow.catagory = pickerEquipment.pickerState[1] // added for sort
 
             let currentEvent = getLastEvent()
-            
             try! realm.write {
                 currentEvent.tableViewArray.append(newRow)
             }
+            
+            sortRealmEvent()
+            
             myTableView.reloadData()
+            
         } else         // if 2+ new cameras
         if pickerEquipment.pickerState[1] == 0  && pickerEquipment.pickerState[0] > 0 {
             //  create tableview row realm objects
@@ -197,12 +204,14 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             newRow.icon = pickerEquipment.pickerSelection[1];
             newRow.title = pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1] + "s";
             newRow.detail = pickerEquipment.pickerSelection[2] + " " +  pickerEquipment.pickerSelection[3];
-            
+            newRow.catagory = pickerEquipment.pickerState[1] // added for sort
             let currentEvent = getLastEvent()
-            
             try! realm.write {
                 currentEvent.tableViewArray.append(newRow)
             }
+            
+            sortRealmEvent()
+            
             myTableView.reloadData()
         }
         // if a lens segue to lenses
@@ -222,9 +231,9 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             newRow.icon = pickerEquipment.pickerSelection[1];
             newRow.title = pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1];
             newRow.detail = pickerEquipment.pickerSelection[2] + " " +  pickerEquipment.pickerSelection[3];
-            
+            newRow.catagory = pickerEquipment.pickerState[1] // added for sort
             let currentEvent = getLastEvent()
-            
+    sortRealmEvent()
             try! realm.write {
                 currentEvent.tableViewArray.append(newRow)
             }
@@ -238,9 +247,9 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
             newRow.icon = pickerEquipment.pickerSelection[1];
             newRow.title = pickerEquipment.pickerSelection[0] + " " + pickerEquipment.pickerSelection[1];
             newRow.detail = pickerEquipment.pickerSelection[2] + " " +  "Finder";
-            
+            newRow.catagory = pickerEquipment.pickerState[1] // added for sort
             let currentEvent = getLastEvent()
-            
+      sortRealmEvent()
             try! realm.write {
                 currentEvent.tableViewArray.append(newRow)
             }
@@ -263,7 +272,9 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
     @IBAction func shareAction(_ sender: Any) {
         
         let thisEvent = getLastEvent()
-        
+    
+        //sortRealmEvent()
+
         var messageArray = [String]()
         
         for rows in thisEvent.tableViewArray {
@@ -496,6 +507,28 @@ class MainTableViewController: UIViewController,  UIPickerViewDelegate, UIPicker
         let id = realm.objects(EventTracking.self)[index].lastID
         let currentEvent = realm.objects(EventUserRealm.self).filter("taskID == %@", id).first!
         return currentEvent
+    }
+    
+    /// sort latest realm event by catagory
+    func sortRealmEvent() {
+        
+        let thisEvent = getLastEvent()
+        
+        let storageArea = thisEvent.tableViewArray
+        
+        let sorted = Array(storageArea.sorted(byKeyPath: "catagory"))
+        
+        try? realm.write {
+            let sortedEvent = getLastEvent()
+            sortedEvent.tableViewArray.removeAll()
+            
+            for items in sorted {
+                sortedEvent.tableViewArray.append(items)
+            }
+            print("\n------------------------------------------------------\n")
+            print("\nthis is the whole tableview replaced-----------\n\(sortedEvent)\n")
+            print("\n------------------------------------------------------\n")
+        }
     }
 }
 

@@ -22,6 +22,7 @@ class EventUserRealm: Object {
     dynamic var weather = ""
     
     var tableViewArray = List<TableViewRow>()
+    
 }
 
 

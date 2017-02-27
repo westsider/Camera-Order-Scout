@@ -14,6 +14,7 @@ class TableViewRow: Object {
     dynamic var icon = ""
     dynamic var title = ""
     dynamic var detail =  ""
+    dynamic var catagory = 0    // to sort this later
     
     override var description: String { return "TableViewRow {\(icon), \(title), \(detail)}" }
 }
